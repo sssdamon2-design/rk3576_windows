@@ -1,0 +1,19 @@
+{
+  "name": "candidate_vision_30",
+  "exe": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_04_board_v2/stage5_04_vision_bench",
+  "timeout": 360,
+  "affinity": null,
+  "ort_profile": false,
+  "env": [
+    "STAGE5_PROFILE={REPORT}/profile.jsonl",
+    "STAGE5_VISION_DUMP_DIR={REPORT}"
+  ],
+  "arguments": [
+    "--",
+    "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm",
+    "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn",
+    "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_03_board/raw_5_2_baseline",
+    "{REPORT}",
+    "30"
+  ]
+}

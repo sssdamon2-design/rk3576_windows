@@ -1,0 +1,8 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec g++ -std=c++17 -O3 -Wall -Wextra -Wpedantic -I\"$1/stage5_04_baseline_source/include\" \"$2/vision_bench.cpp\" \"$1/build/stage5_04_baseline/libmultimodal_core.a\" \"$STAGE5_RKNN_LIBRARY\" \"$STAGE5_RKLLM_LIB/librkllmrt.so\" -pthread -o \"$2/vision_bench\"",
+  "stage5_04",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/profile_tool_setup"
+]
