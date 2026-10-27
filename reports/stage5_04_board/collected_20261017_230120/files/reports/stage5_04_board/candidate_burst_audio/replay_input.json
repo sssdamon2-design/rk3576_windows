@@ -1,0 +1,5 @@
+{
+  "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/burst_four.tsv",
+  "sha256": "8287172afece1fafaf93cbd525fe1abf463ebf0ca8829227c1d82f0eca0904de",
+  "text": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n1000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n2000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n3000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n"
+}
