@@ -1,0 +1,85 @@
+{
+  "checks": [
+    {
+      "file": "src/video/image_preprocessor.cpp",
+      "before": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+      "after": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+      "unchanged": true
+    },
+    {
+      "file": "include/video/image_preprocessor.h",
+      "before": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+      "after": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+      "unchanged": true
+    },
+    {
+      "file": "include/video/owned_frame_pool.h",
+      "before": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+      "after": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/video_capture.cpp",
+      "before": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+      "after": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/camera_service.cpp",
+      "before": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+      "after": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/latest_frame_buffer.cpp",
+      "before": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+      "after": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/audio_capture.cpp",
+      "before": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+      "after": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+      "unchanged": true
+    },
+    {
+      "file": "src/ai/llm_worker.cpp",
+      "before": "5116f71770098e5d0031af0453fcfa5fe5b6b87b0a02cf250a62da6de817d8b0",
+      "after": "5116f71770098e5d0031af0453fcfa5fe5b6b87b0a02cf250a62da6de817d8b0",
+      "unchanged": true
+    },
+    {
+      "file": "include/ai/llm_worker.h",
+      "before": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45",
+      "after": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/tts_service.cpp",
+      "before": "232031b90c7bf12427fccc326df6e21d46c258142c1d97683294c28968a9b3e9",
+      "after": "232031b90c7bf12427fccc326df6e21d46c258142c1d97683294c28968a9b3e9",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/tts_worker.cpp",
+      "before": "2811c20f0ef2664876821a0ab67f0ae544a6c0bc18ac2f643726ec4de6d7a410",
+      "after": "2811c20f0ef2664876821a0ab67f0ae544a6c0bc18ac2f643726ec4de6d7a410",
+      "unchanged": true
+    },
+    {
+      "file": "src/ai/rk3576_vlm_backend.cpp",
+      "before": "1ec8b408405eb04defc358a028f149dd0cf70e68c63aa519b4d56e74db213b24",
+      "after": "1ec8b408405eb04defc358a028f149dd0cf70e68c63aa519b4d56e74db213b24",
+      "unchanged": true
+    },
+    {
+      "file": "src/ai/rkllm_backend.cpp",
+      "before": "f8d2807b4814f18d92de8ebf45dfd761ae0da16244bbaab1c232e68907865860",
+      "after": "f8d2807b4814f18d92de8ebf45dfd761ae0da16244bbaab1c232e68907865860",
+      "unchanged": true
+    }
+  ],
+  "StopSignals_class_body_unchanged": true,
+  "final_source_matches_ARM64_final_v2": true,
+  "scope": "Source equality only; runtime evidence is separate"
+}

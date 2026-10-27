@@ -1,0 +1,8 @@
+{
+  "platform": "Windows portable, not ARM64",
+  "JSON_lines": 56,
+  "all_lines_parse": true,
+  "UTF8_quote_backslash_newline_CR_tab_control_roundtrip": true,
+  "concurrent_text_events": 50,
+  "source_log": "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_pjngfjbt\\build\\request_profile_test.jsonl"
+}

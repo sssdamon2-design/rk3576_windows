@@ -1,0 +1,356 @@
+{
+  "stage": "5.4",
+  "engineering_status": "verified within recorded scenarios; user acceptance pending",
+  "user_acceptance_pending": true,
+  "next_stage_started": false,
+  "scope": "authorized isolated review directory only",
+  "checks": {
+    "raw_tts_baseline_2t": true,
+    "raw_tts_final_4t": true,
+    "baseline_asr_30": true,
+    "candidate_asr_30": true,
+    "baseline_vision_30": true,
+    "candidate_vision_30": true,
+    "baseline_pipeline_pairs_2t": true,
+    "candidate_pipeline_pairs_4t": true,
+    "baseline_voice_2t": true,
+    "candidate_voice_4t_final_retry1": true,
+    "candidate_burst_audio": true,
+    "candidate_expiry_audio": true,
+    "candidate_sigint_drain": true,
+    "candidate_sigterm_cancel_tts": true,
+    "candidate_sigterm_cancel_waiting": true,
+    "candidate_final_sigterm_drain": true,
+    "candidate_default_queue_audio": true,
+    "raw_tts_baseline_2t_30_per_language": true,
+    "raw_tts_baseline_2t_finite_PCM": true,
+    "raw_tts_final_4t_30_per_language": true,
+    "raw_tts_final_4t_finite_PCM": true,
+    "frozen_TTS_benchmark_binary_unchanged": true,
+    "same_fixed_TTS_input_bytes": true,
+    "baseline_tts_ort_detail_TTS_initialized_once": true,
+    "candidate_tts_profile_4t_TTS_initialized_once": true,
+    "baseline_pipeline_pairs_2t_TTS_initialized_once": true,
+    "candidate_pipeline_pairs_4t_TTS_initialized_once": true,
+    "asr_30_each": true,
+    "asr_output_texts_equal": true,
+    "vision_30_each": true,
+    "vision_output_texts_equal": true,
+    "RGB_32_pairs_byte_equal": true,
+    "embeddings_32_pairs_byte_equal": true,
+    "baseline_pipeline_pairs_2t_all_six_complete": true,
+    "candidate_pipeline_pairs_4t_all_six_complete": true,
+    "baseline_asr_30_no_profile_errors": true,
+    "candidate_asr_30_no_profile_errors": true,
+    "baseline_vision_30_no_profile_errors": true,
+    "candidate_vision_30_no_profile_errors": true,
+    "baseline_pipeline_pairs_2t_QueueStats/inference_settled": true,
+    "baseline_pipeline_pairs_2t_QueueStats/tts_settled": true,
+    "baseline_pipeline_pairs_2t_no_profile_errors": true,
+    "candidate_pipeline_pairs_4t_QueueStats/inference_settled": true,
+    "candidate_pipeline_pairs_4t_QueueStats/tts_settled": true,
+    "candidate_pipeline_pairs_4t_no_profile_errors": true,
+    "baseline_voice_2t_QueueStats/inference_settled": true,
+    "baseline_voice_2t_QueueStats/tts_settled": true,
+    "baseline_voice_2t_no_profile_errors": true,
+    "candidate_voice_4t_final_retry1_QueueStats/inference_settled": true,
+    "candidate_voice_4t_final_retry1_QueueStats/tts_settled": true,
+    "candidate_voice_4t_final_retry1_no_profile_errors": true,
+    "candidate_burst_audio_QueueStats/inference_settled": true,
+    "candidate_burst_audio_QueueStats/tts_settled": true,
+    "candidate_burst_audio_no_profile_errors": true,
+    "candidate_expiry_audio_QueueStats/inference_settled": true,
+    "candidate_expiry_audio_QueueStats/tts_settled": true,
+    "candidate_expiry_audio_no_profile_errors": true,
+    "candidate_sigint_drain_QueueStats/inference_settled": true,
+    "candidate_sigint_drain_QueueStats/tts_settled": true,
+    "candidate_sigint_drain_no_profile_errors": true,
+    "candidate_sigterm_cancel_tts_QueueStats/inference_settled": true,
+    "candidate_sigterm_cancel_tts_QueueStats/tts_settled": true,
+    "candidate_sigterm_cancel_tts_no_profile_errors": true,
+    "candidate_sigterm_cancel_waiting_QueueStats/inference_settled": true,
+    "candidate_sigterm_cancel_waiting_QueueStats/tts_settled": true,
+    "candidate_sigterm_cancel_waiting_no_profile_errors": true,
+    "candidate_final_sigterm_drain_QueueStats/inference_settled": true,
+    "candidate_final_sigterm_drain_QueueStats/tts_settled": true,
+    "candidate_final_sigterm_drain_no_profile_errors": true,
+    "candidate_default_queue_audio_QueueStats/inference_settled": true,
+    "candidate_default_queue_audio_QueueStats/tts_settled": true,
+    "candidate_default_queue_audio_no_profile_errors": true,
+    "burst_exact_backpressure": true,
+    "expiry_is_observed": true,
+    "cancelled_waiting_TTS_observed": true,
+    "cancel_future_input_did_not_wait_100s": true,
+    "candidate_sigint_drain_drained_active_request": true,
+    "candidate_final_sigterm_drain_drained_active_request": true,
+    "baseline_voice_2t_user_actually_heard_both": true,
+    "baseline_voice_2t_TEXT_VISION_success": true,
+    "baseline_voice_2t_zero_XRUN": true,
+    "baseline_voice_2t_frame_pool_released": true,
+    "candidate_voice_4t_final_retry1_user_actually_heard_both": true,
+    "candidate_voice_4t_final_retry1_TEXT_VISION_success": true,
+    "candidate_voice_4t_final_retry1_zero_XRUN": true,
+    "candidate_voice_4t_final_retry1_frame_pool_released": true,
+    "final_ARM64_config_build_ctest": true,
+    "ARM64_CTest_7_passed": true,
+    "local_portable_checks": true,
+    "protection": true,
+    "patch_byte_roundtrip": true,
+    "source_matches_final_ARM64": true
+  },
+  "all_checks_passed": true,
+  "final_ARM64_targets": [
+    "asr_pipeline_tests",
+    "audio_preprocessor_tests",
+    "multimodal_audio",
+    "audio_capture_smoke",
+    "stage5_04_asr_bench",
+    "multimodal_core",
+    "asr_live_smoke",
+    "asr_pipeline_smoke",
+    "asr_vad_smoke",
+    "asr_llm_smoke",
+    "image_pipeline_tests",
+    "request_profile_tests",
+    "stage5_03_rga_probe",
+    "async_pipeline_tests",
+    "llm_worker_tests",
+    "camera_service_tests",
+    "stage5_04_vision_bench",
+    "multimodal_tts",
+    "rkllm_worker_smoke",
+    "tts_smoke",
+    "tts_playback_smoke",
+    "multimodal_camera",
+    "tts_worker_smoke",
+    "stage5_04_tts_bench",
+    "tts_worker_queue_smoke",
+    "asr_route_smoke",
+    "rk3576_multimodal",
+    "stage5_02_npu_probe",
+    "stage5_03_memory_probe",
+    "asr_llm_tts_smoke"
+  ],
+  "final_ARM64_CTest": {
+    "total": 7,
+    "passed": 7,
+    "seconds": 0.90052233,
+    "type": "Fake/deterministic unit tests; hardware cases separate"
+  },
+  "local_portable": {
+    "platform": "Windows portable SDK off",
+    "hardware_verification": false,
+    "steps": [
+      {
+        "command": [
+          "cmake",
+          "-S",
+          "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_mtn0mgdc\\source",
+          "-B",
+          "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_mtn0mgdc\\build",
+          "-G",
+          "MinGW Makefiles",
+          "-DCMAKE_BUILD_TYPE=Debug",
+          "-DBUILD_TESTING=ON",
+          "-DBUILD_WITH_RKLLM=OFF",
+          "-DBUILD_WITH_VLM=OFF",
+          "-DENABLE_SHERPA_ASR=OFF"
+        ],
+        "returncode": 0,
+        "seconds": 2.5160000000032596
+      },
+      {
+        "command": [
+          "cmake",
+          "--build",
+          "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_mtn0mgdc\\build",
+          "--parallel",
+          "3"
+        ],
+        "returncode": 0,
+        "seconds": 14.68699999999808
+      },
+      {
+        "command": [
+          "ctest",
+          "--test-dir",
+          "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_mtn0mgdc\\build",
+          "--output-on-failure",
+          "--timeout",
+          "30",
+          "--output-junit",
+          "Z:\\master_T\\Linux\\资料\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\reports\\stage5_04_local\\instrumentation_local_v6\\ctest.xml"
+        ],
+        "returncode": 0,
+        "seconds": 2.063000000001921
+      }
+    ],
+    "successful": true
+  },
+  "TTS_warm_measured_each_language": 30,
+  "performance_comparison": {
+    "zh": {
+      "before_mean_ms": 9945.094501466667,
+      "after_mean_ms": 6920.1972025
+    },
+    "en": {
+      "before_mean_ms": 17758.201598166666,
+      "after_mean_ms": 12476.125436066666
+    }
+  },
+  "fixed_vision_RGB_pairs": 32,
+  "fixed_vision_embedding_pairs": 32,
+  "protection": {
+    "checked_at_UTC": "2026-10-17T15:17:47Z",
+    "phase": "after_manual_retry",
+    "checks": {
+      "original_321_unchanged": true,
+      "accepted_5_1_5_2_5_3_binaries_unchanged": true,
+      "accepted_5_3_source_86_unchanged": true,
+      "frozen_baseline_5_3_source_86_unchanged": true,
+      "devices_clear": true
+    },
+    "frozen_stage5_04_sources": {
+      "baseline_build": {
+        "files": 94,
+        "all_sha_match": true
+      },
+      "baseline_build_v2": {
+        "files": 96,
+        "all_sha_match": true
+      },
+      "candidate_build": {
+        "files": 95,
+        "all_sha_match": true
+      },
+      "candidate_build_v2": {
+        "files": 96,
+        "all_sha_match": true
+      },
+      "candidate_build_v3": {
+        "files": 96,
+        "all_sha_match": true
+      }
+    },
+    "disk_free_bytes": 1870479360,
+    "memory": {
+      "command": [
+        "free",
+        "-b"
+      ],
+      "exit_code": 0,
+      "stdout": "               total        used        free      shared  buff/cache   available\n内存：    4084207616   757645312  2760785920    16846848   635338752  3326562304\n交换：             0           0           0\n",
+      "stderr": ""
+    },
+    "original_fingerprint_count": 321,
+    "accepted_binaries": {
+      "build/stage5_01_board/asr_llm_tts_smoke": "7b44730ad55cdb49f252de3e801b3e6680169a93ed0cb59d80fdc8f6720a10b7",
+      "build/stage5_02_board/asr_llm_tts_smoke": "1bf59ddf68cb0290e30df3ed945347dc73b7ff477a44d69c8f1f80a51f49d9b7",
+      "build/stage5_03_board/asr_llm_tts_smoke": "687892f86b7dc421d0326657a740be4af897cb5e4ef6efed76e9ebd4c48237db"
+    },
+    "stage5_03_source_files": 86,
+    "scope": "read-only fingerprint and device check; ordinary cat user",
+    "models_SDK_system_config_writes": false
+  },
+  "source_invariants": {
+    "checks": [
+      {
+        "file": "src/video/image_preprocessor.cpp",
+        "before": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+        "after": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+        "unchanged": true
+      },
+      {
+        "file": "include/video/image_preprocessor.h",
+        "before": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+        "after": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+        "unchanged": true
+      },
+      {
+        "file": "include/video/owned_frame_pool.h",
+        "before": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+        "after": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+        "unchanged": true
+      },
+      {
+        "file": "src/video/video_capture.cpp",
+        "before": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+        "after": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+        "unchanged": true
+      },
+      {
+        "file": "src/video/camera_service.cpp",
+        "before": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+        "after": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+        "unchanged": true
+      },
+      {
+        "file": "src/video/latest_frame_buffer.cpp",
+        "before": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+        "after": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+        "unchanged": true
+      },
+      {
+        "file": "src/audio/audio_capture.cpp",
+        "before": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+        "after": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+        "unchanged": true
+      },
+      {
+        "file": "src/ai/inference_worker.cpp",
+        "before": null,
+        "after": null,
+        "unchanged": true
+      }
+    ],
+    "model_generation_parameters_unchanged": {
+      "src/audio/tts_service.cpp": true,
+      "src/ai/rkllm_backend.cpp": true,
+      "src/ai/rk3576_vlm_backend.cpp": true
+    },
+    "StopSignals_unchanged": true,
+    "final_source_matches_ARM64_candidate_v3": true,
+    "scope": "Source equality only; runtime evidence is separate"
+  },
+  "patch_roundtrip": {
+    "exit_code": 0,
+    "all_bytes_match": true,
+    "files": 40
+  },
+  "selected_voice_case": "candidate_voice_4t_final_retry1",
+  "retained_failed_voice_trial": {
+    "pid": 29394,
+    "returncode": 1,
+    "sent_signal": null,
+    "trigger_observed": false,
+    "forced_kill": false,
+    "timeout": false,
+    "duration_seconds": 143.2196699729975,
+    "input_closed_to_exit_seconds": 1.7274548940004024,
+    "signal_to_exit_seconds": null,
+    "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+    "process_gone": true,
+    "devices_released": true,
+    "original_321_unchanged": true,
+    "image_profile_errors": false,
+    "shutdown_complete_marker": true,
+    "program_PASS": false,
+    "text_tts_completed": false,
+    "vision_tts_completed": false,
+    "user_audible_confirmation": null,
+    "variant": "candidate",
+    "input_mode": "real_microphone_ASR",
+    "stop_mode": "drain"
+  },
+  "collection": "reports\\stage5_04_board\\collected_20261017_231748",
+  "limitations": [
+    "Natural speech and full-pipeline repeats are finite small samples",
+    "ALSA submit/drain is not acoustic latency",
+    "True token-granular TTFT unmeasured",
+    "TTS frontend/phonemization not separately measured",
+    "No reliable NPU utilization/bandwidth/power measurement",
+    "Higher CPU and temperature with four TTS threads",
+    "No long-duration stress, sanitizer proof or full real-SDK failure injection",
+    "Full n30 fixed-model and paired regressions use v2; final v3 changes only audio-replay error checks and is separately rebuilt/CTest/live-voice/signal tested"
+  ]
+}

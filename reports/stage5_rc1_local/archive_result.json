@@ -1,0 +1,14 @@
+{
+  "version": "stage5-rc1",
+  "archive": "reports/stage5_rc1_local/stage5-rc1.tgz",
+  "bytes": 154418381,
+  "sha256": "f6bdc35f285689c3352aef9bd0f09a130be4e2f24c6184545bb4abc500659bc1",
+  "files": 260,
+  "uncompressed_bytes": 163461798,
+  "local_verify_exit_code": 0,
+  "safe_archive_roundtrip_verified": true,
+  "roundtrip_verify_exit_code": 0,
+  "models_SDK_build_binaries_included": false,
+  "historical_evidence_archive_preserved": true,
+  "source_snapshot_id": "sha256:2b19cd571f87e083b506da586aa1f1a772cd76ed253b1fe848337ff524fe6f87"
+}

@@ -1,0 +1,1420 @@
+diff --git a/README.md b/README.md
+new file mode 100644
+--- /dev/null
++++ b/README.md
+@@ -0,0 +1,139 @@
++# RK3576 端侧多模态车载终端 · Stage 5 RC1
++
++基于 RK3576 的 Linux/C++17 端侧 AI 工程：把语音采集、意图路由、NPU 文本/视觉推理和语音播放接成可演示的系统，并通过有界异步队列、资源生命周期和性能证据解释工程取舍。用于嵌入式 Linux、C++、端侧部署实践及实习/秋招项目；不是经过7×24商用认证的车载产品。
++
++**状态：**5.1～5.5已在限定工况通过ARM64工程验收；本版仅冻结和整理，无核心推理修改。默认Kokoro 4线程，保留2线程。尚未切换主稳定工程。本地不是Git仓库，Git Commit及Tag均不存在；准确快照标识见 [VERSION.json](releases/stage5-rc1/VERSION.json) 和 [SOURCE_MANIFEST.json](releases/stage5-rc1/SOURCE_MANIFEST.json)。
++
++## 系统链路
++
++```mermaid
++flowchart LR
++  Mic[HyperX / ALSA] --> VAD[Silero VAD]
++  VAD --> AQ[有界音频段队列]
++  AQ --> ASR[SenseVoice / ASRWorker]
++  ASR --> Router[IntentRouter / 额度与请求ID]
++  Router --> IQ[共用有界推理队列]
++  IQ --> Qwen[TEXT / Qwen2.5 RKLLM]
++  IQ --> VLM[VISION / SmolVLM2]
++  Cam[IMX415 / V4L2 MMAP] --> Pool[独占拷贝 / 有界Frame池]
++  Pool --> Latest[LatestFrameBuffer / shared_ptr]
++  Latest --> Prep[按需NV12→512 RGB融合预处理]
++  Prep --> RKNN[RKNN Vision / 64×576]
++  RKNN --> VLM
++  Qwen --> TQ[有界TTS队列]
++  VLM --> TQ
++  TQ --> Kokoro[Kokoro合成→ALSA播放]
++```
++
++Camera持续采集，VLM执行时读取最新的有所有权Frame；不逐帧推理。采集Buffer在V4L2归还之前复制到受控CPU内存，异步线程不会借用已归还的MMAP指针。融合预处理缓存512×512 RGB和坐标表，生产路径为CPU，RKNN输入准备仍有SDK边界。
++
++VAD采集、ASR、共用InferenceWorker、TTSWorker与Camera独立运行。ASR只提交任务，不同步等待VLM。TEXT和VISION共享单消费者队列，在该业务入口串行调用RKNN/RKLLM；不是声称两个Engine自己的mutex提供跨模型锁。Request ID与steady_clock贯穿排队、推理、合成和音频提交；超时、过期、拒绝和取消均有日志和计数。
++
++Qt5 Widgets通过QProcess复用已有CLI，主事件循环不执行模型加载、阻塞推理或音频等待。窗口显示模块状态、识别文本、路由、回答、队列快照、错误和少量阶段延迟，支持开始/停止、2/4线程和排空/取消等待。关闭窗口先发协作信号，后台清理完成后才关闭。没有摄像头实时预览和AEC。
++
++## 环境和依赖
++
++LubanCat-3 / RK3576，IMX415 3840×2160 NV12，HyperX Cloud III USB双工音频；Linux 6.1.99-rk3576 aarch64，约3.8GiB RAM、无Swap。当前板已有Qt5.15.8、CMake、GCC、ALSA、RKNN及RKLLM，详细实查见 [DEPENDENCIES.md](releases/stage5-rc1/DEPENDENCIES.md) 和机器可核对的 [DEPENDENCIES.json](releases/stage5-rc1/DEPENDENCIES.json)。
++
++| 子系统 | 模型/Runtime | 运行位置 |
++|---|---|---|
++| ASR/VAD | SenseVoice INT8、Silero；sherpa-onnx1.13.8 / ORT1.28.2 | CPU |
++| TEXT | Qwen2.5-1.5B-Instruct W4A16，RKLLM | NPU |
++| VISION | SmolVLM2-256M W4A16 + RKNN Vision；输入RGB512，输出64×576 | NPU |
++| TTS | Kokoro multi-lang v1_1，sid17，24kHz | CPU，默认4线程 |
++| Camera/播放 | V4L2 MMAP / ALSA | 原有内核与设备 |
++
++模型、SDK、系统动态库**不包含在发布包**，通过现有绝对路径只读复用；未复制权重、未声称重新训练模型。`tools/stage5_board_paths.sh`可只读读取原稳定CMakeCache中的SDK路径。启动器还复用当前隔离目录中已审计的HyperX发现及DRM持有者检查工具，明确依赖 `.../rk3576_multimodal_stage5_review/tools/` 和已有桌面身份基线；因此本包不是任意Linux上直接解压即运行的独立包。
++
++VISION分支将中文识别结果用于路由，实际问题固定为 **What do you see? Answer briefly.**，不是任意中文视觉问答。TEXT保留原有简短回答提示；本轮未改变Prompt、声音、语速、模型或推理参数。
++
++## 目录与版本边界
++
++```text
++stage5-rc1/
++  source/             唯一构建源：104项已验收CMake/C++/测试文件
++  config/             配置入口说明；当前语音入口主要使用位置参数
++  tools/              RC构建/启动与路径脚本
++  docs/               五节报告、源码讲解及完整手册
++  evidence/           历史证据归档、五节Diff、校验与数据索引
++  reports/            文档使用的真实图片及本轮RC结果
++  VERSION.json        版本及源码快照标识；git_commit=null
++  SOURCE_MANIFEST.json / PACKAGE_MANIFEST.json / SHA256SUMS
++```
++
++历史源码只在 `evidence/` 内作为取证材料，未加入正式启动路径。包内没有旧二进制、模型或SDK。`source/tests`保留历史探针以复现；RGA仅可选手动实验目标，未用于正常启动。新构建产物在板端RC自己的 `build/`，不进入源码归档。
++
++## ARM64 构建与测试
++
++在本板普通cat用户终端执行；同名build已存在时脚本停止，不自动清理：
++
++```bash
++rc=/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1
++cd "$rc"
++sha256sum -c SHA256SUMS
++python3 -I -B tools/build.py
++```
++
++构建脚本验证104文件SHA，配置Release、真实SDK和可选Qt，最多3个并行编译任务。逐步骤90/600/150秒超时；可用磁盘低于500MiB停止并保留日志。原始命令、stdout/stderr、CTest XML与退出码保存到隔离 `reports/stage5_rc1_board/build/`。精确CMake参数如下；手工重建时必须选全新的build和日志目录：
++
++```bash
++set -a
++source tools/stage5_board_paths.sh
++set +a
++cmake -S source -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON \
++  -DBUILD_QT_GUI=ON -DBUILD_WITH_RKLLM=ON -DBUILD_WITH_VLM=ON \
++  -DENABLE_SHERPA_ASR=ON -DSHERPA_ONNX_ROOT="$STAGE5_SHERPA" \
++  -DRKLLM_SDK_ROOT="$STAGE5_RKLLM" -DRKNN_INCLUDE_DIR="$STAGE5_RKNN_INCLUDE" \
++  -DRKNN_RUNTIME_LIBRARY="$STAGE5_RKNN_LIBRARY"
++cmake --build build --parallel 3
++QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure --timeout 30
++```
++
++`-S/-B`区分源码与产物；ON配置链接真实SDK，不代表CTest调用真实模型。ARM64注册8项是确定性/Fake测试（Qt使用真实Qt、Fake子进程）；真实硬件闭环的日志独立保存。Qt缺失时可 `BUILD_QT_GUI=OFF` 保留CLI，但不能据此宣称GUI已验证。
++
++## Qt 与 CLI 演示
++
++当前桌面cat终端执行，先接回HyperX；脚本动态发现CARD ID，不使用历史数字声卡：
++
++```bash
++bash "$rc/tools/launch.sh" gui 4
++# CPU负担或散热条件不适合时，可明确选2线程
++bash "$rc/tools/launch.sh" gui 2
++# 保留完整CLI入口，Ctrl+C协作退出
++bash "$rc/tools/launch.sh" cli 4
++```
++
++GUI点击开始，等待监听后问“一加一等于几”，听完再问“前面有什么”。监听180秒，之后可重新开始；不是后台常驻服务。模型加载可能耗时，GUI保持事件响应。安全停止可排空已接受任务，或取消等待任务；正在执行的同步SDK请求允许完成。SIGINT/SIGTERM由普通等待线程协作处理，handler不调用Qt、mutex或join。
++
++GUI复用现有xcb桌面与认证；SSH本身不提供图形显示。不得安装软件或改系统权限来绕过缺依赖。若桌面会话重启导致DRM基线变更，按既有最终操作说明运行只读 `stage5_05_npu_inventory.py`生成新文件并人工核查；不得结束systemd/logind/Xorg来让DRM句柄归零。日志写入隔离 `reports/stage5_05_board/rc1_manual_.../`。
++
++## 实测成果与统计口径
++
++| 工作 | 实测结果 | 结论边界 |
++|---|---|---|
++| 5.2 ASR与VLM解耦 | 受控VISION业务提交1737.730ms→0.034758ms | 提交调度改善，不是NPU计算同比加速 |
++| 5.3 CPU融合预处理 | n=12比较，平均耗时降低24.67% | 局部预处理，不冒充完整交互加速 |
++| 5.4 Kokoro 2→4线程 | 固定中文/英文暖态各n=30，平均合成耗时分别降低30.42%/29.74% | 同模型/文本/声音；CPU明显增加，RTF仍>1 |
++| 5.5 2/4线程混合负载 | 各约30分钟，分别121/121完成 | 预分段固定音频，真实ASR，绕过麦克风/VAD |
++| 最终Qt版本 | 1837.782秒，121/121完成，Camera29.9952FPS，XRUN0 | 固定输入混合负载；一次Camera序号间隙 |
++| 真实麦克风/耳机/Qt | 用户确认两类回答听到、视觉大致相符、窗口信息正确 | 有限自然输入；独立于自动长测 |
++
++完整均值、P50/P95、输入、暖态规则、RSS和CPU样本见证据索引，不能混用单次样本与分布。Qt长测后台RSS峰值约2715MiB、Qt约89MiB，RSS在所测区间趋稳不是闭源SDK绝无泄漏的证明。一次发布收尾不重复先前长测。
++
++## 已知限制
++
++- TTS合成和播放仍串行处理一个任务，RTF>1，4线程增加CPU资源消耗；保留2线程回退。
++- 历史记录出现Linux热限制活动；有限节奏混合负载结果不代表持续饱和或任意散热环境。本轮不额外分析温控、不改变温控配置。
++- Qt长测出现一次V4L2 driver sequence gap；后续64次真实视觉调用未复现，根因未明确。LatestFrameBuffer主动替换旧帧、驱动DQBUF序号间隙、消费者读到的帧ID不连续是不同指标。未来可同时记录DQBUF序号/时间戳、发布/丢弃计数及请求读取ID，与内核日志关联；本轮不继续专项排查。
++- RGA实验失败路径如实保留，未启用生产RGA；未实现端到端Zero-copy。
++- 无AEC/PTT、语音打断、任意中文视觉问答；部分真实拔插/SDK内部异常及更长运行未验证。
++- 无可信NPU利用率、功耗、真实声学输出时间戳；“首次ALSA提交”不等于人耳实际听到时刻，精确Token级TTFT未直接测量。
++
++## 文档、复现与发布
++
++- [完整工程手册 Markdown](releases/stage5-rc1/docs/RK3576_STAGE5_ENGINEERING_MANUAL.md) / [Word](releases/stage5-rc1/docs/RK3576_STAGE5_ENGINEERING_MANUAL.docx)：正文与已验收源码一致，RC Word仅将历史Letter修正为A4；包含61道面试题，历史252页版保留在证据归档。
++- [5.1架构审计](releases/stage5-rc1/docs/stage5_01_architecture_audit.md)、[5.2异步Pipeline](releases/stage5-rc1/docs/stage5_02_async_pipeline.md)、[5.3内存链路](releases/stage5-rc1/docs/stage5_03_memory_pipeline.md)、[5.4性能Profiling](releases/stage5-rc1/docs/stage5_04_performance_profiling.md)、[5.5验收](releases/stage5-rc1/docs/stage5_05_final_acceptance.md)。具体历史文件以 [EVIDENCE_INDEX.md](releases/stage5-rc1/EVIDENCE_INDEX.md) 实查索引为准。
++- [依赖及实际模型指纹](releases/stage5-rc1/DEPENDENCIES.md)、[安全升级与回滚](releases/stage5-rc1/DEPLOY_AND_ROLLBACK.md)、[RC验收结论](releases/stage5-rc1/RC_ACCEPTANCE.md)。
++- 完整五节Git格式Diff位于 `evidence/stage5_0*/changes.patch`，原始日志、CSV/JSON、失败实验和历史源码位于内层 `evidence/RK3576_STAGE5_FINAL_REVIEW.tgz`，查阅时只解到全新证据目录，不用于正式启动。
++
++本轮不公开推送、不切换默认入口、不覆盖原 `build/stage5_full`。正式切换前接回HyperX做两条必要冒烟，并由用户明确批准；否则保持双版本独立命令运行。
+diff --git a/tools/stage5_rc_build.py b/tools/stage5_rc_build.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_build.py
+@@ -0,0 +1,40 @@
++"""Board-only RC rebuild with finite limits and a 500 MiB disk guard."""
++from pathlib import Path
++import hashlib,json,os,signal,subprocess,time
++
++def main():
++ root=Path(__file__).resolve().parents[1];allowed=Path('/home/cat/projects/RK3576/rk3576_multimodal_stage5_review')
++ assert root==allowed/'releases/stage5-rc1' and root.resolve()==root and os.getuid()==1000
++ manifest=json.loads((root/'SOURCE_MANIFEST.json').read_text())
++ assert all(hashlib.sha256((root/'source'/r['file']).read_bytes()).hexdigest()==r['sha256'] for r in manifest)
++ report=allowed/'reports/stage5_rc1_board/build';report.mkdir();build=root/'build';assert not build.exists()
++ steps=[]
++ def step(name,cmd,limit):
++  minimum=os.statvfs(root).f_bavail*os.statvfs(root).f_frsize;assert minimum>=500*1024**2
++  start=time.monotonic();reason=None
++  with (report/(name+'.stdout.log')).open('xb') as out,(report/(name+'.stderr.log')).open('xb') as err:
++   child=subprocess.Popen(cmd,stdout=out,stderr=err,start_new_session=True)
++   while child.poll() is None:
++    v=os.statvfs(root);free=v.f_bavail*v.f_frsize;minimum=min(minimum,free)
++    if free<500*1024**2:reason='disk_below_500MiB'
++    if time.monotonic()-start>limit:reason='timeout'
++    if reason:
++     os.killpg(child.pid,signal.SIGTERM)
++     try:child.wait(timeout=10)
++     except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);child.wait(timeout=10)
++     break
++    time.sleep(.5)
++  r={'name':name,'argv':cmd,'returncode':child.returncode,'reason':reason,'seconds':time.monotonic()-start,'minimum_disk_free_bytes':minimum};steps.append(r)
++  (report/'steps.json').write_text(json.dumps(steps,indent=2)+'\n');print(json.dumps(r),flush=True)
++  return child.returncode==0 and reason is None
++ shell='source "$1/tools/stage5_board_paths.sh"; exec cmake -S "$1/source" -B "$1/build" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DBUILD_QT_GUI=ON -DBUILD_WITH_RKLLM=ON -DBUILD_WITH_VLM=ON -DENABLE_SHERPA_ASR=ON -DSHERPA_ONNX_ROOT="$STAGE5_SHERPA" -DRKLLM_SDK_ROOT="$STAGE5_RKLLM" -DRKNN_INCLUDE_DIR="$STAGE5_RKNN_INCLUDE" -DRKNN_RUNTIME_LIBRARY="$STAGE5_RKNN_LIBRARY"'
++ ok=step('configure',['bash','-c',shell,'rc',str(root)],90)
++ if ok:ok=step('build',['cmake','--build',str(build),'--parallel','3'],600)
++ if ok:ok=step('ctest',['bash','-c','source "$1/tools/stage5_board_paths.sh"; QT_QPA_PLATFORM=offscreen exec ctest --test-dir "$1/build" --output-on-failure --timeout 30 --output-junit "$2"','rc',str(root),str(report/'ctest.xml')],150)
++ bins={}
++ for n in ['asr_llm_tts_smoke','rk3576_multimodal_gui']:
++  p=build/n
++  if p.is_file():bins[n]={'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size}
++ result={'successful':ok,'steps':steps,'binaries':bins,'source_files':len(manifest),'hardware_run':False,'disk_free_bytes':os.statvfs(root).f_bavail*os.statvfs(root).f_frsize}
++ (report/'result.json').write_text(json.dumps(result,indent=2)+'\n');return 0 if ok else 1
++if __name__=='__main__':raise SystemExit(main())
+diff --git a/tools/stage5_rc_deploy.py b/tools/stage5_rc_deploy.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_deploy.py
+@@ -0,0 +1,50 @@
++"""Upload a new source-only RC, safely unpack, rebuild and collect actual logs."""
++from pathlib import Path
++import hashlib,json,base64
++import stage5_phase2_deploy as t
++ROOT=Path(__file__).resolve().parents[1]
++def main():
++ local=ROOT/'reports/stage5_rc1_local';logs=local/'source_deploy';logs.mkdir()
++ archive=local/'stage5-rc1-source.tgz';digest=hashlib.sha256(archive.read_bytes()).hexdigest()
++ remote=t.REMOTE+'/reports/stage5_rc1_board/source_bundle.tgz'
++ guard=f'''from pathlib import Path
++import os,shutil
++r=Path({t.REMOTE!r});target=r/'releases/stage5-rc1';a=Path({remote!r})
++assert os.getuid()==1000 and r.resolve()==r
++assert not target.exists() and not target.is_symlink() and not a.exists()
++assert shutil.disk_usage(r).free>700*1024**2
++assert not (r/'releases').is_symlink()
++print('RC_EXCLUSIVE_TARGET_CONFIRMED')
++'''
++ assert t.run_step(logs,'01_guard',t.remote_command(),guard.encode(),30)==0
++ assert t.run_step(logs,'02_scp',[t.SCP,'-S',t.SSH,*t.OPTIONS,str(archive.relative_to(ROOT)),'cat@192.168.10.27:'+remote],timeout=90)==0
++ payload=f'''from pathlib import Path,PurePosixPath
++import os,hashlib,tarfile,json,subprocess,sys,base64
++r=Path({t.REMOTE!r});a=Path({remote!r});dest=r/'releases/stage5-rc1'
++assert hashlib.sha256(a.read_bytes()).hexdigest()=={digest!r}
++assert not dest.exists() and not dest.is_symlink() and not (r/'releases').is_symlink()
++with tarfile.open(a,'r:gz') as t:
++ members=t.getmembers();assert len(members)==110 and len({{m.name for m in members}})==110 and sum(m.size for m in members)<4*1024**2
++ for m in members:
++  p=PurePosixPath(m.name);assert m.isfile() and not p.is_absolute() and '..' not in p.parts and '\\\\' not in m.name and ':' not in m.name
++ (r/'releases').mkdir(exist_ok=True);dest.mkdir()
++ for m in members:
++  p=dest/m.name;assert p.resolve().is_relative_to(dest);p.parent.mkdir(parents=True,exist_ok=True)
++  with p.open('xb') as f:f.write(t.extractfile(m).read())
++manifest=json.loads((dest/'SOURCE_MANIFEST.json').read_text());assert len(manifest)==104
++assert all(hashlib.sha256((dest/'source'/x['file']).read_bytes()).hexdigest()==x['sha256'] for x in manifest)
++result=subprocess.run(['python3','-I','-B',str(dest/'tools/build.py')],timeout=900)
++sys.path.insert(0,str(r/'tools'));from stage5_board_readonly_inventory import fingerprint
++original=fingerprint()==json.loads((r/'reports/stage5_05_board/original_before.json').read_text());assert original
++accepted=json.loads((r/'reports/stage5_05_board/accepted_binaries_before.json').read_text());assert all(hashlib.sha256((r/n).read_bytes()).hexdigest()==h for n,h in accepted.items())
++report=r/'reports/stage5_rc1_board/build'
++files={{p.name:base64.b64encode(p.read_bytes()).decode() for p in report.iterdir() if p.is_file()}}
++print('RC_BUILD_EVIDENCE',json.dumps({{'files':files,'original_321_unchanged':original,'four_accepted_binaries_unchanged':True,'returncode':result.returncode}}))
++raise SystemExit(result.returncode)
++'''
++ rc=t.run_step(logs,'03_unpack_build',t.remote_command(),payload.encode(),960)
++ raw=(logs/'03_unpack_build.stdout.log').read_text(encoding='utf-8');line=next(s for s in raw.splitlines() if s.startswith('RC_BUILD_EVIDENCE '));result=json.loads(line.split(' ',1)[1]);out=local/'board_build';out.mkdir()
++ for n,b in result.pop('files').items():assert Path(n).name==n;(out/n).write_bytes(base64.b64decode(b))
++ (local/'board_build_protection.json').write_text(json.dumps(result,indent=2)+'\n');assert rc==result['returncode']==0
++ print('RC_BUILD_COLLECTED',json.dumps(json.loads((out/'result.json').read_text())))
++if __name__=='__main__':main()
+diff --git a/tools/stage5_rc_doccheck.py b/tools/stage5_rc_doccheck.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_doccheck.py
+@@ -0,0 +1,71 @@
++"""Audit RC manual bytes, source excerpts, images, styles and actual visual ledger."""
++from pathlib import Path
++import hashlib,json,re,zipfile,io,shutil
++from collections import Counter
++from docx import Document
++from docx.oxml.ns import qn
++from PIL import Image
++import stage5_05_manual as excerpts
++
++ROOT=Path(__file__).resolve().parents[1]
++RC=ROOT/'releases/stage5-rc1'
++REPORT=ROOT/'reports/stage5_rc1_local'
++def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
++def main():
++ md=RC/'docs/RK3576_STAGE5_ENGINEERING_MANUAL.md';word=md.with_suffix('.docx')
++ old=ROOT/'docs'/word.name;doc=Document(word);original=Document(old)
++ assert sha(md)==sha(ROOT/'docs'/md.name)
++ expected=[];fence=False
++ for line in md.read_text(encoding='utf-8').splitlines():
++  if line.startswith('```'):fence=not fence
++  elif fence:expected.append(line)
++ assert not fence
++ actual=[p.text for p in doc.paragraphs if p.style.name=='Source Code']
++ assert expected==actual and len(actual)==4449
++ def content(d):return [p.text for p in d.paragraphs if not p.style.name.lower().startswith('toc')]
++ assert content(doc)==content(original),'non-TOC content changed'
++ assert [[c.text for row in t.rows for c in row.cells] for t in doc.tables]==[[c.text for row in t.rows for c in row.cells] for t in original.tables]
++ assert all(abs(s.page_width.mm-210)<0.05 and abs(s.page_height.mm-297)<0.05 for s in doc.sections)
++ normal=doc.styles['Normal'];family=normal.element.get_or_add_rPr().find(qn('w:rFonts'))
++ assert family.get(qn('w:ascii'))=='Times New Roman' and family.get(qn('w:eastAsia')) in {'楷体','KaiTi'}
++ assert normal.font.size.pt==12 and normal.paragraph_format.line_spacing==1.5
++ assert normal.element.get_or_add_pPr().find(qn('w:ind')).get(qn('w:firstLineChars'))=='200'
++ def inherited(s,getter):
++  while s is not None:
++   value=getter(s)
++   if value is not None:return value
++   s=s.base_style
++ for name in ['Title',*[f'Heading {i}' for i in range(1,7)]]:
++  s=doc.styles[name];assert inherited(s,lambda x:x.font.bold) and inherited(s,lambda x:x.font.size).pt==12
++  color=s.element.get_or_add_rPr().find(qn('w:color'));assert color is None or color.get(qn('w:val'))=='000000'
++ manifest=json.loads((ROOT/'reports/stage5_05_local/manual_source_manifest.json').read_text(encoding='utf-8'))
++ for r in manifest:
++  assert sha(RC/'source'/r['file'])==r['file_sha256']==sha(ROOT/r['file'])
++  assert hashlib.sha256(excerpts.block(r['file'],r['symbol']).encode()).hexdigest()==r['extracted_sha256']
++ def media(path):
++  with zipfile.ZipFile(path) as z:
++   result={n:hashlib.sha256(z.read(n)).hexdigest() for n in z.namelist() if n.startswith('word/media/')}
++   for n in result:Image.open(io.BytesIO(z.read(n))).verify()
++   assert z.testzip() is None
++   return result
++ assert media(word)==media(old) and len(media(word))==11
++ assert len(doc.inline_shapes)==len(original.inline_shapes)==14
++ render=ROOT/'reports/stage5_05_local/render_rc1_a4';info=json.loads((render/'result.json').read_text())
++ ledger=json.loads((REPORT/'visual_review.json').read_text());assert ledger['inspected_pages']==list(range(1,239)) and ledger['clean']
++ assert info['pages']==238 and info['docx_sha256']==sha(word)
++ info['visual_review_complete']=True
++ page_hashes={str(i):sha(render/'pages'/f'page-{i}.png') for i in ledger['inspected_pages']}
++ ledger['page_sha256']=page_hashes;(REPORT/'visual_review.json').write_text(json.dumps(ledger,indent=2)+'\n')
++ interview={}
++ for stage in [3,4,5]:
++  p=ROOT/f'docs/stage5_0{stage}_interview.md'
++  interview[f'5.{stage}']=len(re.findall(r'^##\s+(?:操作\s+)?\d+',p.read_text(encoding='utf-8'),re.M))
++ result={'version':json.loads((RC/'VERSION.json').read_text())['source_snapshot_id'],'pages':238,'paper':'A4 210 x 297 mm','all_pages_inspected':True,'clean':True,'docx_sha256':sha(word),'markdown_sha256':sha(md),'historical_docx_sha256':sha(old),'non_TOC_paragraphs_and_tables_unchanged':True,'source_code_lines':4449,'source_excerpts':len(manifest),'all_excerpts_match_current_RC_source':True,'image_placements':14,'unique_embedded_images':11,'embedded_images_unchanged_and_decodable':True,'body_Chinese':'楷体 12pt','body_Latin':'Times New Roman 12pt','line_spacing':1.5,'first_line_chars':2,'headings_bold_black':True,'interview_later_sections':interview,'interview_total_inherited':61,'render':info,'limitations':'Document and source checks do not establish new hardware outcomes. Original 252-page Letter manual retained in historical evidence; RC A4 reflow is 238 pages.'}
++ assert interview=={'5.3':15,'5.4':14,'5.5':12}
++ (REPORT/'document_QA.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
++ for name in ['document_QA.json','visual_review.json']:shutil.copyfile(REPORT/name,RC/'reports'/name)
++ for p in render.glob('*'):
++  if p.is_file() and p.suffix in {'.json','.log'}:
++   target=RC/'reports/manual_render'/p.name;target.parent.mkdir(exist_ok=True);shutil.copyfile(p,target)
++ print(json.dumps(result,ensure_ascii=False))
++if __name__=='__main__':main()
+diff --git a/tools/stage5_rc_finalize_board.py b/tools/stage5_rc_finalize_board.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_finalize_board.py
+@@ -0,0 +1,86 @@
++"""Add only absent RC delivery files; verify existing files, never replace them."""
++from pathlib import Path
++import hashlib,json,base64
++import stage5_phase2_deploy as t
++ROOT=Path(__file__).resolve().parents[1]
++def main():
++ local=ROOT/'reports/stage5_rc1_local';logs=local/'final_deploy';logs.mkdir()
++ info=json.loads((local/'archive_result.json').read_text());a=ROOT/info['archive']
++ remote=t.REMOTE+'/reports/stage5_rc1_board/stage5-rc1.tgz'
++ guard=f'''from pathlib import Path
++import os,shutil
++r=Path({t.REMOTE!r});rc=r/'releases/stage5-rc1';a=Path({remote!r})
++assert os.getuid()==1000 and r.resolve()==r and rc.resolve()==rc and rc.is_dir()
++assert not a.exists() and not a.is_symlink()
++assert not (r/'reports/stage5_rc1_board/final_delivery_receipt.json').exists()
++assert shutil.disk_usage(r).free>{info['bytes']+info['uncompressed_bytes']}+524288000
++print('FINAL_ADDITIVE_DEPLOY_GUARD_PASSED')
++'''
++ assert t.run_step(logs,'01_guard',t.remote_command(),guard.encode(),30)==0
++ assert t.run_step(logs,'02_upload',[t.SCP,'-S',t.SSH,*t.OPTIONS,str(a.relative_to(ROOT)),'cat@192.168.10.27:'+remote],timeout=180)==0
++ payload=f'''from pathlib import Path,PurePosixPath
++import os,hashlib,json,tarfile,subprocess,sys,shutil,base64
++from datetime import datetime,timezone
++r=Path({t.REMOTE!r});rc=r/'releases/stage5-rc1';archive=Path({remote!r});report=r/'reports/stage5_rc1_board'
++assert os.getuid()==1000 and r.resolve()==r and rc.resolve()==rc
++def sha(p):
++ h=hashlib.sha256()
++ with p.open('rb') as f:
++  for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
++ return h.hexdigest()
++assert sha(archive)=={info['sha256']!r}
++written=skipped=0;disk_before=shutil.disk_usage(r).free
++with tarfile.open(archive,'r:gz') as bundle:
++ members=bundle.getmembers();assert len(members)=={info['files']} and len({{m.name for m in members}})==len(members)
++ assert sum(m.size for m in members)=={info['uncompressed_bytes']}
++ manifest=json.loads(bundle.extractfile('stage5-rc1/PACKAGE_MANIFEST.json').read())
++ expected={{'stage5-rc1/'+x['file']:x for x in manifest}}
++ assert set(m.name for m in members)==set(expected)|{{'stage5-rc1/PACKAGE_MANIFEST.json','stage5-rc1/SHA256SUMS'}}
++ for m in members:
++  p=PurePosixPath(m.name);assert m.isfile() and not p.is_absolute() and p.parts[0]=='stage5-rc1' and len(p.parts)>1 and '..' not in p.parts and '\\\\' not in m.name and ':' not in m.name
++  n='/'.join(p.parts[1:]);assert p.parts[1] not in {{'build','models','sdk','.git'}}
++  h=hashlib.sha256(bundle.extractfile(m).read()).hexdigest()
++  if m.name in expected:assert h==expected[m.name]['sha256'] and m.size==expected[m.name]['bytes']
++  dest=rc/n;assert dest.resolve().is_relative_to(rc) and not dest.is_symlink()
++  if dest.exists():assert dest.is_file() and dest.stat().st_size==m.size and sha(dest)==h,n
++ for m in members:
++  dest=rc/PurePosixPath(m.name).relative_to('stage5-rc1')
++  if dest.exists():skipped+=1;continue
++  assert shutil.disk_usage(r).free>524288000
++  dest.parent.mkdir(parents=True,exist_ok=True)
++  assert dest.parent.resolve().is_relative_to(rc)
++  with dest.open('xb') as f:
++   with bundle.extractfile(m) as source:shutil.copyfileobj(source,f)
++  written+=1
++steps=[]
++for name,args,expected_code in [
++ ('verify',['python3','-I','-B',str(rc/'tools/verify.py')],0),
++ ('checksums',['sha256sum','-c','SHA256SUMS'],0),
++ ('launch_syntax',['bash','-n',str(rc/'tools/launch.sh')],0),
++ ('launch_reject_invalid_mode',['bash',str(rc/'tools/launch.sh'),'invalid','4'],2)]:
++ result=subprocess.run(args,cwd=rc,capture_output=True,timeout=120)
++ for stream,data in [('stdout',result.stdout),('stderr',result.stderr)]:
++  with (report/(name+'.'+stream+'.log')).open('xb') as f:f.write(data)
++ steps.append({{'name':name,'argv':args,'returncode':result.returncode,'expected_returncode':expected_code}})
++ assert result.returncode==expected_code,name
++sys.path.insert(0,str(r/'tools'));from stage5_board_readonly_inventory import fingerprint
++assert fingerprint()==json.loads((r/'reports/stage5_05_board/original_before.json').read_text())
++accepted=json.loads((r/'reports/stage5_05_board/accepted_binaries_before.json').read_text())
++assert all(sha(r/n)==h for n,h in accepted.items())
++source=json.loads((rc/'SOURCE_MANIFEST.json').read_text())
++assert all(sha(r/'stage5_05_source_final_v2'/x['file'])==x['sha256']==sha(rc/'source'/x['file']) for x in source)
++build=json.loads((report/'build/result.json').read_text())
++assert all(sha(rc/'build'/n)==v['sha256'] for n,v in build['binaries'].items())
++result={{'version':'stage5-rc1','at_UTC':datetime.now(timezone.utc).isoformat(),'archive':str(archive),'archive_sha256':sha(archive),'archive_bytes':archive.stat().st_size,'files':len(members),'new_files_written':written,'existing_identical_files_skipped':skipped,'steps':steps,'disk_free_before_bytes':disk_before,'disk_free_after_bytes':shutil.disk_usage(r).free,'original_321_unchanged':True,'four_historical_binaries_unchanged':True,'accepted_final_v2_104_unchanged':True,'RC_binaries_unchanged_after_packaging':True,'RC_directory':str(rc),'hardware_test_this_round':False,'HyperX_missing_at_preflight':True,'entry_switched':False,'system_configuration_changed':False}}
++assert result['disk_free_after_bytes']>524288000
++with (report/'final_delivery_receipt.json').open('x') as f:json.dump(result,f,indent=2)
++files={{p.name:base64.b64encode(p.read_bytes()).decode() for p in report.iterdir() if p.is_file() and (p.suffix=='.log' or p.name=='final_delivery_receipt.json')}}
++print('FINAL_DELIVERY',json.dumps({{'receipt':result,'files':files}}))
++'''
++ assert t.run_step(logs,'03_finalize',t.remote_command(),payload.encode(),360)==0
++ raw=(logs/'03_finalize.stdout.log').read_text(encoding='utf-8');result=json.loads(next(s for s in raw.splitlines() if s.startswith('FINAL_DELIVERY ')).split(' ',1)[1])
++ out=local/'board_final';out.mkdir()
++ for n,b in result['files'].items():assert Path(n).name==n;(out/n).write_bytes(base64.b64decode(b))
++ (local/'final_delivery_receipt.json').write_text(json.dumps(result['receipt'],indent=2)+'\n',encoding='utf-8')
++ print(json.dumps(result['receipt'],indent=2))
++if __name__=='__main__':main()
+diff --git a/tools/stage5_rc_pack.py b/tools/stage5_rc_pack.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_pack.py
+@@ -0,0 +1,137 @@
++"""Create final RC delivery and a real safe-archive roundtrip; no Git identity invented."""
++from pathlib import Path,PurePosixPath
++import hashlib,json,re,shutil,tarfile,subprocess,sys,difflib,ast
++import xml.etree.ElementTree as ET
++from datetime import datetime,timezone
++ROOT=Path(__file__).resolve().parents[1]
++RC=ROOT/'releases/stage5-rc1';REPORT=ROOT/'reports/stage5_rc1_local'
++def sha(p):
++ h=hashlib.sha256()
++ with p.open('rb') as f:
++  for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
++ return h.hexdigest()
++def save(p,d):p.write_text(json.dumps(d,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
++def main():
++ assert not (RC/'PACKAGE_MANIFEST.json').exists(),'RC already packaged; never silently repack'
++ version=json.loads((RC/'VERSION.json').read_text());source=json.loads((RC/'SOURCE_MANIFEST.json').read_text())
++ assert all(sha(ROOT/x['file'])==x['sha256']==sha(RC/'source'/x['file']) for x in source)
++ qa=json.loads((REPORT/'document_QA.json').read_text(encoding='utf-8'));assert qa['all_pages_inspected'] and qa['pages']==238
++ build=json.loads((REPORT/'board_build/result.json').read_text());assert build['successful']
++ tests=ET.parse(REPORT/'board_build/ctest.xml').getroot();assert tests.get('tests')=='8' and tests.get('failures')=='0'
++ dest=RC/'evidence/rc_tooling';dest.mkdir()
++ for p in sorted((ROOT/'tools').glob('stage5_rc_*.py')):
++  ast.parse(p.read_text(encoding='utf-8'));shutil.copyfile(p,dest/p.name)
++ for name in ['STAGE5_CODEX_TASK.md','README_STAGE5_FINAL.md']:
++  shutil.copyfile(ROOT/name,RC/'evidence'/name)
++ # Preserve raw failures and successful preflight/upload commands independently of the old evidence.
++ for p in REPORT.iterdir():
++  if p.is_dir() and (p.name.startswith('ssh_') or p.name=='source_deploy'):
++   shutil.copytree(p,RC/'reports'/p.name)
++ text=f'''# Stage 5 RC1 最终发布候选验收报告
++
++本轮完成版本冻结与交付准备，核心推理代码零修改。适用于RK3576端侧多模态工程实践、面试和有限演示；不扩大为7×24商业系统验收。正式入口尚未切换。
++
++## 版本与可追溯性
++
++- 版本：stage5-rc1。
++- 当前目录不是Git仓库，5条Git查询均真实退出128；分支、HEAD、未提交/未跟踪分类和Git Tag均不可取得。因此没有创建Commit或Git Tag，git_commit为null，未伪造提交。
++- 可验证源码快照：`{version['source_snapshot_id']}`。
++- 104项CMake/C++/头文件/测试与5.5已验收final_v2逐字节一致；逐项SHA见SOURCE_MANIFEST.json。上述标识由该清单规范JSON字节计算，算法见VERSION.json。
++- 板端独立RC：`/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1`。
++- 历史五节完整Git格式Diff分别在evidence/stage5_01～05/changes.patch；原日志、CSV/JSON、历史源码和原252页手册完整保存在内层历史归档，4835成员已经逐项核验。新包装文本Diff见evidence/rc_changes.patch，二进制变化以SHA清单追溯。
++
++## 本轮真实执行
++
++| 项目 | 结果与口径 |
++|---|---|
++| ARM64 CMake配置 | rc=0，{build['steps'][0]['seconds']:.3f}秒，真实RKLLM/RKNN/sherpa与Qt5开启 |
++| ARM64全量构建 | rc=0，{build['steps'][1]['seconds']:.3f}秒，最大并行3；未改模型、SDK或系统 |
++| ARM64 CTest | 8/8、失败0，CTest自身real=6.12秒；外层含启动采样6.511秒；每项上限30秒 |
++| 磁盘 | 构建后{build['disk_free_bytes']:,}字节，构建最低采样1,571,704,832字节，始终高于500MiB |
++| 原工程保护 | 构建前后321项SHA/大小/mtime一致，4个历史已验收程序不变 |
++| 依赖清单 | 实机只读记录398项模型、SDK、Runtime及音素资源的实际路径/大小/SHA |
++| 手册 | 原生Word实际打开/更新目录/导出；A4共238页已逐页检查，26处完整代码抽取、4449行代码一致，14处图像/11个去重媒体文件未改变且可解码 |
++
++8项CTest分别为：
++'''
++ purposes={'request_profile_tests':'请求ID、帧ID区分、steady事件及JSONL文本。','image_pipeline_tests':'CPU像素/stride/通道及有界Frame lease；Fake Camera。','async_pipeline_tests':'连续ASR推进、TEXT/VISION交替、满载、取消/过期、重启与回调异常；Fake服务。','asr_pipeline_tests':'音频队列关闭唤醒、排空、析构及服务/回调异常；Fake ASR。','audio_preprocessor_tests':'音频预处理纯逻辑。','llm_worker_tests':'Worker生命周期、任务执行与错误路径；Fake推理。','camera_service_tests':'Camera工作线程与停止/重启；Fake采集。','gui_session_tests':'真实Qt offscreen事件循环、开始/停止/重启/关闭及错误恢复；Fake子进程。'}
++ for test in tests.findall('testcase'):text+=f"\n- `{test.get('name')}`：{purposes[test.get('name')]} 实测{test.get('time')}秒。"
++ text+='''
++
++上述测试没有调用真实模型或占用Camera/ALSA/NPU。原始配置、构建、CTest stdout/stderr、完整argv、真实退出码及XML在reports/rc_build/。
++
++本轮只读预检发现HyperX不在/proc/asound/cards，首轮预检因此退出失败，保留原始Traceback；修正收集脚本后明确记录缺失而不绕过硬件检查。未运行RC真实语音/Qt窗口/耳机冒烟，不把CTest当作耳机验证。现有5.5实际麦克风、耳机、视觉描述、Qt及约30分钟121/121闭环成果完整继承，源码同一性已核验。正式切换前需接回HyperX，动态发现声卡，完成两条语音、界面和安全停止的短冒烟；无需重复长测。
++
++## 手册一致性与修正
++
++仅RC Word副本将历史Letter纸张修正为任务书A4；更新TOC造成252→238页重排。正文、表格、源码和嵌入图像保持一致，Markdown未改字节。原252页文件未修改。楷体/Times New Roman小四、1.5倍行距、两字符首行缩进、加粗标题及等宽代码已查；真实Qt截图沿用验收记录。61道面试问答按各节10/10/15/14/12保留，与相应阶段及最终源码讲解对应。历史章节中的“后续进入下一节”“user_acceptance_pending=true”是当时交付快照，本次用户已验收5.1～5.5，RC推广仍待批准。历史命令保留原路径，RC日常入口以本包README为准。
++
++文档检查器首轮误把14处图片插入当14个ZIP媒体文件，实际Word去重为11个；修正检查器分别核验14处与11项SHA。5.4问答标题实际为“操作 N”，检查器改为匹配真实标题。没有为通过检查改写手册正文或历史结果。Markdown缺少的5.4引用图已按原SHA复制补齐。详细机器检查在reports/document_QA.json与visual_review.json。
++
++## 性能与剩余风险
++
++沿用原条件：5.3融合CPU预处理n12平均下降24.67%；5.4固定中文/英文暖态各n30合成均值下降30.42%/29.74%，CPU接近翻倍，RTF仍>1。5.2提交耗时下降是调度改善，不是NPU同比加速。原Qt约1837.782秒121/121固定输入混合请求完成，Camera29.9952FPS、XRUN0，不能据此宣称任意工况稳定或整体端到端加速30%。
++
++默认Kokoro4线程，保留2线程回退。历史Linux热限制活动原样保留，本轮未做额外热专项/降频研究/长测，也未改温控。一次Camera driver sequence gap根因未明，后续64次视觉复测未复现；LatestFrameBuffer主动替换旧帧不等于驱动采集丢帧或消费者帧ID间隙，后续定位建议见README。
++
++RGA未启用、未实现全链路Zero-copy；部分真实拔插、闭源SDK内部故障和更长持续运行未验证。无可信NPU利用率、功耗或真实声学时间戳；首次ALSA提交不是人耳听到时刻，首文本chunk不是精确Token TTFT。同步SDK永久阻塞仍是协作退出的边界，无AEC/PTT/语音打断。运行依赖现有板端模型/SDK、Qt桌面及隔离工具，不是脱离环境的独立运行包。
++
++## 交付及升级判断
++
++建议将stage5-rc1作为实践与演示用途的最终发布候选交付；不建议现在直接覆盖或切换主工程。接回HyperX完成短冒烟并获用户明确批准后，可按DEPLOY_AND_ROLLBACK.md进行版本入口选择；异常时恢复原5.5GUI或原稳定CLI，原目录与程序始终保留。
++
++本包不含正式构建二进制/大型模型/SDK；板端RC/build为本轮独立编译产物，两个主入口SHA在reports/rc_build/result.json。历史证据内的旧源码和实验程序仅用于查阅，不进入RC正式构建/启动路径。SHA256SUMS与PACKAGE_MANIFEST.json区分源码/文档/证据；外层归档及其自身SHA、板端最后落盘和保护检查位于外部reports/stage5_rc1_local/archive_result.json及final_delivery_receipt.json，避免自身归档哈希的循环引用。打包前本报告不预填未来上传成功。
++
++下一步仅为用户审核。未切换入口、未覆盖主工程、未公开推送、未安装软件或修改系统配置；停止后续开发。
++'''
++ (RC/'RC_ACCEPTANCE.md').write_text(text,encoding='utf-8')
++ # Link checks cover current release entry documents; historical source appendices include literal examples.
++ checked=[]
++ for p in [ROOT/'README.md',*[RC/n for n in ['README.md','EVIDENCE_INDEX.md','DEPENDENCIES.md','DEPLOY_AND_ROLLBACK.md']]]:
++  for n in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',p.read_text(encoding='utf-8')):
++   if n.startswith(('http:','https:','#')):continue
++   target=(p.parent/n.split('#')[0]).resolve();assert target.exists(),(p,n);checked.append(str(target.relative_to(ROOT)))
++ for p in (RC/'docs').glob('*.md'):
++  fence=False
++  for line in p.read_text(encoding='utf-8').splitlines():
++   if line.startswith('```'):fence=not fence
++   if not fence:
++    for n in re.findall(r'!\[[^\]]*\]\(([^)]+)\)',line):assert (p.parent/n).is_file(),(p,n)
++ save(RC/'reports/release_consistency.json',{'at_UTC':datetime.now(timezone.utc).isoformat(),'source104_identical':True,'entry_document_links_checked':len(checked),'markdown_images_outside_code_exist':True,'core_changes':0,'no_git_commit_or_tag':True})
++ # Git-compatible full added-text diff, not a fabricated Git commit or binary-evidence duplication.
++ patch=[]
++ selected=[ROOT/'README.md',*sorted((ROOT/'tools').glob('stage5_rc_*.py')),*[RC/n for n in ['README.md','DEPENDENCIES.md','DEPLOY_AND_ROLLBACK.md','EVIDENCE_INDEX.md','RC_ACCEPTANCE.md']]]
++ selected.extend(sorted((RC/'tools').glob('*')))
++ for p in selected:
++  if p.suffix not in {'.py','.sh','.md'}:continue
++  name=p.relative_to(ROOT).as_posix();lines=p.read_text(encoding='utf-8').splitlines(keepends=True)
++  patch+=['diff --git a/'+name+' b/'+name+'\n','new file mode 100644\n']
++  patch+=list(difflib.unified_diff([],lines,fromfile='/dev/null',tofile='b/'+name))
++ (RC/'evidence/rc_changes.patch').write_text(''.join(patch),encoding='utf-8',newline='\n')
++ save(RC/'evidence/rc_changes_manifest.json',{'core_changes':[],'text_added_as_packaging':[p.relative_to(ROOT).as_posix() for p in selected],'docx_change':'RC copy only: Letter to A4 and Word TOC page cache. Original unchanged. See document_QA hashes.','large_evidence_and_copied_source':'Exact files identified by SOURCE_MANIFEST and PACKAGE_MANIFEST; not embedded as duplicated binary patch blobs.'})
++ rows=[{'file':p.relative_to(RC).as_posix(),'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(RC.rglob('*')) if p.is_file()]
++ assert not any('/__pycache__/' in x['file'] or x['file'].startswith('build/') for x in rows)
++ save(RC/'PACKAGE_MANIFEST.json',rows)
++ checks=rows+[{'file':'PACKAGE_MANIFEST.json','sha256':sha(RC/'PACKAGE_MANIFEST.json')}]
++ (RC/'SHA256SUMS').write_text(''.join(x['sha256']+'  '+x['file']+'\n' for x in checks),encoding='utf-8',newline='\n')
++ result=subprocess.run([sys.executable,'-I','-B',str(RC/'tools/verify.py')],capture_output=True,timeout=90)
++ (REPORT/'verify_local.stdout.log').write_bytes(result.stdout);(REPORT/'verify_local.stderr.log').write_bytes(result.stderr);assert result.returncode==0
++ archive=REPORT/'stage5-rc1.tgz';assert not archive.exists()
++ files=sorted(p for p in RC.rglob('*') if p.is_file())
++ with tarfile.open(archive,'x:gz',compresslevel=6) as bundle:
++  for p in files:
++   assert not p.is_symlink();bundle.add(p,arcname='stage5-rc1/'+p.relative_to(RC).as_posix(),recursive=False)
++ unpack=REPORT/'archive_roundtrip';unpack.mkdir()
++ with tarfile.open(archive,'r:gz') as bundle:
++  members=bundle.getmembers();assert len(members)==len(files) and len({m.name for m in members})==len(members)
++  for m in members:
++   p=PurePosixPath(m.name);assert m.isfile() and not p.is_absolute() and '..' not in p.parts and '\\' not in m.name and ':' not in m.name and p.parts[0]=='stage5-rc1'
++   target=unpack/m.name;assert target.resolve().is_relative_to(unpack);target.parent.mkdir(parents=True,exist_ok=True)
++   with target.open('xb') as f:shutil.copyfileobj(bundle.extractfile(m),f)
++   assert sha(target)==sha(RC/p.relative_to('stage5-rc1'))
++ result=subprocess.run([sys.executable,'-I','-B',str(unpack/'stage5-rc1/tools/verify.py')],capture_output=True,timeout=90)
++ (REPORT/'verify_roundtrip.stdout.log').write_bytes(result.stdout);(REPORT/'verify_roundtrip.stderr.log').write_bytes(result.stderr);assert result.returncode==0
++ info={'version':'stage5-rc1','archive':archive.relative_to(ROOT).as_posix(),'bytes':archive.stat().st_size,'sha256':sha(archive),'files':len(files),'uncompressed_bytes':sum(p.stat().st_size for p in files),'local_verify_exit_code':0,'safe_archive_roundtrip_verified':True,'roundtrip_verify_exit_code':0,'models_SDK_build_binaries_included':False,'historical_evidence_archive_preserved':True,'source_snapshot_id':version['source_snapshot_id']}
++ save(REPORT/'archive_result.json',info);archive.with_suffix('.tgz.sha256').write_text(info['sha256']+'  '+archive.name+'\n',encoding='utf-8')
++ print(json.dumps(info,indent=2))
++if __name__=='__main__':main()
+diff --git a/tools/stage5_rc_preflight.py b/tools/stage5_rc_preflight.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_preflight.py
+@@ -0,0 +1,41 @@
++"""Board payload: read-only dependency/source checks; write new RC evidence only."""
++from pathlib import Path
++import hashlib,json,os,shutil,subprocess,sys
++R=Path('/home/cat/projects/RK3576/rk3576_multimodal_stage5_review')
++assert R.resolve()==R and os.getuid()==1000
++assert not (R/'releases/stage5-rc1').exists(),'RC directory already exists; stop, never overwrite'
++report=R/'reports/stage5_rc1_board/preflight_retry1';report.mkdir()
++sys.path.insert(0,str(R/'tools'))
++from stage5_board_readonly_inventory import fingerprint
++from stage5_05_voice_run import discover_audio,devices
++def sha(p):
++ h=hashlib.sha256()
++ with p.open('rb') as f:
++  for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
++ return h.hexdigest()
++def query(argv):
++ r=subprocess.run(argv,capture_output=True,timeout=20);return {'argv':argv,'returncode':r.returncode,'stdout':r.stdout.decode(errors='replace'),'stderr':r.stderr.decode(errors='replace')}
++original=fingerprint();assert original==json.loads((R/'reports/stage5_05_board/original_before.json').read_text())
++frozen=json.loads((R/'reports/stage5_05_board/build_final_v2/source_manifest.json').read_text())
++assert len(frozen)==104 and all(sha(R/'stage5_05_source_final_v2'/x['file'])==x['sha256'] for x in frozen)
++accepted=json.loads((R/'reports/stage5_05_board/accepted_binaries_before.json').read_text())
++assert all(sha(R/n)==h for n,h in accepted.items())
++raw=subprocess.check_output(['bash','-c','set -a; source "$1/tools/stage5_board_paths.sh"; env -0','rc',str(R)],timeout=15)
++env=dict(s.decode().split('=',1) for s in raw.split(b'\0') if b'=' in s)
++keys=['STAGE5_ASR','STAGE5_VAD','STAGE5_QWEN','STAGE5_KOKORO','STAGE5_VLM','STAGE5_VISION','STAGE5_SHERPA','STAGE5_RKLLM','STAGE5_RKNN_INCLUDE','STAGE5_RKNN_LIBRARY']
++files=set()
++for k in keys[:6]:
++ p=Path(env[k]);assert p.exists()
++ files.update(x for x in p.rglob('*') if x.is_file()) if p.is_dir() else files.add(p)
++for p in [Path(env['STAGE5_SHERPA'])/'lib/libsherpa-onnx-c-api.so',Path(env['STAGE5_SHERPA'])/'lib/libonnxruntime.so',Path(env['STAGE5_SHERPA'])/'include/sherpa-onnx/c-api/c-api.h',Path(env['STAGE5_RKLLM'])/'rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so',Path(env['STAGE5_RKLLM'])/'rkllm-runtime/Linux/librkllm_api/include/rkllm.h',Path(env['STAGE5_RKNN_INCLUDE'])/'rknn_api.h',Path(env['STAGE5_RKNN_LIBRARY'])]:
++ assert p.is_file(),p
++ files.add(p)
++dependencies=[{'path':str(p),'resolved_path':str(p.resolve()),'bytes':p.stat().st_size,'sha256':sha(p)} for p in sorted(files)]
++try:
++ audio=discover_audio();device=devices(audio)
++except AssertionError as error:
++ audio={'available':False,'reason':str(error),'cards':Path('/proc/asound/cards').read_text()};device={'clear':None,'scope':'not checked: required HyperX device unavailable; no hardware run authorized by this preflight result'}
++result={'uid':os.getuid(),'uname':query(['uname','-a']),'os_release':Path('/etc/os-release').read_text(),'memory':query(['free','-b']),'cmake':query(['cmake','--version']),'compiler':query(['c++','--version']),'qt':query(['qmake','-query','QT_VERSION']),'disk_free_bytes':shutil.disk_usage(R).free,'paths':{k:env[k] for k in keys},'dependencies':dependencies,'original_321_unchanged':True,'accepted_binaries_unchanged':True,'frozen_104_match':True,'audio':audio,'devices':device,'RC_target_absent':True,'no_hardware_program_started':True}
++assert result['disk_free_bytes']>700*1024**2
++(report/'preflight.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
++print('RC_PREFLIGHT',json.dumps(result,ensure_ascii=False))
+diff --git a/tools/stage5_rc_prepare.py b/tools/stage5_rc_prepare.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_prepare.py
+@@ -0,0 +1,59 @@
++"""Freeze accepted Stage5 source and collect RC materials without changing history."""
++from pathlib import Path
++import hashlib,json,shutil,subprocess,tarfile
++from datetime import datetime,timezone
++
++ROOT=Path(__file__).resolve().parents[1]
++OUT=ROOT/'releases/stage5-rc1'
++REPORT=ROOT/'reports/stage5_rc1_local'
++def sha(p):
++ h=hashlib.sha256()
++ with p.open('rb') as f:
++  for chunk in iter(lambda:f.read(1024*1024),b''):h.update(chunk)
++ return h.hexdigest()
++def save(p,v):p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
++def main():
++ REPORT.mkdir(exist_ok=True);assert not OUT.exists(),'never replace an RC snapshot';OUT.mkdir(parents=True)
++ git={}
++ for name,args in {'root':['rev-parse','--show-toplevel'],'branch':['symbolic-ref','--short','HEAD'],'HEAD':['rev-parse','HEAD'],'status':['status','--short','--untracked-files=all'],'tag':['tag','--list','stage5-rc1']}.items():
++  r=subprocess.run(['git',*args],cwd=ROOT,capture_output=True,timeout=15)
++  git[name]={'argv':['git',*args],'exit_code':r.returncode,'stdout':r.stdout.decode(errors='replace'),'stderr':r.stderr.decode(errors='replace')}
++ assert git['root']['exit_code']!=0,'Git repo appeared; review actual branch before freezing'
++ save(REPORT/'git_state.json',git)
++ rows=json.loads((ROOT/'reports/stage5_05_local/final_v2_deployment_manifest.json').read_text())
++ manifest=[]
++ for row in rows:
++  p=ROOT/row['file'];assert p.is_file() and not p.is_symlink() and sha(p)==row['sha256'],row['file']
++  target=OUT/'source'/row['file'];target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(p,target)
++  manifest.append({'file':row['file'],'bytes':p.stat().st_size,'sha256':sha(p)})
++ assert len(manifest)==104
++ encoded=json.dumps(manifest,sort_keys=True,separators=(',',':')).encode()
++ version={'version':'stage5-rc1','created_at_UTC':datetime.now(timezone.utc).isoformat(),'git_commit':None,'git_tag_created':False,'git_reason':'workspace is not a Git repository','source_snapshot_id':'sha256:'+hashlib.sha256(encoded).hexdigest(),'source_manifest_format':'UTF-8 json.dumps(rows,sort_keys=True,separators=(comma,colon)); rows ordered as SOURCE_MANIFEST.json','accepted_board_source':'stage5_05_source_final_v2','source_files':104,'core_modified':False,'models_and_SDK_included':False,'entry_switched':False}
++ save(OUT/'VERSION.json',version);save(OUT/'SOURCE_MANIFEST.json',manifest)
++ shutil.copytree(ROOT/'config',OUT/'config')
++ (OUT/'tools').mkdir();shutil.copyfile(ROOT/'tools/stage5_board_paths.sh',OUT/'tools/stage5_board_paths.sh')
++ shutil.copytree(ROOT/'docs',OUT/'docs',ignore=shutil.ignore_patterns('*.docx','*.pdf'))
++ shutil.copyfile(ROOT/'docs/RK3576_STAGE5_ENGINEERING_MANUAL.docx',OUT/'docs/RK3576_STAGE5_ENGINEERING_MANUAL.docx')
++ # Preserve diagram/screenshot paths referenced by the unchanged historical chapters.
++ for d in ['reports/stage5_05_local/plots','reports/stage5_05_local/figures']:
++  shutil.copytree(ROOT/d,OUT/d)
++ (OUT/'evidence').mkdir();old=ROOT/'reports/stage5_05_local';info=json.loads((old/'final_archive.json').read_text(encoding='utf-8'));archive=ROOT/info['archive'];assert sha(archive)==info['sha256']
++ with tarfile.open(archive,'r:gz') as t:
++  members=t.getmembers();assert len(members)==info['files'] and len({m.name for m in members})==len(members)
++  from pathlib import PurePosixPath
++  assert all(m.isfile() and not PurePosixPath(m.name).is_absolute() and '..' not in PurePosixPath(m.name).parts for m in members)
++  entries=json.loads(t.extractfile('reports/stage5_05_local/final_archive_manifest.json').read())
++  for row in entries:
++   f=t.extractfile(row['file']);h=hashlib.sha256();size=0
++   for b in iter(lambda:f.read(1024*1024),b''):h.update(b);size+=len(b)
++   assert size==row['bytes'] and h.hexdigest()==row['sha256'],row['file']
++ shutil.copyfile(archive,OUT/'evidence'/archive.name)
++ for name in ['final_archive.json','final_archive_manifest.json','final_delivery_receipt.json','manual_source_manifest.json','document_QA.json','INDEX.md','validation_summary.json','patch_roundtrip.json']:
++  shutil.copyfile(old/name,OUT/'evidence'/name)
++ for stage in range(1,6):
++  source=ROOT/f'reports/stage5_0{stage}_local';dest=OUT/'evidence'/f'stage5_0{stage}';dest.mkdir()
++  for name in ['changes.patch','validation_summary.json','change_manifest.json']:
++   if (source/name).exists():shutil.copyfile(source/name,dest/name)
++ save(REPORT/'freeze_result.json',{'version':version,'all_104_match_accepted':True,'historical_archive_all_hashes_checked':True,'historical_archive_files':info['files'],'historical_archive_sha256':info['sha256'],'git_state':git,'new_snapshot':str(OUT.relative_to(ROOT))})
++ print(json.dumps(version,ensure_ascii=False))
++if __name__=='__main__':main()
+diff --git a/tools/stage5_rc_remote.py b/tools/stage5_rc_remote.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_remote.py
+@@ -0,0 +1,14 @@
++"""Run RC-only SSH payloads with complete command/output/exit records."""
++from pathlib import Path
++from datetime import datetime
++import argparse,sys
++import stage5_phase2_deploy as t
++def main():
++ p=argparse.ArgumentParser();p.add_argument('payload',type=Path);p.add_argument('--timeout',type=int,default=180);a=p.parse_args()
++ source=a.payload.read_bytes();compile(source,str(a.payload),'exec')
++ report=t.ROOT/'reports/stage5_rc1_local'/('ssh_'+datetime.now().strftime('%Y%m%d_%H%M%S_%f'));report.mkdir()
++ rc=t.run_step(report,'remote',t.remote_command(),source,a.timeout)
++ print('LOG',report.relative_to(t.ROOT))
++ for leaf in ['remote.stdout.log','remote.stderr.log']:print((report/leaf).read_text(encoding='utf-8',errors='replace')[-5000:])
++ return rc
++if __name__=='__main__':raise SystemExit(main())
+diff --git a/releases/stage5-rc1/README.md b/releases/stage5-rc1/README.md
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/README.md
+@@ -0,0 +1,139 @@
++# RK3576 端侧多模态车载终端 · Stage 5 RC1
++
++基于 RK3576 的 Linux/C++17 端侧 AI 工程：把语音采集、意图路由、NPU 文本/视觉推理和语音播放接成可演示的系统，并通过有界异步队列、资源生命周期和性能证据解释工程取舍。用于嵌入式 Linux、C++、端侧部署实践及实习/秋招项目；不是经过7×24商用认证的车载产品。
++
++**状态：**5.1～5.5已在限定工况通过ARM64工程验收；本版仅冻结和整理，无核心推理修改。默认Kokoro 4线程，保留2线程。尚未切换主稳定工程。本地不是Git仓库，Git Commit及Tag均不存在；准确快照标识见 [VERSION.json](VERSION.json) 和 [SOURCE_MANIFEST.json](SOURCE_MANIFEST.json)。
++
++## 系统链路
++
++```mermaid
++flowchart LR
++  Mic[HyperX / ALSA] --> VAD[Silero VAD]
++  VAD --> AQ[有界音频段队列]
++  AQ --> ASR[SenseVoice / ASRWorker]
++  ASR --> Router[IntentRouter / 额度与请求ID]
++  Router --> IQ[共用有界推理队列]
++  IQ --> Qwen[TEXT / Qwen2.5 RKLLM]
++  IQ --> VLM[VISION / SmolVLM2]
++  Cam[IMX415 / V4L2 MMAP] --> Pool[独占拷贝 / 有界Frame池]
++  Pool --> Latest[LatestFrameBuffer / shared_ptr]
++  Latest --> Prep[按需NV12→512 RGB融合预处理]
++  Prep --> RKNN[RKNN Vision / 64×576]
++  RKNN --> VLM
++  Qwen --> TQ[有界TTS队列]
++  VLM --> TQ
++  TQ --> Kokoro[Kokoro合成→ALSA播放]
++```
++
++Camera持续采集，VLM执行时读取最新的有所有权Frame；不逐帧推理。采集Buffer在V4L2归还之前复制到受控CPU内存，异步线程不会借用已归还的MMAP指针。融合预处理缓存512×512 RGB和坐标表，生产路径为CPU，RKNN输入准备仍有SDK边界。
++
++VAD采集、ASR、共用InferenceWorker、TTSWorker与Camera独立运行。ASR只提交任务，不同步等待VLM。TEXT和VISION共享单消费者队列，在该业务入口串行调用RKNN/RKLLM；不是声称两个Engine自己的mutex提供跨模型锁。Request ID与steady_clock贯穿排队、推理、合成和音频提交；超时、过期、拒绝和取消均有日志和计数。
++
++Qt5 Widgets通过QProcess复用已有CLI，主事件循环不执行模型加载、阻塞推理或音频等待。窗口显示模块状态、识别文本、路由、回答、队列快照、错误和少量阶段延迟，支持开始/停止、2/4线程和排空/取消等待。关闭窗口先发协作信号，后台清理完成后才关闭。没有摄像头实时预览和AEC。
++
++## 环境和依赖
++
++LubanCat-3 / RK3576，IMX415 3840×2160 NV12，HyperX Cloud III USB双工音频；Linux 6.1.99-rk3576 aarch64，约3.8GiB RAM、无Swap。当前板已有Qt5.15.8、CMake、GCC、ALSA、RKNN及RKLLM，详细实查见 [DEPENDENCIES.md](DEPENDENCIES.md) 和机器可核对的 [DEPENDENCIES.json](DEPENDENCIES.json)。
++
++| 子系统 | 模型/Runtime | 运行位置 |
++|---|---|---|
++| ASR/VAD | SenseVoice INT8、Silero；sherpa-onnx1.13.8 / ORT1.28.2 | CPU |
++| TEXT | Qwen2.5-1.5B-Instruct W4A16，RKLLM | NPU |
++| VISION | SmolVLM2-256M W4A16 + RKNN Vision；输入RGB512，输出64×576 | NPU |
++| TTS | Kokoro multi-lang v1_1，sid17，24kHz | CPU，默认4线程 |
++| Camera/播放 | V4L2 MMAP / ALSA | 原有内核与设备 |
++
++模型、SDK、系统动态库**不包含在发布包**，通过现有绝对路径只读复用；未复制权重、未声称重新训练模型。`tools/stage5_board_paths.sh`可只读读取原稳定CMakeCache中的SDK路径。启动器还复用当前隔离目录中已审计的HyperX发现及DRM持有者检查工具，明确依赖 `.../rk3576_multimodal_stage5_review/tools/` 和已有桌面身份基线；因此本包不是任意Linux上直接解压即运行的独立包。
++
++VISION分支将中文识别结果用于路由，实际问题固定为 **What do you see? Answer briefly.**，不是任意中文视觉问答。TEXT保留原有简短回答提示；本轮未改变Prompt、声音、语速、模型或推理参数。
++
++## 目录与版本边界
++
++```text
++stage5-rc1/
++  source/             唯一构建源：104项已验收CMake/C++/测试文件
++  config/             配置入口说明；当前语音入口主要使用位置参数
++  tools/              RC构建/启动与路径脚本
++  docs/               五节报告、源码讲解及完整手册
++  evidence/           历史证据归档、五节Diff、校验与数据索引
++  reports/            文档使用的真实图片及本轮RC结果
++  VERSION.json        版本及源码快照标识；git_commit=null
++  SOURCE_MANIFEST.json / PACKAGE_MANIFEST.json / SHA256SUMS
++```
++
++历史源码只在 `evidence/` 内作为取证材料，未加入正式启动路径。包内没有旧二进制、模型或SDK。`source/tests`保留历史探针以复现；RGA仅可选手动实验目标，未用于正常启动。新构建产物在板端RC自己的 `build/`，不进入源码归档。
++
++## ARM64 构建与测试
++
++在本板普通cat用户终端执行；同名build已存在时脚本停止，不自动清理：
++
++```bash
++rc=/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1
++cd "$rc"
++sha256sum -c SHA256SUMS
++python3 -I -B tools/build.py
++```
++
++构建脚本验证104文件SHA，配置Release、真实SDK和可选Qt，最多3个并行编译任务。逐步骤90/600/150秒超时；可用磁盘低于500MiB停止并保留日志。原始命令、stdout/stderr、CTest XML与退出码保存到隔离 `reports/stage5_rc1_board/build/`。精确CMake参数如下；手工重建时必须选全新的build和日志目录：
++
++```bash
++set -a
++source tools/stage5_board_paths.sh
++set +a
++cmake -S source -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON \
++  -DBUILD_QT_GUI=ON -DBUILD_WITH_RKLLM=ON -DBUILD_WITH_VLM=ON \
++  -DENABLE_SHERPA_ASR=ON -DSHERPA_ONNX_ROOT="$STAGE5_SHERPA" \
++  -DRKLLM_SDK_ROOT="$STAGE5_RKLLM" -DRKNN_INCLUDE_DIR="$STAGE5_RKNN_INCLUDE" \
++  -DRKNN_RUNTIME_LIBRARY="$STAGE5_RKNN_LIBRARY"
++cmake --build build --parallel 3
++QT_QPA_PLATFORM=offscreen ctest --test-dir build --output-on-failure --timeout 30
++```
++
++`-S/-B`区分源码与产物；ON配置链接真实SDK，不代表CTest调用真实模型。ARM64注册8项是确定性/Fake测试（Qt使用真实Qt、Fake子进程）；真实硬件闭环的日志独立保存。Qt缺失时可 `BUILD_QT_GUI=OFF` 保留CLI，但不能据此宣称GUI已验证。
++
++## Qt 与 CLI 演示
++
++当前桌面cat终端执行，先接回HyperX；脚本动态发现CARD ID，不使用历史数字声卡：
++
++```bash
++bash "$rc/tools/launch.sh" gui 4
++# CPU负担或散热条件不适合时，可明确选2线程
++bash "$rc/tools/launch.sh" gui 2
++# 保留完整CLI入口，Ctrl+C协作退出
++bash "$rc/tools/launch.sh" cli 4
++```
++
++GUI点击开始，等待监听后问“一加一等于几”，听完再问“前面有什么”。监听180秒，之后可重新开始；不是后台常驻服务。模型加载可能耗时，GUI保持事件响应。安全停止可排空已接受任务，或取消等待任务；正在执行的同步SDK请求允许完成。SIGINT/SIGTERM由普通等待线程协作处理，handler不调用Qt、mutex或join。
++
++GUI复用现有xcb桌面与认证；SSH本身不提供图形显示。不得安装软件或改系统权限来绕过缺依赖。若桌面会话重启导致DRM基线变更，按既有最终操作说明运行只读 `stage5_05_npu_inventory.py`生成新文件并人工核查；不得结束systemd/logind/Xorg来让DRM句柄归零。日志写入隔离 `reports/stage5_05_board/rc1_manual_.../`。
++
++## 实测成果与统计口径
++
++| 工作 | 实测结果 | 结论边界 |
++|---|---|---|
++| 5.2 ASR与VLM解耦 | 受控VISION业务提交1737.730ms→0.034758ms | 提交调度改善，不是NPU计算同比加速 |
++| 5.3 CPU融合预处理 | n=12比较，平均耗时降低24.67% | 局部预处理，不冒充完整交互加速 |
++| 5.4 Kokoro 2→4线程 | 固定中文/英文暖态各n=30，平均合成耗时分别降低30.42%/29.74% | 同模型/文本/声音；CPU明显增加，RTF仍>1 |
++| 5.5 2/4线程混合负载 | 各约30分钟，分别121/121完成 | 预分段固定音频，真实ASR，绕过麦克风/VAD |
++| 最终Qt版本 | 1837.782秒，121/121完成，Camera29.9952FPS，XRUN0 | 固定输入混合负载；一次Camera序号间隙 |
++| 真实麦克风/耳机/Qt | 用户确认两类回答听到、视觉大致相符、窗口信息正确 | 有限自然输入；独立于自动长测 |
++
++完整均值、P50/P95、输入、暖态规则、RSS和CPU样本见证据索引，不能混用单次样本与分布。Qt长测后台RSS峰值约2715MiB、Qt约89MiB，RSS在所测区间趋稳不是闭源SDK绝无泄漏的证明。一次发布收尾不重复先前长测。
++
++## 已知限制
++
++- TTS合成和播放仍串行处理一个任务，RTF>1，4线程增加CPU资源消耗；保留2线程回退。
++- 历史记录出现Linux热限制活动；有限节奏混合负载结果不代表持续饱和或任意散热环境。本轮不额外分析温控、不改变温控配置。
++- Qt长测出现一次V4L2 driver sequence gap；后续64次真实视觉调用未复现，根因未明确。LatestFrameBuffer主动替换旧帧、驱动DQBUF序号间隙、消费者读到的帧ID不连续是不同指标。未来可同时记录DQBUF序号/时间戳、发布/丢弃计数及请求读取ID，与内核日志关联；本轮不继续专项排查。
++- RGA实验失败路径如实保留，未启用生产RGA；未实现端到端Zero-copy。
++- 无AEC/PTT、语音打断、任意中文视觉问答；部分真实拔插/SDK内部异常及更长运行未验证。
++- 无可信NPU利用率、功耗、真实声学输出时间戳；“首次ALSA提交”不等于人耳实际听到时刻，精确Token级TTFT未直接测量。
++
++## 文档、复现与发布
++
++- [完整工程手册 Markdown](docs/RK3576_STAGE5_ENGINEERING_MANUAL.md) / [Word](docs/RK3576_STAGE5_ENGINEERING_MANUAL.docx)：正文与已验收源码一致，RC Word仅将历史Letter修正为A4；包含61道面试题，历史252页版保留在证据归档。
++- [5.1架构审计](docs/stage5_01_architecture_audit.md)、[5.2异步Pipeline](docs/stage5_02_async_pipeline.md)、[5.3内存链路](docs/stage5_03_memory_pipeline.md)、[5.4性能Profiling](docs/stage5_04_performance_profiling.md)、[5.5验收](docs/stage5_05_final_acceptance.md)。具体历史文件以 [EVIDENCE_INDEX.md](EVIDENCE_INDEX.md) 实查索引为准。
++- [依赖及实际模型指纹](DEPENDENCIES.md)、[安全升级与回滚](DEPLOY_AND_ROLLBACK.md)、[RC验收结论](RC_ACCEPTANCE.md)。
++- 完整五节Git格式Diff位于 `evidence/stage5_0*/changes.patch`，原始日志、CSV/JSON、失败实验和历史源码位于内层 `evidence/RK3576_STAGE5_FINAL_REVIEW.tgz`，查阅时只解到全新证据目录，不用于正式启动。
++
++本轮不公开推送、不切换默认入口、不覆盖原 `build/stage5_full`。正式切换前接回HyperX做两条必要冒烟，并由用户明确批准；否则保持双版本独立命令运行。
+diff --git a/releases/stage5-rc1/DEPENDENCIES.md b/releases/stage5-rc1/DEPENDENCIES.md
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/DEPENDENCIES.md
+@@ -0,0 +1,40 @@
++# 模型、SDK 与外部运行依赖
++
++本包不含模型、SDK、系统库或构建产物。以下路径来自本轮板端只读查询；398项普通依赖文件逐文件大小和SHA在DEPENDENCIES.json。只读引用不会把外部模型纳入RC源码快照身份。
++
++| 环境变量 | 实际配置路径 |
++|---|---|
++| STAGE5_ASR | `/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17` |
++| STAGE5_VAD | `/home/cat/projects/RK3576/asr_runtime/vad/silero_vad.onnx` |
++| STAGE5_QWEN | `/home/cat/projects/RK3576/rkllm_sdk/models/Qwen2.5-1.5B-Instruct_RK3576_w4a16.rkllm` |
++| STAGE5_KOKORO | `/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1` |
++| STAGE5_VLM | `/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm` |
++| STAGE5_VISION | `/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn` |
++| STAGE5_SHERPA | `/home/cat/projects/RK3576/rk3576_multimodal/../asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu` |
++| STAGE5_RKLLM | `/home/cat/projects/RK3576/rk3576_multimodal/../rkllm_sdk` |
++| STAGE5_RKNN_INCLUDE | `/home/cat/projects/RK3576/rk3576_multimodal/../rknn_test/include` |
++| STAGE5_RKNN_LIBRARY | `/usr/lib/librknnrt.so` |
++
++Debian GNU/Linux12 bookworm，Linux6.1.99-rk3576 aarch64，CMake3.25.1，GCC12.2，Qt5.15.8。sherpa1.13.8 / ORT1.28.2、RKLLM1.3.1、RKNPU驱动0.9.8来自已验收真实Runtime日志；未在本轮为查询版本重新加载模型。SO文件名不能单独当作Runtime API版本。模型制品以文件SHA为准，文件名不是训练来源证明。
++
++## 关键制品指纹
++
++| 实际文件 | 字节数 | SHA256 |
++|---|---|---|
++| `/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx` | 239233841 | `c71f0ce00bec95b07744e116345e33d8cbbe08cef896382cf907bf4b51a2cd51` |
++| `/home/cat/projects/RK3576/asr_runtime/vad/silero_vad.onnx` | 643854 | `9e2449e1087496d8d4caba907f23e0bd3f78d91fa552479bb9c23ac09cbb1fd6` |
++| `/home/cat/projects/RK3576/rk3576_multimodal/../asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/lib/libonnxruntime.so` | 34606912 | `cfc800d4438f15e8d9017521326776ca7117d8783cb847ccccc2fc61ac4d540f` |
++| `/home/cat/projects/RK3576/rk3576_multimodal/../asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/lib/libsherpa-onnx-c-api.so` | 4613032 | `11378e1aea169aecb59a4d41ca8da6f5ee4f3614c34a4b908dd78de7646a518d` |
++| `/home/cat/projects/RK3576/rk3576_multimodal/../rkllm_sdk/rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so` | 7674816 | `f25e9b099db08aaacd0a3ac62b4697d3951d6ae61ae41ea09f6702cfa89eb32c` |
++| `/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm` | 151406684 | `58afa4e10b5a6cdffb1822264d8e92df989cdcc84b3f93278c2b521cf348ea8e` |
++| `/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn` | 223089969 | `48b3cf2cbbc19c55e0ceb13afa039ff36f14a0ef93ae8edf52bfd9cf27081eeb` |
++| `/home/cat/projects/RK3576/rkllm_sdk/models/Qwen2.5-1.5B-Instruct_RK3576_w4a16.rkllm` | 1410933676 | `70b4b3c54221892cc403aa877612e0bfdc24abeda5e0011ee3a2e9a3c24e332c` |
++| `/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/model.onnx` | 325631784 | `acc4adc175b9d9986106cd20060329673ad5a2e12ef3c557d2d3745b694f8b38` |
++| `/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/voices.bin` | 53790720 | `e64a5a581d8c2a350d848f51c3121657cd83aa07ed6109172177345874a7244c` |
++| `/usr/lib/librknnrt.so` | 7259064 | `73993ed4b440460825f21611731564503cc1d5a0c123746477da6cd574f34885` |
++
++## 外部工具和桌面条件
++
++启动器依赖隔离根目录tools/stage5_05_voice_run.py及其stage5_04_run.py、stage5_board_readonly_inventory.py等导入链；采用现有绝对路径，有完整版本副本在历史证据归档。DRM桌面持有者基线位于隔离reports/stage5_05_board/npu_primary_baseline.json；重新登录/重启后应运行既有只读inventory重新核查，不能强行结束桌面进程。现有cat用户X11/xcb与认证、Python3、bash、ALSA开发库、Qt Widgets/Test头文件均为环境依赖。构建与运行不用sudo；已有sudo -n fuser只查询资源持有者，不修改设备权限。
++
++本轮/proc/asound/cards只显示板载es8388、HDMI和DP，无HyperX，真实麦克风与播放未重复测试。先前5.5用户听音确认及GUI截图保留。正式切换前必须接回耳机并执行两条冒烟。
+diff --git a/releases/stage5-rc1/DEPLOY_AND_ROLLBACK.md b/releases/stage5-rc1/DEPLOY_AND_ROLLBACK.md
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/DEPLOY_AND_ROLLBACK.md
+@@ -0,0 +1,105 @@
++# Stage5 RC1 版本化部署与回滚
++
++本轮仅部署独立 RC、重新构建和确定性测试，不切换任何正式入口。以下“切换”命令均为**尚未执行，必须等待用户单独批准**。原稳定工程及 `build/stage5_full` 保持原路径。RC 不是脱离模型、SDK及当前隔离环境的便携包。
++
++## 1. 固定路径与保护
++
++```bash
++isolation=/home/cat/projects/RK3576/rk3576_multimodal_stage5_review
++stable=/home/cat/projects/RK3576/rk3576_multimodal
++rc="$isolation/releases/stage5-rc1"
++test "$(readlink -f -- "$isolation")" = "$isolation" || exit 1
++test "$(readlink -f -- "$stable")" = "$stable" || exit 1
++test "$rc" = "$isolation/releases/stage5-rc1" || exit 1
++test -x "$stable/build/stage5_full/asr_llm_tts_smoke" || exit 1
++```
++
++`readlink -f` 拒绝符号链接带来的路径漂移。禁止 `cp -r RC stable`、删除旧 build、修改模型/SDK或系统温控。原版本完整源码、构建产物由既有目录保留；321 项清单及四个历史验收程序指纹位于历史证据归档。本轮再次读取比对，未另外复制大模型。
++
++## 2. 新机器或另一个版本目录的部署步骤
++
++先检查外层 `.tgz.sha256` 和 `SHA256SUMS`。用 `tar -tzf` 查看内容，必须全部位于 `stage5-rc1/`，无绝对路径、`..`、反斜杠、符号链接、设备文件或重复条目。本轮自动校验脚本还逐文件核对 `PACKAGE_MANIFEST.json` 中 SHA256 和大小。
++
++```bash
++test ! -e "$rc" && test ! -L "$rc" || exit 1
++test "$(df -B1 --output=avail "$isolation" | tail -1)" -gt 734003200 || exit 1
++# 将实际 RC 外层归档放在隔离 reports/stage5_rc1_board 中；先核对随附外层 SHA。
++sha256sum -c stage5-rc1.tgz.sha256
++tar -tzf stage5-rc1.tgz
++# 仅在完成路径与成员校验后：独占新目录，不覆盖历史目录。
++tar --keep-old-files --no-same-owner --no-same-permissions -xzf stage5-rc1.tgz -C "$isolation/releases"
++cd "$rc"
++sha256sum -c SHA256SUMS
++python3 -I -B tools/build.py
++```
++
++上面是重建说明，**不能直接在本轮已经创建的 RC 同名目录重复执行**。`tools/build.py` 要求普通 cat 用户、确切授权路径、新 build 和新日志目录，逐步骤限制 90/600/150 秒并监控磁盘 500 MiB 下限。失败保留所有产物，不清理任何目录。独立移植到其他根路径需要先审查构建/启动脚本中的路径约束；不是修改系统或使用 sudo 编译的理由。
++
++## 3. 切换前少量冒烟
++
++1. 接回 HyperX；确认 `/proc/asound/cards` 可识别；从现有 cat 桌面运行 `bash "$rc/tools/launch.sh" gui 4`。
++2. 点击开始，等待监听，问“一加一等于几”，听完再问“前面有什么”；确认耳机、画面描述、识别文本、路由和回答。
++3. 点击安全停止，确认有序退出；重新开始一轮后关闭窗口，等待后台退出。
++4. 可在独立终端对本次记录的 launcher PID 发 SIGTERM。发信号前用 `/proc/PID/exe` 和命令行确认其确属 RC，不能使用 `pkill` 扫描终止。CLI 可直接 Ctrl+C。
++
++成功标准：实际两条回答听到、正确路由，终端 shutdown complete，退出码0，Camera/ALSA关闭，NPU句柄恢复到已登记桌面基线，没有强杀。固定输入回放或 `TTS success=true` 不能替代人工听音。当前收尾预检未发现 HyperX，故本轮不新增真实声音验收，复用已通过5.5证据；此步留作正式切换前的必要检查。
++
++## 4. 经批准后的入口切换设计（未执行）
++
++优先保留两个显式命令：RC 的 `tools/launch.sh` 与原稳定 CLI，而不覆盖原工程。如果确需一个入口，可在隔离范围建立 `releases/current.env` 选择文件；它没有任何 systemd/autostart 效果，调用者必须主动读取。先创建指向已验收5.5入口的回滚记录：
++
++```bash
++# 以下命令仅在用户明确批准后执行。
++cd "$isolation/releases"
++test ! -e current.env && test ! -L current.env || exit 1
++stamp=$(date -u +%Y%m%d_%H%M%S)_$$
++backup="current.before_rc1.$stamp.env"
++test ! -e "$backup" || exit 1
++(set -o noclobber; printf 'STAGE5_ENTRY=%s\n' "$isolation/tools/stage5_05_launch_gui.sh" > "$backup")
++next="current.next.$stamp.env"
++(set -o noclobber; printf 'STAGE5_ENTRY=%s\n' "$rc/tools/launch.sh" > "$next")
++test -f "$next" && test ! -L "$next" || exit 1
++mv -T -- "$next" current.env
++```
++
++选择文件只存可信绝对路径，调用前必须白名单校验；历史 GUI 入口参数是 `4`，RC 入口参数是 `gui 4`，二者**不能不分版本地直接复用相同参数**。不 `source` 任意下载文件。正式部署时应先停完旧会话再启动另一个版本，防止Camera/ALSA/NPU竞争。
++
++## 5. 回滚（未执行）
++
++先用 RC 窗口安全停止/关闭或对已核实的本次 PID 发信号，等待清理；不要强制删除运行目录。随后直接启动原已验收 GUI：
++
++```bash
++cd "$isolation"
++bash tools/stage5_05_launch_gui.sh 4
++```
++
++该路径重新使用5.5既有二进制，适合撤销本次 RC 包装/启动脚本问题。若要退回最初主稳定 CLI，则普通 cat 用户执行：
++
++```bash
++set -a
++source "$isolation/tools/stage5_board_paths.sh"
++set +a
++# 先动态确定 HyperX 的实际 CARD ID，不能写死历史数字声卡。
++audio=$(python3 -I -B -c 'import sys;sys.path.insert(0,sys.argv[1]+"/tools");from stage5_05_voice_run import discover_audio,devices;a=discover_audio();assert devices(a)["clear"];print(a["alsa_device"])' "$isolation")
++"$stable/build/stage5_full/asr_llm_tts_smoke" "$audio" "$STAGE5_ASR" "$STAGE5_VAD" "$STAGE5_QWEN" "$STAGE5_KOKORO" "$audio" 120 2 17 "$STAGE5_VLM" "$STAGE5_VISION" /dev/video11
++```
++
++原稳定版本的信号行为以其历史实现为准，不能把5.1后的协作退出结论套给旧程序。旧程序需要正常结束有限监听，并让已接收回答播放结束。回滚成功标准：所运行 `/proc/PID/exe` 是选定旧路径，原文件 SHA 未变，TEXT/VISION及播放正常，旧会话资源已释放。
++
++如已经建立选择文件，以下命令仍需单独批准，并把 `backup` 换为上次保存的确切文件名：
++
++```bash
++cd "$isolation/releases"
++backup=current.before_rc1_实际已记录文件名.env  # 换为保存的实际 basename
++case "$backup" in current.before_rc1.*.env) ;; *) exit 1;; esac
++test -f "$backup" && test ! -L "$backup" || exit 1
++test "$(cat -- "$backup")" = "STAGE5_ENTRY=$isolation/tools/stage5_05_launch_gui.sh" || exit 1
++test -f current.env && test ! -L current.env || exit 1
++test "$(cat current.env)" = "STAGE5_ENTRY=$rc/tools/launch.sh" || exit 1
++restore="current.restore.$(date -u +%Y%m%d_%H%M%S)_$$.env"
++(set -o noclobber; cat -- "$backup" > "$restore")
++mv -T -- "$restore" current.env
++test "$(cat current.env)" = "STAGE5_ENTRY=$isolation/tools/stage5_05_launch_gui.sh" || exit 1
++```
++
++示例占位值本身不会通过case白名单，避免未经选择就执行回滚。所有旧源码、模型、build、日志、RC 都保留，回滚不依赖删除目录或覆盖二进制。
+diff --git a/releases/stage5-rc1/EVIDENCE_INDEX.md b/releases/stage5-rc1/EVIDENCE_INDEX.md
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/EVIDENCE_INDEX.md
+@@ -0,0 +1,17 @@
++# 五阶段证据与RC结果索引
++
++历史完整归档：evidence/RK3576_STAGE5_FINAL_REVIEW.tgz，外层SHA及逐文件清单见evidence/final_archive.json和final_archive_manifest.json。本轮已逐文件验证其中4835成员，未重写历史失败。只解到新证据目录，不把归档中的历史源码或路径当正式入口。
++
++| 小节 | 报告 | 独立Diff/机器结果 |
++|---|---|---|
++| 5.1 | [报告](docs/stage5_01_architecture_audit.md) | [Git格式Diff](evidence/stage5_01/changes.patch)、[验证结果](evidence/stage5_01/validation_summary.json) |
++| 5.2 | [报告](docs/stage5_02_board_acceptance.md) | [Git格式Diff](evidence/stage5_02/changes.patch)、[验证结果](evidence/stage5_02/validation_summary.json) |
++| 5.3 | [报告](docs/stage5_03_memory_pipeline.md) | [Git格式Diff](evidence/stage5_03/changes.patch)、[验证结果](evidence/stage5_03/validation_summary.json) |
++| 5.4 | [报告](docs/stage5_04_performance_profiling.md) | [Git格式Diff](evidence/stage5_04/changes.patch)、[验证结果](evidence/stage5_04/validation_summary.json) |
++| 5.5 | [报告](docs/stage5_05_final_acceptance.md) | [Git格式Diff](evidence/stage5_05/changes.patch)、[验证结果](evidence/stage5_05/validation_summary.json) |
++
++历史内层归档保留的最新规范采集目录：5.2 collected_20261017_195843；5.3 collected_20261017_205548；5.4 collected_20261017_231748；5.5 collected_20261018_014600。5.1为原始phase2/phase3目录。
++
++5.5原始terminal、profile.jsonl、CSV/JSON在reports/stage5_05_board/collected_20261018_014600/files/reports/stage5_05_board/；本地analysis在reports/stage5_05_local/analysis/。自然麦克风用户反馈为gui_microphone_final_v2/user_feedback.json，真实截图已放在reports/stage5_05_local/figures/并嵌入手册。
++
++RC本轮重建日志直接提供reports/rc_build/的stdout/stderr、steps.json、ctest.xml、result.json；确切二进制SHA也在result.json。没有把重建8项Fake测试说成新的硬件闭环。历史全部Git Diff分别保留，RC核心104项变化数为0，新增内容是包装、文档及校验。
+diff --git a/releases/stage5-rc1/RC_ACCEPTANCE.md b/releases/stage5-rc1/RC_ACCEPTANCE.md
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/RC_ACCEPTANCE.md
+@@ -0,0 +1,61 @@
++# Stage 5 RC1 最终发布候选验收报告
++
++本轮完成版本冻结与交付准备，核心推理代码零修改。适用于RK3576端侧多模态工程实践、面试和有限演示；不扩大为7×24商业系统验收。正式入口尚未切换。
++
++## 版本与可追溯性
++
++- 版本：stage5-rc1。
++- 当前目录不是Git仓库，5条Git查询均真实退出128；分支、HEAD、未提交/未跟踪分类和Git Tag均不可取得。因此没有创建Commit或Git Tag，git_commit为null，未伪造提交。
++- 可验证源码快照：`sha256:2b19cd571f87e083b506da586aa1f1a772cd76ed253b1fe848337ff524fe6f87`。
++- 104项CMake/C++/头文件/测试与5.5已验收final_v2逐字节一致；逐项SHA见SOURCE_MANIFEST.json。上述标识由该清单规范JSON字节计算，算法见VERSION.json。
++- 板端独立RC：`/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1`。
++- 历史五节完整Git格式Diff分别在evidence/stage5_01～05/changes.patch；原日志、CSV/JSON、历史源码和原252页手册完整保存在内层历史归档，4835成员已经逐项核验。新包装文本Diff见evidence/rc_changes.patch，二进制变化以SHA清单追溯。
++
++## 本轮真实执行
++
++| 项目 | 结果与口径 |
++|---|---|
++| ARM64 CMake配置 | rc=0，2.003秒，真实RKLLM/RKNN/sherpa与Qt5开启 |
++| ARM64全量构建 | rc=0，155.584秒，最大并行3；未改模型、SDK或系统 |
++| ARM64 CTest | 8/8、失败0，CTest自身real=6.12秒；外层含启动采样6.511秒；每项上限30秒 |
++| 磁盘 | 构建后1,571,917,824字节，构建最低采样1,571,704,832字节，始终高于500MiB |
++| 原工程保护 | 构建前后321项SHA/大小/mtime一致，4个历史已验收程序不变 |
++| 依赖清单 | 实机只读记录398项模型、SDK、Runtime及音素资源的实际路径/大小/SHA |
++| 手册 | 原生Word实际打开/更新目录/导出；A4共238页已逐页检查，26处完整代码抽取、4449行代码一致，14处图像/11个去重媒体文件未改变且可解码 |
++
++8项CTest分别为：
++
++- `request_profile_tests`：请求ID、帧ID区分、steady事件及JSONL文本。 实测0.0263333秒。
++- `image_pipeline_tests`：CPU像素/stride/通道及有界Frame lease；Fake Camera。 实测0.596988秒。
++- `async_pipeline_tests`：连续ASR推进、TEXT/VISION交替、满载、取消/过期、重启与回调异常；Fake服务。 实测0.0368343秒。
++- `asr_pipeline_tests`：音频队列关闭唤醒、排空、析构及服务/回调异常；Fake ASR。 实测0.0147641秒。
++- `audio_preprocessor_tests`：音频预处理纯逻辑。 实测0.00943169秒。
++- `llm_worker_tests`：Worker生命周期、任务执行与错误路径；Fake推理。 实测0.0102219秒。
++- `camera_service_tests`：Camera工作线程与停止/重启；Fake采集。 实测0.225106秒。
++- `gui_session_tests`：真实Qt offscreen事件循环、开始/停止/重启/关闭及错误恢复；Fake子进程。 实测5.18841秒。
++
++上述测试没有调用真实模型或占用Camera/ALSA/NPU。原始配置、构建、CTest stdout/stderr、完整argv、真实退出码及XML在reports/rc_build/。
++
++本轮只读预检发现HyperX不在/proc/asound/cards，首轮预检因此退出失败，保留原始Traceback；修正收集脚本后明确记录缺失而不绕过硬件检查。未运行RC真实语音/Qt窗口/耳机冒烟，不把CTest当作耳机验证。现有5.5实际麦克风、耳机、视觉描述、Qt及约30分钟121/121闭环成果完整继承，源码同一性已核验。正式切换前需接回HyperX，动态发现声卡，完成两条语音、界面和安全停止的短冒烟；无需重复长测。
++
++## 手册一致性与修正
++
++仅RC Word副本将历史Letter纸张修正为任务书A4；更新TOC造成252→238页重排。正文、表格、源码和嵌入图像保持一致，Markdown未改字节。原252页文件未修改。楷体/Times New Roman小四、1.5倍行距、两字符首行缩进、加粗标题及等宽代码已查；真实Qt截图沿用验收记录。61道面试问答按各节10/10/15/14/12保留，与相应阶段及最终源码讲解对应。历史章节中的“后续进入下一节”“user_acceptance_pending=true”是当时交付快照，本次用户已验收5.1～5.5，RC推广仍待批准。历史命令保留原路径，RC日常入口以本包README为准。
++
++文档检查器首轮误把14处图片插入当14个ZIP媒体文件，实际Word去重为11个；修正检查器分别核验14处与11项SHA。5.4问答标题实际为“操作 N”，检查器改为匹配真实标题。没有为通过检查改写手册正文或历史结果。Markdown缺少的5.4引用图已按原SHA复制补齐。详细机器检查在reports/document_QA.json与visual_review.json。
++
++## 性能与剩余风险
++
++沿用原条件：5.3融合CPU预处理n12平均下降24.67%；5.4固定中文/英文暖态各n30合成均值下降30.42%/29.74%，CPU接近翻倍，RTF仍>1。5.2提交耗时下降是调度改善，不是NPU同比加速。原Qt约1837.782秒121/121固定输入混合请求完成，Camera29.9952FPS、XRUN0，不能据此宣称任意工况稳定或整体端到端加速30%。
++
++默认Kokoro4线程，保留2线程回退。历史Linux热限制活动原样保留，本轮未做额外热专项/降频研究/长测，也未改温控。一次Camera driver sequence gap根因未明，后续64次视觉复测未复现；LatestFrameBuffer主动替换旧帧不等于驱动采集丢帧或消费者帧ID间隙，后续定位建议见README。
++
++RGA未启用、未实现全链路Zero-copy；部分真实拔插、闭源SDK内部故障和更长持续运行未验证。无可信NPU利用率、功耗或真实声学时间戳；首次ALSA提交不是人耳听到时刻，首文本chunk不是精确Token TTFT。同步SDK永久阻塞仍是协作退出的边界，无AEC/PTT/语音打断。运行依赖现有板端模型/SDK、Qt桌面及隔离工具，不是脱离环境的独立运行包。
++
++## 交付及升级判断
++
++建议将stage5-rc1作为实践与演示用途的最终发布候选交付；不建议现在直接覆盖或切换主工程。接回HyperX完成短冒烟并获用户明确批准后，可按DEPLOY_AND_ROLLBACK.md进行版本入口选择；异常时恢复原5.5GUI或原稳定CLI，原目录与程序始终保留。
++
++本包不含正式构建二进制/大型模型/SDK；板端RC/build为本轮独立编译产物，两个主入口SHA在reports/rc_build/result.json。历史证据内的旧源码和实验程序仅用于查阅，不进入RC正式构建/启动路径。SHA256SUMS与PACKAGE_MANIFEST.json区分源码/文档/证据；外层归档及其自身SHA、板端最后落盘和保护检查位于外部reports/stage5_rc1_local/archive_result.json及final_delivery_receipt.json，避免自身归档哈希的循环引用。打包前本报告不预填未来上传成功。
++
++下一步仅为用户审核。未切换入口、未覆盖主工程、未公开推送、未安装软件或修改系统配置；停止后续开发。
+diff --git a/releases/stage5-rc1/tools/build.py b/releases/stage5-rc1/tools/build.py
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/tools/build.py
+@@ -0,0 +1,40 @@
++"""Board-only RC rebuild with finite limits and a 500 MiB disk guard."""
++from pathlib import Path
++import hashlib,json,os,signal,subprocess,time
++
++def main():
++ root=Path(__file__).resolve().parents[1];allowed=Path('/home/cat/projects/RK3576/rk3576_multimodal_stage5_review')
++ assert root==allowed/'releases/stage5-rc1' and root.resolve()==root and os.getuid()==1000
++ manifest=json.loads((root/'SOURCE_MANIFEST.json').read_text())
++ assert all(hashlib.sha256((root/'source'/r['file']).read_bytes()).hexdigest()==r['sha256'] for r in manifest)
++ report=allowed/'reports/stage5_rc1_board/build';report.mkdir();build=root/'build';assert not build.exists()
++ steps=[]
++ def step(name,cmd,limit):
++  minimum=os.statvfs(root).f_bavail*os.statvfs(root).f_frsize;assert minimum>=500*1024**2
++  start=time.monotonic();reason=None
++  with (report/(name+'.stdout.log')).open('xb') as out,(report/(name+'.stderr.log')).open('xb') as err:
++   child=subprocess.Popen(cmd,stdout=out,stderr=err,start_new_session=True)
++   while child.poll() is None:
++    v=os.statvfs(root);free=v.f_bavail*v.f_frsize;minimum=min(minimum,free)
++    if free<500*1024**2:reason='disk_below_500MiB'
++    if time.monotonic()-start>limit:reason='timeout'
++    if reason:
++     os.killpg(child.pid,signal.SIGTERM)
++     try:child.wait(timeout=10)
++     except subprocess.TimeoutExpired:os.killpg(child.pid,signal.SIGKILL);child.wait(timeout=10)
++     break
++    time.sleep(.5)
++  r={'name':name,'argv':cmd,'returncode':child.returncode,'reason':reason,'seconds':time.monotonic()-start,'minimum_disk_free_bytes':minimum};steps.append(r)
++  (report/'steps.json').write_text(json.dumps(steps,indent=2)+'\n');print(json.dumps(r),flush=True)
++  return child.returncode==0 and reason is None
++ shell='source "$1/tools/stage5_board_paths.sh"; exec cmake -S "$1/source" -B "$1/build" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DBUILD_QT_GUI=ON -DBUILD_WITH_RKLLM=ON -DBUILD_WITH_VLM=ON -DENABLE_SHERPA_ASR=ON -DSHERPA_ONNX_ROOT="$STAGE5_SHERPA" -DRKLLM_SDK_ROOT="$STAGE5_RKLLM" -DRKNN_INCLUDE_DIR="$STAGE5_RKNN_INCLUDE" -DRKNN_RUNTIME_LIBRARY="$STAGE5_RKNN_LIBRARY"'
++ ok=step('configure',['bash','-c',shell,'rc',str(root)],90)
++ if ok:ok=step('build',['cmake','--build',str(build),'--parallel','3'],600)
++ if ok:ok=step('ctest',['bash','-c','source "$1/tools/stage5_board_paths.sh"; QT_QPA_PLATFORM=offscreen exec ctest --test-dir "$1/build" --output-on-failure --timeout 30 --output-junit "$2"','rc',str(root),str(report/'ctest.xml')],150)
++ bins={}
++ for n in ['asr_llm_tts_smoke','rk3576_multimodal_gui']:
++  p=build/n
++  if p.is_file():bins[n]={'sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'bytes':p.stat().st_size}
++ result={'successful':ok,'steps':steps,'binaries':bins,'source_files':len(manifest),'hardware_run':False,'disk_free_bytes':os.statvfs(root).f_bavail*os.statvfs(root).f_frsize}
++ (report/'result.json').write_text(json.dumps(result,indent=2)+'\n');return 0 if ok else 1
++if __name__=='__main__':raise SystemExit(main())
+diff --git a/releases/stage5-rc1/tools/launch.sh b/releases/stage5-rc1/tools/launch.sh
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/tools/launch.sh
+@@ -0,0 +1,29 @@
++#!/usr/bin/env bash
++# Explicit RC entry only; does not switch the user's default launcher.
++set -euo pipefail
++rc=/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1
++isolation=/home/cat/projects/RK3576/rk3576_multimodal_stage5_review
++[[ "$(readlink -f -- "${BASH_SOURCE[0]}")" == "$rc/tools/launch.sh" ]] || exit 2
++mode="${1:-gui}"; threads="${2:-4}"
++[[ "$mode" == gui || "$mode" == cli ]] && [[ "$threads" == 2 || "$threads" == 4 ]] || exit 2
++cd "$rc"
++set -a
++source tools/stage5_board_paths.sh
++set +a
++# Reuse the audited discovery/owner guard. Its current isolation path is an explicit dependency.
++audio=$(python3 -I -B -c 'import sys;sys.path.insert(0,sys.argv[1]+"/tools");from stage5_05_voice_run import discover_audio,devices;a=discover_audio();assert devices(a)["clear"],"device busy or DRM baseline changed";print(a["alsa_device"])' "$isolation")
++report="$isolation/reports/stage5_05_board/rc1_manual_$(date -u +%Y%m%d_%H%M%S)_$$"
++mkdir -m 700 "$report"
++for leaf in cache config data tmp shader_cache; do mkdir -m 700 "$report/$leaf"; done
++export XDG_CACHE_HOME="$report/cache" XDG_CONFIG_HOME="$report/config" XDG_DATA_HOME="$report/data" TMPDIR="$report/tmp" QT_SHADER_CACHE_DIR="$report/shader_cache"
++unset STAGE5_REPLAY_FILE STAGE5_REPLAY_AUDIO_FILE STAGE5_REPLAY_FRAME_DIR STAGE5_CAPTURE_AUDIO_FIXTURES
++export STAGE5_STOP_MODE="${STAGE5_STOP_MODE:-drain}"
++printf 'RC=stage5-rc1 HyperX=%s Logs=%s\n' "$audio" "$report"
++printf '%s\n' "$$" > "$report/launcher.pid"
++if [[ "$mode" == gui ]]; then
++ export DISPLAY="${DISPLAY:-:0}" XAUTHORITY="${XAUTHORITY:-/run/user/1000/gdm/Xauthority}" XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/1000}" QT_QPA_PLATFORM=xcb
++ exec "$rc/build/rk3576_multimodal_gui" --capture "$audio" --playback "$audio" --report-root "$report" --threads "$threads" --seconds 180
++else
++ export STAGE5_PROFILE="$report/profile.jsonl"
++ exec "$rc/build/asr_llm_tts_smoke" "$audio" "$STAGE5_ASR" "$STAGE5_VAD" "$STAGE5_QWEN" "$STAGE5_KOKORO" "$audio" 180 "$threads" 17 "$STAGE5_VLM" "$STAGE5_VISION" /dev/video11
++fi
+diff --git a/releases/stage5-rc1/tools/stage5_board_paths.sh b/releases/stage5-rc1/tools/stage5_board_paths.sh
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/tools/stage5_board_paths.sh
+@@ -0,0 +1,66 @@
++#!/usr/bin/env bash
++# Source this file. Historical paths from 4.md, verified on board before use.
++STAGE5_BASE=/home/cat/projects/RK3576
++STAGE5_ORIGINAL="$STAGE5_BASE/rk3576_multimodal"
++STAGE5_REVIEW="$STAGE5_BASE/rk3576_multimodal_stage5_review"
++STAGE5_ASR="$STAGE5_BASE/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17"
++STAGE5_VAD="$STAGE5_BASE/asr_runtime/vad/silero_vad.onnx"
++STAGE5_QWEN="$STAGE5_BASE/rkllm_sdk/models/Qwen2.5-1.5B-Instruct_RK3576_w4a16.rkllm"
++STAGE5_KOKORO="$STAGE5_BASE/tts_runtime/models/kokoro-multi-lang-v1_1"
++STAGE5_VLM="$STAGE5_ORIGINAL/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm"
++STAGE5_VISION="$STAGE5_ORIGINAL/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn"
++STAGE5_SHERPA="$STAGE5_BASE/asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu"
++STAGE5_RKLLM="$STAGE5_BASE/rkllm_sdk"
++STAGE5_RKNN_INCLUDE="$STAGE5_BASE/rknn_test/include"
++STAGE5_RKNN_LIBRARY=/usr/lib/librknnrt.so
++# Prefer the stable build's explicit SDK cache paths, never eval its contents.
++stage5_cache_value() {
++    local key="$1" cache="$STAGE5_ORIGINAL/build/stage5_full/CMakeCache.txt"
++    if [[ -r "$cache" ]]; then
++        sed -n "s/^${key}:[^=]*=//p" "$cache" | head -n 1
++    fi
++}
++stage5_value=$(stage5_cache_value SHERPA_ONNX_ROOT)
++[[ -z "$stage5_value" ]] || STAGE5_SHERPA="$stage5_value"
++stage5_value=$(stage5_cache_value RKLLM_SDK_ROOT)
++[[ -z "$stage5_value" ]] || STAGE5_RKLLM="$stage5_value"
++stage5_value=$(stage5_cache_value RKNN_INCLUDE_DIR)
++[[ -z "$stage5_value" ]] || STAGE5_RKNN_INCLUDE="$stage5_value"
++stage5_value=$(stage5_cache_value RKNN_RUNTIME_LIBRARY)
++[[ -z "$stage5_value" ]] || STAGE5_RKNN_LIBRARY="$stage5_value"
++unset stage5_value
++STAGE5_RKLLM_LIB="$STAGE5_RKLLM/rkllm-runtime/Linux/librkllm_api/aarch64"
++export LD_LIBRARY_PATH="$STAGE5_SHERPA/lib:$STAGE5_RKLLM_LIB:$(dirname -- "$STAGE5_RKNN_LIBRARY")${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
++
++stage5_check_dependencies() {
++    local path failed=0
++    for path in "$STAGE5_ASR/model.int8.onnx" "$STAGE5_ASR/tokens.txt" \
++        "$STAGE5_VAD" "$STAGE5_QWEN" "$STAGE5_KOKORO/model.onnx" \
++        "$STAGE5_KOKORO/tokens.txt" "$STAGE5_KOKORO/voices.bin" \
++        "$STAGE5_KOKORO/lexicon-us-en.txt" "$STAGE5_KOKORO/lexicon-zh.txt" \
++        "$STAGE5_VLM" "$STAGE5_VISION" \
++        "$STAGE5_SHERPA/include/sherpa-onnx/c-api/c-api.h" \
++        "$STAGE5_SHERPA/lib/libsherpa-onnx-c-api.so" \
++        "$STAGE5_RKLLM/rkllm-runtime/Linux/librkllm_api/include/rkllm.h" \
++        "$STAGE5_RKLLM_LIB/librkllmrt.so" \
++        "$STAGE5_RKNN_INCLUDE/rknn_api.h" "$STAGE5_RKNN_LIBRARY"; do
++        if [[ -r "$path" && -f "$path" ]]; then
++            stat -Lc 'READABLE %s bytes %n' -- "$path"
++        else
++            printf 'MISSING_OR_UNREADABLE %s\n' "$path"
++            failed=1
++        fi
++    done
++    [[ -d "$STAGE5_KOKORO/espeak-ng-data" ]] || failed=1
++    return "$failed"
++}
++
++stage5_stable_fingerprint() {
++    # Reads only: source files and the preserved known-good executable.
++    (
++        cd -- "$STAGE5_ORIGINAL"
++        { printf '%s\0' CMakeLists.txt build/stage5_full/asr_llm_tts_smoke;
++          find src include tests -type f \( -name '*.cpp' -o -name '*.h' -o -name '*.hpp' -o -name '*.cmake' \) -print0;
++        } | sort -z | xargs -0 sha256sum --
++    )
++}
+diff --git a/releases/stage5-rc1/tools/verify.py b/releases/stage5-rc1/tools/verify.py
+new file mode 100644
+--- /dev/null
++++ b/releases/stage5-rc1/tools/verify.py
+@@ -0,0 +1,29 @@
++"""Verify frozen RC data, source identity and manifest; no remote or system writes."""
++from pathlib import Path,PurePosixPath
++import hashlib,json
++def sha(p):
++ h=hashlib.sha256()
++ with p.open('rb') as f:
++  for b in iter(lambda:f.read(1024*1024),b''):h.update(b)
++ return h.hexdigest()
++def main():
++ root=Path(__file__).resolve().parents[1]
++ rows=json.loads((root/'PACKAGE_MANIFEST.json').read_text(encoding='utf-8'));names=[]
++ for r in rows:
++  n=r['file'];p=PurePosixPath(n);assert not p.is_absolute() and '..' not in p.parts and '\\' not in n and ':' not in n
++  target=root/n;assert target.is_file() and not target.is_symlink() and target.resolve().is_relative_to(root)
++  assert target.stat().st_size==r['bytes'] and sha(target)==r['sha256'],n;names.append(n)
++ assert len(names)==len(set(names))
++ hashes={}
++ for line in (root/'SHA256SUMS').read_text(encoding='utf-8').splitlines():
++  h,n=line.split('  ',1);assert n not in hashes;hashes[n]=h
++ assert set(hashes)==set(names)|{'PACKAGE_MANIFEST.json'}
++ assert all(sha(root/n)==h for n,h in hashes.items())
++ source=json.loads((root/'SOURCE_MANIFEST.json').read_text());version=json.loads((root/'VERSION.json').read_text())
++ actual={p.relative_to(root/'source').as_posix() for p in (root/'source').rglob('*') if p.is_file()}
++ assert actual=={r['file'] for r in source} and len(actual)==104
++ assert all(sha(root/'source'/r['file'])==r['sha256'] for r in source)
++ digest=hashlib.sha256(json.dumps(source,sort_keys=True,separators=(',',':')).encode()).hexdigest()
++ assert version['source_snapshot_id']=='sha256:'+digest
++ print(json.dumps({'version':version['version'],'source_snapshot_id':version['source_snapshot_id'],'package_data_files':len(rows),'all_hashes_match':True,'core_files':len(actual),'git_commit':version['git_commit']}))
++if __name__=='__main__':main()
+diff --git a/tools/stage5_rc_receipt.py b/tools/stage5_rc_receipt.py
+new file mode 100644
+--- /dev/null
++++ b/tools/stage5_rc_receipt.py
+@@ -0,0 +1,95 @@
++"""Write a post-delivery report without changing the frozen archive or RC files."""
++from pathlib import Path
++import json,hashlib,base64,difflib
++ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'reports/stage5_rc1_local';RC=ROOT/'releases/stage5-rc1'
++def main():
++ a=json.loads((OUT/'archive_result.json').read_text());r=json.loads((OUT/'final_delivery_receipt.json').read_text());v=json.loads((RC/'VERSION.json').read_text());assert a['sha256']==r['archive_sha256']
++ assert all(r[k] for k in ['original_321_unchanged','four_historical_binaries_unchanged','accepted_final_v2_104_unchanged','RC_binaries_unchanged_after_packaging'])
++ text=f'''# Stage 5 最终 RC 发布收尾报告
++
++日期：2026-10-18。最终候选版本 **stage5-rc1**，工程交付检查通过，停止开发并等待用户审核；尚未切换主工程或演示默认入口。
++
++## 版本冻结
++
++当前目录不是Git仓库，真实Git查询退出128；没有可报告的分支/HEAD/Commit，也未创建Git Tag。采用独立源码快照，标识为：
++
++`{v['source_snapshot_id']}`
++
++104项源码/头文件/测试/CMake与5.5已验收final_v2完全一致。本轮核心源码变化0。SOURCE_MANIFEST.json记录逐文件大小/SHA，VERSION.json记录快照计算方法。未初始化虚构历史，未强制覆盖任何标记。
++
++## 本轮检查与真实结果
++
++| 检查 | 实际结果 |
++|---|---|
++| ARM64配置及全量构建 | rc0；2.003秒/155.584秒；日志36条不同Built target，含2项AUTOMOC辅助目标 |
++| ARM64 CTest | 8/8、失败0、跳过0；CTest real 6.12秒，外层6.511秒，每项30秒上限；Fake/纯逻辑/真实Qt offscreen+Fake子进程，不是新的硬件闭环 |
++| 本地归档校验 | 260个安全普通文件，逐项SHA、路径安全检查、全新目录解压回放和verify.py均通过 |
++| 板端补齐与校验 | 新增150项；110项原有且SHA相同，跳过写入；verify.py rc0、sha256sum rc0、bash -n rc0、非法启动模式按预期rc2，未启动模型 |
++| 稳定工程保护 | 原稳定321项SHA/大小/mtime、4个历史程序、5.5冻结104项以及RC新编译主入口均核对通过 |
++| 板端最终剩余空间 | {r['disk_free_after_bytes']:,}字节，约{r['disk_free_after_bytes']/1024**3:.3f}GiB，超过500MiB护栏 |
++| 文档一致性 | A4手册238页逐页检查，26个源码片段、4449行代码、14处图像插入/11个去重媒体；正文及表格未变，61题保留 |
++
++本轮预检未识别HyperX，保留首次预检失败日志；未重复真实麦克风/耳机/Qt窗口和长测。此前5.5用户确认的两类回答、视觉与Qt正常，及约1837.782秒121/121混合负载成果，均保留原始证据且与冻结源码对应。不能将本次CTest冒充新的硬件验收。
++
++## 交付文件
++
++| 内容 | 本地相对本报告的路径 |
++|---|---|
++| 完整RC归档 | [stage5-rc1.tgz](stage5-rc1.tgz) |
++| 外层SHA | [stage5-rc1.tgz.sha256](stage5-rc1.tgz.sha256) |
++| 精确文件校验清单 | [SHA256SUMS](../../releases/stage5-rc1/SHA256SUMS)、[PACKAGE_MANIFEST](../../releases/stage5-rc1/PACKAGE_MANIFEST.json) |
++| 最终README及编译/CLI/Qt操作 | [项目README](../../README.md)、[包内README](../../releases/stage5-rc1/README.md) |
++| Word手册 | [A4 DOCX](../../releases/stage5-rc1/docs/RK3576_STAGE5_ENGINEERING_MANUAL.docx) |
++| Markdown手册 | [完整手册](../../releases/stage5-rc1/docs/RK3576_STAGE5_ENGINEERING_MANUAL.md) |
++| 模型/SDK/Runtime真实路径与398项指纹 | [依赖说明](../../releases/stage5-rc1/DEPENDENCIES.md)、[机器清单](../../releases/stage5-rc1/DEPENDENCIES.json) |
++| 五阶段日志/CSV/JSON/Diff索引 | [证据索引](../../releases/stage5-rc1/EVIDENCE_INDEX.md) |
++| RC完整文本包装Diff | [rc_full_text_changes.patch](rc_full_text_changes.patch)，含包内包装Diff及包外末次报告生成工具；核心零修改；Word排版变化SHA见document_QA |
++| 逐节完整Git格式Diff | ../../releases/stage5-rc1/evidence/stage5_01～05/changes.patch |
++| 历史完整证据 | ../../releases/stage5-rc1/evidence/RK3576_STAGE5_FINAL_REVIEW.tgz，4835成员、原日志/旧版本/失败实验均保留 |
++| 安全升级/回滚及路径保护命令 | [操作方案](../../releases/stage5-rc1/DEPLOY_AND_ROLLBACK.md) |
++| 本轮原始构建与CTest | board_build/、source_deploy/，包内reports/rc_build/ |
++| 本轮上传/板端校验及真实退出码 | final_deploy/、board_final/、[末次回执](final_delivery_receipt.json) |
++
++归档大小 **{a['bytes']:,}字节**，SHA256：
++
++`{a['sha256']}`
++
++板端RC位于 `{r['RC_directory']}`；归档位于 `{r['archive']}`。以普通cat权限创建，仅在既有隔离目录新增文件，没有覆盖旧源码、旧build、模型、SDK或配置。正式构建只从RC/source读取，运行仅选RC/build内GUI/CLI。历史实验源代码仅位于证据中；归档不复制大型模型/SDK/正式构建二进制，依赖现有绝对路径、Qt桌面及隔离工具，不能称为脱离环境的独立程序包。
++
++SHA256SUMS覆盖258项内容和PACKAGE_MANIFEST自身；外层压缩包及末次回执放在包外避免循环引用。原252页Letter手册未改；RC副本纠正A4后重排238页并更新目录，Markdown字节保持原样。章节中的历史待验收状态是当时快照，用户已确认5.1～5.5，当前待审批的是RC升级。
++
++## 保留风险与升级结论
++
++4线程作为演示默认、2线程可回退。固定中文/英文暖态各n30 TTS平均下降30.42%/29.74%，CPU消耗明显增加，RTF仍>1。5.3仅CPU预处理下降24.67%；5.2改善提交阻塞，不是NPU推理同比加速。历史热限制活动和一次Camera序号间隙（后续64次未复现、根因未明）如实保留，本轮没有额外热专项或更长压力测试。
++
++RGA未启用、未全链路Zero-copy、部分硬件/闭源SDK异常及更长运行未经验证；没有可信NPU利用率和声学时间戳，不把ALSA提交当人耳声学输出。同步SDK永久阻塞、无AEC/PTT/打断等局限继续保留。完整风险和后续定位方法见README及验收报告。
++
++**建议：作为有限演示/工程实践的最终RC交付。暂不直接切换主工程。** 正式切换前接回HyperX，动态确认声卡，执行两问、Qt展示、停止/重新开始与资源释放的少量冒烟，并取得用户明确批准；无需重复30分钟长测。升级与回滚命令已经准备但未执行，原稳定版本始终保留，可回到原5.5 GUI或原稳定CLI。
++
++本轮没有公开推送、安装系统软件、改温控/驱动/内核/设备树或切换入口。工作到此结束，等待用户审核。
++'''
++ (OUT/'FINAL_RELEASE_REPORT.md').write_text(text,encoding='utf-8')
++ result={'release_candidate':'stage5-rc1','git_commit':None,'source_snapshot_id':v['source_snapshot_id'],'core_changes':0,'source_files':104,'ARM64_build_passed':True,'CTest':{'registered':8,'passed':8,'failed':0,'skipped':0,'real_seconds':6.12,'hardware_models_used':False},'safe_archive_roundtrip':True,'board_package_hashes_match':True,'word_A4_pages':238,'new_hardware_smoke_this_round':False,'HyperX_missing':True,'historical_5_5_hardware_acceptance_preserved':True,'original_stable_unchanged':True,'entry_switched':False,'public_push':False,'recommendation':'RC delivery ready; reconnect HyperX and perform brief smoke plus explicit user approval before entry switch','archive':a,'board_receipt':r}
++ (OUT/'validation_summary.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
++ # Add only the final report and checksums outside the immutable RC tree/archive.
++ patch=(RC/'evidence/rc_changes.patch').read_text(encoding='utf-8')
++ for p in [Path(__file__),OUT/'FINAL_RELEASE_REPORT.md']:
++  name=p.resolve().relative_to(ROOT).as_posix();lines=p.read_text(encoding='utf-8').splitlines(keepends=True)
++  patch+='diff --git a/'+name+' b/'+name+'\nnew file mode 100644\n'
++  patch+=''.join(difflib.unified_diff([],lines,fromfile='/dev/null',tofile='b/'+name))
++ (OUT/'rc_full_text_changes.patch').write_text(patch,encoding='utf-8',newline='\n')
++ files={n:base64.b64encode((OUT/n).read_bytes()).decode() for n in ['FINAL_RELEASE_REPORT.md','validation_summary.json','stage5-rc1.tgz.sha256','rc_full_text_changes.patch']}
++ payload='''from pathlib import Path
++import base64,hashlib,json
++r=Path('/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_rc1_board')
++assert r.resolve()==r
++files='''+repr(files)+'''
++assert all(not (r/n).exists() and not (r/n).is_symlink() for n in files)
++for n,b in files.items():
++ assert Path(n).name==n
++ with (r/n).open('xb') as f:f.write(base64.b64decode(b))
++print(json.dumps({'final_report_files':list(files),'all_written_new':True,'entry_switched':False}))
++'''
++ (OUT/'final_summary_payload.py').write_text(payload,encoding='utf-8')
++ print('FINAL_RELEASE_REPORT_READY',a['sha256'])
++if __name__=='__main__':main()
+diff --git a/reports/stage5_rc1_local/FINAL_RELEASE_REPORT.md b/reports/stage5_rc1_local/FINAL_RELEASE_REPORT.md
+new file mode 100644
+--- /dev/null
++++ b/reports/stage5_rc1_local/FINAL_RELEASE_REPORT.md
+@@ -0,0 +1,62 @@
++# Stage 5 最终 RC 发布收尾报告
++
++日期：2026-10-18。最终候选版本 **stage5-rc1**，工程交付检查通过，停止开发并等待用户审核；尚未切换主工程或演示默认入口。
++
++## 版本冻结
++
++当前目录不是Git仓库，真实Git查询退出128；没有可报告的分支/HEAD/Commit，也未创建Git Tag。采用独立源码快照，标识为：
++
++`sha256:2b19cd571f87e083b506da586aa1f1a772cd76ed253b1fe848337ff524fe6f87`
++
++104项源码/头文件/测试/CMake与5.5已验收final_v2完全一致。本轮核心源码变化0。SOURCE_MANIFEST.json记录逐文件大小/SHA，VERSION.json记录快照计算方法。未初始化虚构历史，未强制覆盖任何标记。
++
++## 本轮检查与真实结果
++
++| 检查 | 实际结果 |
++|---|---|
++| ARM64配置及全量构建 | rc0；2.003秒/155.584秒；日志36条不同Built target，含2项AUTOMOC辅助目标 |
++| ARM64 CTest | 8/8、失败0、跳过0；CTest real 6.12秒，外层6.511秒，每项30秒上限；Fake/纯逻辑/真实Qt offscreen+Fake子进程，不是新的硬件闭环 |
++| 本地归档校验 | 260个安全普通文件，逐项SHA、路径安全检查、全新目录解压回放和verify.py均通过 |
++| 板端补齐与校验 | 新增150项；110项原有且SHA相同，跳过写入；verify.py rc0、sha256sum rc0、bash -n rc0、非法启动模式按预期rc2，未启动模型 |
++| 稳定工程保护 | 原稳定321项SHA/大小/mtime、4个历史程序、5.5冻结104项以及RC新编译主入口均核对通过 |
++| 板端最终剩余空间 | 1,254,154,240字节，约1.168GiB，超过500MiB护栏 |
++| 文档一致性 | A4手册238页逐页检查，26个源码片段、4449行代码、14处图像插入/11个去重媒体；正文及表格未变，61题保留 |
++
++本轮预检未识别HyperX，保留首次预检失败日志；未重复真实麦克风/耳机/Qt窗口和长测。此前5.5用户确认的两类回答、视觉与Qt正常，及约1837.782秒121/121混合负载成果，均保留原始证据且与冻结源码对应。不能将本次CTest冒充新的硬件验收。
++
++## 交付文件
++
++| 内容 | 本地相对本报告的路径 |
++|---|---|
++| 完整RC归档 | [stage5-rc1.tgz](stage5-rc1.tgz) |
++| 外层SHA | [stage5-rc1.tgz.sha256](stage5-rc1.tgz.sha256) |
++| 精确文件校验清单 | [SHA256SUMS](../../releases/stage5-rc1/SHA256SUMS)、[PACKAGE_MANIFEST](../../releases/stage5-rc1/PACKAGE_MANIFEST.json) |
++| 最终README及编译/CLI/Qt操作 | [项目README](../../README.md)、[包内README](../../releases/stage5-rc1/README.md) |
++| Word手册 | [A4 DOCX](../../releases/stage5-rc1/docs/RK3576_STAGE5_ENGINEERING_MANUAL.docx) |
++| Markdown手册 | [完整手册](../../releases/stage5-rc1/docs/RK3576_STAGE5_ENGINEERING_MANUAL.md) |
++| 模型/SDK/Runtime真实路径与398项指纹 | [依赖说明](../../releases/stage5-rc1/DEPENDENCIES.md)、[机器清单](../../releases/stage5-rc1/DEPENDENCIES.json) |
++| 五阶段日志/CSV/JSON/Diff索引 | [证据索引](../../releases/stage5-rc1/EVIDENCE_INDEX.md) |
++| RC完整文本包装Diff | [rc_full_text_changes.patch](rc_full_text_changes.patch)，含包内包装Diff及包外末次报告生成工具；核心零修改；Word排版变化SHA见document_QA |
++| 逐节完整Git格式Diff | ../../releases/stage5-rc1/evidence/stage5_01～05/changes.patch |
++| 历史完整证据 | ../../releases/stage5-rc1/evidence/RK3576_STAGE5_FINAL_REVIEW.tgz，4835成员、原日志/旧版本/失败实验均保留 |
++| 安全升级/回滚及路径保护命令 | [操作方案](../../releases/stage5-rc1/DEPLOY_AND_ROLLBACK.md) |
++| 本轮原始构建与CTest | board_build/、source_deploy/，包内reports/rc_build/ |
++| 本轮上传/板端校验及真实退出码 | final_deploy/、board_final/、[末次回执](final_delivery_receipt.json) |
++
++归档大小 **154,418,381字节**，SHA256：
++
++`f6bdc35f285689c3352aef9bd0f09a130be4e2f24c6184545bb4abc500659bc1`
++
++板端RC位于 `/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1`；归档位于 `/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_rc1_board/stage5-rc1.tgz`。以普通cat权限创建，仅在既有隔离目录新增文件，没有覆盖旧源码、旧build、模型、SDK或配置。正式构建只从RC/source读取，运行仅选RC/build内GUI/CLI。历史实验源代码仅位于证据中；归档不复制大型模型/SDK/正式构建二进制，依赖现有绝对路径、Qt桌面及隔离工具，不能称为脱离环境的独立程序包。
++
++SHA256SUMS覆盖258项内容和PACKAGE_MANIFEST自身；外层压缩包及末次回执放在包外避免循环引用。原252页Letter手册未改；RC副本纠正A4后重排238页并更新目录，Markdown字节保持原样。章节中的历史待验收状态是当时快照，用户已确认5.1～5.5，当前待审批的是RC升级。
++
++## 保留风险与升级结论
++
++4线程作为演示默认、2线程可回退。固定中文/英文暖态各n30 TTS平均下降30.42%/29.74%，CPU消耗明显增加，RTF仍>1。5.3仅CPU预处理下降24.67%；5.2改善提交阻塞，不是NPU推理同比加速。历史热限制活动和一次Camera序号间隙（后续64次未复现、根因未明）如实保留，本轮没有额外热专项或更长压力测试。
++
++RGA未启用、未全链路Zero-copy、部分硬件/闭源SDK异常及更长运行未经验证；没有可信NPU利用率和声学时间戳，不把ALSA提交当人耳声学输出。同步SDK永久阻塞、无AEC/PTT/打断等局限继续保留。完整风险和后续定位方法见README及验收报告。
++
++**建议：作为有限演示/工程实践的最终RC交付。暂不直接切换主工程。** 正式切换前接回HyperX，动态确认声卡，执行两问、Qt展示、停止/重新开始与资源释放的少量冒烟，并取得用户明确批准；无需重复30分钟长测。升级与回滚命令已经准备但未执行，原稳定版本始终保留，可回到原5.5 GUI或原稳定CLI。
++
++本轮没有公开推送、安装系统软件、改温控/驱动/内核/设备树或切换入口。工作到此结束，等待用户审核。

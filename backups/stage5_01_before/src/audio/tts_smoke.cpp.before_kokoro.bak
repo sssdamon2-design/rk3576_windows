@@ -1,0 +1,149 @@
+
+#include "audio/tts_service.h"
+
+#include <chrono>
+#include <cstdint>
+#include <exception>
+#include <iomanip>
+#include <iostream>
+#include <string>
+
+int main(int argc, char** argv)
+{
+    if (argc != 4 && argc != 5)
+    {
+        std::cerr
+            << "Usage: tts_smoke "
+            << "<model_dir> <output.wav> <text> "
+            << "[threads=2]\n";
+
+        return 2;
+    }
+
+    std::int32_t threads = 2;
+
+    if (argc == 5)
+    {
+        try
+        {
+            std::size_t used = 0;
+            const std::string value(argv[4]);
+
+            const int n = std::stoi(value, &used);
+
+            if (used != value.size() ||
+                n < 1 || n > 8)
+            {
+                throw std::invalid_argument(
+                    "invalid threads"
+                );
+            }
+
+            threads = n;
+        }
+        catch (const std::exception&)
+        {
+            std::cerr
+                << "threads must be an integer in [1,8]\n";
+
+            return 2;
+        }
+    }
+
+    const std::string model_dir(argv[1]);
+    const std::string wav_path(argv[2]);
+    const std::string text(argv[3]);
+
+    std::string error;
+
+    TTSService tts;
+
+    std::cout
+        << "[Init] Loading MeloTTS...\n"
+        << std::flush;
+
+    // 测量模型初始化耗时。
+    const auto init_start =
+        std::chrono::steady_clock::now();
+
+    if (!tts.initialize(model_dir, error, threads))
+    {
+        std::cerr
+            << "[Init] FAIL: " << error << '\n';
+
+        return 1;
+    }
+
+    const auto init_end =
+        std::chrono::steady_clock::now();
+
+    const double init_ms =
+        std::chrono::duration<double, std::milli>(
+            init_end - init_start
+        ).count();
+
+    std::cout
+        << "[Init] OK time_ms=" << init_ms
+        << " sample_rate=" << tts.sampleRate()
+        << " speakers=" << tts.numSpeakers()
+        << '\n';
+
+    TTSAudio audio;
+
+    std::cout
+        << "[TTS] text=" << text << '\n'
+        << std::flush;
+
+    if (!tts.synthesize(text, audio, error))
+    {
+        std::cerr
+            << "[TTS] FAIL: " << error << '\n';
+
+        return 1;
+    }
+
+    // 生成音频的实际时长。
+    const double audio_seconds =
+        static_cast<double>(audio.samples.size()) /
+        audio.sample_rate;
+
+    // Real-Time Factor：合成耗时 / 音频时长。
+    const double rtf =
+        (audio.synthesis_ms / 1000.0) /
+        audio_seconds;
+
+    std::cout
+        << std::fixed
+        << std::setprecision(3)
+        << "[TTS] sample_count="
+        << audio.samples.size()
+        << " sample_rate=" << audio.sample_rate
+        << " audio_sec=" << audio_seconds
+        << " synth_ms=" << audio.synthesis_ms
+        << " RTF=" << rtf
+        << '\n';
+
+    // SDK 将 float PCM 写为单声道 S16 WAV。
+    const int ok = SherpaOnnxWriteWave(
+        audio.samples.data(),
+        static_cast<std::int32_t>(
+            audio.samples.size()
+        ),
+        audio.sample_rate,
+        wav_path.c_str()
+    );
+
+    if (ok != 1)
+    {
+        std::cerr
+            << "[WAV] FAIL: " << wav_path << '\n';
+
+        return 1;
+    }
+
+    std::cout
+        << "[WAV] " << wav_path << '\n'
+        << "PASS\n";
+
+    return 0;
+}

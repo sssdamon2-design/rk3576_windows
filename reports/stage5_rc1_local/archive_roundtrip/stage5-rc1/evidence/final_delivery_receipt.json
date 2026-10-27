@@ -1,0 +1,13 @@
+{
+  "archive": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_05_board/final_acceptance/RK3576_STAGE5_FINAL_REVIEW.tgz",
+  "sha256": "704eec9a30c23a5253854d21af53e834f47844cbd477355c7283c1ab3db50734",
+  "bytes": 147337657,
+  "files": 4835,
+  "all_member_SHA256_match": true,
+  "safe_paths": true,
+  "extracted": false,
+  "stable_promoted": false,
+  "original_321_unchanged": true,
+  "disk_free_bytes": 1592745984,
+  "user_review_pending": true
+}

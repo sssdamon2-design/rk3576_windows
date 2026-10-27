@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="8"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="lubancat"
+	time="6"
+	timestamp="2026-10-18T11:11:49"
+	>
+	<testcase name="request_profile_tests" classname="request_profile_tests" time="0.0263333" status="run">
+		<system-out>PASS request profiling: scoped request ID, distinct frame ID, explicit SDK callback, steady timestamps, flushed JSONL
+</system-out>
+	</testcase>
+	<testcase name="image_pipeline_tests" classname="image_pipeline_tests" time="0.596988" status="run">
+		<system-out>[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=3 in_use=3 acquired=3 reused=0 exhausted=2
+[CameraCounters] published=3 fps=277.721 timeouts=0 driver_sequence_gaps=0 pool_discarded=2
+[FramePool] allocated=0 in_use=0 acquired=0 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=0 in_use=0 acquired=0 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+PASS image pipeline: exact RGB, padded stride, channels/orientation, invalid layouts, bounded leases, weak generations, concurrent readers, exhaustion/restart. Fake camera only.
+</system-out>
+	</testcase>
+	<testcase name="async_pipeline_tests" classname="async_pipeline_tests" time="0.0368343" status="run">
+		<system-out>[ASR] Segment #1: 1 | latency=0 ms | RTF=0
+[ASR] Segment #2: 2 | latency=0 ms | RTF=0
+[ASR] Segment #3: 3 | latency=0 ms | RTF=0
+[Inference cancelled #2] queue_ms=0.191198
+[Inference expired #4] queue_ms=0.044093
+[Inference callback error #5]
+[Inference cancelled #2] queue_ms=0.11646
+[TTS expired #2] queue_ms=0.035162
+[TTS callback error #4]
+[ASR] Segment #777: 1 | latency=0 ms | RTF=0
+PASS deterministic async pipeline: ASR progression, alternating FIFO, overload, cancel/expiry, restart, callback failures, ticket races, TTS. Fake services only.
+</system-out>
+	</testcase>
+	<testcase name="asr_pipeline_tests" classname="asr_pipeline_tests" time="0.0147641" status="run">
+		<system-out>[Audio queue dropped #1] replaced_oldest
+[Audio queue rejected #4] closed
+[Audio queue rejected #1] closed
+[Audio queue rejected #1] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #2: test-only transcript | latency=0 ms | RTF=0
+[Audio queue rejected #2] closed
+[Audio queue rejected #2] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+ASR pipeline tests passed: queue, idle destruction, unwind, drain, one-shot start, service/callback faults. No SDK or hardware used.
+</system-out>
+	</testcase>
+	<testcase name="audio_preprocessor_tests" classname="audio_preprocessor_tests" time="0.00943169" status="run">
+		<system-out>All AudioPreprocessor tests passed
+</system-out>
+	</testcase>
+	<testcase name="llm_worker_tests" classname="llm_worker_tests" time="0.0102219" status="run">
+		<system-out>[Inference cancelled #12] queue_ms=0.0222
+[Inference callback error #21]
+LLMWorker tests passed: FIFO, bounded queue, streaming, stop.
+</system-out>
+	</testcase>
+	<testcase name="camera_service_tests" classname="camera_service_tests" time="0.225106" status="run">
+		<system-out>[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=2 in_use=1 acquired=4 reused=2 exhausted=0
+[CameraCounters] published=3 fps=338.906 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=2 in_use=1 acquired=4 reused=2 exhausted=0
+[CameraCounters] published=3 fps=338.906 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=1 in_use=0 acquired=1 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=1 driver_sequence_gaps=0 pool_discarded=0
+CameraService lifecycle tests passed with test-only capture faults; no V4L2 hardware tested.
+[FramePool] allocated=0 in_use=0 acquired=0 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+</system-out>
+	</testcase>
+	<testcase name="gui_session_tests" classname="gui_session_tests" time="5.18841" status="run">
+		<system-out>********* Start testing of GuiTests *********
+Config: Using QtTest library 5.15.8, Qt 5.15.8 (arm64-little_endian-lp64 shared (dynamic) release build; by GCC 12.2.0), debian 12
+PASS   : GuiTests::initTestCase()
+QWARN  : GuiTests::startStopRestartAndClose() This plugin does not support propagateSizeHints()
+[GUI run] /home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1/build/qt_test_tmp/gui_session_tests-HUMDZc/run_20261018_031153_897_22c6ab6fe0c1468eb3794ebbe14b6c9a
+[Init] Loading SenseVoice...
+[Init] Loading Kokoro...
+[ALSA config] fake
+[Init] VLM and Camera ready
+[Listen] FAKE UNIT TEST
+[ASR] Segment #1: fake transcript | latency=0 ms
+[ASR-&gt;LLM #1] fake
+[LLM #1] fake answer
+[Shutdown] complete signal=2
+[GUI finished] code=0 orderly=1 cycles=1 heartbeat=2
+[GUI run] /home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1/build/qt_test_tmp/gui_session_tests-HUMDZc/run_20261018_031154_334_042a96968f4e42f4af8dc9bf03a8d9eb
+QWARN  : GuiTests::startStopRestartAndClose()...
+[This part of the test output was removed since it exceeds the threshold of 1024 bytes.]
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,14 @@
+{
+  "version": "stage5-rc1",
+  "created_at_UTC": "2026-10-18T02:54:22.904239+00:00",
+  "git_commit": null,
+  "git_tag_created": false,
+  "git_reason": "workspace is not a Git repository",
+  "source_snapshot_id": "sha256:2b19cd571f87e083b506da586aa1f1a772cd76ed253b1fe848337ff524fe6f87",
+  "source_manifest_format": "UTF-8 json.dumps(rows,sort_keys=True,separators=(comma,colon)); rows ordered as SOURCE_MANIFEST.json",
+  "accepted_board_source": "stage5_05_source_final_v2",
+  "source_files": 104,
+  "core_modified": false,
+  "models_and_SDK_included": false,
+  "entry_switched": false
+}

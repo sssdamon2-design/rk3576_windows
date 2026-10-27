@@ -1,0 +1,22 @@
+RK3576 多模态 Stage4 集成补丁（2026-10-17）
+
+目标：将已通过实机 smoke 的 SmolVLM2 视觉 RKNN + 语言 RKLLM 接入正式 CLI：
+/dev/video11 -> VideoCapture -> CameraService -> LatestFrameBuffer ->
+NV12/RGB512 -> RKNN(64x576) -> RKLLM -> RequestProcessor/CLI
+
+变更文件：
+- CMakeLists.txt：BUILD_WITH_VLM=ON 改为实际后端构建。
+- include/ai/rk_backends.h：为 VLM backend 增加 RAII PImpl 生命周期。
+- src/ai/rk_backends_unavailable.cpp：VLM ON 时屏蔽占位实现。
+- src/ai/rk3576_vlm_backend.cpp：新增正式后端。
+- docs/stage4_vlm_camera_integration.md：部署说明与验证限制。
+
+使用前必须备份项目。此补丁不含 models/、音频、已有可执行文件。
+在 RK3576 项目根目录执行 tar -xzf 此补丁，会覆盖上述三个已有源码文件。
+
+构建和运行命令见 docs/stage4_vlm_camera_integration.md。
+此补丁已通过本机无 RK SDK 模式下的 CTest 4/4，新增后端的 C++ 语法检查通过，
+但还没有在 RK3576 上编译链接或推理运行，不能视为实机验收通过。
+
+本次未完成：ASR->视觉分流->TTS 集成；512x512 预处理与官方 Pillow Lanczos 不完全相同；
+当前单块 SmolVLM2 可能出现视觉幻觉，建议后续使用摄像头真实图像检查。

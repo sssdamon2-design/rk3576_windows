@@ -1,0 +1,68 @@
+
+#pragma once
+
+#include <cstdint>
+#include <string>
+#include <vector>
+
+#include "sherpa-onnx/c-api/c-api.h"
+
+// 合成后的音频数据。
+// 将 SDK 返回的采样点复制到 vector，由 C++ 自动管理内存。
+struct TTSAudio
+{
+    // 单声道 float PCM，采样值通常位于 [-1, 1]。
+    std::vector<float> samples;
+
+    // 由实际模型决定，不能假设等于 ASR 的 16000 Hz。
+    std::int32_t sample_rate = 0;
+
+    // 一次 TTS 合成函数的调用耗时，单位 ms。
+    double synthesis_ms = 0.0;
+};
+
+// 3.2 阶段只在同一线程调用，不提供并发调用保证。
+// 第 3.4 节再由 TTSWorker 负责异步任务调度。
+class TTSService
+{
+public:
+    TTSService() = default;
+    ~TTSService();
+
+    // 禁止复制或移动持有 SDK 句柄的对象，
+    // 避免多个对象误释放同一个 TTS 实例。
+    TTSService(const TTSService&) = delete;
+    TTSService& operator=(const TTSService&) = delete;
+    TTSService(TTSService&&) = delete;
+    TTSService& operator=(TTSService&&) = delete;
+
+    // 加载模型。
+    bool initialize(
+        const std::string& model_dir,
+        std::string& error,
+        std::int32_t num_threads = 2
+    );
+
+    // 输入 UTF-8 文本，输出音频采样数据。
+    bool synthesize(
+        const std::string& text,
+        TTSAudio& output,
+        std::string& error
+    );
+
+    // 释放 sherpa-onnx TTS 对象。
+    void shutdown() noexcept;
+
+    // 查询状态和模型信息。
+    bool ready() const noexcept
+    {
+        return tts_ != nullptr;
+    }
+
+    std::int32_t sampleRate() const noexcept;
+    std::int32_t numSpeakers() const noexcept;
+
+private:
+    // 不透明 C API 句柄，所有权属于当前 TTSService。
+    const SherpaOnnxOfflineTts* tts_ = nullptr;
+};

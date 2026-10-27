@@ -1,0 +1,55 @@
+{
+  "root": {
+    "argv": [
+      "git",
+      "rev-parse",
+      "--show-toplevel"
+    ],
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  },
+  "branch": {
+    "argv": [
+      "git",
+      "symbolic-ref",
+      "--short",
+      "HEAD"
+    ],
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  },
+  "HEAD": {
+    "argv": [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  },
+  "status": {
+    "argv": [
+      "git",
+      "status",
+      "--short",
+      "--untracked-files=all"
+    ],
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  },
+  "tag": {
+    "argv": [
+      "git",
+      "tag",
+      "--list",
+      "stage5-rc1"
+    ],
+    "exit_code": 128,
+    "stdout": "",
+    "stderr": "fatal: not a git repository (or any of the parent directories): .git\n"
+  }
+}

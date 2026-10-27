@@ -1,0 +1,14 @@
+{
+  "cause": "kernel has no /proc/PID/task/PID/children",
+  "fix": "discover direct children by PPid, then verify exe and /proc stat start token before sampling/signaling",
+  "missing_backend_resource_cases": [
+    "gui_microphone_final_v2",
+    "gui_paired_restart_final_v2"
+  ],
+  "new_sampler_cases": [
+    "gui_sigterm_vision_final_v2",
+    "gui_mixed_1800s_4t_final_v2"
+  ],
+  "production_source_changed": false,
+  "original_script_on_board": "reports/stage5_05_board/gui_sampler_original.py"
+}

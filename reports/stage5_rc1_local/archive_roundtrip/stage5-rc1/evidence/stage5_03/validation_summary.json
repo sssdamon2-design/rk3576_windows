@@ -1,0 +1,392 @@
+{
+  "stage": "5.3",
+  "date": "2026-10-17",
+  "engineering_status": "CPU path verified; RGA diagnostics failed and not enabled",
+  "user_acceptance_pending": true,
+  "next_stage_started": false,
+  "next_stage": "5.4 only after user acceptance",
+  "scope": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "arm64_configure_and_build": {
+    "steps": [
+      {
+        "step": "configure",
+        "returncode": 0,
+        "reason": null,
+        "seconds": 2.001681677000306
+      },
+      {
+        "step": "build",
+        "returncode": 0,
+        "reason": null,
+        "seconds": 83.03962709200096
+      },
+      {
+        "step": "ctest",
+        "returncode": 0,
+        "reason": null,
+        "seconds": 1.0009195269994962
+      }
+    ],
+    "original_321_unchanged": true,
+    "accepted_binaries_unchanged": true,
+    "disk_free_bytes": 2106769408,
+    "successful": true
+  },
+  "arm64_targets": [
+    "asr_live_smoke",
+    "asr_llm_smoke",
+    "asr_llm_tts_smoke",
+    "asr_pipeline_smoke",
+    "asr_pipeline_tests",
+    "asr_route_smoke",
+    "asr_vad_smoke",
+    "async_pipeline_tests",
+    "audio_capture_smoke",
+    "audio_preprocessor_tests",
+    "camera_service_tests",
+    "image_pipeline_tests",
+    "llm_worker_tests",
+    "multimodal_audio",
+    "multimodal_camera",
+    "multimodal_core",
+    "multimodal_tts",
+    "rk3576_multimodal",
+    "rkllm_worker_smoke",
+    "stage5_02_npu_probe",
+    "stage5_03_memory_probe",
+    "stage5_03_rga_probe",
+    "tts_playback_smoke",
+    "tts_smoke",
+    "tts_worker_queue_smoke",
+    "tts_worker_smoke"
+  ],
+  "arm64_final_ctest": {
+    "platform": "ARM64 native",
+    "tests": 6,
+    "passed": 6,
+    "failures": 0,
+    "errors": 0,
+    "time_seconds": 0.8703936300000001,
+    "returncode": 0,
+    "names": [
+      "image_pipeline_tests",
+      "async_pipeline_tests",
+      "asr_pipeline_tests",
+      "audio_preprocessor_tests",
+      "llm_worker_tests",
+      "camera_service_tests"
+    ],
+    "hardware_inference": false,
+    "evidence": "reports\\stage5_03_board\\collected_20261017_205548\\files\\reports\\stage5_03_board\\candidate_config_review\\ctest.xml"
+  },
+  "local_portable_ctest": {
+    "platform": "Windows portable SDK off",
+    "tests": 8,
+    "passed": 8,
+    "failures": 0,
+    "returncode": 0,
+    "time_seconds": 1.74,
+    "evidence": "reports/stage5_03_local/final_config_ctest.stdout.log",
+    "hardware_verification": false
+  },
+  "hardware_cases": {
+    "candidate_live_final_12": {
+      "returncode": 0,
+      "seconds": 22.07209924000017,
+      "termination_reason": null,
+      "forced_kill": false,
+      "devices_released": true,
+      "process_gone": true,
+      "original_321_unchanged": true,
+      "profile_rows": 7097,
+      "profile_errors": false
+    },
+    "candidate_fixed_final_6": {
+      "returncode": 0,
+      "seconds": 13.203117920000295,
+      "termination_reason": null,
+      "forced_kill": false,
+      "devices_released": true,
+      "process_gone": true,
+      "original_321_unchanged": true,
+      "profile_rows": 52,
+      "profile_errors": false
+    },
+    "candidate_fallback_live_3": {
+      "returncode": 0,
+      "seconds": 7.338196925000375,
+      "termination_reason": null,
+      "forced_kill": false,
+      "devices_released": true,
+      "process_gone": true,
+      "original_321_unchanged": true,
+      "profile_rows": 1919,
+      "profile_errors": false
+    },
+    "candidate_fallback_fixed_6": {
+      "returncode": 0,
+      "seconds": 12.42746986200109,
+      "termination_reason": null,
+      "forced_kill": false,
+      "devices_released": true,
+      "process_gone": true,
+      "original_321_unchanged": true,
+      "profile_rows": 52,
+      "profile_errors": false
+    },
+    "voice_natural_retry1": {
+      "pid": 18824,
+      "returncode": 0,
+      "sent_signal": null,
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 142.6905513619986,
+      "input_closed_to_exit_seconds": 1.7142094259997975,
+      "signal_to_exit_seconds": null,
+      "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "image_profile_errors": false,
+      "shutdown_complete_marker": true,
+      "program_PASS": true,
+      "text_tts_completed": true,
+      "vision_tts_completed": true,
+      "user_audible_confirmation": null,
+      "variant": "candidate",
+      "input_mode": "real_microphone_ASR",
+      "stop_mode": "drain"
+    },
+    "sigint_idle_final": {
+      "pid": 19009,
+      "returncode": 0,
+      "sent_signal": "SIGINT",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 24.57032298500053,
+      "input_closed_to_exit_seconds": 1.753296462000435,
+      "signal_to_exit_seconds": 1.9074078209996514,
+      "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "image_profile_errors": false,
+      "shutdown_complete_marker": true,
+      "program_PASS": false,
+      "text_tts_completed": false,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "variant": "candidate",
+      "input_mode": "real_microphone_ASR",
+      "stop_mode": "drain"
+    },
+    "sigterm_vision_cancel_final": {
+      "pid": 19066,
+      "returncode": 0,
+      "sent_signal": "SIGTERM",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 24.43985112900009,
+      "input_closed_to_exit_seconds": 2.337289201001113,
+      "signal_to_exit_seconds": 3.318924645000152,
+      "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "image_profile_errors": false,
+      "shutdown_complete_marker": true,
+      "program_PASS": false,
+      "text_tts_completed": false,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "variant": "candidate",
+      "input_mode": "controlled_replay_no_microphone_ASR",
+      "stop_mode": "cancel_pending"
+    },
+    "sigterm_tts_drain_final": {
+      "pid": 19120,
+      "returncode": 0,
+      "sent_signal": "SIGTERM",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 54.00683817099889,
+      "input_closed_to_exit_seconds": 32.82447213499836,
+      "signal_to_exit_seconds": 12.231117747000098,
+      "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "image_profile_errors": false,
+      "shutdown_complete_marker": true,
+      "program_PASS": false,
+      "text_tts_completed": true,
+      "vision_tts_completed": true,
+      "user_audible_confirmation": null,
+      "variant": "candidate",
+      "input_mode": "controlled_replay_no_microphone_ASR",
+      "stop_mode": "drain"
+    }
+  },
+  "user_confirmation": {
+    "case": "voice_natural_retry1",
+    "stage": "5.3",
+    "source": "actual user replies in this conversation",
+    "visual_reply_verbatim": "相符",
+    "audible_reply_verbatim": "两个都实际听到了",
+    "text_audio_confirmed": true,
+    "vision_audio_confirmed": true,
+    "scene_matches_user_confirmation": true,
+    "note": "Independent 5.3 confirmation; not inherited from 5.1 or 5.2. Program first recognized an additional short segment and repeated arithmetic/vision segments; preserve full raw log."
+  },
+  "fixed_comparison_count": 18,
+  "fixed_rgb_embeddings_answers_all_equal": true,
+  "preprocessing": {
+    "baseline_mean_ms": 11.05165,
+    "candidate_mean_ms": 8.324730833333334,
+    "reduction_percent": 24.674317108003486,
+    "samples_each": 12
+  },
+  "source_visible_warm_allocations_per_frame": {
+    "before": 5,
+    "after": 1,
+    "scope": "Not global malloc totals; excludes cold pool initialization"
+  },
+  "copy_reduction": false,
+  "zero_copy": false,
+  "rga_enabled_in_production": false,
+  "rga_failed_diagnostics": {
+    "rga_diagnostic": {
+      "returncode": 1,
+      "seconds": 3.7744655909991707,
+      "timeout": false,
+      "devices_released": true
+    },
+    "rga_diagnostic_dma": {
+      "returncode": 1,
+      "seconds": 5.304639060001136,
+      "timeout": false,
+      "devices_released": true
+    },
+    "rga_diagnostic_split": {
+      "returncode": 1,
+      "seconds": 5.560688334000588,
+      "timeout": false,
+      "devices_released": true
+    }
+  },
+  "retained_failed_voice": {
+    "pid": 18638,
+    "returncode": 1,
+    "sent_signal": null,
+    "trigger_observed": true,
+    "forced_kill": false,
+    "timeout": false,
+    "duration_seconds": 111.86517576999904,
+    "input_closed_to_exit_seconds": 1.698165802999938,
+    "signal_to_exit_seconds": null,
+    "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+    "process_gone": true,
+    "devices_released": true,
+    "original_321_unchanged": true,
+    "image_profile_errors": false,
+    "shutdown_complete_marker": true,
+    "program_PASS": false,
+    "text_tts_completed": false,
+    "vision_tts_completed": false,
+    "user_audible_confirmation": null,
+    "variant": "candidate",
+    "input_mode": "real_microphone_ASR",
+    "stop_mode": "drain"
+  },
+  "protection": {
+    "original_321_unchanged": true,
+    "accepted_binaries_unchanged": true,
+    "root_5_2_sources_unchanged": true,
+    "baseline_instrumented_sources_unchanged": true,
+    "candidate_sources_match_local": true,
+    "devices_released": true,
+    "rga_released": true,
+    "original_files_checked": 321,
+    "accepted_root_sources_checked": 80,
+    "candidate_sources_checked": 86,
+    "disk_free_bytes": 2038575104,
+    "models_not_copied_to_stage5_03_sources": true
+  },
+  "final_state_collection": "reports\\stage5_03_board\\final_collected_20261017_210033\\files\\reports\\stage5_03_board\\final_state",
+  "source_invariants": {
+    "checks": [
+      {
+        "file": "src/ai/rkllm_backend.cpp",
+        "before": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+        "after": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+        "unchanged": true
+      },
+      {
+        "file": "src/audio/asr_llm_tts_smoke.cpp",
+        "before": "b746bbb89fff7ba559a101117eecf69074aec561bc9d3515b99646a6d59e5550",
+        "after": "b746bbb89fff7ba559a101117eecf69074aec561bc9d3515b99646a6d59e5550",
+        "unchanged": true
+      },
+      {
+        "file": "src/audio/asr_service.cpp",
+        "before": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+        "after": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+        "unchanged": true
+      },
+      {
+        "file": "src/audio/vad_audio_worker.cpp",
+        "before": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+        "after": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+        "unchanged": true
+      },
+      {
+        "file": "src/ai/llm_worker.cpp",
+        "before": "78d1967345cea3fc61051c92b4a832128a1491868de284b60b67733a6bc7b367",
+        "after": "78d1967345cea3fc61051c92b4a832128a1491868de284b60b67733a6bc7b367",
+        "unchanged": true
+      },
+      {
+        "file": "src/audio/tts_worker.cpp",
+        "before": "d954d44cd619fdfc6c7c05086cb5304aec87f246688b2cd6530cf8efa493c254",
+        "after": "d954d44cd619fdfc6c7c05086cb5304aec87f246688b2cd6530cf8efa493c254",
+        "unchanged": true
+      }
+    ],
+    "reference_arithmetic_unchanged": true,
+    "multimodal_prompt_generation_shutdown_tail_unchanged": true,
+    "scope": "Source equality only; not runtime evidence"
+  },
+  "patch_check": {
+    "command": [
+      "git",
+      "-c",
+      "core.autocrlf=false",
+      "apply",
+      "--check",
+      "Z:\\master_T\\Linux\\资料\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\reports\\stage5_03_local\\changes.patch"
+    ],
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "patch_roundtrip": {
+    "exit_code": 0,
+    "all_bytes_match": true,
+    "files": 31
+  },
+  "limitations": [
+    "Fused conversion/resize measured together",
+    "Frame age is host DQBUF age, not optical age; warm live comparison excludes first 3 fixture writes",
+    "RSS sampled at 0.25s for probes, 1s for voice; not whole-system memory",
+    "Allocations are source-visible capacity/control-block events, not all mallocs",
+    "SDK internal copies/allocations and model embedded normalization unmeasured",
+    "RGA hardware timeout root cause unresolved",
+    "Existing device full-range metadata versus preserved limited-range conversion needs independent calibration",
+    "No ASan/TSan or long duration leak/stress verification",
+    "Small sample, frequency and scene not locked; local preprocessing gain is not an end-to-end gain"
+  ]
+}

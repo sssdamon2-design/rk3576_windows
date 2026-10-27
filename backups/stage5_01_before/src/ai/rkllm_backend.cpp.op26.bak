@@ -1,0 +1,245 @@
+#include "ai/rk_backends.h"
+
+#include "rkllm.h"
+
+#include <memory>
+#include <string>
+#include <utility>
+
+namespace
+{
+
+// 保存单次推理请求的输出与状态。
+// rkllm_run() 为同步接口，本次调用结束前此对象保持有效。
+struct RunContext
+{
+    std::string text;
+    bool failed = false;
+    bool finished = false;
+};
+
+// SDK 需要普通函数指针，因此这里使用自由函数回调。
+int onRKLLMResult(
+    RKLLMResult* result,
+    void* userdata,
+    LLMCallState state)
+{
+    auto* context = static_cast<RunContext*>(userdata);
+
+    if (context == nullptr)
+    {
+        return 0;
+    }
+
+    if (state == RKLLM_RUN_ERROR)
+    {
+        context->failed = true;
+        return 0;
+    }
+
+    if (state == RKLLM_RUN_FINISH)
+    {
+        context->finished = true;
+        return 0;
+    }
+
+    if (state != RKLLM_RUN_NORMAL)
+    {
+        return 0;
+    }
+
+    if (result == nullptr || result->text == nullptr)
+    {
+        return 0;
+    }
+
+    // Runtime 拥有 result->text。
+    // 在当前回调内复制文本，不保存 Runtime 的原始指针。
+    // 防止 C++ 异常穿过 SDK 的 C 回调边界。
+    try
+    {
+        context->text.append(result->text);
+    }
+    catch (...)
+    {
+        context->failed = true;
+    }
+
+    return 0;
+}
+
+}  // namespace
+
+// 模型实例的内部实现。
+// 头文件只保存 unique_ptr<Impl>，SDK 细节全部位于这里。
+struct RKLLMBackend::Impl
+{
+    std::string model_path;
+
+    LLMHandle handle = nullptr;
+
+    RKLLMParam params{};
+
+    RKLLMCallback callbacks{};
+
+    ~Impl() noexcept
+    {
+        if (handle != nullptr)
+        {
+            (void)rkllm_destroy(handle);
+            handle = nullptr;
+        }
+    }
+};
+
+RKLLMBackend::RKLLMBackend() = default;
+
+RKLLMBackend::~RKLLMBackend()
+{
+    shutdown();
+}
+
+bool RKLLMBackend::initialize(
+    const BackendConfig& config,
+    std::string& error)
+{
+    // 允许重复初始化，先释放旧实例。
+    shutdown();
+    error.clear();
+
+    if (config.model_path.empty())
+    {
+        error = "RKLLM model_path is empty";
+        return false;
+    }
+
+    // 临时实例。只有初始化成功后才交给 impl_。
+    auto next = std::make_unique<Impl>();
+
+    next->model_path = config.model_path;
+
+    next->params = rkllm_createDefaultParam();
+
+    // model_path 字符串由 Impl 自己持有。
+    // 保证传给 Runtime 的指针在模型实例期间保持有效。
+    next->params.model_path = next->model_path.c_str();
+
+    // 与已经成功运行的官方 Demo 保持一致。
+    next->params.top_k = 1;
+    next->params.top_p = 0.95f;
+    next->params.temperature = 0.8f;
+    next->params.repeat_penalty = 1.1f;
+    next->params.frequency_penalty = 0.0f;
+    next->params.presence_penalty = 0.0f;
+
+    // 第一版使用保守的生成长度与上下文配置。
+    next->params.max_new_tokens = 128;
+    next->params.max_context_len = 1024;
+
+    next->params.skip_special_token = true;
+    next->params.is_async = false;
+
+    next->params.extend_param.base_domain_id = 0;
+    next->params.extend_param.embed_flash = 1;
+
+    // 注册结果回调函数。
+    next->callbacks.result_callback = onRKLLMResult;
+
+    const int ret = rkllm_init(
+        &next->handle,
+        &next->params,
+        &next->callbacks
+    );
+
+    if (ret != 0 || next->handle == nullptr)
+    {
+        error = "rkllm_init failed, ret=" +
+                std::to_string(ret);
+
+        // next 离开作用域时自动析构。
+        // 如果 SDK 已分配部分句柄资源，则由 Impl 清理。
+        return false;
+    }
+
+    // 只有真正初始化成功，才保存为正式实例。
+    impl_ = std::move(next);
+
+    return true;
+}
+
+InferenceResult RKLLMBackend::infer(
+    const std::string& question)
+{
+    InferenceResult output;
+
+    if (!impl_ || impl_->handle == nullptr)
+    {
+        output.error_message = "RKLLM backend is not initialized";
+        return output;
+    }
+
+    if (question.empty())
+    {
+        output.error_message = "RKLLM question is empty";
+        return output;
+    }
+
+    // 构造本次推理的文本输入。
+    RKLLMInput input{};
+
+    input.input_type = RKLLM_INPUT_PROMPT;
+    input.role = "user";
+    input.prompt_input = question.c_str();
+
+    // 构造本次推理配置。
+    RKLLMInferParam infer_params{};
+
+    infer_params.mode = RKLLM_INFER_GENERATE;
+
+    // 第一版每次请求独立，不保留历史上下文。
+    infer_params.keep_history = 0;
+
+    // 当前请求的回调上下文。
+    RunContext context;
+
+    // 同步推理：返回之前，context 保持有效。
+    const int ret = rkllm_run(
+        impl_->handle,
+        &input,
+        &infer_params,
+        &context
+    );
+
+    if (ret != 0)
+    {
+        output.error_message = "rkllm_run failed, ret=" +
+                               std::to_string(ret);
+        return output;
+    }
+
+    if (context.failed)
+    {
+        output.error_message =
+            "RKLLM callback reported an error";
+        return output;
+    }
+
+    if (context.text.empty())
+    {
+        output.error_message =
+            "RKLLM inference produced no text";
+        return output;
+    }
+
+    output.success = true;
+    output.text = std::move(context.text);
+
+    return output;
+}
+
+void RKLLMBackend::shutdown() noexcept
+{
+    // unique_ptr 释放 Impl，Impl 析构函数调用 rkllm_destroy。
+    // 重复执行 reset() 是安全的。
+    impl_.reset();
+}

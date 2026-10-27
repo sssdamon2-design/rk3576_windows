@@ -1,0 +1,65 @@
+{
+  "version": "stage5-rc1",
+  "at_UTC": "2026-10-18T04:48:33.204899+00:00",
+  "archive": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_rc1_board/stage5-rc1.tgz",
+  "archive_sha256": "f6bdc35f285689c3352aef9bd0f09a130be4e2f24c6184545bb4abc500659bc1",
+  "archive_bytes": 154418381,
+  "files": 260,
+  "new_files_written": 150,
+  "existing_identical_files_skipped": 110,
+  "steps": [
+    {
+      "name": "verify",
+      "argv": [
+        "python3",
+        "-I",
+        "-B",
+        "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1/tools/verify.py"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "checksums",
+      "argv": [
+        "sha256sum",
+        "-c",
+        "SHA256SUMS"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "launch_syntax",
+      "argv": [
+        "bash",
+        "-n",
+        "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1/tools/launch.sh"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "launch_reject_invalid_mode",
+      "argv": [
+        "bash",
+        "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1/tools/launch.sh",
+        "invalid",
+        "4"
+      ],
+      "returncode": 2,
+      "expected_returncode": 2
+    }
+  ],
+  "disk_free_before_bytes": 1417478144,
+  "disk_free_after_bytes": 1254154240,
+  "original_321_unchanged": true,
+  "four_historical_binaries_unchanged": true,
+  "accepted_final_v2_104_unchanged": true,
+  "RC_binaries_unchanged_after_packaging": true,
+  "RC_directory": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1",
+  "hardware_test_this_round": false,
+  "HyperX_missing_at_preflight": true,
+  "entry_switched": false,
+  "system_configuration_changed": false
+}

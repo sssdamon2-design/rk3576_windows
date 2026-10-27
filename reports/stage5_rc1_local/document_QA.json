@@ -1,0 +1,38 @@
+{
+  "version": "sha256:2b19cd571f87e083b506da586aa1f1a772cd76ed253b1fe848337ff524fe6f87",
+  "pages": 238,
+  "paper": "A4 210 x 297 mm",
+  "all_pages_inspected": true,
+  "clean": true,
+  "docx_sha256": "350d25c30a0bea3f2e494a6d7bb35d75b61c600669604bf322a04625cf238f40",
+  "markdown_sha256": "24994339014bf507b6ca32d9babfbc30b2c59f9a0177d945e37c6aaa94da6be2",
+  "historical_docx_sha256": "2f948e75cf7cbf0a3bba93cfb7372e8d6d976543e370ac1876e31e25f96270a0",
+  "non_TOC_paragraphs_and_tables_unchanged": true,
+  "source_code_lines": 4449,
+  "source_excerpts": 26,
+  "all_excerpts_match_current_RC_source": true,
+  "image_placements": 14,
+  "unique_embedded_images": 11,
+  "embedded_images_unchanged_and_decodable": true,
+  "body_Chinese": "楷体 12pt",
+  "body_Latin": "Times New Roman 12pt",
+  "line_spacing": 1.5,
+  "first_line_chars": 2,
+  "headings_bold_black": true,
+  "interview_later_sections": {
+    "5.3": 15,
+    "5.4": 14,
+    "5.5": 12
+  },
+  "interview_total_inherited": 61,
+  "render": {
+    "pages": 238,
+    "word_pdf_sha256": "a332ffa577c7d0b7c8ecd245c1753695406ffe59b97efb6f7901e84a565bba84",
+    "docx_sha256": "350d25c30a0bea3f2e494a6d7bb35d75b61c600669604bf322a04625cf238f40",
+    "renderer": "Word COM to PDF, packaged render_docx.py PDF rasterization",
+    "packaged_LO_failure_retained": true,
+    "all_PNG_exist": true,
+    "visual_review_complete": true
+  },
+  "limitations": "Document and source checks do not establish new hardware outcomes. Original 252-page Letter manual retained in historical evidence; RC A4 reflow is 238 pages."
+}
