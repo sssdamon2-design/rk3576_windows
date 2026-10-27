@@ -1,0 +1,12 @@
+[
+  {
+    "file": "src/video/camera_service.cpp",
+    "before": "1cd7bab8acdd7ff7f9952dbc84d5c7eda4f45b7a9505f71bc09c9fafb9e35e76",
+    "sha256": "2e8847666cd03345b785d0d56f44e1f6cda40123b0fd9e3f2cb57f1d20f94cd5"
+  },
+  {
+    "file": "tests/stage5_03_memory_probe.cpp",
+    "before": "60b24b5c9893564808ad74216d0b8fe79a2f9d661c05cba75ad80695c16b0911",
+    "sha256": "ba33ba1f4c40d2e1f3dac40130813ef05b4e7b62c3a242bab5d0aefa886448e2"
+  }
+]

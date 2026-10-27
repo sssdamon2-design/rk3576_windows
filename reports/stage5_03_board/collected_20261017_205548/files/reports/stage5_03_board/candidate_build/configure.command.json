@@ -1,0 +1,9 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec cmake -S \"$2\" -B \"$3\" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DBUILD_WITH_RKLLM=ON -DBUILD_WITH_VLM=ON -DENABLE_SHERPA_ASR=ON -DSHERPA_ONNX_ROOT=\"$STAGE5_SHERPA\" -DRKLLM_SDK_ROOT=\"$STAGE5_RKLLM\" -DRKNN_INCLUDE_DIR=\"$STAGE5_RKNN_INCLUDE\" -DRKNN_RUNTIME_LIBRARY=\"$STAGE5_RKNN_LIBRARY\"",
+  "stage5_03",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/stage5_03_source",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_03_board"
+]

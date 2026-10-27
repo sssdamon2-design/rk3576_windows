@@ -1,0 +1,22 @@
+[
+  {
+    "file": "include/video/camera_service.h",
+    "before": "0a7f68d6749c4931063fcaf80541d3b1ca1942435256bec2d1ccdb33b94e8b9e",
+    "sha256": "e42da5da8d013aee6f7637015875129b9a4f27aedd2cb9f16f698fa968d411da"
+  },
+  {
+    "file": "src/video/camera_service.cpp",
+    "before": "2e8847666cd03345b785d0d56f44e1f6cda40123b0fd9e3f2cb57f1d20f94cd5",
+    "sha256": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772"
+  },
+  {
+    "file": "tests/image_pipeline_tests.cpp",
+    "before": "196032a20c97255a36b81c7bb612c15ffe2bb05bdfdc15895f4cd200a51bf123",
+    "sha256": "6441df48017977c25c9194a65b31c775e8afbf47f5267781bff8e8ec92b286a8"
+  },
+  {
+    "file": "tests/stage5_03_rga_probe.cpp",
+    "before": "1d5cbb35d1220d4c91826ffd514a1dfc823f158de2c3d0b348eb9f9df5893ae9",
+    "sha256": "8ff06abb0b72558063b88a544dc03fbbaf48a8d4f2408920ee01f5e975c0a2a8"
+  }
+]

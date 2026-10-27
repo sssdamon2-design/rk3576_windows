@@ -1,0 +1,18 @@
+{
+  "steps": [
+    {
+      "step": "rebuild",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 26.013873828000214
+    },
+    {
+      "step": "ctest",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 1.0008609240012447
+    }
+  ],
+  "original_321_unchanged": true,
+  "successful": true
+}

@@ -1,0 +1,26 @@
+{
+  "steps": [
+    {
+      "step": "configure",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 2.001681677000306
+    },
+    {
+      "step": "build",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 83.03962709200096
+    },
+    {
+      "step": "ctest",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 1.0009195269994962
+    }
+  ],
+  "original_321_unchanged": true,
+  "accepted_binaries_unchanged": true,
+  "disk_free_bytes": 2106769408,
+  "successful": true
+}

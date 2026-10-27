@@ -1,0 +1,7 @@
+{
+  "name": "candidate_fallback_live_3",
+  "variant": "candidate",
+  "fixed": false,
+  "fallback": true,
+  "samples": 3
+}

@@ -1,0 +1,3 @@
+               total        used        free      shared  buff/cache   available
+内存：    4084207616   771338240  2281570304    16838656  1100640256  3312869376
+交换：             0           0           0

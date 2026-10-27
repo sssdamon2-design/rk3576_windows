@@ -1,0 +1,11 @@
+{
+  "returncode": 0,
+  "seconds": 12.42746986200109,
+  "termination_reason": null,
+  "forced_kill": false,
+  "devices_released": true,
+  "process_gone": true,
+  "original_321_unchanged": true,
+  "profile_rows": 52,
+  "profile_errors": false
+}
