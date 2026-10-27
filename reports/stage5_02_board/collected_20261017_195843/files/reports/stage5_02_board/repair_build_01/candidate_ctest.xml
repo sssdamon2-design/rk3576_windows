@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="5"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="lubancat"
+	time="0"
+	timestamp="2026-10-17T19:41:25"
+	>
+	<testcase name="async_pipeline_tests" classname="async_pipeline_tests" time="0.0261762" status="run">
+		<system-out>[ASR] Segment #1: 1 | latency=0 ms | RTF=0
+[ASR] Segment #2: 2 | latency=0 ms | RTF=0
+[ASR] Segment #3: 3 | latency=0 ms | RTF=0
+[Inference cancelled #2] queue_ms=0.081835
+[Inference expired #4] queue_ms=0.087832
+[Inference callback error #5]
+[Inference cancelled #2] queue_ms=0.009398
+[TTS expired #2] queue_ms=0.071553
+[TTS callback error #4]
+PASS deterministic async pipeline: ASR progression, alternating FIFO, overload, cancel/expiry, restart, callback failures, ticket races, TTS. Fake services only.
+</system-out>
+	</testcase>
+	<testcase name="asr_pipeline_tests" classname="asr_pipeline_tests" time="0.00929156" status="run">
+		<system-out>[Audio queue dropped #1] replaced_oldest
+[Audio queue rejected #4] closed
+[Audio queue rejected #1] closed
+[Audio queue rejected #1] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #2: test-only transcript | latency=0 ms | RTF=0
+[Audio queue rejected #2] closed
+[Audio queue rejected #2] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+ASR pipeline tests passed: queue, idle destruction, unwind, drain, one-shot start, service/callback faults. No SDK or hardware used.
+</system-out>
+	</testcase>
+	<testcase name="audio_preprocessor_tests" classname="audio_preprocessor_tests" time="0.00975206" status="run">
+		<system-out>All AudioPreprocessor tests passed
+</system-out>
+	</testcase>
+	<testcase name="llm_worker_tests" classname="llm_worker_tests" time="0.0126394" status="run">
+		<system-out>[Inference cancelled #12] queue_ms=0.118999
+[Inference callback error #21]
+LLMWorker tests passed: FIFO, bounded queue, streaming, stop.
+</system-out>
+	</testcase>
+	<testcase name="camera_service_tests" classname="camera_service_tests" time="0.227382" status="run">
+		<system-out>CameraService lifecycle tests passed with test-only capture faults; no V4L2 hardware tested.
+</system-out>
+	</testcase>
+</testsuite>

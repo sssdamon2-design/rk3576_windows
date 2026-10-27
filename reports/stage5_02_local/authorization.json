@@ -1,0 +1,8 @@
+{
+  "stage5_01_accepted_by_user": true,
+  "stage5_02_authorized": true,
+  "remote_root": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "original_stable_project_write_authorized": false,
+  "extra_stage5_01_acceptance_archive_upload": "DECLINED_BY_USER_DO_NOT_RETRY",
+  "stage5_03_started": false
+}

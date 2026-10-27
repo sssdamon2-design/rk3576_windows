@@ -1,0 +1,120 @@
+{
+  "stage": "5.2",
+  "engineering_validation": "passed_finite_scope",
+  "user_acceptance": "awaiting_review",
+  "stage5_03_started": false,
+  "stage5_03_technically_ready": true,
+  "local_portable_ctest": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "seconds": 0.53,
+    "exit_code": 0,
+    "note": "Windows portable, not ARM64 hardware"
+  },
+  "arm64": {
+    "targets_built": 23,
+    "configure_exit_code": 0,
+    "initial_build_exit_code": 2,
+    "repair_build_exit_code": 0,
+    "ctest": {
+      "total": 5,
+      "passed": 5,
+      "failed": 0,
+      "seconds": 0.29,
+      "exit_code": 0,
+      "backend": "Fake/Mock/pure algorithm; hardware separate"
+    }
+  },
+  "regression": {
+    "total_cases": 10,
+    "candidate_cases": 8,
+    "candidate_exit_zero": 8,
+    "candidate_inference_started": 14,
+    "candidate_inference_successful": 14,
+    "candidate_tts_terminal": 13,
+    "candidate_tts_played": 11,
+    "candidate_tts_expired": 1,
+    "candidate_tts_cancelled": 1,
+    "candidate_downstream_cancelled": 1,
+    "candidate_admission_rejected": 7,
+    "baseline_overload_exit_code": 1,
+    "npu_probe_successful_pairs": 6,
+    "user_confirmations": [
+      {
+        "case": "candidate_voice_natural",
+        "question": "一加一等于几；等播放后再说前面有什么",
+        "user_reply": "两个都听到了",
+        "captured_local": "2026-10-17T19:48:48.850857+08:00",
+        "scope": "User confirmed audible headphone playback for both Stage 5.2 real microphone answers; no explicit image accuracy assertion"
+      },
+      {
+        "case": "candidate_voice_burst",
+        "user_reply": "三个回答",
+        "captured_local": "2026-10-17T19:52:07.262366+08:00",
+        "scope": "User confirmed three audible answers; log confirms three delivered and one explicit admission rejection."
+      }
+    ]
+  },
+  "final_state": {
+    "source_files_checked": 80,
+    "source_all_match_local": true,
+    "original_fingerprints_checked": 321,
+    "original_321_unchanged": true,
+    "accepted_stage5_01_executable_unchanged": true,
+    "accepted_stage5_01_sha256": "7b44730ad55cdb49f252de3e801b3e6680169a93ed0cb59d80fdc8f6720a10b7",
+    "candidate_executable_sha256": "1bf59ddf68cb0290e30df3ed945347dc73b7ff477a44d69c8f1f80a51f49d9b7",
+    "disk_free_bytes": 2207715328,
+    "devices_clear": true,
+    "cases": 10,
+    "user_confirmations": [
+      {
+        "case": "candidate_voice_natural",
+        "question": "一加一等于几；等播放后再说前面有什么",
+        "user_reply": "两个都听到了",
+        "captured_local": "2026-10-17T19:48:48.850857+08:00",
+        "scope": "User confirmed audible headphone playback for both Stage 5.2 real microphone answers; no explicit image accuracy assertion"
+      },
+      {
+        "case": "candidate_voice_burst",
+        "user_reply": "三个回答",
+        "captured_local": "2026-10-17T19:52:07.262366+08:00",
+        "scope": "User confirmed three audible answers; log confirms three delivered and one explicit admission rejection."
+      }
+    ]
+  },
+  "metrics": "reports/stage5_02_board/metrics.json",
+  "immutable_evidence": "reports\\stage5_02_board\\collected_20261017_195843",
+  "known_limits": [
+    "Only finite-duration tests; no hours-long stress or TSan/ASan",
+    "Expiry checked lazily before stage execution; not hard deadline or immediate capacity reclamation",
+    "No hard cancellation of active SDK or active TTS stage",
+    "In-process real SDK Worker restart not separately exercised; Fake restart and real process relaunch verified",
+    "No AEC or user voice interruption feature",
+    "Default admission limit 2 tested; larger limits require retesting",
+    "Model compute speed not improved by claim; equal-count pair candidate drained slower with longer generated speech"
+  ],
+  "fixes": [
+    {
+      "file": "src/audio/tts_smoke.cpp",
+      "reason": "Actual ARM64 compile error: SherpaOnnxWriteWave undeclared after public header decoupling",
+      "change": "Explicit SDK C API include",
+      "original_evidence": "implementation_build/candidate_build.stderr.log",
+      "verified": "repair_build_01/candidate_rebuild and candidate_ctest"
+    },
+    {
+      "file": "src/audio/asr_llm_tts_smoke.cpp",
+      "reason": "Source audit: Admission close cancellation can race submit NotRunning",
+      "change": "Count intentional cancelled-before-submit separately; retain real queue failures",
+      "verified": "Fake worker submit-after-stop and cancel tests; branch not observed in actual board runs"
+    }
+  ],
+  "review_artifacts": {
+    "changed_files": 33,
+    "full_source_files_in_appendix": 28,
+    "git_patch_sha256": "fc8d746662f7921ba08ffb930208937d5d4f44faa4d6a55973546798d05c2a41",
+    "git_apply_check_exit_code": 0,
+    "patch_roundtrip_all_bytes_match": true,
+    "board_delivery_directory": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_02_board/final_acceptance"
+  }
+}

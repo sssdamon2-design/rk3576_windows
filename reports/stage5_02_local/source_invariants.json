@@ -1,0 +1,42 @@
+{
+  "checks": [
+    {
+      "file": "src/ai/rkllm_backend.cpp",
+      "before": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+      "after": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+      "unchanged": true
+    },
+    {
+      "file": "src/ai/rk3576_vlm_backend.cpp",
+      "before": "268f8f2c139b374371b77a3085f72f2a0a4b5d7ba5d639b42a64e927219bee55",
+      "after": "268f8f2c139b374371b77a3085f72f2a0a4b5d7ba5d639b42a64e927219bee55",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/video_capture.cpp",
+      "before": "7435dfc113c64de8b1e55ff7cacee3f0f7809d3a82e834968bf872b9db4ff061",
+      "after": "7435dfc113c64de8b1e55ff7cacee3f0f7809d3a82e834968bf872b9db4ff061",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/camera_service.cpp",
+      "before": "677ebe29fa1bee5ef5cf408f42780b82c248d478a6a1d3267cb08352a7c37927",
+      "after": "677ebe29fa1bee5ef5cf408f42780b82c248d478a6a1d3267cb08352a7c37927",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/asr_service.cpp",
+      "before": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+      "after": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/vad_audio_worker.cpp",
+      "before": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+      "after": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+      "unchanged": true
+    }
+  ],
+  "signal_helper_unchanged": true,
+  "scope": "Source equality only; not runtime evidence"
+}

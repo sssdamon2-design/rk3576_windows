@@ -1,0 +1,82 @@
+[
+  {
+    "file": "docs/stage5_02_async_pipeline.md",
+    "bytes": 8620,
+    "sha256": "f2f3b441e2b1f2215daa08e3e30728f841ecfb9fb7941a7a9fe78547f6d29f8b"
+  },
+  {
+    "file": "docs/stage5_02_board_acceptance.md",
+    "bytes": 15543,
+    "sha256": "ad2b1f975e67e89f22b6030eac773709da4bd55b915e0ab3e70ff5d11c3d256a"
+  },
+  {
+    "file": "docs/stage5_02_performance.md",
+    "bytes": 8527,
+    "sha256": "dade56a83c4e5e082ec08da3abe8f84b7c6f13124f40835352556638bb214ffd"
+  },
+  {
+    "file": "docs/stage5_02_source_appendix.md",
+    "bytes": 183833,
+    "sha256": "359f2aed711d6e3d254d844ab814050cbbb6b9a9add19404377eb9803719fc99"
+  },
+  {
+    "file": "docs/stage5_02_statement_notes.md",
+    "bytes": 16453,
+    "sha256": "590339f7bbba89a1931f6949de7a91b97846c05ef81120346f5f98420322e067"
+  },
+  {
+    "file": "reports/stage5_02_local/changes.patch",
+    "bytes": 372633,
+    "sha256": "fc8d746662f7921ba08ffb930208937d5d4f44faa4d6a55973546798d05c2a41"
+  },
+  {
+    "file": "reports/stage5_02_local/change_manifest.json",
+    "bytes": 7392,
+    "sha256": "71ff3b76a7fa71920368b7cbd20bdef0d3d2c5cd7a9d489ae16ead917c04ecf3"
+  },
+  {
+    "file": "reports/stage5_02_local/validation_summary.json",
+    "bytes": 5069,
+    "sha256": "5ab77621ca174b861113ecdcb0ea98c2c99e20884202aaab8ea755e38b8c8cce"
+  },
+  {
+    "file": "reports/stage5_02_local/source_invariants.json",
+    "bytes": 1648,
+    "sha256": "554712d53d7c642c8a53f47bb2bd7f72ab3236e42670d3539a6a7375a773110a"
+  },
+  {
+    "file": "reports/stage5_02_local/baseline_instrumentation.patch",
+    "bytes": 10368,
+    "sha256": "631d272f711ba9afba4c01e53081fb4b5e0e272edab51aa86db3b8a811b8bb9b"
+  },
+  {
+    "file": "reports/stage5_02_local/patch_check.json",
+    "bytes": 299,
+    "sha256": "a5b87c302e3cc05734c8b04c16363b45cfc338c677f17b7da228e3eb910a872b"
+  },
+  {
+    "file": "reports/stage5_02_local/patch_roundtrip.json",
+    "bytes": 2772,
+    "sha256": "2f295970950514222d525b0348bfdbfcfe4d9d22cbf46d5d9dfd4e7a62d04bd9"
+  },
+  {
+    "file": "reports/stage5_02_board/metrics.json",
+    "bytes": 39872,
+    "sha256": "1869d78436127ef761e600f91eacb095e0f14fafedad4b239b7d86811f406f8e"
+  },
+  {
+    "file": "reports/stage5_02_board/metrics.csv",
+    "bytes": 1158,
+    "sha256": "431bf9e21457d26df4132dd68f5ad9f4be134b34c77d547a56e45b48c0ecd15c"
+  },
+  {
+    "file": "reports/stage5_02_board/npu_metrics.json",
+    "bytes": 3073,
+    "sha256": "76b5cedd188fe4613abe6006b6c356c0111e2efca7bcb878a572bd01e1dfeca6"
+  },
+  {
+    "file": "reports/stage5_02_board/user_confirmations.json",
+    "bytes": 632,
+    "sha256": "7994fdd262f414c96063719eec817bcefac95f8855404eea03c806ed25d53331"
+  }
+]

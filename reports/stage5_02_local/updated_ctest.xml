@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Win32-mingw32-make"
+	tests="7"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="Mendel"
+	time="0"
+	timestamp="2026-10-17T19:34:36"
+	>
+	<testcase name="async_pipeline_tests" classname="async_pipeline_tests" time="0.0359016" status="run">
+		<properties/>
+		<system-out>[ASR] Segment #1: 1 | latency=0 ms | RTF=0
+[ASR] Segment #2: 2 | latency=0 ms | RTF=0
+[ASR] Segment #3: 3 | latency=0 ms | RTF=0
+[Inference cancelled #2] queue_ms=0.01
+[Inference expired #4] queue_ms=0.0081
+[Inference callback error #5]
+[Inference cancelled #2] queue_ms=0.0116
+[TTS expired #2] queue_ms=0.0132
+[TTS callback error #4]
+PASS deterministic async pipeline: ASR progression, alternating FIFO, overload, cancel/expiry, restart, callback failures, ticket races, TTS. Fake services only.
+</system-out>
+	</testcase>
+	<testcase name="asr_pipeline_tests" classname="asr_pipeline_tests" time="0.0130328" status="run">
+		<properties/>
+		<system-out>[Audio queue dropped #1] replaced_oldest
+[Audio queue rejected #4] closed
+[Audio queue rejected #1] closed
+[Audio queue rejected #1] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #2: test-only transcript | latency=0 ms | RTF=0
+[Audio queue rejected #2] closed
+[Audio queue rejected #2] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+ASR pipeline tests passed: queue, idle destruction, unwind, drain, one-shot start, service/callback faults. No SDK or hardware used.
+</system-out>
+	</testcase>
+	<testcase name="audio_preprocessor_tests" classname="audio_preprocessor_tests" time="0.0102966" status="run">
+		<properties/>
+		<system-out>All AudioPreprocessor tests passed
+</system-out>
+	</testcase>
+	<testcase name="llm_worker_tests" classname="llm_worker_tests" time="0.0132164" status="run">
+		<properties/>
+		<system-out>[Inference cancelled #12] queue_ms=0.011
+[Inference callback error #21]
+LLMWorker tests passed: FIFO, bounded queue, streaming, stop.
+</system-out>
+	</testcase>
+	<testcase name="core_tests" classname="core_tests" time="0.0153693" status="run">
+		<properties/>
+		<system-out>Portable core tests passed. Test doubles never return AI answers.
+</system-out>
+	</testcase>
+	<testcase name="cli_smoke" classname="cli_smoke" time="0.086092" status="run">
+		<properties/>
+		<system-out></system-out>
+	</testcase>
+	<testcase name="camera_service_tests" classname="camera_service_tests" time="0.338352" status="run">
+		<properties/>
+		<system-out>CameraService lifecycle tests passed with test-only capture faults; no V4L2 hardware tested.
+</system-out>
+	</testcase>
+</testsuite>

@@ -1,0 +1,12 @@
+[
+  {
+    "file": "tools/stage5_02_board_run.py",
+    "before": "6bb9f516e13abcf8c1ca9984b7671abe19c91182e9241f9d14a56ac6c38a8f8a",
+    "sha256": "01da83e6b4eaca3b6ce3b0204ce7cbcb6ca354cff0de0077bc324e323410adc0"
+  },
+  {
+    "file": "tests/stage5_02_replay_pair.tsv",
+    "before": null,
+    "sha256": "7079fcead7fc22ef0d5ee034be25974caa047ceb25187265e739f1901126f54c"
+  }
+]

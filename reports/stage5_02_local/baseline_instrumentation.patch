@@ -1,0 +1,291 @@
+--- a/include/ai/llm_worker.h
++++ b/include/ai/llm_worker.h
+@@ -56,6 +56,7 @@
+ 
+     std::size_t pendingCount() const;
+     std::size_t rejectedCount() const;
++    std::size_t peakCount() const {std::lock_guard<std::mutex> lock(mutex_);return measured_peak_;}
+ 
+ private:
+     struct Task
+@@ -81,4 +82,5 @@
+     bool started_ = false;
+     bool stop_requested_ = false;
+     std::size_t rejected_ = 0;
++    std::size_t measured_peak_ = 0;
+ };
+--- /dev/null
++++ b/include/app/pipeline_metrics.h
+@@ -0,0 +1,33 @@
++#pragma once
++#include "common/work_control.h"
++#include <chrono>
++#include <cstdlib>
++#include <iostream>
++#include <mutex>
++#include <stdexcept>
++#include <string>
++
++inline int pipelineEnv(const char* name,int fallback,int low,int high) {
++    const char* value=std::getenv(name);if(!value)return fallback;
++    std::size_t used=0;const std::string text(value);const int result=std::stoi(text,&used);
++    if(used!=text.size() || result<low || result>high)throw std::invalid_argument(std::string("Invalid ")+name);
++    return result;
++}
++struct DispatchTimer {
++    std::mutex& mutex;
++    std::uint64_t id;
++    std::chrono::steady_clock::time_point start=std::chrono::steady_clock::now();
++    ~DispatchTimer(){
++        const auto ms=std::chrono::duration<double,std::milli>(std::chrono::steady_clock::now()-start).count();
++        std::lock_guard<std::mutex> lock(mutex);std::cout<<"[Dispatch] id="<<id<<" callback_ms="<<ms<<'\n'<<std::flush;
++    }
++};
++inline void printWorkerStats(const char* stage,const WorkerStats& s) {
++    std::cout<<"[QueueStats] stage="<<stage<<" generation="<<s.generation
++             <<" accepted="<<s.accepted<<" completed="<<s.completed<<" started="<<s.started
++             <<" failed="<<s.failed<<" cancelled="<<s.cancelled<<" expired="<<s.expired
++             <<" rejected_full="<<s.rejected_full<<" rejected_stopped="<<s.rejected_stopped
++             <<" peak="<<s.peak_depth<<" pending="<<s.pending<<" active="<<s.active
++             <<" callback_errors="<<s.callback_errors<<" queue_sum_ms="<<s.queue_wait_sum_ms
++             <<" queue_max_ms="<<s.queue_wait_max_ms<<" service_sum_ms="<<s.service_sum_ms<<'\n';
++}
+--- a/include/audio/asr_pipeline.h
++++ b/include/audio/asr_pipeline.h
+@@ -51,6 +51,7 @@
+     void close();
+ 
+     std::size_t droppedCount() const;
++    std::size_t peakCount() const {std::lock_guard<std::mutex> lock(mutex_);return measured_peak_;}
+ 
+ private:
+     const std::size_t capacity_;
+@@ -61,6 +62,7 @@
+ 
+     bool closed_ = false;
+     std::size_t dropped_ = 0;
++    std::size_t measured_peak_ = 0;
+ };
+ 
+ // 操作 7 的音频生产者。
+--- a/include/audio/tts_worker.h
++++ b/include/audio/tts_worker.h
+@@ -96,6 +96,7 @@
+ 
+     std::size_t pendingCount() const;
+     std::size_t rejectedCount() const;
++    std::size_t peakCount() const {std::lock_guard<std::mutex> lock(mutex_);return measured_peak_;}
+ 
+ private:
+     struct Task
+@@ -129,4 +130,5 @@
+     bool stop_requested_ = false;
+ 
+     std::size_t rejected_ = 0;
++    std::size_t measured_peak_ = 0;
+ };
+--- /dev/null
++++ b/include/common/work_control.h
+@@ -0,0 +1,30 @@
++#pragma once
++#include <atomic>
++#include <chrono>
++#include <cstddef>
++#include <cstdint>
++#include <memory>
++
++enum class StopMode { Drain, CancelPending };
++enum class TaskDisposition { Completed, Cancelled, Expired };
++inline const char* dispositionName(TaskDisposition value) noexcept {
++    return value==TaskDisposition::Cancelled?"cancelled":value==TaskDisposition::Expired?"expired":"completed";
++}
++struct TaskOptions {
++    using Clock=std::chrono::steady_clock;
++    Clock::time_point deadline=Clock::time_point::max();
++    std::chrono::milliseconds max_queue_wait=std::chrono::milliseconds::max();
++    std::shared_ptr<std::atomic<bool>> cancelled;
++    TaskDisposition disposition(Clock::time_point enqueued, Clock::time_point now, bool stopping) const noexcept {
++        if (stopping || (cancelled && cancelled->load())) return TaskDisposition::Cancelled;
++        if (now>=deadline || (max_queue_wait!=std::chrono::milliseconds::max() && now-enqueued>=max_queue_wait))
++            return TaskDisposition::Expired;
++        return TaskDisposition::Completed;
++    }
++};
++struct WorkerStats {
++    std::uint64_t generation=0;
++    std::size_t accepted=0,rejected_full=0,rejected_stopped=0,started=0,completed=0;
++    std::size_t failed=0,cancelled=0,expired=0,callback_errors=0,peak_depth=0,pending=0,active=0;
++    double queue_wait_sum_ms=0,queue_wait_max_ms=0,service_sum_ms=0;
++};
+--- a/src/ai/llm_worker.cpp
++++ b/src/ai/llm_worker.cpp
+@@ -1,3 +1,4 @@
++#include <algorithm>
+ #include "ai/llm_worker.h"
+ 
+ #include <atomic>
+@@ -71,6 +72,7 @@
+         task.enqueued_at = std::chrono::steady_clock::now();
+ 
+         pending_.push_back(std::move(task));
++        measured_peak_=std::max(measured_peak_,pending_.size());
+     }
+ 
+     cv_.notify_one();
+--- a/src/audio/asr_llm_tts_smoke.cpp
++++ b/src/audio/asr_llm_tts_smoke.cpp
+@@ -14,6 +14,10 @@
+ #include "video/latest_frame_buffer.h"
+ 
+ #include <chrono>
++#include <fstream>
++#include <sstream>
++#include <cstdlib>
++#include "app/pipeline_metrics.h"
+ #include <atomic>
+ #include <cerrno>
+ #include <condition_variable>
+@@ -369,6 +373,7 @@
+     std::condition_variable completed_cv;
+ 
+     IntentRouter router;
++    std::size_t dispatch_calls=0;
+ 
+     // 由单个 ASRWorker 回调生成请求 ID。
+     std::uint64_t next_id = 1;
+@@ -503,6 +508,7 @@
+     const auto on_text =
+         [&](const std::string& recognized)
+     {
++        DispatchTimer dispatch_timer{print_mutex, ++dispatch_calls};
+         // --------------------------------------------------
+         // 12.1 意图判断
+         // --------------------------------------------------
+@@ -1006,18 +1012,48 @@
+         record_seconds
+     );
+ 
+-    std::cout
+-        << "[Listen] "
+-        << record_seconds
+-        << " seconds. "
+-        << (enable_vision ? "Ask ONE short voice question (text or camera).\n"
+-                           : "Ask ONE short text question and pause.\n")
+-        << std::flush;
++    const char* replay_path=std::getenv("STAGE5_REPLAY_FILE");
++    const bool replay_mode=replay_path!=nullptr;
++    if (!replay_mode)
++    {
++        std::cout
++            << "[Listen] "
++            << record_seconds
++            << " seconds. "
++            << (enable_vision ? "Ask ONE short voice question (text or camera).\n"
++                               : "Ask ONE short text question and pause.\n")
++            << std::flush;
++    }
++    else std::cout << "[Replay ready] controlled text; microphone/VAD/ASR not run\n" << std::flush;
+ 
+     // ------------------------------------------------------
+     // 14. 启动录音/VAD 和 ASR 工作线程
+     // ------------------------------------------------------
+ 
++    if (replay_mode)
++    {
++        std::ifstream input(replay_path);
++        if (!input) throw std::runtime_error("Cannot open replay input");
++        std::cout << "[InputMode] replay_only NO_MICROPHONE_ASR_OR_VAD_INFERENCE\n" << std::flush;
++        const auto replay_start=std::chrono::steady_clock::now();
++        std::string line;
++        while (std::getline(input,line))
++        {
++            if (line.empty()) continue;
++            const auto tab=line.find('\t');
++            if (tab==std::string::npos) throw std::runtime_error("Invalid replay line");
++            std::size_t used=0;
++            const long delay=std::stol(line.substr(0,tab),&used);
++            if (used!=tab || delay<0 || delay>120000) throw std::runtime_error("Invalid replay offset");
++            std::this_thread::sleep_until(replay_start+std::chrono::milliseconds(delay));
++            if (stop_signals.received()!=0) break;
++            std::cout << "[Replay] scheduled_ms=" << delay << " source=controlled_text\n" << std::flush;
++            on_text(line.substr(tab+1));
++        }
++        audio_queue.close();
++    }
++    else
++    {
+     try
+     {
+         // ASR 消费者先启动。
+@@ -1073,8 +1109,9 @@
+     producer.join();
+ 
+     consumer.join();
++    }
+     asr.shutdown();
+-    std::cout << "[Shutdown] capture/VAD and ASR joined; recognizer destroyed\n" << std::flush;
++    std::cout << (replay_mode ? "[Shutdown] replay input closed; recognizer destroyed\n" : "[Shutdown] capture/VAD and ASR joined; recognizer destroyed\n") << std::flush;
+ 
+     // 此时 ASRWorker 已经退出，
+     // 不会继续向 LLMWorker 提交新请求。
+@@ -1289,7 +1326,7 @@
+             << vision_successful << '/'
+             << vision_failed << '\n';
+ 
+-        if (!producer.ok())
++        if (!replay_mode && !producer.ok())
+         {
+             std::cerr
+                 << "[VAD] "
+@@ -1297,7 +1334,7 @@
+                 << '\n';
+         }
+ 
+-        if (!consumer.ok())
++        if (!replay_mode && !consumer.ok())
+         {
+             std::cerr
+                 << "[ASR] "
+@@ -1310,9 +1347,10 @@
+     // 22. 最终验收条件
+     // ------------------------------------------------------
+ 
++    std::cout << "[BaselineQueues] inference_peak=" << llm_worker.peakCount()
++              << " tts_peak=" << tts_worker.peakCount() << " audio_peak=" << audio_queue.peakCount() << '\n';
+     const bool passed =
+-        producer.ok() &&
+-        consumer.ok() &&
++        (replay_mode || (producer.ok() && consumer.ok())) &&
+ 
+         audio_queue.droppedCount() == 0 &&
+ 
+--- a/src/audio/asr_pipeline.cpp
++++ b/src/audio/asr_pipeline.cpp
+@@ -1,3 +1,4 @@
++#include <algorithm>
+ 
+ #include "audio/asr_pipeline.h"
+ 
+@@ -35,6 +36,7 @@
+         }
+ 
+         items_.push_back(std::move(segment));
++        measured_peak_=std::max(measured_peak_,items_.size());
+     }
+ 
+     cv_.notify_one();
+--- a/src/audio/tts_worker.cpp
++++ b/src/audio/tts_worker.cpp
+@@ -1,3 +1,4 @@
++#include <algorithm>
+ 
+ #include "audio/tts_worker.h"
+ 
+@@ -99,6 +100,7 @@
+             std::chrono::steady_clock::now();
+ 
+         pending_.push_back(std::move(task));
++        measured_peak_=std::max(measured_peak_,pending_.size());
+     }
+ 
+     // 通知一个等待中的消费者线程。

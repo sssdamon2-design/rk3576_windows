@@ -1,0 +1,15 @@
+[
+  {
+    "case": "candidate_voice_natural",
+    "question": "一加一等于几；等播放后再说前面有什么",
+    "user_reply": "两个都听到了",
+    "captured_local": "2026-10-17T19:48:48.850857+08:00",
+    "scope": "User confirmed audible headphone playback for both Stage 5.2 real microphone answers; no explicit image accuracy assertion"
+  },
+  {
+    "case": "candidate_voice_burst",
+    "user_reply": "三个回答",
+    "captured_local": "2026-10-17T19:52:07.262366+08:00",
+    "scope": "User confirmed three audible answers; log confirms three delivered and one explicit admission rejection."
+  }
+]

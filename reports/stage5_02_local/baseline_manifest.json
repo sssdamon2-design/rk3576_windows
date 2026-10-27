@@ -1,0 +1,537 @@
+[
+  {
+    "file": "CMakeLists.txt",
+    "sha256": "39836964f7ac9f20aeff1b5017ce62fc58c27dcfa6a0c703b5cbab047ea5a6e8",
+    "bytes": 11698
+  },
+  {
+    "file": "config/README.md",
+    "sha256": "46c3e81d78aa3fea0422a5438f08ed7f8be90e306cd658b84a615d4c905f59b6",
+    "bytes": 902
+  },
+  {
+    "file": "docs/architecture.md",
+    "sha256": "f7fcd650cac340ddece3f9ddbb7fb92c093ec22c3c173d39f05852b88d5b2578",
+    "bytes": 9018
+  },
+  {
+    "file": "docs/run.md",
+    "sha256": "aadf8a7b678cc48de1258f6695bf1ceac226502c9d1738e619f095795dd0ad4f",
+    "bytes": 7397
+  },
+  {
+    "file": "docs/stage4_vlm_camera_integration.md",
+    "sha256": "d0e83eda63ec80c336ad41fbd2b7615862e8b3b140cc46fd29377f4ad6f4219e",
+    "bytes": 1725
+  },
+  {
+    "file": "docs/STAGE4_\u96c6\u6210\u5305\u4f7f\u7528\u8bf4\u660e.txt",
+    "sha256": "a3d8d843f6a6f3c64eea1a3c29d2ea33c33c56a8017392afdb5ffffd6910ab53",
+    "bytes": 1297
+  },
+  {
+    "file": "docs/stage5_01_architecture_audit.md",
+    "sha256": "e65d4bc58b77700fe0cacc94dd40656e7216730d22477529fbcddb399dfd2a94",
+    "bytes": 33928
+  },
+  {
+    "file": "docs/stage5_01_board_acceptance.md",
+    "sha256": "52a7b626243ca6cb4445a55d9d54ab9674e26f3456b320d388cde717bf92c44d",
+    "bytes": 16123
+  },
+  {
+    "file": "docs/stage5_01_board_review.md",
+    "sha256": "08f824182e29de57d02da69c857b25b6b8029858451d640a059c82785b768d43",
+    "bytes": 31418
+  },
+  {
+    "file": "docs/stage5_01_phase2_build.md",
+    "sha256": "ef11222b323fa4759d1ed3a1f85636c3d3a8963b431065462884e323f43b6b35",
+    "bytes": 9014
+  },
+  {
+    "file": "docs/stage5_01_readonly_preflight.md",
+    "sha256": "118cc1a54650527b0f6b046f005f5733d84a6daf2d89268c87104fc1a21d6567",
+    "bytes": 11251
+  },
+  {
+    "file": "docs/stage5_01_source_appendix.md",
+    "sha256": "3c73e2a735089917716dab39e38bcb3fce6d785268703c95238d17771b6b5c47",
+    "bytes": 234138
+  },
+  {
+    "file": "docs/stage5_plan.md",
+    "sha256": "44b209ff07fdb36e520841835ea27c9c53544ea34cd2ad9ab78d57e8990bb170",
+    "bytes": 8901
+  },
+  {
+    "file": "docs/validation.md",
+    "sha256": "3df95af4e68798a7810eaca3fe4754bf269515893e5ed46bbf11a9b1378b7d22",
+    "bytes": 7846
+  },
+  {
+    "file": "include/ai/backend_config.h",
+    "sha256": "34c1a28baf41585eacb642f4722daffe2eb6435700d1ebc6a8dd3d047b2057aa",
+    "bytes": 258
+  },
+  {
+    "file": "include/ai/llm_backend.h",
+    "sha256": "a536c7f1588be8828195b3b74eb7508ae9006707fa98d574b44a0bd038a76017",
+    "bytes": 1061
+  },
+  {
+    "file": "include/ai/llm_engine.h",
+    "sha256": "6e58e96a9ea44d4216692fce394d3161381956976c6f6287cb640b7e8a62354a",
+    "bytes": 692
+  },
+  {
+    "file": "include/ai/llm_worker.h",
+    "sha256": "f1041f46336a752a7a4cd1104a75776d38b95eac057f0834b187dc7eee8e3401",
+    "bytes": 2123
+  },
+  {
+    "file": "include/ai/rk_backends.h",
+    "sha256": "751c0ca475a46b3ddaa04df8a23d6a7af2c00b9279c71cfe4375e7a74446d41a",
+    "bytes": 992
+  },
+  {
+    "file": "include/ai/vlm_backend.h",
+    "sha256": "e48b46bd0177fc891b3167595cd64f8666fe57874fd0eefe9031025b1d00d00e",
+    "bytes": 545
+  },
+  {
+    "file": "include/ai/vlm_engine.h",
+    "sha256": "759c1efac3672eae7f3f95dcc23b06b5eefb2d3135b72b433de657a3e6002317",
+    "bytes": 522
+  },
+  {
+    "file": "include/app/cli.h",
+    "sha256": "8de24558576bb0db3e943e479ff85d831bce6edd9ce384d84ae5b8dce0d84bf4",
+    "bytes": 492
+  },
+  {
+    "file": "include/app/request_processor.h",
+    "sha256": "b236c892fddc11c01001bdc7e27cca892115cc7905880d106165c9ccecae04a3",
+    "bytes": 586
+  },
+  {
+    "file": "include/audio/alsa_playback_service.h",
+    "sha256": "d51e6deb7a316fc024cfdbb01a4f64d8e76d71f0e065ba24d5ed29fa545dba3d",
+    "bytes": 1371
+  },
+  {
+    "file": "include/audio/asr_pipeline.h",
+    "sha256": "0706f3f7289ea169a320ed06af983f33d9904c5b3898e504e8956ef5783ddb63",
+    "bytes": 3638
+  },
+  {
+    "file": "include/audio/asr_service.h",
+    "sha256": "53cd22464e052cf94892f124ed680e78b73b95c3c7a7ae284a8421cda13d467f",
+    "bytes": 1344
+  },
+  {
+    "file": "include/audio/audio_capture.h",
+    "sha256": "295c4bb588d32b26597acb944d62e5aa6da16131636296cf7f469134c464ac8f",
+    "bytes": 1051
+  },
+  {
+    "file": "include/audio/audio_preprocessor.h",
+    "sha256": "74595464fdf3a427904e7b81ba0478291b395e45fb966dd6370b1e62649ecfe1",
+    "bytes": 542
+  },
+  {
+    "file": "include/audio/tts_service.h",
+    "sha256": "f4a149ddf6f905670f04bb3dcb592e8802bd745028288d994cc2b763b7903c38",
+    "bytes": 1326
+  },
+  {
+    "file": "include/audio/tts_worker.h",
+    "sha256": "bfd8813c9e22f131137ba6f2f441156d2b4a6efdb07467cc6931effeae70000a",
+    "bytes": 2857
+  },
+  {
+    "file": "include/audio/vad_audio_worker.h",
+    "sha256": "897344fd93d5c9b0552c009b627c68826a14cc1722066df21d1363064ff1b517",
+    "bytes": 1430
+  },
+  {
+    "file": "include/common/inference_result.h",
+    "sha256": "f35d73715b313ed83a7b8151afbd42feae6dfe5e2c7d4df168ad70be4a6b49a8",
+    "bytes": 475
+  },
+  {
+    "file": "include/common/timing.h",
+    "sha256": "555181e4a3bfd5c7800d7fbf4d1e08c124022062fce4bfff4c30ec10c4d03e5f",
+    "bytes": 452
+  },
+  {
+    "file": "include/common/types.h",
+    "sha256": "7813f3e5d3b12216934c9419cd44feaade2e9bcbdf80c3c3896fffec459e15bd",
+    "bytes": 617
+  },
+  {
+    "file": "include/router/intent_router.h",
+    "sha256": "4bd47b86d95d2da94b824d9ff9d75000c9980b1d7b5b407b086b98f1651d64aa",
+    "bytes": 304
+  },
+  {
+    "file": "include/video/camera_service.h",
+    "sha256": "cbfbcfdce0137f9a2a6f6ddf7b13adaaf6c87a97793daa751947b181d42befa9",
+    "bytes": 15801
+  },
+  {
+    "file": "include/video/latest_frame_buffer.h",
+    "sha256": "9b484fc595e0a0e52b35ecd7e5c34ab1dfb754519cbd7b4855071624aa3a1afb",
+    "bytes": 417
+  },
+  {
+    "file": "include/video/video_capture.h",
+    "sha256": "7aa14522a7d34a27a418f1207246841d83951032af465ec11432d05a563049e9",
+    "bytes": 13039
+  },
+  {
+    "file": "README_STAGE5.txt",
+    "sha256": "92e1e6b60a2e8c92267a6fc370896da6ed8bde8daeb1e7f81ec8e3d631c3665c",
+    "bytes": 2654
+  },
+  {
+    "file": "src/ai/llm_engine.cpp",
+    "sha256": "a831c679323a06d14762524a71088a56f72aa158fb967185706bdab42eb74b45",
+    "bytes": 2554
+  },
+  {
+    "file": "src/ai/llm_worker.cpp",
+    "sha256": "685fe657c9ac1a6b5443fa77a6a1f15c7cd305a2902f977b61b5b06eaa1a96e9",
+    "bytes": 4816
+  },
+  {
+    "file": "src/ai/llm_worker_smoke.cpp",
+    "sha256": "8c45f582a366643ac0a309c28c31148a3a17b4524ff6fc262136494d6235a5ba",
+    "bytes": 5144
+  },
+  {
+    "file": "src/ai/model_validation.h",
+    "sha256": "df05064388a2057eddb2f406bdf7f49109bef9fb55c1b29fdf40f288c5d02f98",
+    "bytes": 691
+  },
+  {
+    "file": "src/ai/rk3576_vlm_backend.cpp",
+    "sha256": "268f8f2c139b374371b77a3085f72f2a0a4b5d7ba5d639b42a64e927219bee55",
+    "bytes": 10603
+  },
+  {
+    "file": "src/ai/rk_backends_unavailable.cpp",
+    "sha256": "29cbd4b64e7b82e8a51d507ae0270c198a5b4cbcbbb3986dfa6bae032ca785c6",
+    "bytes": 1938
+  },
+  {
+    "file": "src/ai/rkllm_backend.cpp",
+    "sha256": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+    "bytes": 5145
+  },
+  {
+    "file": "src/ai/vlm_engine.cpp",
+    "sha256": "88b81299197e345c7630098f0467f32d5afcca8fe2ddd29e9de2be1c23d9dd22",
+    "bytes": 2852
+  },
+  {
+    "file": "src/app/cli.cpp",
+    "sha256": "33cf732b1a14e62e1ab0a0f55cbb8cdf16800ad8e571ecb04554783160a0b0df",
+    "bytes": 7766
+  },
+  {
+    "file": "src/app/request_processor.cpp",
+    "sha256": "f2fd91291d7fddddd06d8d9f716835244728c9704e2c92dc182f37221422ced3",
+    "bytes": 883
+  },
+  {
+    "file": "src/audio/alsa_playback_service.cpp",
+    "sha256": "777ca61cc29489ecdf0c47c7a49d49bc1ae4c3f8ff2de15b33b30cc9e63b7e89",
+    "bytes": 8800
+  },
+  {
+    "file": "src/audio/asr_live_smoke.cpp",
+    "sha256": "88dba222ab07b56a12afb12ff479e97872cb580e7be394c8a6513575859d39cb",
+    "bytes": 4085
+  },
+  {
+    "file": "src/audio/asr_llm_smoke.cpp",
+    "sha256": "b5166c6ace67faba9c4d1c60bc8854217eba5a248402ab7c9a1096a1aff926bb",
+    "bytes": 11779
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "sha256": "28d84bce32042ce8136b27dd1c845b86f85d1168488cd51f25df0e77fa7a85e7",
+    "bytes": 42217
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "sha256": "bec2d62b58d33faf02b04a415ca6c8f2deca335db17c904d69a66f6ff7bb8efd",
+    "bytes": 7275
+  },
+  {
+    "file": "src/audio/asr_pipeline_smoke.cpp",
+    "sha256": "3e53f1d419a03fa88658c640a49516e9495e4aa810a555d67aba2b1f7690e296",
+    "bytes": 2910
+  },
+  {
+    "file": "src/audio/asr_route_smoke.cpp",
+    "sha256": "8b0c9bfb99abc9ac2cdf5b6320e1d7260e31b8ce6c86b18b7488a3b9d670e816",
+    "bytes": 7913
+  },
+  {
+    "file": "src/audio/asr_service.cpp",
+    "sha256": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+    "bytes": 4865
+  },
+  {
+    "file": "src/audio/asr_vad_smoke.cpp",
+    "sha256": "f53d914b498798c82ea12da1fe2601b5426dde1105ea64015d90b46b71e70d20",
+    "bytes": 3283
+  },
+  {
+    "file": "src/audio/audio_capture.cpp",
+    "sha256": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+    "bytes": 3606
+  },
+  {
+    "file": "src/audio/audio_capture_smoke.cpp",
+    "sha256": "35f4924a0e8f189d4c22e7b91dfd34da9419d1c47fc4ccf2d75be4836ab03ee2",
+    "bytes": 2486
+  },
+  {
+    "file": "src/audio/audio_preprocessor.cpp",
+    "sha256": "b1fc2e0659bbabe63e555f45ff57738b5bf776c51f8a7ed2d1bbbd9619be72d7",
+    "bytes": 1150
+  },
+  {
+    "file": "src/audio/audio_worker.cpp",
+    "sha256": "5b9a342d64215a4e703eda6848e2866b0b9ed4b38290e5263dfe68f3dd63049c",
+    "bytes": 3230
+  },
+  {
+    "file": "src/audio/tts_playback_smoke.cpp",
+    "sha256": "55553c6370de604b1deeb7d4b4d3dffd6c78dbb44742f36982891de98e13c7c1",
+    "bytes": 4216
+  },
+  {
+    "file": "src/audio/tts_service.cpp",
+    "sha256": "b43677e31f8b53ddf7fed2bbf341bf0b35c405dcba86bd8dc972a663d35ea28e",
+    "bytes": 6947
+  },
+  {
+    "file": "src/audio/tts_smoke.cpp",
+    "sha256": "63561803c786cd366740cf391b275935c592be234336e19f023e770c35b122ca",
+    "bytes": 3797
+  },
+  {
+    "file": "src/audio/tts_worker.cpp",
+    "sha256": "590e9676d023d228c0aaf39e1106538f171f7d1577c17981137e2598f4a22b54",
+    "bytes": 7336
+  },
+  {
+    "file": "src/audio/tts_worker_queue_smoke.cpp",
+    "sha256": "9bfd8faba054eb20662a21c063fb3436fb1dd4fdbb5d37854fac70f6f1a638a1",
+    "bytes": 5894
+  },
+  {
+    "file": "src/audio/tts_worker_smoke.cpp",
+    "sha256": "dd42eda5efabe5f9224251b8f3be8f8272c03ed01cfec1c7889945154a16b0de",
+    "bytes": 5199
+  },
+  {
+    "file": "src/audio/vad_audio_worker.cpp",
+    "sha256": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+    "bytes": 13097
+  },
+  {
+    "file": "src/main.cpp",
+    "sha256": "cc164cb4a7190ccb84f9481e390f362f9bac00aa1daa451e83a76bc49367ce11",
+    "bytes": 2414
+  },
+  {
+    "file": "src/router/intent_router.cpp",
+    "sha256": "791099a42b0086cf1af55f33769c14c172edb3c65ffaee895cda0f79569f0c6e",
+    "bytes": 1826
+  },
+  {
+    "file": "src/video/camera_service.cpp",
+    "sha256": "677ebe29fa1bee5ef5cf408f42780b82c248d478a6a1d3267cb08352a7c37927",
+    "bytes": 28199
+  },
+  {
+    "file": "src/video/latest_frame_buffer.cpp",
+    "sha256": "3742b116cff282666ea3c54a24d25cd6d7ba5ec8e40cf399fa3397c49ffac29a",
+    "bytes": 435
+  },
+  {
+    "file": "src/video/video_capture.cpp",
+    "sha256": "7435dfc113c64de8b1e55ff7cacee3f0f7809d3a82e834968bf872b9db4ff061",
+    "bytes": 40691
+  },
+  {
+    "file": "src/video/video_capture_unavailable.cpp",
+    "sha256": "f389b1339ab59762cade07da9552550fa03de3a3f8fac2d53d7109115af96a4d",
+    "bytes": 879
+  },
+  {
+    "file": "tests/asr_pipeline_tests.cpp",
+    "sha256": "c13703450a49482c369471a0ff53c53e996a81311eaa34d23c643a76d05bbd23",
+    "bytes": 5852
+  },
+  {
+    "file": "tests/audio_preprocessor_tests.cpp",
+    "sha256": "547eb2c82852d78430824d9fc2484d69cde415f3015276fb2f41dfa1bd5fb754",
+    "bytes": 2181
+  },
+  {
+    "file": "tests/camera_service_tests.cpp",
+    "sha256": "1e52e6d406c809bf7fd4cc01899a3d0301d965a59aebd30d1d4225ddaa67fbad",
+    "bytes": 3143
+  },
+  {
+    "file": "tests/camera_test_capture.cpp",
+    "sha256": "31a1baa7c7312e8aa8199b78dd5be3ff154d504b0367264a77c43e3395da4540",
+    "bytes": 1792
+  },
+  {
+    "file": "tests/camera_test_capture.h",
+    "sha256": "6b1f774909cc3423bd67aeddaf0f79aa222957b3afe1381744106d557c3d6bfc",
+    "bytes": 320
+  },
+  {
+    "file": "tests/cli_eof.txt",
+    "sha256": "1d4ecadd14f217e8a8e8d14699c19a007738371cd6f879b861fc44ec45c952e6",
+    "bytes": 6
+  },
+  {
+    "file": "tests/cli_exit.txt",
+    "sha256": "9577a8bfed904bd55390ba203f1a233be1981b36fa945537eb3be5b2446de031",
+    "bytes": 5
+  },
+  {
+    "file": "tests/cli_input.txt",
+    "sha256": "70e6c2fa53698f3bea8093fe788994617e93360203d19cc18948ed5f836ce391",
+    "bytes": 37
+  },
+  {
+    "file": "tests/cli_smoke.cmake",
+    "sha256": "ede278613e20d4a3a94785b849c9b7ad78c01b0775728fedabb2d88326506b58",
+    "bytes": 2327
+  },
+  {
+    "file": "tests/core_tests.cpp",
+    "sha256": "a8c34793c1c57c5ff8075babfca099765b1cbc5ed536aa2c1af1421ab13a336f",
+    "bytes": 10807
+  },
+  {
+    "file": "tests/llm_worker_tests.cpp",
+    "sha256": "3e65faf61186d475ad58dcf2031e6d3f76f7127cd8d7ed8a143ad099064eff3f",
+    "bytes": 8564
+  },
+  {
+    "file": "tests/stage5_board_tools_tests.py",
+    "sha256": "a772f6e12d022584d2468a46e1565f9ffe15487872c34d2db68e89098f3131a0",
+    "bytes": 3012
+  },
+  {
+    "file": "tests/vlm_joint_ref_smoke.cpp",
+    "sha256": "b538b5486e2f9d5b86bbe4b6f4cc34c24c95cae3217ec9899b562693e970fd59",
+    "bytes": 7513
+  },
+  {
+    "file": "tests/vlm_joint_smoke.cpp",
+    "sha256": "ea3b3a4e2d7612155b7a7abea382409cfacf83f7adae713e61a409913ba0cb97",
+    "bytes": 6711
+  },
+  {
+    "file": "tests/vlm_llm_smoke.cpp",
+    "sha256": "98b9f3ec80b026120010c2615b96fdfb3e712227e4af07efb7f63833ed055639",
+    "bytes": 3762
+  },
+  {
+    "file": "tests/vlm_vision_smoke.cpp",
+    "sha256": "3bf42829a796e2d42f083fed571aae2f09087feec7e96b63f5bad9889fa28cfa",
+    "bytes": 4804
+  },
+  {
+    "file": "tools/asr_profile.py",
+    "sha256": "9bdb52a46a0102a604023073ddf07318da1e69cf52b1cfdfac93bbfb87a37973",
+    "bytes": 14449
+  },
+  {
+    "file": "tools/op10_timing_report.py",
+    "sha256": "48068b1b76c5f3805c72d7c1933da7490460bd90afd948d5135b219ac46e5493",
+    "bytes": 7139
+  },
+  {
+    "file": "tools/stage5_board_build.sh",
+    "sha256": "68732afc2050ad76794ecc59f4d1d975555e1280ce2a1413819513f567ac4e33",
+    "bytes": 2093
+  },
+  {
+    "file": "tools/stage5_board_capture.py",
+    "sha256": "4cef97d1394b364a5ce76e1ae660370d15744547dc18be255e8f2d0fcaece3b2",
+    "bytes": 9042
+  },
+  {
+    "file": "tools/stage5_board_compile_only.sh",
+    "sha256": "cdc90f324f68f73bff023811232e0ab462285235a4d3368c2af55c2a4cbcfd66",
+    "bytes": 2426
+  },
+  {
+    "file": "tools/stage5_board_paths.sh",
+    "sha256": "f12b18a3b7fe057d3a724e99a696581fc5767e0343d547ad9c1c667042f07f7b",
+    "bytes": 3255
+  },
+  {
+    "file": "tools/stage5_board_phase3_run.py",
+    "sha256": "7e65dd346a97dfd79d91a373e6ee9e0913fededd791d0dea66f19afea2320622",
+    "bytes": 10363
+  },
+  {
+    "file": "tools/stage5_board_preflight.sh",
+    "sha256": "d57e0c2cf12a1aa01ed05a3e40c8da50a77690fedf484fb41298fc7b08c23b82",
+    "bytes": 2000
+  },
+  {
+    "file": "tools/stage5_board_readonly_inventory.py",
+    "sha256": "f2b44c2300bdd0c87af87e16f7ca086e42a10b0ec194fae1d6ab1edeff8c09ec",
+    "bytes": 13138
+  },
+  {
+    "file": "tools/stage5_board_voice.sh",
+    "sha256": "9a25f02bab964e4f7fde766aaf74d9f48fb0f8f6348b86ce0584e9303a71325a",
+    "bytes": 2006
+  },
+  {
+    "file": "tools/stage5_phase2_deploy.py",
+    "sha256": "ec94120f75817664e2f790da669ae3b98b4886179ecc9b5fb19bd158f01d2d34",
+    "bytes": 12462
+  },
+  {
+    "file": "tools/stage5_phase3_ssh.py",
+    "sha256": "1af9109ff8de9ee783bbd1523ed15dba2a0d9120bc67c506232b155e90f8f9b0",
+    "bytes": 2155
+  },
+  {
+    "file": "tools/stage5_prepare_board_bundle.py",
+    "sha256": "004c69225dc02870ca1c72c5c773c30e7fb35e2606a334193b19e6c5a823a31f",
+    "bytes": 3983
+  },
+  {
+    "file": "tools/stage5_readonly_ssh.py",
+    "sha256": "372953a1b813ecef160019733917d65e881dd0173142b633c4c687517042598a",
+    "bytes": 5803
+  },
+  {
+    "file": "tools/stage5_review.py",
+    "sha256": "ad87bcc628125423d4cf2b16a256387545e0a1035feaee065659a3ca652786a9",
+    "bytes": 7658
+  },
+  {
+    "file": "tools/stage5_summarize_phase3.py",
+    "sha256": "8695f007dc1e12073f1df72a8849ed47c06c1ecbd4ec86fae4df7b3b0546d1a7",
+    "bytes": 11014
+  }
+]

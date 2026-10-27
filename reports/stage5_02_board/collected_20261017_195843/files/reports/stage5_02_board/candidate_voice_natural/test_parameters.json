@@ -1,0 +1,14 @@
+{
+  "name": "candidate_voice_natural",
+  "variant": "candidate",
+  "replay": false,
+  "stop_mode": "drain",
+  "tts_queue_ms": 12000,
+  "request_lifetime_ms": 45000,
+  "signal": null,
+  "trigger": "ready",
+  "delay": 2,
+  "seconds": 90,
+  "timeout": 180,
+  "grace": 60
+}

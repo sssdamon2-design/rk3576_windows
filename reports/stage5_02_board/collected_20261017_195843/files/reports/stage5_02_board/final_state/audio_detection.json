@@ -1,0 +1,29 @@
+{
+  "cards": " 0 [rockchipes8388 ]: rockchip-es8388 - rockchip-es8388\n                      rockchip-es8388\n 1 [III            ]: USB-Audio - HyperX Cloud III\n                      HP, Inc HyperX Cloud III at usb-xhci-hcd.0.auto-1.3, full speed\n 2 [rockchiphdmi   ]: rockchip-hdmi - rockchip-hdmi\n                      rockchip-hdmi\n 3 [rockchipdp0    ]: rockchip-dp0 - rockchip-dp0\n                      rockchip-dp0\n",
+  "capture_listing": {
+    "command": [
+      "arecord",
+      "-l"
+    ],
+    "exit_code": 0,
+    "stdout": "**** List of CAPTURE Hardware Devices ****\ncard 0: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 HiFi-0 [dailink-multicodecs ES8323 HiFi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 1: III [HyperX Cloud III], device 0: USB Audio [USB Audio]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 2: rockchiphdmi [rockchip-hdmi], device 0: rockchip-hdmi i2s-hifi-0 [rockchip-hdmi i2s-hifi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\n",
+    "stderr": ""
+  },
+  "playback_listing": {
+    "command": [
+      "aplay",
+      "-l"
+    ],
+    "exit_code": 0,
+    "stdout": "**** List of PLAYBACK Hardware Devices ****\ncard 0: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 HiFi-0 [dailink-multicodecs ES8323 HiFi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 1: III [HyperX Cloud III], device 0: USB Audio [USB Audio]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 2: rockchiphdmi [rockchip-hdmi], device 0: rockchip-hdmi i2s-hifi-0 [rockchip-hdmi i2s-hifi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 3: rockchipdp0 [rockchip-dp0], device 0: rockchip-dp0 spdif-hifi-0 [rockchip-dp0 spdif-hifi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\n",
+    "stderr": ""
+  },
+  "card_number": 1,
+  "card_id": "III",
+  "pcm_device": 0,
+  "alsa_device": "plughw:CARD=III,DEV=0",
+  "nodes": [
+    "/dev/snd/pcmC1D0c",
+    "/dev/snd/pcmC1D0p"
+  ]
+}

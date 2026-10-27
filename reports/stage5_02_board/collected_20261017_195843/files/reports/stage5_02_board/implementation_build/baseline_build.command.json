@@ -1,0 +1,11 @@
+[
+  "timeout",
+  "--signal=TERM",
+  "--kill-after=15s",
+  "600s",
+  "cmake",
+  "--build",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_02_baseline",
+  "--parallel",
+  "3"
+]
