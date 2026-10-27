@@ -1,0 +1,472 @@
+[
+  {
+    "file": "CMakeLists.txt",
+    "before": "9358433d1cbbdcbaf5931500018e184dae111ad95d9da1f41dc5ef3f56c3d515",
+    "sha256": "f4a45400c494763e6c2191b0e8327e51849304c4408bb738682521f74fac0096"
+  },
+  {
+    "file": "include/ai/backend_config.h",
+    "before": "34c1a28baf41585eacb642f4722daffe2eb6435700d1ebc6a8dd3d047b2057aa",
+    "sha256": "34c1a28baf41585eacb642f4722daffe2eb6435700d1ebc6a8dd3d047b2057aa"
+  },
+  {
+    "file": "include/ai/llm_backend.h",
+    "before": "a536c7f1588be8828195b3b74eb7508ae9006707fa98d574b44a0bd038a76017",
+    "sha256": "a536c7f1588be8828195b3b74eb7508ae9006707fa98d574b44a0bd038a76017"
+  },
+  {
+    "file": "include/ai/llm_engine.h",
+    "before": "6e58e96a9ea44d4216692fce394d3161381956976c6f6287cb640b7e8a62354a",
+    "sha256": "6e58e96a9ea44d4216692fce394d3161381956976c6f6287cb640b7e8a62354a"
+  },
+  {
+    "file": "include/ai/llm_worker.h",
+    "before": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45",
+    "sha256": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45"
+  },
+  {
+    "file": "include/ai/rk_backends.h",
+    "before": "751c0ca475a46b3ddaa04df8a23d6a7af2c00b9279c71cfe4375e7a74446d41a",
+    "sha256": "751c0ca475a46b3ddaa04df8a23d6a7af2c00b9279c71cfe4375e7a74446d41a"
+  },
+  {
+    "file": "include/ai/vlm_backend.h",
+    "before": "e48b46bd0177fc891b3167595cd64f8666fe57874fd0eefe9031025b1d00d00e",
+    "sha256": "e48b46bd0177fc891b3167595cd64f8666fe57874fd0eefe9031025b1d00d00e"
+  },
+  {
+    "file": "include/ai/vlm_engine.h",
+    "before": "759c1efac3672eae7f3f95dcc23b06b5eefb2d3135b72b433de657a3e6002317",
+    "sha256": "759c1efac3672eae7f3f95dcc23b06b5eefb2d3135b72b433de657a3e6002317"
+  },
+  {
+    "file": "include/app/cli.h",
+    "before": "8de24558576bb0db3e943e479ff85d831bce6edd9ce384d84ae5b8dce0d84bf4",
+    "sha256": "8de24558576bb0db3e943e479ff85d831bce6edd9ce384d84ae5b8dce0d84bf4"
+  },
+  {
+    "file": "include/app/pipeline_admission.h",
+    "before": "b7aef862b129b9cf72c028137a03bfac47cbf1e712ca7b23c6744117ddf31437",
+    "sha256": "1bb1366ce1dc50767dc58fe101ebdb248292174d3381953b3cdcf0318687a9cb"
+  },
+  {
+    "file": "include/app/pipeline_metrics.h",
+    "before": "9fece6741f2a5f1e529b71057b1907824c404e49b744f01796dfd92b02a4ac30",
+    "sha256": "9fece6741f2a5f1e529b71057b1907824c404e49b744f01796dfd92b02a4ac30"
+  },
+  {
+    "file": "include/app/request_processor.h",
+    "before": "b236c892fddc11c01001bdc7e27cca892115cc7905880d106165c9ccecae04a3",
+    "sha256": "b236c892fddc11c01001bdc7e27cca892115cc7905880d106165c9ccecae04a3"
+  },
+  {
+    "file": "include/audio/alsa_playback_service.h",
+    "before": "17f35d33cbd81ddd69eb605cce429d42a69416014824ef8891d7b0bb0760ff3a",
+    "sha256": "17f35d33cbd81ddd69eb605cce429d42a69416014824ef8891d7b0bb0760ff3a"
+  },
+  {
+    "file": "include/audio/asr_pipeline.h",
+    "before": "e13830024ef120d9a6411017cead5dddcb2d461754fb07d22453267e9b32c552",
+    "sha256": "11f76809de0670bbc1d51487b2a81272d9526a015a9442a07c59e19d256a7db6"
+  },
+  {
+    "file": "include/audio/asr_service.h",
+    "before": "53cd22464e052cf94892f124ed680e78b73b95c3c7a7ae284a8421cda13d467f",
+    "sha256": "53cd22464e052cf94892f124ed680e78b73b95c3c7a7ae284a8421cda13d467f"
+  },
+  {
+    "file": "include/audio/audio_capture.h",
+    "before": "295c4bb588d32b26597acb944d62e5aa6da16131636296cf7f469134c464ac8f",
+    "sha256": "295c4bb588d32b26597acb944d62e5aa6da16131636296cf7f469134c464ac8f"
+  },
+  {
+    "file": "include/audio/audio_preprocessor.h",
+    "before": "74595464fdf3a427904e7b81ba0478291b395e45fb966dd6370b1e62649ecfe1",
+    "sha256": "74595464fdf3a427904e7b81ba0478291b395e45fb966dd6370b1e62649ecfe1"
+  },
+  {
+    "file": "include/audio/tts_service.h",
+    "before": "ca3e0abd2ea33208a356f9e51a4615667096eb86b840c928002883e1a277e6ef",
+    "sha256": "ca3e0abd2ea33208a356f9e51a4615667096eb86b840c928002883e1a277e6ef"
+  },
+  {
+    "file": "include/audio/tts_worker.h",
+    "before": "09c3117c0a23f980ec015a9799611f7239e792dd35aefbc0a36c0735c86937be",
+    "sha256": "09c3117c0a23f980ec015a9799611f7239e792dd35aefbc0a36c0735c86937be"
+  },
+  {
+    "file": "include/audio/vad_audio_worker.h",
+    "before": "897344fd93d5c9b0552c009b627c68826a14cc1722066df21d1363064ff1b517",
+    "sha256": "897344fd93d5c9b0552c009b627c68826a14cc1722066df21d1363064ff1b517"
+  },
+  {
+    "file": "include/common/image_profile.h",
+    "before": "443bac2a65fa894cd56ca93a2ca70f65ccc52a09736d5b2d571b49b5c0a64834",
+    "sha256": "4796e43ce77c9aba244636b711180799a86b5ab492f7098077d4bfa6a2e66af5"
+  },
+  {
+    "file": "include/common/inference_result.h",
+    "before": "7fdec0feb5f34af678a46911ea034f10e393d821ad2f8332e817f413a30a2d0a",
+    "sha256": "7fdec0feb5f34af678a46911ea034f10e393d821ad2f8332e817f413a30a2d0a"
+  },
+  {
+    "file": "include/common/request_trace.h",
+    "before": null,
+    "sha256": "9da18836555bc01869070cdbfde0d788a9f4466db954fdeb5100f335a05cc970"
+  },
+  {
+    "file": "include/common/timing.h",
+    "before": "555181e4a3bfd5c7800d7fbf4d1e08c124022062fce4bfff4c30ec10c4d03e5f",
+    "sha256": "555181e4a3bfd5c7800d7fbf4d1e08c124022062fce4bfff4c30ec10c4d03e5f"
+  },
+  {
+    "file": "include/common/types.h",
+    "before": "7813f3e5d3b12216934c9419cd44feaade2e9bcbdf80c3c3896fffec459e15bd",
+    "sha256": "7813f3e5d3b12216934c9419cd44feaade2e9bcbdf80c3c3896fffec459e15bd"
+  },
+  {
+    "file": "include/common/work_control.h",
+    "before": "ea1c2b63ec0e9a8e21b1dc16ce8b0a7274c644d5ca55ddb5feea753d18ae3529",
+    "sha256": "077cda07787f8536cd063a32f9251a976868852e676d5e90d9fd5bd4d02084d2"
+  },
+  {
+    "file": "include/router/intent_router.h",
+    "before": "4bd47b86d95d2da94b824d9ff9d75000c9980b1d7b5b407b086b98f1651d64aa",
+    "sha256": "4bd47b86d95d2da94b824d9ff9d75000c9980b1d7b5b407b086b98f1651d64aa"
+  },
+  {
+    "file": "include/video/camera_service.h",
+    "before": "e42da5da8d013aee6f7637015875129b9a4f27aedd2cb9f16f698fa968d411da",
+    "sha256": "e42da5da8d013aee6f7637015875129b9a4f27aedd2cb9f16f698fa968d411da"
+  },
+  {
+    "file": "include/video/image_preprocessor.h",
+    "before": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+    "sha256": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da"
+  },
+  {
+    "file": "include/video/latest_frame_buffer.h",
+    "before": "9b484fc595e0a0e52b35ecd7e5c34ab1dfb754519cbd7b4855071624aa3a1afb",
+    "sha256": "9b484fc595e0a0e52b35ecd7e5c34ab1dfb754519cbd7b4855071624aa3a1afb"
+  },
+  {
+    "file": "include/video/owned_frame_pool.h",
+    "before": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+    "sha256": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739"
+  },
+  {
+    "file": "include/video/video_capture.h",
+    "before": "213f11e12d7920f5f12a1d43332cf4c47fb31941a8842b2d2e349ab4f552c35b",
+    "sha256": "213f11e12d7920f5f12a1d43332cf4c47fb31941a8842b2d2e349ab4f552c35b"
+  },
+  {
+    "file": "src/ai/llm_engine.cpp",
+    "before": "a831c679323a06d14762524a71088a56f72aa158fb967185706bdab42eb74b45",
+    "sha256": "a831c679323a06d14762524a71088a56f72aa158fb967185706bdab42eb74b45"
+  },
+  {
+    "file": "src/ai/llm_worker.cpp",
+    "before": "78d1967345cea3fc61051c92b4a832128a1491868de284b60b67733a6bc7b367",
+    "sha256": "5116f71770098e5d0031af0453fcfa5fe5b6b87b0a02cf250a62da6de817d8b0"
+  },
+  {
+    "file": "src/ai/llm_worker_smoke.cpp",
+    "before": "8c45f582a366643ac0a309c28c31148a3a17b4524ff6fc262136494d6235a5ba",
+    "sha256": "8c45f582a366643ac0a309c28c31148a3a17b4524ff6fc262136494d6235a5ba"
+  },
+  {
+    "file": "src/ai/model_validation.h",
+    "before": "df05064388a2057eddb2f406bdf7f49109bef9fb55c1b29fdf40f288c5d02f98",
+    "sha256": "df05064388a2057eddb2f406bdf7f49109bef9fb55c1b29fdf40f288c5d02f98"
+  },
+  {
+    "file": "src/ai/rk3576_vlm_backend.cpp",
+    "before": "8f9dea0570e158ca556cad0d3b3eb3f425445f4369e603051985c283a62cbd03",
+    "sha256": "1ec8b408405eb04defc358a028f149dd0cf70e68c63aa519b4d56e74db213b24"
+  },
+  {
+    "file": "src/ai/rk_backends_unavailable.cpp",
+    "before": "29cbd4b64e7b82e8a51d507ae0270c198a5b4cbcbbb3986dfa6bae032ca785c6",
+    "sha256": "29cbd4b64e7b82e8a51d507ae0270c198a5b4cbcbbb3986dfa6bae032ca785c6"
+  },
+  {
+    "file": "src/ai/rkllm_backend.cpp",
+    "before": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+    "sha256": "f8d2807b4814f18d92de8ebf45dfd761ae0da16244bbaab1c232e68907865860"
+  },
+  {
+    "file": "src/ai/vlm_engine.cpp",
+    "before": "88b81299197e345c7630098f0467f32d5afcca8fe2ddd29e9de2be1c23d9dd22",
+    "sha256": "88b81299197e345c7630098f0467f32d5afcca8fe2ddd29e9de2be1c23d9dd22"
+  },
+  {
+    "file": "src/app/cli.cpp",
+    "before": "33cf732b1a14e62e1ab0a0f55cbb8cdf16800ad8e571ecb04554783160a0b0df",
+    "sha256": "33cf732b1a14e62e1ab0a0f55cbb8cdf16800ad8e571ecb04554783160a0b0df"
+  },
+  {
+    "file": "src/app/request_processor.cpp",
+    "before": "f2fd91291d7fddddd06d8d9f716835244728c9704e2c92dc182f37221422ced3",
+    "sha256": "f2fd91291d7fddddd06d8d9f716835244728c9704e2c92dc182f37221422ced3"
+  },
+  {
+    "file": "src/audio/alsa_playback_service.cpp",
+    "before": "5ed616ee7251c67b605f0c6d1ae24a088068b3d2858654ffdf9d8c5798626756",
+    "sha256": "df0dbd6e2f3b693afa97309dc83a400f5483fac59b231258bde68ee9915031d8"
+  },
+  {
+    "file": "src/audio/asr_live_smoke.cpp",
+    "before": "88dba222ab07b56a12afb12ff479e97872cb580e7be394c8a6513575859d39cb",
+    "sha256": "88dba222ab07b56a12afb12ff479e97872cb580e7be394c8a6513575859d39cb"
+  },
+  {
+    "file": "src/audio/asr_llm_smoke.cpp",
+    "before": "b5166c6ace67faba9c4d1c60bc8854217eba5a248402ab7c9a1096a1aff926bb",
+    "sha256": "b5166c6ace67faba9c4d1c60bc8854217eba5a248402ab7c9a1096a1aff926bb"
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "before": "b746bbb89fff7ba559a101117eecf69074aec561bc9d3515b99646a6d59e5550",
+    "sha256": "1e91f6fa7ede758da17cb0ec8bab36429ff6f909f34c7733405ee290bdf7d4bd"
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "before": "8324a7211312ede7367f2c90e5fa1116334a8e4c8c43155f8362a03f9a009475",
+    "sha256": "a6f59d5a52bc996ffb39c893a8cfc177e8cd7f81b110d67e68ae2d0da72ac3b5"
+  },
+  {
+    "file": "src/audio/asr_pipeline_smoke.cpp",
+    "before": "3e53f1d419a03fa88658c640a49516e9495e4aa810a555d67aba2b1f7690e296",
+    "sha256": "3e53f1d419a03fa88658c640a49516e9495e4aa810a555d67aba2b1f7690e296"
+  },
+  {
+    "file": "src/audio/asr_route_smoke.cpp",
+    "before": "8b0c9bfb99abc9ac2cdf5b6320e1d7260e31b8ce6c86b18b7488a3b9d670e816",
+    "sha256": "8b0c9bfb99abc9ac2cdf5b6320e1d7260e31b8ce6c86b18b7488a3b9d670e816"
+  },
+  {
+    "file": "src/audio/asr_service.cpp",
+    "before": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+    "sha256": "ab396ba89c5055452c6ad231977d7a8dca583a37c1991295e7bdbea2aff5f41c"
+  },
+  {
+    "file": "src/audio/asr_vad_smoke.cpp",
+    "before": "f53d914b498798c82ea12da1fe2601b5426dde1105ea64015d90b46b71e70d20",
+    "sha256": "f53d914b498798c82ea12da1fe2601b5426dde1105ea64015d90b46b71e70d20"
+  },
+  {
+    "file": "src/audio/audio_capture.cpp",
+    "before": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+    "sha256": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6"
+  },
+  {
+    "file": "src/audio/audio_capture_smoke.cpp",
+    "before": "35f4924a0e8f189d4c22e7b91dfd34da9419d1c47fc4ccf2d75be4836ab03ee2",
+    "sha256": "35f4924a0e8f189d4c22e7b91dfd34da9419d1c47fc4ccf2d75be4836ab03ee2"
+  },
+  {
+    "file": "src/audio/audio_preprocessor.cpp",
+    "before": "b1fc2e0659bbabe63e555f45ff57738b5bf776c51f8a7ed2d1bbbd9619be72d7",
+    "sha256": "b1fc2e0659bbabe63e555f45ff57738b5bf776c51f8a7ed2d1bbbd9619be72d7"
+  },
+  {
+    "file": "src/audio/audio_worker.cpp",
+    "before": "5b9a342d64215a4e703eda6848e2866b0b9ed4b38290e5263dfe68f3dd63049c",
+    "sha256": "5b9a342d64215a4e703eda6848e2866b0b9ed4b38290e5263dfe68f3dd63049c"
+  },
+  {
+    "file": "src/audio/tts_playback_smoke.cpp",
+    "before": "55553c6370de604b1deeb7d4b4d3dffd6c78dbb44742f36982891de98e13c7c1",
+    "sha256": "55553c6370de604b1deeb7d4b4d3dffd6c78dbb44742f36982891de98e13c7c1"
+  },
+  {
+    "file": "src/audio/tts_service.cpp",
+    "before": "26bb0f1213224b72c9cf869d396d7b1d2e7c2dbef9d533a432d991b28dd08abb",
+    "sha256": "232031b90c7bf12427fccc326df6e21d46c258142c1d97683294c28968a9b3e9"
+  },
+  {
+    "file": "src/audio/tts_smoke.cpp",
+    "before": "40589cab7c13bd0208ff0f2b7d00ab24eaf1edbfed0ee34c47f05ed947dab650",
+    "sha256": "40589cab7c13bd0208ff0f2b7d00ab24eaf1edbfed0ee34c47f05ed947dab650"
+  },
+  {
+    "file": "src/audio/tts_worker.cpp",
+    "before": "d954d44cd619fdfc6c7c05086cb5304aec87f246688b2cd6530cf8efa493c254",
+    "sha256": "2811c20f0ef2664876821a0ab67f0ae544a6c0bc18ac2f643726ec4de6d7a410"
+  },
+  {
+    "file": "src/audio/tts_worker_queue_smoke.cpp",
+    "before": "9bfd8faba054eb20662a21c063fb3436fb1dd4fdbb5d37854fac70f6f1a638a1",
+    "sha256": "9bfd8faba054eb20662a21c063fb3436fb1dd4fdbb5d37854fac70f6f1a638a1"
+  },
+  {
+    "file": "src/audio/tts_worker_smoke.cpp",
+    "before": "dd42eda5efabe5f9224251b8f3be8f8272c03ed01cfec1c7889945154a16b0de",
+    "sha256": "dd42eda5efabe5f9224251b8f3be8f8272c03ed01cfec1c7889945154a16b0de"
+  },
+  {
+    "file": "src/audio/vad_audio_worker.cpp",
+    "before": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+    "sha256": "609e680902218d8fe54c3e7e6f183343ab709a09a0beffa1c081bf4cb71cf22e"
+  },
+  {
+    "file": "src/main.cpp",
+    "before": "cc164cb4a7190ccb84f9481e390f362f9bac00aa1daa451e83a76bc49367ce11",
+    "sha256": "cc164cb4a7190ccb84f9481e390f362f9bac00aa1daa451e83a76bc49367ce11"
+  },
+  {
+    "file": "src/router/intent_router.cpp",
+    "before": "791099a42b0086cf1af55f33769c14c172edb3c65ffaee895cda0f79569f0c6e",
+    "sha256": "514ac8a005e7165ae2ca1de251ca4c2bae6555bbf4d18d02e9c2afe9c3e6c765"
+  },
+  {
+    "file": "src/video/camera_service.cpp",
+    "before": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+    "sha256": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772"
+  },
+  {
+    "file": "src/video/image_preprocessor.cpp",
+    "before": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+    "sha256": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220"
+  },
+  {
+    "file": "src/video/latest_frame_buffer.cpp",
+    "before": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+    "sha256": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3"
+  },
+  {
+    "file": "src/video/video_capture.cpp",
+    "before": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+    "sha256": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407"
+  },
+  {
+    "file": "src/video/video_capture_unavailable.cpp",
+    "before": "ab8e632632e231a89853f6cc753cdc85f49918d84f5a418a31321ff6b138287d",
+    "sha256": "ab8e632632e231a89853f6cc753cdc85f49918d84f5a418a31321ff6b138287d"
+  },
+  {
+    "file": "tests/asr_pipeline_tests.cpp",
+    "before": "c13703450a49482c369471a0ff53c53e996a81311eaa34d23c643a76d05bbd23",
+    "sha256": "c13703450a49482c369471a0ff53c53e996a81311eaa34d23c643a76d05bbd23"
+  },
+  {
+    "file": "tests/async_pipeline_tests.cpp",
+    "before": "7b183ed3b10fe382f83d0622774acdcb37ff49a89832b0be16206c4e58760de2",
+    "sha256": "e400df065232c24908c63bffe56d3c0ecd14378bcb03814983ee2ca756931bc8"
+  },
+  {
+    "file": "tests/audio_preprocessor_tests.cpp",
+    "before": "547eb2c82852d78430824d9fc2484d69cde415f3015276fb2f41dfa1bd5fb754",
+    "sha256": "547eb2c82852d78430824d9fc2484d69cde415f3015276fb2f41dfa1bd5fb754"
+  },
+  {
+    "file": "tests/camera_service_tests.cpp",
+    "before": "1e52e6d406c809bf7fd4cc01899a3d0301d965a59aebd30d1d4225ddaa67fbad",
+    "sha256": "1e52e6d406c809bf7fd4cc01899a3d0301d965a59aebd30d1d4225ddaa67fbad"
+  },
+  {
+    "file": "tests/camera_test_capture.cpp",
+    "before": "48d18e2a73d873086a367d149b2722e7d76d144ce629dbeceaa8d06d7da37b08",
+    "sha256": "48d18e2a73d873086a367d149b2722e7d76d144ce629dbeceaa8d06d7da37b08"
+  },
+  {
+    "file": "tests/camera_test_capture.h",
+    "before": "6b1f774909cc3423bd67aeddaf0f79aa222957b3afe1381744106d557c3d6bfc",
+    "sha256": "6b1f774909cc3423bd67aeddaf0f79aa222957b3afe1381744106d557c3d6bfc"
+  },
+  {
+    "file": "tests/cli_eof.txt",
+    "before": "1d4ecadd14f217e8a8e8d14699c19a007738371cd6f879b861fc44ec45c952e6",
+    "sha256": "1d4ecadd14f217e8a8e8d14699c19a007738371cd6f879b861fc44ec45c952e6"
+  },
+  {
+    "file": "tests/cli_exit.txt",
+    "before": "9577a8bfed904bd55390ba203f1a233be1981b36fa945537eb3be5b2446de031",
+    "sha256": "9577a8bfed904bd55390ba203f1a233be1981b36fa945537eb3be5b2446de031"
+  },
+  {
+    "file": "tests/cli_input.txt",
+    "before": "70e6c2fa53698f3bea8093fe788994617e93360203d19cc18948ed5f836ce391",
+    "sha256": "70e6c2fa53698f3bea8093fe788994617e93360203d19cc18948ed5f836ce391"
+  },
+  {
+    "file": "tests/cli_smoke.cmake",
+    "before": "ede278613e20d4a3a94785b849c9b7ad78c01b0775728fedabb2d88326506b58",
+    "sha256": "ede278613e20d4a3a94785b849c9b7ad78c01b0775728fedabb2d88326506b58"
+  },
+  {
+    "file": "tests/core_tests.cpp",
+    "before": "a8c34793c1c57c5ff8075babfca099765b1cbc5ed536aa2c1af1421ab13a336f",
+    "sha256": "a8c34793c1c57c5ff8075babfca099765b1cbc5ed536aa2c1af1421ab13a336f"
+  },
+  {
+    "file": "tests/image_pipeline_tests.cpp",
+    "before": "6441df48017977c25c9194a65b31c775e8afbf47f5267781bff8e8ec92b286a8",
+    "sha256": "6441df48017977c25c9194a65b31c775e8afbf47f5267781bff8e8ec92b286a8"
+  },
+  {
+    "file": "tests/llm_worker_tests.cpp",
+    "before": "3e65faf61186d475ad58dcf2031e6d3f76f7127cd8d7ed8a143ad099064eff3f",
+    "sha256": "3e65faf61186d475ad58dcf2031e6d3f76f7127cd8d7ed8a143ad099064eff3f"
+  },
+  {
+    "file": "tests/request_profile_tests.cpp",
+    "before": null,
+    "sha256": "64fb611de4eda6776e492f0324655f1c7716420f76a738f784e13b703b76dd14"
+  },
+  {
+    "file": "tests/stage5_02_npu_probe.cpp",
+    "before": "e4e18c2454d0dc006a0886777a6152e776b75e43a008145167068d69d89b22ca",
+    "sha256": "e4e18c2454d0dc006a0886777a6152e776b75e43a008145167068d69d89b22ca"
+  },
+  {
+    "file": "tests/stage5_02_replay.tsv",
+    "before": "5f072a66a072912f2765712c46b980929dafbf12f6149263c5e59b81e710c799",
+    "sha256": "5f072a66a072912f2765712c46b980929dafbf12f6149263c5e59b81e710c799"
+  },
+  {
+    "file": "tests/stage5_02_replay_pair.tsv",
+    "before": "7079fcead7fc22ef0d5ee034be25974caa047ceb25187265e739f1901126f54c",
+    "sha256": "7079fcead7fc22ef0d5ee034be25974caa047ceb25187265e739f1901126f54c"
+  },
+  {
+    "file": "tests/stage5_03_memory_probe.cpp",
+    "before": "ba33ba1f4c40d2e1f3dac40130813ef05b4e7b62c3a242bab5d0aefa886448e2",
+    "sha256": "ba33ba1f4c40d2e1f3dac40130813ef05b4e7b62c3a242bab5d0aefa886448e2"
+  },
+  {
+    "file": "tests/stage5_03_rga_probe.cpp",
+    "before": "f77db7caaa4abae873471824cc5bdcd330ca5ed3422004c2a0edf9731f4442c6",
+    "sha256": "f77db7caaa4abae873471824cc5bdcd330ca5ed3422004c2a0edf9731f4442c6"
+  },
+  {
+    "file": "tests/stage5_04_asr_bench.cpp",
+    "before": null,
+    "sha256": "028aee091d7c6e1aee00ef6d8a9dc2c8809c12846aaf55aa08ad9090717b2e03"
+  },
+  {
+    "file": "tests/stage5_04_tts_bench.cpp",
+    "before": null,
+    "sha256": "721bcf205fa82b4839da5ec001927e472a45ac3905878badf77a60196cfef962"
+  },
+  {
+    "file": "tests/vlm_joint_ref_smoke.cpp",
+    "before": "b538b5486e2f9d5b86bbe4b6f4cc34c24c95cae3217ec9899b562693e970fd59",
+    "sha256": "b538b5486e2f9d5b86bbe4b6f4cc34c24c95cae3217ec9899b562693e970fd59"
+  },
+  {
+    "file": "tests/vlm_joint_smoke.cpp",
+    "before": "ea3b3a4e2d7612155b7a7abea382409cfacf83f7adae713e61a409913ba0cb97",
+    "sha256": "ea3b3a4e2d7612155b7a7abea382409cfacf83f7adae713e61a409913ba0cb97"
+  },
+  {
+    "file": "tests/vlm_llm_smoke.cpp",
+    "before": "98b9f3ec80b026120010c2615b96fdfb3e712227e4af07efb7f63833ed055639",
+    "sha256": "98b9f3ec80b026120010c2615b96fdfb3e712227e4af07efb7f63833ed055639"
+  },
+  {
+    "file": "tests/vlm_vision_smoke.cpp",
+    "before": "3bf42829a796e2d42f083fed571aae2f09087feec7e96b63f5bad9889fa28cfa",
+    "sha256": "3bf42829a796e2d42f083fed571aae2f09087feec7e96b63f5bad9889fa28cfa"
+  }
+]

@@ -1,0 +1,9 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec ctest --test-dir \"$2\" --output-on-failure --timeout 30 --output-junit \"$3\"",
+  "stage5_04",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_04_baseline_v2",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_build_v2/ctest.xml"
+]
