@@ -1,0 +1,338 @@
+{
+  "pid": 34293,
+  "sampled_at_UTC": "2026-10-17T16:28:14Z",
+  "scope": "one read-only own-process smaps snapshot during the 4-thread comparison; no allocator injection",
+  "groups_kB": {
+    "/dev/dri/card1": {
+      "Rss": 1369584,
+      "Private_Dirty": 1215828,
+      "Private_Clean": 153756,
+      "Anonymous": 0
+    },
+    "[heap]": {
+      "Rss": 903064,
+      "Private_Dirty": 903064,
+      "Private_Clean": 0,
+      "Anonymous": 903064
+    },
+    "[anonymous]": {
+      "Rss": 424592,
+      "Private_Dirty": 424592,
+      "Private_Clean": 0,
+      "Anonymous": 424592
+    },
+    "/dev/video11": {
+      "Rss": 48608,
+      "Private_Dirty": 0,
+      "Private_Clean": 48608,
+      "Anonymous": 0
+    },
+    "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/lib/libonnxruntime.so": {
+      "Rss": 13028,
+      "Private_Dirty": 256,
+      "Private_Clean": 12772,
+      "Anonymous": 256
+    },
+    "/usr/lib/librknnrt.so": {
+      "Rss": 3848,
+      "Private_Dirty": 208,
+      "Private_Clean": 3640,
+      "Anonymous": 208
+    },
+    "/home/cat/projects/RK3576/rkllm_sdk/rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so": {
+      "Rss": 3672,
+      "Private_Dirty": 244,
+      "Private_Clean": 3428,
+      "Anonymous": 244
+    },
+    "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/lib/libsherpa-onnx-c-api.so": {
+      "Rss": 2632,
+      "Private_Dirty": 48,
+      "Private_Clean": 2584,
+      "Anonymous": 48
+    },
+    "/usr/lib/aarch64-linux-gnu/libstdc++.so.6.0.30": {
+      "Rss": 1756,
+      "Private_Dirty": 56,
+      "Private_Clean": 476,
+      "Anonymous": 56
+    },
+    "/usr/lib/aarch64-linux-gnu/libc.so.6": {
+      "Rss": 1240,
+      "Private_Dirty": 24,
+      "Private_Clean": 0,
+      "Anonymous": 24
+    },
+    "/usr/lib/aarch64-linux-gnu/libasound.so.2.0.0": {
+      "Rss": 660,
+      "Private_Dirty": 36,
+      "Private_Clean": 188,
+      "Anonymous": 36
+    },
+    "/usr/lib/aarch64-linux-gnu/pulseaudio/libpulsecommon-16.1.so": {
+      "Rss": 460,
+      "Private_Dirty": 16,
+      "Private_Clean": 16,
+      "Anonymous": 16
+    },
+    "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_05_thermal/asr_llm_tts_smoke": {
+      "Rss": 392,
+      "Private_Dirty": 8,
+      "Private_Clean": 384,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libm.so.6": {
+      "Rss": 392,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libpulse.so.0.24.2": {
+      "Rss": 312,
+      "Private_Dirty": 12,
+      "Private_Clean": 140,
+      "Anonymous": 12
+    },
+    "/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0": {
+      "Rss": 256,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libvorbisenc.so.2.0.12": {
+      "Rss": 224,
+      "Private_Dirty": 96,
+      "Private_Clean": 0,
+      "Anonymous": 96
+    },
+    "/usr/lib/aarch64-linux-gnu/libX11.so.6.4.0": {
+      "Rss": 208,
+      "Private_Dirty": 24,
+      "Private_Clean": 0,
+      "Anonymous": 24
+    },
+    "/usr/lib/aarch64-linux-gnu/libsystemd.so.0.35.0": {
+      "Rss": 172,
+      "Private_Dirty": 48,
+      "Private_Clean": 0,
+      "Anonymous": 48
+    },
+    "/usr/lib/aarch64-linux-gnu/ld-linux-aarch64.so.1": {
+      "Rss": 160,
+      "Private_Dirty": 16,
+      "Private_Clean": 0,
+      "Anonymous": 16
+    },
+    "/usr/lib/aarch64-linux-gnu/libgpg-error.so.0.33.1": {
+      "Rss": 136,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/locale/C.utf8/LC_CTYPE": {
+      "Rss": 124,
+      "Private_Dirty": 0,
+      "Private_Clean": 124,
+      "Anonymous": 0
+    },
+    "/usr/lib/aarch64-linux-gnu/libgcrypt.so.20.4.1": {
+      "Rss": 100,
+      "Private_Dirty": 36,
+      "Private_Clean": 0,
+      "Anonymous": 36
+    },
+    "/dev/snd/pcmC1D0p": {
+      "Rss": 96,
+      "Private_Dirty": 96,
+      "Private_Clean": 0,
+      "Anonymous": 0
+    },
+    "/usr/lib/aarch64-linux-gnu/libgcc_s.so.1": {
+      "Rss": 88,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libsndfile.so.1.0.35": {
+      "Rss": 80,
+      "Private_Dirty": 16,
+      "Private_Clean": 0,
+      "Anonymous": 16
+    },
+    "/usr/lib/aarch64-linux-gnu/libmp3lame.so.0.0.0": {
+      "Rss": 76,
+      "Private_Dirty": 12,
+      "Private_Clean": 0,
+      "Anonymous": 12
+    },
+    "/usr/lib/aarch64-linux-gnu/libdbus-1.so.3.32.4": {
+      "Rss": 76,
+      "Private_Dirty": 12,
+      "Private_Clean": 0,
+      "Anonymous": 12
+    },
+    "/usr/lib/aarch64-linux-gnu/libspeexdsp.so.1.5.2": {
+      "Rss": 72,
+      "Private_Dirty": 8,
+      "Private_Clean": 4,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libbsd.so.0.11.7": {
+      "Rss": 72,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libzstd.so.1.5.4": {
+      "Rss": 72,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/liblzma.so.5.4.1": {
+      "Rss": 72,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libmpg123.so.0.47.0": {
+      "Rss": 72,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libFLAC.so.12.0.0": {
+      "Rss": 72,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libxcb.so.1.1.0": {
+      "Rss": 72,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/liblz4.so.1.9.4": {
+      "Rss": 68,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libvorbis.so.0.4.9": {
+      "Rss": 64,
+      "Private_Dirty": 8,
+      "Private_Clean": 40,
+      "Anonymous": 8
+    },
+    "/usr/lib/locale/locale-archive": {
+      "Rss": 64,
+      "Private_Dirty": 0,
+      "Private_Clean": 0,
+      "Anonymous": 0
+    },
+    "/usr/lib/aarch64-linux-gnu/libmd.so.0.0.5": {
+      "Rss": 48,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libcap.so.2.66": {
+      "Rss": 48,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "[stack]": {
+      "Rss": 44,
+      "Private_Dirty": 44,
+      "Private_Clean": 0,
+      "Anonymous": 44
+    },
+    "/usr/lib/aarch64-linux-gnu/libogg.so.0.8.5": {
+      "Rss": 36,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libasyncns.so.0.3.1": {
+      "Rss": 28,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/gconv/gconv-modules.cache": {
+      "Rss": 28,
+      "Private_Dirty": 0,
+      "Private_Clean": 0,
+      "Anonymous": 0
+    },
+    "/usr/lib/aarch64-linux-gnu/libXdmcp.so.6.0.0": {
+      "Rss": 24,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libopus.so.0.8.0": {
+      "Rss": 24,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libXau.so.6.0.0": {
+      "Rss": 16,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/alsa-lib/libasound_module_rate_speexrate.so": {
+      "Rss": 16,
+      "Private_Dirty": 8,
+      "Private_Clean": 8,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libX11-xcb.so.1.0.0": {
+      "Rss": 12,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/librt.so.1": {
+      "Rss": 12,
+      "Private_Dirty": 8,
+      "Private_Clean": 4,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libdl.so.2": {
+      "Rss": 12,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/lib/aarch64-linux-gnu/libpthread.so.0": {
+      "Rss": 12,
+      "Private_Dirty": 8,
+      "Private_Clean": 0,
+      "Anonymous": 8
+    },
+    "/usr/libexec/coreutils/libstdbuf.so": {
+      "Rss": 12,
+      "Private_Dirty": 8,
+      "Private_Clean": 4,
+      "Anonymous": 8
+    },
+    "[vdso]": {
+      "Rss": 4,
+      "Private_Dirty": 0,
+      "Private_Clean": 0,
+      "Anonymous": 0
+    },
+    "[vvar]": {
+      "Rss": 0,
+      "Private_Dirty": 0,
+      "Private_Clean": 0,
+      "Anonymous": 0
+    }
+  },
+  "status": "Name:\tasr_llm_tts_smo\nUmask:\t0022\nState:\tS (sleeping)\nTgid:\t34293\nNgid:\t0\nPid:\t34293\nPPid:\t34265\nTracerPid:\t0\nUid:\t1000\t1000\t1000\t1000\nGid:\t1000\t1000\t1000\t1000\nFDSize:\t64\nGroups:\t4 20 24 27 29 30 44 46 50 100 108 109 999 1000 1001 \nNStgid:\t34293\nNSpid:\t34293\nNSpgid:\t34293\nNSsid:\t34293\nVmPeak:\t 6736064 kB\nVmSize:\t 6736064 kB\nVmLck:\t       0 kB\nVmPin:\t       0 kB\nVmHWM:\t 2776064 kB\nVmRSS:\t 2776044 kB\nRssAnon:\t 1328824 kB\nRssFile:\t   77636 kB\nRssShmem:\t 1369584 kB\nVmData:\t 4589004 kB\nVmStk:\t     132 kB\nVmExe:\t     420 kB\nVmLib:\t   48768 kB\nVmPTE:\t    5692 kB\nVmSwap:\t       0 kB\nHugetlbPages:\t       0 kB\nCoreDumping:\t0\nTHP_enabled:\t0\nThreads:\t13\nSigQ:\t0/15461\nSigPnd:\t0000000000000000\nShdPnd:\t0000000000000000\nSigBlk:\t0000000000004002\nSigIgn:\t0000000000000000\nSigCgt:\t0000000100000000\nCapInh:\t0000000000000000\nCapPrm:\t0000000000000000\nCapEff:\t0000000000000000\nCapBnd:\t000001ffffffffff\nCapAmb:\t0000000000000000\nNoNewPrivs:\t0\nSeccomp:\t0\nSeccomp_filters:\t0\nSpeculation_Store_Bypass:\tnot vulnerable\nSpeculationIndirectBranch:\tunknown\nCpus_allowed:\tff\nCpus_allowed_list:\t0-7\nMems_allowed:\t1\nMems_allowed_list:\t0\nvoluntary_ctxt_switches:\t40823\nnonvoluntary_ctxt_switches:\t5691\n"
+}

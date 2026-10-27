@@ -1,0 +1,26 @@
+{
+  "returncode": 0,
+  "duration_seconds": 79.4961776759992,
+  "signal_to_exit_seconds": null,
+  "sent_signal": null,
+  "termination_reason": null,
+  "forced_kill": false,
+  "timeout": false,
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "sessions": [
+    {
+      "answers_completed": 2,
+      "cycles_completed": 1,
+      "heartbeat": 756,
+      "orderly": true,
+      "returncode": 0
+    }
+  ],
+  "all_sessions_orderly": true,
+  "platform": "xcb DISPLAY :0 actual existing desktop",
+  "input_mode": "microphone",
+  "owned_children": {},
+  "user_audible_confirmation": null
+}
