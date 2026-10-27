@@ -1,0 +1,53 @@
+{
+  "single_text": {
+    "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/single_text.tsv",
+    "sha256": "e11fe1678d0128ce96df307778f03d11f2e91653c17a80fa337d4977367adb63",
+    "contents": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n"
+  },
+  "single_vision": {
+    "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/single_vision.tsv",
+    "sha256": "f680dfd2ea2ffaa59c4673192b021ead8fd80f765de4e4097a44691149af7a85",
+    "contents": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n"
+  },
+  "pair_queue": {
+    "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/pair_queue.tsv",
+    "sha256": "bd79182957a614f33a943472c579a9380d5067e9dff200e52942e1e7b11d59b8",
+    "contents": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n1000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n"
+  },
+  "spaced_six": {
+    "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/spaced_six.tsv",
+    "sha256": "98c2ee2a76b34f51c35fb3ae8eb97407ce854e00688b6723dcbf757b1589f61f",
+    "contents": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n30000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n60000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n90000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n"
+  },
+  "burst_four": {
+    "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/burst_four.tsv",
+    "sha256": "8287172afece1fafaf93cbd525fe1abf463ebf0ca8829227c1d82f0eca0904de",
+    "contents": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n1000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n2000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n3000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n"
+  },
+  "waiting": {
+    "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/waiting.tsv",
+    "sha256": "853aad4c681244a99d304be2d515d70016843c66474f09d2d76b60675128754d",
+    "contents": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n100000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n"
+  },
+  "audio": {
+    "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32": {
+      "sha256": "a74c927e2bef8cbccb0c3e99d30f87f19bca1d75a85f5e30da36243480249538",
+      "bytes": 100992
+    },
+    "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32": {
+      "sha256": "abbfcd42de12e6756f4f880be29f96b7da1920d3b5f9345bbf1997471796e314",
+      "bytes": 86656
+    }
+  },
+  "fixed_NV12": {
+    "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_03_board/raw_5_2_baseline/frame_0.nv12",
+    "sha256": "80b0b70a7762f64ed2ba754fd1fc6c2b47c867fb9903ac69068116fa6d719d25",
+    "metadata": {
+      "width": 3840,
+      "height": 2160,
+      "stride": 3840,
+      "bytes": 12441600,
+      "frame_id": 29
+    }
+  }
+}

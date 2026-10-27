@@ -1,0 +1,10 @@
+{
+  "returncode": 0,
+  "seconds": 104.15424659800192,
+  "termination_reason": null,
+  "forced_kill": false,
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "disk_free_bytes": 1893031936
+}
