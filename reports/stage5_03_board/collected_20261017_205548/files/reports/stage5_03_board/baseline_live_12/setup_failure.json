@@ -1,0 +1,6 @@
+{
+  "executed": false,
+  "error": "KeyError: 'STAGE5_VLM'",
+  "cause": "Shell variables in stage5_board_paths.sh are not exported; env -0 only included exported values",
+  "fix": "Use set -a only in child shell before source; no system configuration change"
+}
