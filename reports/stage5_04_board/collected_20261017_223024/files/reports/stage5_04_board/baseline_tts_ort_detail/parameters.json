@@ -1,0 +1,17 @@
+{
+  "name": "baseline_tts_ort_detail",
+  "exe": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_04_baseline_v2/stage5_04_tts_bench",
+  "timeout": 1200,
+  "affinity": null,
+  "ort_profile": true,
+  "env": [
+    "STAGE5_PROFILE={REPORT}/profile.jsonl"
+  ],
+  "arguments": [
+    "--",
+    "{KOKORO}",
+    "{REPORT}",
+    "2",
+    "1"
+  ]
+}
