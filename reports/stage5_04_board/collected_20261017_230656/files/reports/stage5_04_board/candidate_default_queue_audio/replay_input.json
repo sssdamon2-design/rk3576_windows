@@ -1,0 +1,5 @@
+{
+  "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/pair_queue.tsv",
+  "sha256": "bd79182957a614f33a943472c579a9380d5067e9dff200e52942e1e7b11d59b8",
+  "text": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n1000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n"
+}
