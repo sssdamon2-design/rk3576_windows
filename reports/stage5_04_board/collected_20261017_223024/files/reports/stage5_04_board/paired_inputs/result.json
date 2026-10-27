@@ -1,0 +1,6 @@
+{
+  "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/paired_inputs/paired_six.tsv",
+  "sha256": "320217008fea0e15cb74f2a07301f44769fdc10170f7b1cac075811baebdc4ef",
+  "contents": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n1000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n40000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n41000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n80000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n81000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n",
+  "conditions": "same fixed presegmented actual speech + frame_0; no microphone or VAD in offline replay; three VISION/TEXT pairs; 60s TTS max wait, 180s request lifetime"
+}
