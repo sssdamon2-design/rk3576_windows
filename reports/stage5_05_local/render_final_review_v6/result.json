@@ -1,0 +1,9 @@
+{
+  "pages": 252,
+  "word_pdf_sha256": "9710093b969f0e7ff791d78fa5aa8638ffd2444c9e7fd2d5984f9aa0afb9f7a2",
+  "docx_sha256": "2f948e75cf7cbf0a3bba93cfb7372e8d6d976543e370ac1876e31e25f96270a0",
+  "renderer": "Word COM to PDF, packaged render_docx.py PDF rasterization",
+  "packaged_LO_failure_retained": true,
+  "all_PNG_exist": true,
+  "visual_review_complete": false
+}

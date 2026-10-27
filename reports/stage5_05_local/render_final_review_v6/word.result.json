@@ -1,0 +1,16 @@
+{
+  "command": [
+    "powershell.exe",
+    "-NoProfile",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-File",
+    "Z:\\master_T\\Linux\\\u8d44\u6599\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\tools\\stage5_05_word_export.ps1",
+    "-InputDocument",
+    "Z:\\master_T\\Linux\\\u8d44\u6599\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\docs\\RK3576_STAGE5_ENGINEERING_MANUAL.docx",
+    "-OutputPdf",
+    "Z:\\master_T\\Linux\\\u8d44\u6599\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\reports\\stage5_05_local\\render_final_review_v6\\word_export.pdf"
+  ],
+  "returncode": 0,
+  "seconds": 34.453000000008615
+}
