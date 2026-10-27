@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cmake",
+    "-S",
+    "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_4e5qfx7z\\source",
+    "-B",
+    "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_4e5qfx7z\\build",
+    "-G",
+    "MinGW Makefiles",
+    "-DCMAKE_BUILD_TYPE=Debug",
+    "-DBUILD_TESTING=ON",
+    "-DBUILD_WITH_RKLLM=OFF",
+    "-DBUILD_WITH_VLM=OFF",
+    "-DENABLE_SHERPA_ASR=OFF"
+  ],
+  "returncode": 0,
+  "seconds": 2.0
+}

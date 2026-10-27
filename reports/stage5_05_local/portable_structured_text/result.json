@@ -1,0 +1,50 @@
+{
+  "platform": "Windows portable SDK off",
+  "hardware_verification": false,
+  "steps": [
+    {
+      "command": [
+        "cmake",
+        "-S",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_pjngfjbt\\source",
+        "-B",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_pjngfjbt\\build",
+        "-G",
+        "MinGW Makefiles",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DBUILD_TESTING=ON",
+        "-DBUILD_WITH_RKLLM=OFF",
+        "-DBUILD_WITH_VLM=OFF",
+        "-DENABLE_SHERPA_ASR=OFF"
+      ],
+      "returncode": 0,
+      "seconds": 1.985000000000582
+    },
+    {
+      "command": [
+        "cmake",
+        "--build",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_pjngfjbt\\build",
+        "--parallel",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 12.98399999999674
+    },
+    {
+      "command": [
+        "ctest",
+        "--test-dir",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_pjngfjbt\\build",
+        "--output-on-failure",
+        "--timeout",
+        "30",
+        "--output-junit",
+        "Z:\\master_T\\Linux\\\u8d44\u6599\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\reports\\stage5_05_local\\portable_structured_text\\ctest.xml"
+      ],
+      "returncode": 0,
+      "seconds": 2.1090000000040163
+    }
+  ],
+  "successful": true
+}

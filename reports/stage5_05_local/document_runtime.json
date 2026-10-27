@@ -1,0 +1,11 @@
+{
+  "runtime_manifest": "C:/Users/53009/.cache/codex-runtimes/codex-primary-runtime/runtime.json",
+  "python": "C:/Users/53009/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+  "node": "C:/Users/53009/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe",
+  "poppler": "C:/Users/53009/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/poppler/Library/bin",
+  "native_LibreOffice_bundled": false,
+  "Word_COM_sandbox_probe": "CO_E_SERVER_EXEC_FAILURE 0x80080005; no document authored",
+  "Word_COM_authorized_unsandboxed_probe": "exit 0; version 16.0; no user documents opened or modified",
+  "authoring": "bundled python-docx; no system Python for document work",
+  "render_strategy": "first diagnose packaged renderer; native Word COM PDF export fallback and packaged renderer rasterization; never use desktop LibreOffice"
+}

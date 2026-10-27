@@ -1,0 +1,418 @@
+[
+  {
+    "file": "CMakeLists.txt",
+    "sha256": "b0ea4108c9583a5b358982f5ce209fc5bf8313685f0aec26e847a89400096b14"
+  },
+  {
+    "file": "include/ai/backend_config.h",
+    "sha256": "34c1a28baf41585eacb642f4722daffe2eb6435700d1ebc6a8dd3d047b2057aa"
+  },
+  {
+    "file": "include/ai/llm_backend.h",
+    "sha256": "a536c7f1588be8828195b3b74eb7508ae9006707fa98d574b44a0bd038a76017"
+  },
+  {
+    "file": "include/ai/llm_engine.h",
+    "sha256": "6e58e96a9ea44d4216692fce394d3161381956976c6f6287cb640b7e8a62354a"
+  },
+  {
+    "file": "include/ai/llm_worker.h",
+    "sha256": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45"
+  },
+  {
+    "file": "include/ai/rk_backends.h",
+    "sha256": "751c0ca475a46b3ddaa04df8a23d6a7af2c00b9279c71cfe4375e7a74446d41a"
+  },
+  {
+    "file": "include/ai/vlm_backend.h",
+    "sha256": "e48b46bd0177fc891b3167595cd64f8666fe57874fd0eefe9031025b1d00d00e"
+  },
+  {
+    "file": "include/ai/vlm_engine.h",
+    "sha256": "759c1efac3672eae7f3f95dcc23b06b5eefb2d3135b72b433de657a3e6002317"
+  },
+  {
+    "file": "include/app/cli.h",
+    "sha256": "8de24558576bb0db3e943e479ff85d831bce6edd9ce384d84ae5b8dce0d84bf4"
+  },
+  {
+    "file": "include/app/pipeline_admission.h",
+    "sha256": "1bb1366ce1dc50767dc58fe101ebdb248292174d3381953b3cdcf0318687a9cb"
+  },
+  {
+    "file": "include/app/pipeline_metrics.h",
+    "sha256": "9fece6741f2a5f1e529b71057b1907824c404e49b744f01796dfd92b02a4ac30"
+  },
+  {
+    "file": "include/app/profiling_inputs.h",
+    "sha256": "e8e40cbfa81d722321ee1c036c0c2dc67f99ae275f701195b804b4960d77bf06"
+  },
+  {
+    "file": "include/app/request_processor.h",
+    "sha256": "b236c892fddc11c01001bdc7e27cca892115cc7905880d106165c9ccecae04a3"
+  },
+  {
+    "file": "include/app/stop_signals.h",
+    "sha256": "c8fd4e74fc35c910c195ca789aaaa627c1127c77e018d28e983a860ebb69b5bf"
+  },
+  {
+    "file": "include/audio/alsa_playback_service.h",
+    "sha256": "17f35d33cbd81ddd69eb605cce429d42a69416014824ef8891d7b0bb0760ff3a"
+  },
+  {
+    "file": "include/audio/asr_pipeline.h",
+    "sha256": "11f76809de0670bbc1d51487b2a81272d9526a015a9442a07c59e19d256a7db6"
+  },
+  {
+    "file": "include/audio/asr_service.h",
+    "sha256": "53cd22464e052cf94892f124ed680e78b73b95c3c7a7ae284a8421cda13d467f"
+  },
+  {
+    "file": "include/audio/audio_capture.h",
+    "sha256": "295c4bb588d32b26597acb944d62e5aa6da16131636296cf7f469134c464ac8f"
+  },
+  {
+    "file": "include/audio/audio_preprocessor.h",
+    "sha256": "74595464fdf3a427904e7b81ba0478291b395e45fb966dd6370b1e62649ecfe1"
+  },
+  {
+    "file": "include/audio/tts_service.h",
+    "sha256": "32e38b1ed2460a8a1cdc91040c1a349a250520fa4d0dce31e6a92736f6605b91"
+  },
+  {
+    "file": "include/audio/tts_worker.h",
+    "sha256": "09c3117c0a23f980ec015a9799611f7239e792dd35aefbc0a36c0735c86937be"
+  },
+  {
+    "file": "include/audio/vad_audio_worker.h",
+    "sha256": "897344fd93d5c9b0552c009b627c68826a14cc1722066df21d1363064ff1b517"
+  },
+  {
+    "file": "include/common/image_profile.h",
+    "sha256": "6e783903faeb499ef6e704df1dc4d2e0e13f4214ed06fa3822fb94a9f167cf63"
+  },
+  {
+    "file": "include/common/inference_result.h",
+    "sha256": "7fdec0feb5f34af678a46911ea034f10e393d821ad2f8332e817f413a30a2d0a"
+  },
+  {
+    "file": "include/common/request_trace.h",
+    "sha256": "6a7b6303e5289c50d8f09f727ea549f634f73a9914d7d3c8ebf74bf858b0b21e"
+  },
+  {
+    "file": "include/common/timing.h",
+    "sha256": "555181e4a3bfd5c7800d7fbf4d1e08c124022062fce4bfff4c30ec10c4d03e5f"
+  },
+  {
+    "file": "include/common/types.h",
+    "sha256": "7813f3e5d3b12216934c9419cd44feaade2e9bcbdf80c3c3896fffec459e15bd"
+  },
+  {
+    "file": "include/common/work_control.h",
+    "sha256": "077cda07787f8536cd063a32f9251a976868852e676d5e90d9fd5bd4d02084d2"
+  },
+  {
+    "file": "include/gui/backend_session.h",
+    "sha256": "27cf1948b59c021fbd690f8bf7e0410d36d5f9cb08d3f2bec4e96555e695b91b"
+  },
+  {
+    "file": "include/gui/session_window.h",
+    "sha256": "92ba03778b34f2c64d26b7981d998330e1408e9e74d0e00133ec0b0485feff98"
+  },
+  {
+    "file": "include/router/intent_router.h",
+    "sha256": "4bd47b86d95d2da94b824d9ff9d75000c9980b1d7b5b407b086b98f1651d64aa"
+  },
+  {
+    "file": "include/video/camera_service.h",
+    "sha256": "e42da5da8d013aee6f7637015875129b9a4f27aedd2cb9f16f698fa968d411da"
+  },
+  {
+    "file": "include/video/image_preprocessor.h",
+    "sha256": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da"
+  },
+  {
+    "file": "include/video/latest_frame_buffer.h",
+    "sha256": "9b484fc595e0a0e52b35ecd7e5c34ab1dfb754519cbd7b4855071624aa3a1afb"
+  },
+  {
+    "file": "include/video/owned_frame_pool.h",
+    "sha256": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739"
+  },
+  {
+    "file": "include/video/video_capture.h",
+    "sha256": "213f11e12d7920f5f12a1d43332cf4c47fb31941a8842b2d2e349ab4f552c35b"
+  },
+  {
+    "file": "src/main.cpp",
+    "sha256": "cc164cb4a7190ccb84f9481e390f362f9bac00aa1daa451e83a76bc49367ce11"
+  },
+  {
+    "file": "src/ai/llm_engine.cpp",
+    "sha256": "a831c679323a06d14762524a71088a56f72aa158fb967185706bdab42eb74b45"
+  },
+  {
+    "file": "src/ai/llm_worker.cpp",
+    "sha256": "5116f71770098e5d0031af0453fcfa5fe5b6b87b0a02cf250a62da6de817d8b0"
+  },
+  {
+    "file": "src/ai/llm_worker_smoke.cpp",
+    "sha256": "8c45f582a366643ac0a309c28c31148a3a17b4524ff6fc262136494d6235a5ba"
+  },
+  {
+    "file": "src/ai/model_validation.h",
+    "sha256": "df05064388a2057eddb2f406bdf7f49109bef9fb55c1b29fdf40f288c5d02f98"
+  },
+  {
+    "file": "src/ai/rk3576_vlm_backend.cpp",
+    "sha256": "1ec8b408405eb04defc358a028f149dd0cf70e68c63aa519b4d56e74db213b24"
+  },
+  {
+    "file": "src/ai/rkllm_backend.cpp",
+    "sha256": "f8d2807b4814f18d92de8ebf45dfd761ae0da16244bbaab1c232e68907865860"
+  },
+  {
+    "file": "src/ai/rk_backends_unavailable.cpp",
+    "sha256": "29cbd4b64e7b82e8a51d507ae0270c198a5b4cbcbbb3986dfa6bae032ca785c6"
+  },
+  {
+    "file": "src/ai/vlm_engine.cpp",
+    "sha256": "88b81299197e345c7630098f0467f32d5afcca8fe2ddd29e9de2be1c23d9dd22"
+  },
+  {
+    "file": "src/app/cli.cpp",
+    "sha256": "33cf732b1a14e62e1ab0a0f55cbb8cdf16800ad8e571ecb04554783160a0b0df"
+  },
+  {
+    "file": "src/app/request_processor.cpp",
+    "sha256": "f2fd91291d7fddddd06d8d9f716835244728c9704e2c92dc182f37221422ced3"
+  },
+  {
+    "file": "src/audio/alsa_playback_service.cpp",
+    "sha256": "df0dbd6e2f3b693afa97309dc83a400f5483fac59b231258bde68ee9915031d8"
+  },
+  {
+    "file": "src/audio/asr_live_smoke.cpp",
+    "sha256": "88dba222ab07b56a12afb12ff479e97872cb580e7be394c8a6513575859d39cb"
+  },
+  {
+    "file": "src/audio/asr_llm_smoke.cpp",
+    "sha256": "b5166c6ace67faba9c4d1c60bc8854217eba5a248402ab7c9a1096a1aff926bb"
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "sha256": "8ab743462e5896bf840fdba3da3e85c17792a10efcb30c5c030c77369405cb12"
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "sha256": "a6f59d5a52bc996ffb39c893a8cfc177e8cd7f81b110d67e68ae2d0da72ac3b5"
+  },
+  {
+    "file": "src/audio/asr_pipeline_smoke.cpp",
+    "sha256": "3e53f1d419a03fa88658c640a49516e9495e4aa810a555d67aba2b1f7690e296"
+  },
+  {
+    "file": "src/audio/asr_route_smoke.cpp",
+    "sha256": "8b0c9bfb99abc9ac2cdf5b6320e1d7260e31b8ce6c86b18b7488a3b9d670e816"
+  },
+  {
+    "file": "src/audio/asr_service.cpp",
+    "sha256": "ab396ba89c5055452c6ad231977d7a8dca583a37c1991295e7bdbea2aff5f41c"
+  },
+  {
+    "file": "src/audio/asr_vad_smoke.cpp",
+    "sha256": "f53d914b498798c82ea12da1fe2601b5426dde1105ea64015d90b46b71e70d20"
+  },
+  {
+    "file": "src/audio/audio_capture.cpp",
+    "sha256": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6"
+  },
+  {
+    "file": "src/audio/audio_capture_smoke.cpp",
+    "sha256": "35f4924a0e8f189d4c22e7b91dfd34da9419d1c47fc4ccf2d75be4836ab03ee2"
+  },
+  {
+    "file": "src/audio/audio_preprocessor.cpp",
+    "sha256": "b1fc2e0659bbabe63e555f45ff57738b5bf776c51f8a7ed2d1bbbd9619be72d7"
+  },
+  {
+    "file": "src/audio/audio_worker.cpp",
+    "sha256": "5b9a342d64215a4e703eda6848e2866b0b9ed4b38290e5263dfe68f3dd63049c"
+  },
+  {
+    "file": "src/audio/tts_playback_smoke.cpp",
+    "sha256": "55553c6370de604b1deeb7d4b4d3dffd6c78dbb44742f36982891de98e13c7c1"
+  },
+  {
+    "file": "src/audio/tts_service.cpp",
+    "sha256": "232031b90c7bf12427fccc326df6e21d46c258142c1d97683294c28968a9b3e9"
+  },
+  {
+    "file": "src/audio/tts_smoke.cpp",
+    "sha256": "40589cab7c13bd0208ff0f2b7d00ab24eaf1edbfed0ee34c47f05ed947dab650"
+  },
+  {
+    "file": "src/audio/tts_worker.cpp",
+    "sha256": "2811c20f0ef2664876821a0ab67f0ae544a6c0bc18ac2f643726ec4de6d7a410"
+  },
+  {
+    "file": "src/audio/tts_worker_queue_smoke.cpp",
+    "sha256": "9bfd8faba054eb20662a21c063fb3436fb1dd4fdbb5d37854fac70f6f1a638a1"
+  },
+  {
+    "file": "src/audio/tts_worker_smoke.cpp",
+    "sha256": "dd42eda5efabe5f9224251b8f3be8f8272c03ed01cfec1c7889945154a16b0de"
+  },
+  {
+    "file": "src/audio/vad_audio_worker.cpp",
+    "sha256": "1ce7116fc5b7f97692b0a9c6d7fc79b481277071b624999e7f6d37527e72ffca"
+  },
+  {
+    "file": "src/gui/backend_session.cpp",
+    "sha256": "0a9b655a1eec09f3530cdf59139a1c9ab8bd7206d05917de58cb8ee3b3570e40"
+  },
+  {
+    "file": "src/gui/main.cpp",
+    "sha256": "91b0f14fb60b205dde972ba5cfa1ec704f4e292db9a567e56dc3eeff74ca663d"
+  },
+  {
+    "file": "src/gui/session_window.cpp",
+    "sha256": "e09c53ca7f11adade7a2ab2356729bc1e02c015d0b2c48dc230a80d474e1692b"
+  },
+  {
+    "file": "src/router/intent_router.cpp",
+    "sha256": "514ac8a005e7165ae2ca1de251ca4c2bae6555bbf4d18d02e9c2afe9c3e6c765"
+  },
+  {
+    "file": "src/video/camera_service.cpp",
+    "sha256": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772"
+  },
+  {
+    "file": "src/video/image_preprocessor.cpp",
+    "sha256": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220"
+  },
+  {
+    "file": "src/video/latest_frame_buffer.cpp",
+    "sha256": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3"
+  },
+  {
+    "file": "src/video/video_capture.cpp",
+    "sha256": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407"
+  },
+  {
+    "file": "src/video/video_capture_unavailable.cpp",
+    "sha256": "ab8e632632e231a89853f6cc753cdc85f49918d84f5a418a31321ff6b138287d"
+  },
+  {
+    "file": "tests/asr_pipeline_tests.cpp",
+    "sha256": "c13703450a49482c369471a0ff53c53e996a81311eaa34d23c643a76d05bbd23"
+  },
+  {
+    "file": "tests/async_pipeline_tests.cpp",
+    "sha256": "8d68e45c93f164dd4103d4796227c19ebc32e38704f57f3392bba902db0eea9a"
+  },
+  {
+    "file": "tests/audio_preprocessor_tests.cpp",
+    "sha256": "547eb2c82852d78430824d9fc2484d69cde415f3015276fb2f41dfa1bd5fb754"
+  },
+  {
+    "file": "tests/camera_service_tests.cpp",
+    "sha256": "1e52e6d406c809bf7fd4cc01899a3d0301d965a59aebd30d1d4225ddaa67fbad"
+  },
+  {
+    "file": "tests/camera_test_capture.cpp",
+    "sha256": "48d18e2a73d873086a367d149b2722e7d76d144ce629dbeceaa8d06d7da37b08"
+  },
+  {
+    "file": "tests/camera_test_capture.h",
+    "sha256": "6b1f774909cc3423bd67aeddaf0f79aa222957b3afe1381744106d557c3d6bfc"
+  },
+  {
+    "file": "tests/cli_eof.txt",
+    "sha256": "1d4ecadd14f217e8a8e8d14699c19a007738371cd6f879b861fc44ec45c952e6"
+  },
+  {
+    "file": "tests/cli_exit.txt",
+    "sha256": "9577a8bfed904bd55390ba203f1a233be1981b36fa945537eb3be5b2446de031"
+  },
+  {
+    "file": "tests/cli_input.txt",
+    "sha256": "70e6c2fa53698f3bea8093fe788994617e93360203d19cc18948ed5f836ce391"
+  },
+  {
+    "file": "tests/cli_smoke.cmake",
+    "sha256": "ede278613e20d4a3a94785b849c9b7ad78c01b0775728fedabb2d88326506b58"
+  },
+  {
+    "file": "tests/core_tests.cpp",
+    "sha256": "a8c34793c1c57c5ff8075babfca099765b1cbc5ed536aa2c1af1421ab13a336f"
+  },
+  {
+    "file": "tests/gui_fake_backend.cpp",
+    "sha256": "67b3890b880f67a1329977e1067a2b5aef29622236a4a2d414e70b44352ee74b"
+  },
+  {
+    "file": "tests/gui_session_tests.cpp",
+    "sha256": "66e416e2a02ab642d901edcc764865d41e1886cf05a4c24a820c93eead1679d5"
+  },
+  {
+    "file": "tests/image_pipeline_tests.cpp",
+    "sha256": "6441df48017977c25c9194a65b31c775e8afbf47f5267781bff8e8ec92b286a8"
+  },
+  {
+    "file": "tests/llm_worker_tests.cpp",
+    "sha256": "3e65faf61186d475ad58dcf2031e6d3f76f7127cd8d7ed8a143ad099064eff3f"
+  },
+  {
+    "file": "tests/request_profile_tests.cpp",
+    "sha256": "5bd3cf32c918967eeab1d740fcbef962371aa850773e2ca3bf3e599b2d600918"
+  },
+  {
+    "file": "tests/stage5_02_npu_probe.cpp",
+    "sha256": "e4e18c2454d0dc006a0886777a6152e776b75e43a008145167068d69d89b22ca"
+  },
+  {
+    "file": "tests/stage5_02_replay.tsv",
+    "sha256": "5f072a66a072912f2765712c46b980929dafbf12f6149263c5e59b81e710c799"
+  },
+  {
+    "file": "tests/stage5_02_replay_pair.tsv",
+    "sha256": "7079fcead7fc22ef0d5ee034be25974caa047ceb25187265e739f1901126f54c"
+  },
+  {
+    "file": "tests/stage5_03_memory_probe.cpp",
+    "sha256": "ba33ba1f4c40d2e1f3dac40130813ef05b4e7b62c3a242bab5d0aefa886448e2"
+  },
+  {
+    "file": "tests/stage5_03_rga_probe.cpp",
+    "sha256": "f77db7caaa4abae873471824cc5bdcd330ca5ed3422004c2a0edf9731f4442c6"
+  },
+  {
+    "file": "tests/stage5_04_asr_bench.cpp",
+    "sha256": "368ce743bd4b5ef867b2ee712baf163e42e67b83a2e51b97c0327d009ba124f2"
+  },
+  {
+    "file": "tests/stage5_04_tts_bench.cpp",
+    "sha256": "721bcf205fa82b4839da5ec001927e472a45ac3905878badf77a60196cfef962"
+  },
+  {
+    "file": "tests/stage5_04_vision_bench.cpp",
+    "sha256": "48ed0c483af75f81b3554e19d92c3a6577791b9d2d93e881b52bfe609da4e7c2"
+  },
+  {
+    "file": "tests/vlm_joint_ref_smoke.cpp",
+    "sha256": "b538b5486e2f9d5b86bbe4b6f4cc34c24c95cae3217ec9899b562693e970fd59"
+  },
+  {
+    "file": "tests/vlm_joint_smoke.cpp",
+    "sha256": "ea3b3a4e2d7612155b7a7abea382409cfacf83f7adae713e61a409913ba0cb97"
+  },
+  {
+    "file": "tests/vlm_llm_smoke.cpp",
+    "sha256": "98b9f3ec80b026120010c2615b96fdfb3e712227e4af07efb7f63833ed055639"
+  },
+  {
+    "file": "tests/vlm_vision_smoke.cpp",
+    "sha256": "3bf42829a796e2d42f083fed571aae2f09087feec7e96b63f5bad9889fa28cfa"
+  }
+]

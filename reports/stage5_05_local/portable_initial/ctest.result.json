@@ -1,0 +1,14 @@
+{
+  "command": [
+    "ctest",
+    "--test-dir",
+    "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_4e5qfx7z\\build",
+    "--output-on-failure",
+    "--timeout",
+    "30",
+    "--output-junit",
+    "Z:\\master_T\\Linux\\\u8d44\u6599\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\reports\\stage5_05_local\\portable_initial\\ctest.xml"
+  ],
+  "returncode": 0,
+  "seconds": 2.063000000001921
+}

@@ -1,0 +1,184 @@
+[
+  {
+    "file": "include/app/stop_signals.h",
+    "symbol": null,
+    "file_sha256": "c8fd4e74fc35c910c195ca789aaaa627c1127c77e018d28e983a860ebb69b5bf",
+    "extracted_sha256": "c8fd4e74fc35c910c195ca789aaaa627c1127c77e018d28e983a860ebb69b5bf",
+    "lines": 63
+  },
+  {
+    "file": "src/ai/rkllm_backend.cpp",
+    "symbol": "struct RunContext",
+    "file_sha256": "f8d2807b4814f18d92de8ebf45dfd761ae0da16244bbaab1c232e68907865860",
+    "extracted_sha256": "2efc94c6bc5bd09205b6ba31fa9304dd392505f5a983e758e24c4d9ae4472c14",
+    "lines": 10
+  },
+  {
+    "file": "src/ai/rkllm_backend.cpp",
+    "symbol": "int onRKLLMResult(",
+    "file_sha256": "f8d2807b4814f18d92de8ebf45dfd761ae0da16244bbaab1c232e68907865860",
+    "extracted_sha256": "814e0f2dd3923fca80ca1b7c0028ac25cf960571af13733a0476a40c6984d850",
+    "lines": 44
+  },
+  {
+    "file": "src/ai/rkllm_backend.cpp",
+    "symbol": "struct RKLLMBackend::Impl",
+    "file_sha256": "f8d2807b4814f18d92de8ebf45dfd761ae0da16244bbaab1c232e68907865860",
+    "extracted_sha256": "8f82d6cf75a6becc88d4f0f7487af93aae8bc6921d235626d8416cdb26a1d992",
+    "lines": 16
+  },
+  {
+    "file": "src/ai/rk3576_vlm_backend.cpp",
+    "symbol": "struct RknnOutputOwner",
+    "file_sha256": "1ec8b408405eb04defc358a028f149dd0cf70e68c63aa519b4d56e74db213b24",
+    "extracted_sha256": "3810dcdd5d8316697e210cc20a44bb33313b326620ebd3a71492a252ff4d3cc6",
+    "lines": 17
+  },
+  {
+    "file": "src/audio/asr_service.cpp",
+    "symbol": "bool ASRService::recognize(",
+    "file_sha256": "ab396ba89c5055452c6ad231977d7a8dca583a37c1991295e7bdbea2aff5f41c",
+    "extracted_sha256": "8524970fcc6845472b73208bbfe631320d1c8b3a0c91d4292dd920fb01464a43",
+    "lines": 109
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "symbol": "void ASRWorker::run()",
+    "file_sha256": "a6f59d5a52bc996ffb39c893a8cfc177e8cd7f81b110d67e68ae2d0da72ac3b5",
+    "extracted_sha256": "30b1533fa9500c0ff2b18fd02f1097287ce2a4989d0f1b8be35ad4fc3e4bcf83",
+    "lines": 19
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "symbol": "void ASRWorker::runImpl()",
+    "file_sha256": "a6f59d5a52bc996ffb39c893a8cfc177e8cd7f81b110d67e68ae2d0da72ac3b5",
+    "extracted_sha256": "74d1c0e98b86efd40502a601d3c21ca188eeb30a0b7934be01b3567feb31b285",
+    "lines": 184
+  },
+  {
+    "file": "include/ai/llm_worker.h",
+    "symbol": null,
+    "file_sha256": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45",
+    "extracted_sha256": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45",
+    "lines": 101
+  },
+  {
+    "file": "src/ai/llm_worker.cpp",
+    "symbol": null,
+    "file_sha256": "5116f71770098e5d0031af0453fcfa5fe5b6b87b0a02cf250a62da6de817d8b0",
+    "extracted_sha256": "111aa4a7e4f8ce6c80bdd58b6bc92d8eb3b3fa2ecf980e244b61ff7550c4c964",
+    "lines": 106
+  },
+  {
+    "file": "include/app/pipeline_admission.h",
+    "symbol": null,
+    "file_sha256": "1bb1366ce1dc50767dc58fe101ebdb248292174d3381953b3cdcf0318687a9cb",
+    "extracted_sha256": "1bb1366ce1dc50767dc58fe101ebdb248292174d3381953b3cdcf0318687a9cb",
+    "lines": 70
+  },
+  {
+    "file": "src/audio/tts_worker.cpp",
+    "symbol": "void TTSWorker::run()",
+    "file_sha256": "2811c20f0ef2664876821a0ab67f0ae544a6c0bc18ac2f643726ec4de6d7a410",
+    "extracted_sha256": "5f67eb5d9853ab9847d7b2664c83a2707804a2024ef7e310905bdf05a3d3d67f",
+    "lines": 162
+  },
+  {
+    "file": "include/video/owned_frame_pool.h",
+    "symbol": null,
+    "file_sha256": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+    "extracted_sha256": "8162938ff74265f283497d2a894c7b8d450b52ddf1d30c61055143a7785dcbd3",
+    "lines": 61
+  },
+  {
+    "file": "src/video/latest_frame_buffer.cpp",
+    "symbol": null,
+    "file_sha256": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+    "extracted_sha256": "d57a846dde416e5089c35c55b60595b10d42497267961efea1e99a115651a7d1",
+    "lines": 20
+  },
+  {
+    "file": "src/video/image_preprocessor.cpp",
+    "symbol": null,
+    "file_sha256": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+    "extracted_sha256": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+    "lines": 121
+  },
+  {
+    "file": "src/ai/rk3576_vlm_backend.cpp",
+    "symbol": "InferenceResult RK3576VLMBackend::infer(",
+    "file_sha256": "1ec8b408405eb04defc358a028f149dd0cf70e68c63aa519b4d56e74db213b24",
+    "extracted_sha256": "a6ff5c3a0ed72cb5b5a54ff5ff6ff831db03b0430330e43527bdddd70282c65f",
+    "lines": 106
+  },
+  {
+    "file": "include/common/request_trace.h",
+    "symbol": null,
+    "file_sha256": "6a7b6303e5289c50d8f09f727ea549f634f73a9914d7d3c8ebf74bf858b0b21e",
+    "extracted_sha256": "e671e6c3c1d2ad800478aaac5264ecb4ae8809235511f6d32aca722d6a009546",
+    "lines": 41
+  },
+  {
+    "file": "include/common/image_profile.h",
+    "symbol": null,
+    "file_sha256": "6e783903faeb499ef6e704df1dc4d2e0e13f4214ed06fa3822fb94a9f167cf63",
+    "extracted_sha256": "3cb43ad8fb8d2b311b2c27468adc8c920176b1798c965cb9c0dc1cc389ea40ec",
+    "lines": 84
+  },
+  {
+    "file": "src/audio/tts_service.cpp",
+    "symbol": "bool TTSService::synthesize(",
+    "file_sha256": "232031b90c7bf12427fccc326df6e21d46c258142c1d97683294c28968a9b3e9",
+    "extracted_sha256": "f021e7ed8c0739272e2c275b329089ccdae883ad51cf3e811568d9c852df9d85",
+    "lines": 98
+  },
+  {
+    "file": "src/audio/alsa_playback_service.cpp",
+    "symbol": "bool AlsaPlaybackService::play(",
+    "file_sha256": "df0dbd6e2f3b693afa97309dc83a400f5483fac59b231258bde68ee9915031d8",
+    "extracted_sha256": "f99bd0b488fa73f3132892b0c5bbc6f54e7d744d66d09ca2a0f62a770f7d5e96",
+    "lines": 236
+  },
+  {
+    "file": "include/gui/backend_session.h",
+    "symbol": null,
+    "file_sha256": "d08247679bfe26454c0d27ffa82fedb68c3910d4a711d42ea2b15e46ca2720fa",
+    "extracted_sha256": "d08247679bfe26454c0d27ffa82fedb68c3910d4a711d42ea2b15e46ca2720fa",
+    "lines": 32
+  },
+  {
+    "file": "src/gui/backend_session.cpp",
+    "symbol": null,
+    "file_sha256": "b724f970b6636aef8e9c582fa6dea7691c0035af35bacb6f4a7b72a368857225",
+    "extracted_sha256": "b724f970b6636aef8e9c582fa6dea7691c0035af35bacb6f4a7b72a368857225",
+    "lines": 82
+  },
+  {
+    "file": "include/gui/session_window.h",
+    "symbol": null,
+    "file_sha256": "92ba03778b34f2c64d26b7981d998330e1408e9e74d0e00133ec0b0485feff98",
+    "extracted_sha256": "92ba03778b34f2c64d26b7981d998330e1408e9e74d0e00133ec0b0485feff98",
+    "lines": 54
+  },
+  {
+    "file": "src/gui/session_window.cpp",
+    "symbol": null,
+    "file_sha256": "30021fd3b2d9c4641a80fa740447bb30f0ae5b023f73a23d03de69f98766bd65",
+    "extracted_sha256": "30021fd3b2d9c4641a80fa740447bb30f0ae5b023f73a23d03de69f98766bd65",
+    "lines": 170
+  },
+  {
+    "file": "src/gui/main.cpp",
+    "symbol": null,
+    "file_sha256": "0ffdb49603f373c5cf4feaebd43abfe1f1773bfd20ccc3eb12f750180b0a3820",
+    "extracted_sha256": "0ffdb49603f373c5cf4feaebd43abfe1f1773bfd20ccc3eb12f750180b0a3820",
+    "lines": 52
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "symbol": null,
+    "file_sha256": "8ab743462e5896bf840fdba3da3e85c17792a10efcb30c5c030c77369405cb12",
+    "extracted_sha256": "8ab743462e5896bf840fdba3da3e85c17792a10efcb30c5c030c77369405cb12",
+    "lines": 1395
+  }
+]

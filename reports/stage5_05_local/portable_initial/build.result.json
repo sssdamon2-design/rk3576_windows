@@ -1,0 +1,11 @@
+{
+  "command": [
+    "cmake",
+    "--build",
+    "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_05_4e5qfx7z\\build",
+    "--parallel",
+    "3"
+  ],
+  "returncode": 0,
+  "seconds": 12.796999999998661
+}

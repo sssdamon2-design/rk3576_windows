@@ -1,0 +1,43 @@
+{
+  "stage": "5.5 engineering completed in recorded finite scenarios; final user review pending",
+  "updated_at_UTC": "2026-10-17T19:49:02.904056+00:00",
+  "board_root": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "current_board_run": null,
+  "hardware_tests_complete": true,
+  "collection": "reports/stage5_05_board/collected_20261018_014600",
+  "final_source": "stage5_05_source_final_v2",
+  "build": "build/stage5_05_final_v2",
+  "validation_checks_passed": 135,
+  "validation_checks_total": 135,
+  "ARM64_CTest": {
+    "total": 8,
+    "passed": 8,
+    "seconds": 6.4169767,
+    "type": "Fake/deterministic; real hardware separate"
+  },
+  "documentation": {
+    "pages": 252,
+    "all_pages_inspected": true,
+    "source_lines_preserved": 4449,
+    "docx_sha256": "2f948e75cf7cbf0a3bba93cfb7372e8d6d976543e370ac1876e31e25f96270a0",
+    "markdown_sha256": "24994339014bf507b6ca32d9babfbc30b2c59f9a0177d945e37c6aaa94da6be2"
+  },
+  "diff_files": 53,
+  "human_feedback": "Actual HyperX TEXT and VISION answers heard, scene approximately matches, GUI recognized text/route/answer confirmed by user",
+  "remaining_operations": [
+    "Package exact final archive",
+    "Upload and verify archive only inside authorized isolation",
+    "Pause for final user review"
+  ],
+  "unresolved": [
+    "One final GUI long-test Camera driver sequence gap, not reproduced in subsequent 64 real VLM calls; root cause unresolved",
+    "Linux thermal frequency restriction observed; no no-throttling claim",
+    "No single-process 60-minute validation",
+    "Stable RSS in tested interval does not prove no closed-SDK leaks",
+    "Physical unplug and SDK internal corruption not injected",
+    "TTS synthesis RTF remains greater than 1"
+  ],
+  "stable_promoted": false,
+  "next_stage_started": false,
+  "document_runtime_marker": "already succeeded exactly once; do not rerun"
+}
