@@ -1,0 +1,14 @@
+[
+  "/usr/bin/python3",
+  "-I",
+  "-B",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/tools/stage5_05_gui_run.py",
+  "--name",
+  "gui_sigterm_vision_final_v2",
+  "--build",
+  "stage5_05_final_v2",
+  "--mode",
+  "sigterm_vision",
+  "--timeout",
+  "240"
+]

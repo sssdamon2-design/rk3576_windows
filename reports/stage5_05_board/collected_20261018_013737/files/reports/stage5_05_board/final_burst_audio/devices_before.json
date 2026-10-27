@@ -1,0 +1,35 @@
+{
+  "nodes": [
+    "/dev/video11",
+    "/dev/snd/pcmC1D0c",
+    "/dev/snd/pcmC1D0p",
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "NPU_nodes": [
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "query": {
+    "command": [
+      "sudo",
+      "-n",
+      "--",
+      "/usr/bin/fuser",
+      "-v",
+      "/dev/video11",
+      "/dev/snd/pcmC1D0c",
+      "/dev/snd/pcmC1D0p",
+      "/dev/dri/card1",
+      "/dev/dri/renderD129"
+    ],
+    "exit_code": 0,
+    "stdout": "     1   932  1619",
+    "stderr": "                     \u7528\u6237     \u8fdb\u7a0b\u53f7 \u6743\u9650   \u547d\u4ee4\n/dev/dri/card1:      root      F.... systemd\n                     root      F.... systemd-logind\n                     root      F.... Xorg\n"
+  },
+  "clear": false,
+  "alsa_status": {
+    "/proc/asound/card1/pcm0c/sub0/status": "closed\n",
+    "/proc/asound/card1/pcm0p/sub0/status": "closed\n"
+  }
+}

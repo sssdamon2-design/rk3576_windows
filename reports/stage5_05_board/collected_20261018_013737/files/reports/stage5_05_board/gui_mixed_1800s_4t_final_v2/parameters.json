@@ -1,0 +1,9 @@
+{
+  "name": "gui_mixed_1800s_4t_final_v2",
+  "build": "stage5_05_final_v2",
+  "mode": "stability",
+  "timeout": 1990,
+  "threads": 4,
+  "seconds": 1800,
+  "audio_replay_file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_05_board/thermal_matrix/mixed_1800s_4t.tsv"
+}

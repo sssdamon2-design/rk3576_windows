@@ -1,0 +1,9 @@
+{
+  "name": "gui_microphone_final_v2",
+  "build": "stage5_05_final_v2",
+  "mode": "microphone",
+  "timeout": 280,
+  "threads": 4,
+  "seconds": 180,
+  "audio_replay_file": null
+}
