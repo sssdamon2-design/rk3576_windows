@@ -1,0 +1,11 @@
+{
+  "returncode": 1,
+  "expected_nonzero": true,
+  "duration_seconds": 23.901485121001315,
+  "termination_reason": null,
+  "forced_kill": false,
+  "devices_released": true,
+  "process_gone": true,
+  "scope": "invalid device/model name, not physical disconnection or SDK internal corruption",
+  "expected_failure_clean": true
+}
