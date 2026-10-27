@@ -1,0 +1,14 @@
+[
+  {
+    "file": "tools/stage5_04_run.py",
+    "sha256": "0dfcdcb1de9befb84a9e8d1399318f32ff20154841b6c2d19eed143eb7707c0b"
+  },
+  {
+    "file": "tools/stage5_04_voice_run.py",
+    "sha256": "842808b60b7009d1606cd85f4f1bde738dbc95c3926d97f72b8595c6e1d623c3"
+  },
+  {
+    "file": "tests/stage5_04_vision_bench.cpp",
+    "sha256": "48ed0c483af75f81b3554e19d92c3a6577791b9d2d93e881b52bfe609da4e7c2"
+  }
+]
