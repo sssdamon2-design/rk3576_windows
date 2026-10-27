@@ -1,0 +1,36 @@
+{
+  "platform": "Windows portable SDK off",
+  "hardware_verification": false,
+  "steps": [
+    {
+      "command": [
+        "cmake",
+        "-S",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_4fihn761\\source",
+        "-B",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_4fihn761\\build",
+        "-G",
+        "MinGW Makefiles",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DBUILD_TESTING=ON",
+        "-DBUILD_WITH_RKLLM=OFF",
+        "-DBUILD_WITH_VLM=OFF",
+        "-DENABLE_SHERPA_ASR=OFF"
+      ],
+      "returncode": 0,
+      "seconds": 2.2810000000026776
+    },
+    {
+      "command": [
+        "cmake",
+        "--build",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_4fihn761\\build",
+        "--parallel",
+        "3"
+      ],
+      "returncode": 2,
+      "seconds": 4.156999999999243
+    }
+  ],
+  "successful": false
+}

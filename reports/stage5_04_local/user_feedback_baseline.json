@@ -1,0 +1,7 @@
+{
+  "case": "baseline_voice_2t",
+  "statement": "两个回答都听到了",
+  "both_TEXT_VISION_audible": true,
+  "visual_content_confirmation": null,
+  "source": "user reply to 5.4 baseline live prompt; not reused from earlier stages"
+}

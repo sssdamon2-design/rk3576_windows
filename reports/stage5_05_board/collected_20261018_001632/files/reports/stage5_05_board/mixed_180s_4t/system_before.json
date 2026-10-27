@@ -1,0 +1,22 @@
+{
+  "memory": {
+    "command": [
+      "free",
+      "-b"
+    ],
+    "exit_code": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\n\u5185\u5b58\uff1a    4084207616   764915712  2871513088    16846848   517156864  3319291904\n\u4ea4\u6362\uff1a             0           0           0\n",
+    "stderr": ""
+  },
+  "disk": {
+    "command": [
+      "df",
+      "-B1",
+      "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review"
+    ],
+    "exit_code": 0,
+    "stdout": "\u6587\u4ef6\u7cfb\u7edf            1B\u7684\u5757        \u5df2\u7528       \u53ef\u7528 \u5df2\u7528% \u6302\u8f7d\u70b9\n/dev/mmcblk0p3 30742454272 27576668160 1844277248   94% /\n",
+    "stderr": ""
+  },
+  "clock_ticks": 100
+}

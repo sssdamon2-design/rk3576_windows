@@ -1,0 +1,10 @@
+[
+  "C:\\Users\\53009\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "tools/stage5_04_plot.py",
+  "--before",
+  "raw_tts_baseline_2t",
+  "--after",
+  "raw_tts_final_4t",
+  "--pipeline-case",
+  "candidate_pipeline_pairs_4t"
+]

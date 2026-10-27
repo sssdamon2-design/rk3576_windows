@@ -1,0 +1,50 @@
+{
+  "platform": "Windows portable SDK off",
+  "hardware_verification": false,
+  "steps": [
+    {
+      "command": [
+        "cmake",
+        "-S",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_tn76mwpl\\source",
+        "-B",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_tn76mwpl\\build",
+        "-G",
+        "MinGW Makefiles",
+        "-DCMAKE_BUILD_TYPE=Debug",
+        "-DBUILD_TESTING=ON",
+        "-DBUILD_WITH_RKLLM=OFF",
+        "-DBUILD_WITH_VLM=OFF",
+        "-DENABLE_SHERPA_ASR=OFF"
+      ],
+      "returncode": 0,
+      "seconds": 1.6409999999959837
+    },
+    {
+      "command": [
+        "cmake",
+        "--build",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_tn76mwpl\\build",
+        "--parallel",
+        "3"
+      ],
+      "returncode": 0,
+      "seconds": 11.68800000000192
+    },
+    {
+      "command": [
+        "ctest",
+        "--test-dir",
+        "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_04_tn76mwpl\\build",
+        "--output-on-failure",
+        "--timeout",
+        "30",
+        "--output-junit",
+        "Z:\\master_T\\Linux\\\u8d44\u6599\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\reports\\stage5_04_local\\instrumentation_local_v2\\ctest.xml"
+      ],
+      "returncode": 8,
+      "seconds": 1.9530000000013388
+    }
+  ],
+  "successful": false
+}

@@ -1,0 +1,13 @@
+{
+  "returncode": 0,
+  "destination": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/final_acceptance",
+  "archive_sha256": "95dee0d2b99d88b680f3d061981695cad0162b7f28dd248d9bee85b0c97ceeb1",
+  "archive_bytes": 1702234,
+  "files_verified": 507,
+  "original_321_unchanged": true,
+  "accepted_binaries_unchanged": true,
+  "disk_free_bytes": 1859514368,
+  "scope": "new reports/final_acceptance only; no build/test/model/system modification",
+  "receipt_scope": "archive manifest covers input files; result and receipt are receiver-generated",
+  "local_transport_record": "reports\\stage5_04_board\\ssh_20261017_232104_102504"
+}

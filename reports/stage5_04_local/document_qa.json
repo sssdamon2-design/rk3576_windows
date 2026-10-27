@@ -1,0 +1,38 @@
+{
+  "documents": [
+    {
+      "file": "docs/stage5_04_commands.md",
+      "bytes": 161807,
+      "code_fences_even": true
+    },
+    {
+      "file": "docs/stage5_04_interview.md",
+      "bytes": 9824,
+      "code_fences_even": true
+    },
+    {
+      "file": "docs/stage5_04_performance_profiling.md",
+      "bytes": 53154,
+      "code_fences_even": true
+    },
+    {
+      "file": "docs/stage5_04_source_appendix.md",
+      "bytes": 455957,
+      "code_fences_even": true
+    },
+    {
+      "file": "docs/stage5_04_statement_notes.md",
+      "bytes": 17191,
+      "code_fences_even": true
+    }
+  ],
+  "broken_local_links": [],
+  "plots_visually_inspected": [
+    "tts_latency.png",
+    "tts_rtf_cdf.png",
+    "tts_resources.png",
+    "pipeline_breakdown.png"
+  ],
+  "manual_voice_pending": false,
+  "human_both_audible_confirmed": true
+}

@@ -1,0 +1,6 @@
+[
+  "C:\\Users\\53009\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "tools/stage5_04_validate.py",
+  "--collection",
+  "reports/stage5_04_board/collected_20261017_230656"
+]

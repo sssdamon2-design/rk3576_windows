@@ -1,0 +1,39 @@
+{
+  "steps": [
+    {
+      "command": [
+        "tools/stage5_04_validate.py",
+        "--collection",
+        "reports/stage5_04_board/collected_20261017_230656"
+      ],
+      "returncode": 1
+    },
+    {
+      "command": [
+        "tools/stage5_04_report.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "tools/stage5_04_export.py"
+      ],
+      "returncode": 0
+    },
+    {
+      "command": [
+        "tools/stage5_04_validate.py",
+        "--collection",
+        "reports/stage5_04_board/collected_20261017_230656"
+      ],
+      "returncode": 1
+    }
+  ],
+  "automated_checks_passed": true,
+  "manual_voice_pending": true,
+  "expected_unmet_checks": [
+    "candidate_voice_4t_final",
+    "candidate_voice_4t_final_TEXT_VISION_success",
+    "candidate_voice_4t_final_user_actually_heard_both"
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "build/stage5_01_board/asr_llm_tts_smoke": "7b44730ad55cdb49f252de3e801b3e6680169a93ed0cb59d80fdc8f6720a10b7",
+  "build/stage5_02_board/asr_llm_tts_smoke": "1bf59ddf68cb0290e30df3ed945347dc73b7ff477a44d69c8f1f80a51f49d9b7",
+  "build/stage5_03_board/asr_llm_tts_smoke": "687892f86b7dc421d0326657a740be4af897cb5e4ef6efed76e9ebd4c48237db",
+  "build/stage5_04_board_v3/asr_llm_tts_smoke": "d08f2fa5087f9b83e73f0b527fd8a6daaa0d046d14fa0f3a04b6ceba469ca191"
+}

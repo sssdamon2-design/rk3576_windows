@@ -1,0 +1,65 @@
+case,iteration,phase,fixture,frame_id,latency_ms,decoder_first_text_ms,success,answer
+baseline_vision_30,0,first_use,0,29,1748.458943,231.258463,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,1,warmup,1,82,1819.862322,179.594756,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,2,measured,2,138,1830.025619,189.094893,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,3,measured,0,29,1786.197149,186.048807,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,4,measured,1,82,1903.601121,186.190666,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,5,measured,2,138,1872.334608,181.244802,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,6,measured,0,29,2547.734483,178.237161,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,7,measured,1,82,1818.316067,185.958081,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,8,measured,2,138,1815.733619,182.059922,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,9,measured,0,29,1614.344638,179.413855,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,10,measured,1,82,1777.297893,177.210463,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,11,measured,2,138,1781.06576,173.872591,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,12,measured,0,29,1606.246559,178.659688,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,13,measured,1,82,1835.567667,176.877753,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,14,measured,2,138,1765.181152,176.446619,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,15,measured,0,29,1619.418749,171.807408,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,16,measured,1,82,2034.167709,176.24969,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,17,measured,2,138,1744.216036,179.948804,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,18,measured,0,29,1785.8253,175.253915,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,19,measured,1,82,1746.000833,170.182223,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,20,measured,2,138,2136.216111,176.526695,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,21,measured,0,29,1583.649118,169.613037,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,22,measured,1,82,1801.522296,180.178832,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,23,measured,2,138,1741.83379,178.730919,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,24,measured,0,29,1657.819451,174.31878,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,25,measured,1,82,1728.836724,173.841254,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,26,measured,2,138,1878.872875,175.616959,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,27,measured,0,29,1740.901569,180.200157,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,28,measured,1,82,1843.501211,174.135208,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,29,measured,2,138,1794.819238,172.669387,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+baseline_vision_30,30,measured,0,29,1717.075914,184.774513,1, A computer monitor with a blue screen and some text on it.
+baseline_vision_30,31,measured,1,82,1753.212298,175.885167,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,0,first_use,0,29,1958.629899,225.745614,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,1,warmup,1,82,1769.021283,179.368447,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,2,measured,2,138,1831.812837,184.209492,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,3,measured,0,29,1684.564869,179.942477,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,4,measured,1,82,1796.755707,180.543704,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,5,measured,2,138,1817.822154,175.273284,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,6,measured,0,29,1897.024856,180.902679,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,7,measured,1,82,1841.139131,185.201199,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,8,measured,2,138,1889.121429,177.967306,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,9,measured,0,29,1795.975522,178.275891,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,10,measured,1,82,1802.853151,179.045009,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,11,measured,2,138,1811.511315,179.460388,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,12,measured,0,29,1681.777168,180.408492,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,13,measured,1,82,1778.936496,175.574978,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,14,measured,2,138,1791.594674,180.432221,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,15,measured,0,29,1739.995325,173.878299,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,16,measured,1,82,1747.293025,178.774794,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,17,measured,2,138,1980.541887,180.311511,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,18,measured,0,29,1618.77034,183.277355,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,19,measured,1,82,1907.560952,183.583702,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,20,measured,2,138,1977.557789,181.656031,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,21,measured,0,29,2286.929711,178.888562,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,22,measured,1,82,1796.571742,180.951249,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,23,measured,2,138,1773.754837,174.31302,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,24,measured,0,29,1630.683501,178.364926,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,25,measured,1,82,1767.570045,177.876257,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,26,measured,2,138,1798.973361,169.881542,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,27,measured,0,29,1605.209071,171.130661,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,28,measured,1,82,2087.367334,180.277003,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,29,measured,2,138,1752.337859,175.888742,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."
+candidate_vision_30,30,measured,0,29,1621.866722,175.409974,1, A computer monitor with a blue screen and some text on it.
+candidate_vision_30,31,measured,1,82,1785.572655,177.061647,1," A computer monitor with a blue screen, and a black stand holding it up to the camera."

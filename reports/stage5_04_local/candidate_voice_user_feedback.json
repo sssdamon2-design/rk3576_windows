@@ -1,0 +1,11 @@
+{
+  "case": "candidate_voice_4t_final_retry1",
+  "recorded_at": "2026-10-17T23:17:42.838533+08:00",
+  "initial_reply": "两个都回答了",
+  "clarification_question": "这两个回答是否都通过 HyperX 耳机实际听到了？若有明显杂音、缺字或视觉描述不符，也请说明。",
+  "clarification_reply": "两个都通过耳机实际听到了",
+  "both_TEXT_VISION_audible": true,
+  "visual_match_confirmed": null,
+  "no_audio_quality_defect_confirmed": null,
+  "note": "用户明确确认耳机实际听到两条回答；没有额外明确确认视觉匹配或无杂音，不推断。"
+}

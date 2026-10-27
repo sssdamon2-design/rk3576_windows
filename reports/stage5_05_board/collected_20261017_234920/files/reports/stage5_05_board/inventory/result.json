@@ -1,0 +1,284 @@
+{
+  "checked_at_UTC": "2026-10-17T15:30:26Z",
+  "commands": [
+    {
+      "command": [
+        "uname",
+        "-a"
+      ],
+      "exit_code": 0,
+      "stdout": "Linux lubancat 6.1.99-rk3576 #8 SMP Fri Apr 24 16:46:57 CST 2026 aarch64 GNU/Linux\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "free",
+        "-b"
+      ],
+      "exit_code": 0,
+      "stdout": "               total        used        free      shared  buff/cache   available\n内存：    4084207616   756674560  2710855680    16834560   686039040  3327533056\n交换：             0           0           0\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "df",
+        "-B1",
+        "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review"
+      ],
+      "exit_code": 0,
+      "stdout": "文件系统            1B的块        已用       可用 已用% 挂载点\n/dev/mmcblk0p3 30742454272 27561656320 1859289088   94% /\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "command -v qmake qmake6 qtpaths qtpaths6 cmake Xvfb xwd import scrot weston wayland-info || true"
+      ],
+      "exit_code": 0,
+      "stdout": "/usr/bin/qmake\n/usr/bin/qtpaths\n/usr/bin/cmake\n/usr/bin/xwd\n/usr/bin/weston\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "printf \"DISPLAY=%s WAYLAND_DISPLAY=%s XDG_RUNTIME_DIR=%s\n\" \"$DISPLAY\" \"$WAYLAND_DISPLAY\" \"$XDG_RUNTIME_DIR\""
+      ],
+      "exit_code": 0,
+      "stdout": "DISPLAY= WAYLAND_DISPLAY= XDG_RUNTIME_DIR=/run/user/1000\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "dpkg-query",
+        "-W",
+        "-f=${binary:Package} ${Version}\n",
+        "*qt*",
+        "*xserver*",
+        "*wayland*",
+        "*libreoffice*"
+      ],
+      "exit_code": 1,
+      "stdout": "gir1.2-gdkwayland-4.0 \nglmark2-es2-wayland 2023.01+dfsg-1\nglmark2-es2-wayland-dbgsym 2023.01+dfsg-1\nglmark2-wayland 2023.01+dfsg-1\nglmark2-wayland-dbgsym 2023.01+dfsg-1\nlibmali-bifrost-g52-g13p0-x11-wayland-gbm 1.9-1\nlibmali-bifrost-g52-g13p0-x11-wayland-gbm-dbgsym 1.9-1\nlibqt5concurrent5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5core5a:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5dbus5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5gui5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5gui5-gles \nlibqt5multimedia5:arm64 5.15.8-2\nlibqt5multimedia5-plugins:arm64 5.15.8-2\nlibqt5multimediagsttools5:arm64 5.15.8-2\nlibqt5multimediaquick5:arm64 5.15.8-2\nlibqt5multimediawidgets5:arm64 5.15.8-2\nlibqt5network5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5opengl5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5opengl5-dev \nlibqt5printsupport5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5qml5:arm64 5.15.8+dfsg-3\nlibqt5qmlmodels5:arm64 5.15.8+dfsg-3\nlibqt5quick5:arm64 5.15.8+dfsg-3\nlibqt5quick5-gles \nlibqt5sql5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5sql5-ibase \nlibqt5sql5-mysql \nlibqt5sql5-odbc \nlibqt5sql5-psql \nlibqt5sql5-sqlite \nlibqt5sql5-tds \nlibqt5svg5 \nlibqt5test5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5widgets5:arm64 5.15.8+dfsg-11+deb12u3\nlibqt5xml5:arm64 5.15.8+dfsg-11+deb12u3\nlibqtcore4 \nlibqtgui4 \nlibva-wayland2:arm64 2.17.0-1\nlibwayland-bin 1.21.0-1\nlibwayland-bin-dbgsym 1.21.0-1\nlibwayland-client0:arm64 1.21.0-1\nlibwayland-client0-dbgsym:arm64 1.21.0-1\nlibwayland-cursor0:arm64 1.21.0-1\nlibwayland-cursor0-dbgsym:arm64 1.21.0-1\nlibwayland-dev:arm64 1.21.0-1\nlibwayland-doc 1.21.0-1\nlibwayland-egl-backend-dev:arm64 1.21.0-1\nlibwayland-egl1:arm64 1.21.0-1\nlibwayland-egl1-dbgsym:arm64 1.21.0-1\nlibwayland-egl1-mesa \nlibwayland-server0:arm64 1.21.0-1\nlibwayland-server0-dbgsym:arm64 1.21.0-1\nlibwayland0 \nqgnomeplatform-qt5 \nqt5-default \nqt5-gtk-platformtheme \nqt5-image-formats-plugins \nqt5-qmake:arm64 5.15.8+dfsg-11+deb12u3\nqt5-qmake-bin 5.15.8+dfsg-11+deb12u3\nqt5-qmltooling-plugins \nqtbase-abi-5-15-8 \nqtbase5-dev:arm64 5.15.8+dfsg-11+deb12u3\nqtbase5-dev-tools 5.15.8+dfsg-11+deb12u3\nqtbase5-gles-dev \nqtchooser 66-2\nqtchooser-bin \nqtdeclarative-abi-5-15-8 \nqtmultimedia5-dev:arm64 5.15.8-2\nqttools5-dev-tools \nqttranslations5-l10n \nqtwayland5 \ntask-lxqt-desktop \nwayland-protocols 1.31-1\nx11-xserver-utils 7.7+9+b1\nxserver \nxserver-common 2:21.1.7-3+deb12u2\nxserver-xephyr \nxserver-xorg 1:7.7+23\nxserver-xorg-core 2:21.1.7-3+deb12u2\nxserver-xorg-core-dbgsym 2:21.1.7-3+deb12u2\nxserver-xorg-dev 2:21.1.7-3+deb12u2\nxserver-xorg-driver-all \nxserver-xorg-input-all 1:7.7+23\nxserver-xorg-input-evdev 1:2.10.6-2+b1\nxserver-xorg-input-evtouch \nxserver-xorg-input-libinput 1.2.1-1+b1\nxserver-xorg-input-wacom \nxserver-xorg-legacy 2:21.1.7-3+deb12u2\nxserver-xorg-legacy-dbgsym 2:21.1.7-3+deb12u2\nxserver-xorg-video-all 1:7.7+23\nxserver-xorg-video-amdgpu 23.0.0-1\nxserver-xorg-video-ati 1:19.1.0-3\nxserver-xorg-video-fbdev 1:0.5.0-2\nxserver-xorg-video-mach64 \nxserver-xorg-video-modesetting \nxserver-xorg-video-nouveau 1:1.0.17-2\nxserver-xorg-video-r128 \nxserver-xorg-video-radeon 1:19.1.0-3\nxserver-xorg-video-vesa 1:2.5.0-1+b1\nxwayland 2:22.1.9-1\n",
+      "stderr": "dpkg-query: 没有找到与 *libreoffice* 相匹配的软件包\n"
+    },
+    {
+      "command": [
+        "ps",
+        "-eo",
+        "pid,user,comm,args"
+      ],
+      "exit_code": 0,
+      "stdout": "    PID USER     COMMAND         COMMAND\n      1 root     systemd         /sbin/init earlyprintk\n      2 root     kthreadd        [kthreadd]\n      3 root     rcu_gp          [rcu_gp]\n      4 root     rcu_par_gp      [rcu_par_gp]\n      5 root     slub_flushwq    [slub_flushwq]\n      6 root     netns           [netns]\n     10 root     mm_percpu_wq    [mm_percpu_wq]\n     11 root     rcu_tasks_rude_ [rcu_tasks_rude_kthread]\n     12 root     rcu_tasks_trace [rcu_tasks_trace_kthread]\n     13 root     ksoftirqd/0     [ksoftirqd/0]\n     14 root     rcu_sched       [rcu_sched]\n     15 root     migration/0     [migration/0]\n     16 root     cpuhp/0         [cpuhp/0]\n     17 root     cpuhp/1         [cpuhp/1]\n     18 root     migration/1     [migration/1]\n     19 root     ksoftirqd/1     [ksoftirqd/1]\n     22 root     cpuhp/2         [cpuhp/2]\n     23 root     migration/2     [migration/2]\n     24 root     ksoftirqd/2     [ksoftirqd/2]\n     27 root     cpuhp/3         [cpuhp/3]\n     28 root     migration/3     [migration/3]\n     29 root     ksoftirqd/3     [ksoftirqd/3]\n     32 root     cpuhp/4         [cpuhp/4]\n     33 root     migration/4     [migration/4]\n     34 root     ksoftirqd/4     [ksoftirqd/4]\n     37 root     cpuhp/5         [cpuhp/5]\n     38 root     migration/5     [migration/5]\n     39 root     ksoftirqd/5     [ksoftirqd/5]\n     41 root     kworker/5:0H-kb [kworker/5:0H-kblockd]\n     42 root     cpuhp/6         [cpuhp/6]\n     43 root     migration/6     [migration/6]\n     44 root     ksoftirqd/6     [ksoftirqd/6]\n     47 root     cpuhp/7         [cpuhp/7]\n     48 root     migration/7     [migration/7]\n     49 root     ksoftirqd/7     [ksoftirqd/7]\n     52 root     kdevtmpfs       [kdevtmpfs]\n     53 root     inet_frag_wq    [inet_frag_wq]\n     56 root     oom_reaper      [oom_reaper]\n     58 root     writeback       [writeback]\n     59 root     kblockd         [kblockd]\n     60 root     blkcg_punt_bio  [blkcg_punt_bio]\n     61 root     kconsole        [kconsole]\n     62 root     tpm_dev_wq      [tpm_dev_wq]\n     63 root     edac-poller     [edac-poller]\n     64 root     devfreq_wq      [devfreq_wq]\n     65 root     watchdogd       [watchdogd]\n     68 root     kworker/4:1H-kb [kworker/4:1H-kblockd]\n     69 root     rpciod          [rpciod]\n     70 root     xprtiod         [xprtiod]\n     71 root     cfg80211        [cfg80211]\n     72 root     irq/22-rockchip [irq/22-rockchip_thermal]\n     77 root     kswapd0         [kswapd0]\n     78 root     nfsiod          [nfsiod]\n     79 root     xfsalloc        [xfsalloc]\n     80 root     xfs_mru_cache   [xfs_mru_cache]\n     81 root     kthrotld        [kthrotld]\n     84 root     irq/31-rockchip [irq/31-rockchip_usb2phy_ls]\n     85 root     irq/32-rockchip [irq/32-rockchip_usb2phy_bvalid]\n     86 root     irq/33-rockchip [irq/33-rockchip_usb2phy_id]\n     87 root     irq/34-rockchip [irq/34-rockchip_usb2phy_ls]\n     90 root     mpp_worker_0    [mpp_worker_0]\n     91 root     mpp_worker_1    [mpp_worker_1]\n     92 root     mpp_worker_2    [mpp_worker_2]\n     93 root     mpp_worker_3    [mpp_worker_3]\n     94 root     mpp_worker_4    [mpp_worker_4]\n     95 root     mpp_worker_5    [mpp_worker_5]\n     96 root     hwrng           [hwrng]\n     97 root     irq/60-27e40000 [irq/60-27e40000.dp]\n     98 root     nvme-wq         [nvme-wq]\n     99 root     nvme-reset-wq   [nvme-reset-wq]\n    100 root     nvme-delete-wq  [nvme-delete-wq]\n    101 root     stmmac_wq       [stmmac_wq]\n    106 root     uas             [uas]\n    107 root     irq/67-rk806    [irq/67-rk806]\n    114 root     irq/72-hym8563  [irq/72-hym8563]\n    116 root     2-0022          [2-0022]\n    120 root     dm_bufio_cache  [dm_bufio_cache]\n    121 root     cfinteractive   [cfinteractive]\n    125 root     kworker/u17:0-m [kworker/u17:0-mali_jd]\n    126 root     sdhci           [sdhci]\n    127 root     irq/93-mmc0     [irq/93-mmc0]\n    128 root     cryptodev_queue [cryptodev_queue]\n    130 root     irq/98-headset_ [irq/98-headset_detect]\n    132 root     mld             [mld]\n    133 root     kworker/2:1H-kb [kworker/2:1H-kblockd]\n    134 root     ipv6_addrconf   [ipv6_addrconf]\n    135 root     krfcommd        [krfcommd]\n    137 root     mmc_complete    [mmc_complete]\n    240 root     irq/49-rga2     [irq/49-rga2]\n    241 root     irq/50-rga2     [irq/50-rga2]\n    244 root     hpd_queue       [hpd_queue]\n    245 root     irq/107-dw-hdmi [irq/107-dw-hdmi-qp-hpd]\n    246 root     irq/108-27da000 [irq/108-27da0000.hdmi]\n    247 root     irq/110-27da000 [irq/110-27da0000.hdmi]\n    248 root     dw_hdmi_flt_que [dw_hdmi_flt_que]\n    249 root     card0-crtc0     [card0-crtc0]\n    250 root     card0-crtc1     [card0-crtc1]\n    251 root     card0-crtc2     [card0-crtc2]\n    252 root     cec-dw_hdmi_qp  [cec-dw_hdmi_qp]\n    253 root     irq/109-dw-hdmi [irq/109-dw-hdmi-qp-cec]\n    254 root     hdcp_queue      [hdcp_queue]\n    255 root     display-error-e [display-error-event-thread]\n    256 root     2-0022          [2-0022]\n    257 root     2-0022          [2-0022]\n    258 root     2-0022          [2-0022]\n    259 root     gpu_power_off_w [gpu_power_off_w]\n    261 root     free_pages_work [free_pages_work]\n    263 root     kbase_job_fault [kbase_job_fault]\n    264 root     kworker/u17:1-k [kworker/u17:1-kbase_pm_poweroff_wait]\n    265 root     kworker/1:1H-kb [kworker/1:1H-kblockd]\n    266 root     rknpu_power_off [rknpu_power_off]\n    311 root     kworker/7:1H-kb [kworker/7:1H-kblockd]\n    314 root     kworker/6:1H-kb [kworker/6:1H-kblockd]\n    352 root     jbd2/mmcblk0p3- [jbd2/mmcblk0p3-8]\n    353 root     ext4-rsv-conver [ext4-rsv-conver]\n    414 root     systemd-journal /lib/systemd/systemd-journald\n    423 root     rkaiq_3A_server /usr/bin/rkaiq_3A_server\n    424 root     logger          logger -t rkaiq\n    463 root     systemd-udevd   /lib/systemd/systemd-udevd\n    661 root     ext4-rsv-conver [ext4-rsv-conver]\n    833 root     accounts-daemon /usr/libexec/accounts-daemon\n    878 root     acpid           /usr/sbin/acpid\n    897 avahi    avahi-daemon    avahi-daemon: running [lubancat.local]\n    901 message+ dbus-daemon     /usr/bin/dbus-daemon --system --address=systemd: --nofork --nopidfile --systemd-activation --syslog-only\n    916 avahi    avahi-daemon    avahi-daemon: chroot helper\n    925 root     rsyslogd        /usr/sbin/rsyslogd -n -iNONE\n    932 root     systemd-logind  /lib/systemd/systemd-logind\n    936 nobody   thd             /usr/sbin/thd --triggers /etc/triggerhappy/triggers.d/ --socket /run/thd.socket --user nobody --deviceglob /dev/input/event*\n    942 root     udisksd         /usr/libexec/udisks2/udisksd\n   1064 root     NetworkManager  /usr/sbin/NetworkManager --no-daemon\n   1076 root     wpa_supplicant  /sbin/wpa_supplicant -u -s -O DIR=/run/wpa_supplicant GROUP=netdev\n   1124 polkitd  polkitd         /usr/lib/polkit-1/polkitd --no-debug\n   1276 root     starter         /usr/lib/ipsec/starter --daemon charon --nofork\n   1293 root     agetty          /sbin/agetty -o -p -- \\u --keep-baud 115200,57600,38400,9600 ttyFIQ0 vt220\n   1324 root     charon          /usr/lib/ipsec/charon\n   1327 root     xl2tpd          /usr/sbin/xl2tpd\n   1341 root     sshd            sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups\n   1458 root     gdm3            /usr/sbin/gdm3\n   1471 cat      systemd         /lib/systemd/systemd --user\n   1475 cat      (sd-pam)        (sd-pam)\n   1478 root     eth0-fpe        [eth0-fpe]\n   1523 cat      pipewire        /usr/bin/pipewire\n   1525 cat      pulseaudio      /usr/bin/pulseaudio --daemonize=no --log-target=journal\n   1540 cat      gnome-keyring-d /usr/bin/gnome-keyring-daemon --foreground --components=pkcs11,secrets --control-directory=/run/user/1000/keyring\n   1600 root     gdm-session-wor gdm-session-worker [pam/gdm-autologin]\n   1616 cat      gdm-x-session   /usr/libexec/gdm-x-session --run-script /usr/bin/gnome-session\n   1619 root     Xorg            /usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3\n   1624 root     kbase_event     [kbase_event]\n   1643 cat      dbus-daemon     dbus-daemon --print-address 4 --session\n   1647 cat      gnome-session-b /usr/libexec/gnome-session-binary\n   1696 cat      ssh-agent       /usr/bin/ssh-agent /usr/bin/gnome-session\n   1703 cat      at-spi-bus-laun /usr/libexec/at-spi-bus-launcher\n   1708 cat      dbus-daemon     /usr/bin/dbus-daemon --config-file=/usr/share/defaults/at-spi2/accessibility.conf --nofork --print-address 11 --address=unix:path=/run/user/1000/at-spi/bus_0\n   1871 ntpsec   ntpd            /usr/sbin/ntpd -p /run/ntpd.pid -c /etc/ntpsec/ntp.conf -g -N -u ntpsec:ntpsec\n   1916 cat      gnome-shell     /usr/bin/gnome-shell\n   1922 root     kbase_event     [kbase_event]\n   1934 cat      gvfsd           /usr/libexec/gvfsd\n   1940 cat      gvfsd-fuse      /usr/libexec/gvfsd-fuse /run/user/1000/gvfs -f\n   1972 cat      xdg-permission- /usr/libexec/xdg-permission-store\n   1974 cat      gnome-shell-cal /usr/libexec/gnome-shell-calendar-server\n   1984 cat      evolution-sourc /usr/libexec/evolution-source-registry\n   2007 root     upowerd         /usr/libexec/upowerd\n   2014 cat      dconf-service   /usr/libexec/dconf-service\n   2018 cat      gvfs-udisks2-vo /usr/libexec/gvfs-udisks2-volume-monitor\n   2024 cat      gvfs-mtp-volume /usr/libexec/gvfs-mtp-volume-monitor\n   2029 cat      gvfs-goa-volume /usr/libexec/gvfs-goa-volume-monitor\n   2033 cat      goa-daemon      /usr/libexec/goa-daemon\n   2039 cat      evolution-calen /usr/libexec/evolution-calendar-factory\n   2049 cat      goa-identity-se /usr/libexec/goa-identity-service\n   2055 cat      gvfs-gphoto2-vo /usr/libexec/gvfs-gphoto2-volume-monitor\n   2063 cat      gvfs-afc-volume /usr/libexec/gvfs-afc-volume-monitor\n   2075 cat      evolution-addre /usr/libexec/evolution-addressbook-factory\n   2089 cat      gjs             /usr/bin/gjs /usr/share/gnome-shell/org.gnome.Shell.Notifications\n   2091 cat      at-spi2-registr /usr/libexec/at-spi2-registryd --use-gnome-session\n   2092 colord   colord          /usr/libexec/colord\n   2117 cat      gsd-usb-protect /usr/libexec/gsd-usb-protection\n   2121 cat      gsd-media-keys  /usr/libexec/gsd-media-keys\n   2122 cat      gsd-rfkill      /usr/libexec/gsd-rfkill\n   2123 cat      ibus-daemon     ibus-daemon --panel disable --xim\n   2126 cat      gsd-a11y-settin /usr/libexec/gsd-a11y-settings\n   2132 cat      gsd-wacom       /usr/libexec/gsd-wacom\n   2137 cat      gsd-power       /usr/libexec/gsd-power\n   2147 cat      gsd-screensaver /usr/libexec/gsd-screensaver-proxy\n   2148 cat      gsd-color       /usr/libexec/gsd-color\n   2149 cat      gsd-xsettings   /usr/libexec/gsd-xsettings\n   2156 cat      gsd-print-notif /usr/libexec/gsd-print-notifications\n   2158 cat      gsd-sharing     /usr/libexec/gsd-sharing\n   2162 cat      gsd-datetime    /usr/libexec/gsd-datetime\n   2163 cat      gsd-wwan        /usr/libexec/gsd-wwan\n   2164 cat      gsd-smartcard   /usr/libexec/gsd-smartcard\n   2169 cat      gsd-housekeepin /usr/libexec/gsd-housekeeping\n   2175 cat      ibus-dconf      /usr/libexec/ibus-dconf\n   2180 cat      ibus-extension- /usr/libexec/ibus-extension-gtk3\n   2181 cat      gsd-sound       /usr/libexec/gsd-sound\n   2188 cat      ibus-x11        /usr/libexec/ibus-x11 --kill-daemon\n   2192 cat      gsd-keyboard    /usr/libexec/gsd-keyboard\n   2201 cat      ibus-portal     /usr/libexec/ibus-portal\n   2224 cat      gsd-printer     /usr/libexec/gsd-printer\n   2234 cat      gjs             /usr/bin/gjs /usr/share/gnome-shell/org.gnome.ScreenSaver\n   2316 cat      evolution-alarm /usr/libexec/evolution-data-server/evolution-alarm-notify\n   2318 cat      gnome-software  /usr/bin/gnome-software --gapplication-service\n   2328 cat      blueman-applet  /usr/bin/python3 /usr/bin/blueman-applet\n   2329 cat      x11vnc          /usr/bin/x11vnc -auth guess -display :0 -rfbauth /home/cat/.vnc/passwd -rfbport 5900 -forever -loop -noxdamage -repeat -shared -capslock -nomodtweak\n   2331 cat      gsd-disk-utilit /usr/libexec/gsd-disk-utility-notify\n   2332 cat      tracker-miner-f /usr/libexec/tracker-miner-fs-3\n   2354 root     kbase_event     [kbase_event]\n   2367 cat      ibus-engine-sim /usr/libexec/ibus-engine-simple\n   2379 cat      xdg-desktop-por /usr/libexec/xdg-desktop-portal\n   2380 cat      x11vnc          /usr/bin/x11vnc -auth guess -display :0 -rfbauth /home/cat/.vnc/passwd -rfbport 5900 -forever -loop -noxdamage -repeat -shared -capslock -nomodtweak\n   2392 cat      xdg-document-po /usr/libexec/xdg-document-portal\n   2409 root     fusermount3     fusermount3 -o rw,nosuid,nodev,fsname=portal,auto_unmount,subtype=portal -- /run/user/1000/doc\n   2416 cat      xdg-desktop-por /usr/libexec/xdg-desktop-portal-gnome\n   2443 root     kbase_event     [kbase_event]\n   2670 cat      obexd           /usr/libexec/bluetooth/obexd\n   2671 root     bluetoothd      /usr/libexec/bluetooth/bluetoothd\n   2680 cat      blueman-tray    /usr/bin/python3 /usr/bin/blueman-tray\n   2711 cat      xdg-desktop-por /usr/libexec/xdg-desktop-portal-gtk\n   2738 cat      gvfsd-metadata  /usr/libexec/gvfsd-metadata\n   6502 root     kworker/0:0H    [kworker/0:0H]\n   6973 root     kworker/3:0H-kb [kworker/3:0H-kblockd]\n  11824 root     kworker/6:0H    [kworker/6:0H]\n  16595 root     kworker/4:2H    [kworker/4:2H]\n  16842 root     kworker/7:2H    [kworker/7:2H]\n  26699 root     kworker/7:2-eve [kworker/7:2-events]\n  27160 root     kworker/1:2H-kb [kworker/1:2H-kblockd]\n  27162 root     kworker/3:2-eve [kworker/3:2-events]\n  27620 root     kworker/u16:0-d [kworker/u16:0-devfreq_wq]\n  27636 root     kworker/5:2H-kb [kworker/5:2H-kblockd]\n  27923 root     kworker/0:2H-kb [kworker/0:2H-kblockd]\n  27982 root     kworker/3:2H    [kworker/3:2H]\n  28151 root     kworker/2:0H    [kworker/2:0H]\n  29402 root     kworker/7:1-eve [kworker/7:1-events]\n  29413 root     kworker/2:2-eve [kworker/2:2-events]\n  29948 root     kworker/0:2-eve [kworker/0:2-events]\n  29951 root     kworker/u16:1-e [kworker/u16:1-events_power_efficient]\n  30078 root     kworker/1:2-eve [kworker/1:2-events]\n  30232 root     kworker/5:0-eve [kworker/5:0-events]\n  30233 root     kworker/6:2-eve [kworker/6:2-events]\n  30249 root     kworker/4:1-eve [kworker/4:1-events]\n  30497 root     kworker/5:2-mm_ [kworker/5:2-mm_percpu_wq]\n  30671 root     kworker/4:2-eve [kworker/4:2-events]\n  30803 root     kworker/u16:2-e [kworker/u16:2-events_power_efficient]\n  30804 root     kworker/2:1-eve [kworker/2:1-events]\n  30805 root     kworker/1:0-eve [kworker/1:0-events]\n  30808 root     kworker/3:1-eve [kworker/3:1-events]\n  30810 root     kworker/0:0-mm_ [kworker/0:0-mm_percpu_wq]\n  30811 root     kworker/6:1-eve [kworker/6:1-events]\n  30812 root     kworker/u16:3-d [kworker/u16:3-devfreq_wq]\n  30813 root     kworker/4:0-eve [kworker/4:0-events_freezable]\n  30814 root     kworker/3:0     [kworker/3:0]\n  30815 root     sshd            sshd: cat [priv]\n  30816 root     kworker/0:1     [kworker/0:1]\n  30919 root     kworker/1:1-eve [kworker/1:1-events]\n  30933 cat      sshd            sshd: cat@notty\n  30935 cat      python3         python3 -I -B -\n  30953 root     kworker/6:0     [kworker/6:0]\n  30954 cat      ps              ps -eo pid,user,comm,args\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "bash",
+        "-c",
+        "ls -ld /tmp/.X11-unix /run/user/1000 /usr/lib/aarch64-linux-gnu/cmake/Qt5* /usr/lib/aarch64-linux-gnu/qt5/plugins/platforms 2>/dev/null || true"
+      ],
+      "exit_code": 0,
+      "stdout": "drwx------ 15 cat  cat   380 10月17日 17:55 /run/user/1000\ndrwxrwxrwt  2 root root   60 2025年 6月26日 /tmp/.X11-unix\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Concurrent\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Core\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5DBus\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5EglFsKmsSupport\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Gui\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Multimedia\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5MultimediaGstTools\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5MultimediaQuick\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5MultimediaWidgets\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Network\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5OpenGLExtensions\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5PrintSupport\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Sql\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Test\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Widgets\ndrwxr-xr-x  2 root root 4096  8月13日 22:15 /usr/lib/aarch64-linux-gnu/cmake/Qt5Xml\ndrwxr-xr-x  2 root root 4096  4月24日 15:53 /usr/lib/aarch64-linux-gnu/qt5/plugins/platforms\n",
+      "stderr": ""
+    }
+  ],
+  "thermal": {
+    "/sys/class/thermal/thermal_zone2": {
+      "trip_point_0_hyst": "2000",
+      "trip_point_2_type": "critical",
+      "mode": "enabled",
+      "policy": "power_allocator",
+      "trip_point_1_type": "passive",
+      "type": "little-core-thermal",
+      "trip_point_2_temp": "115000",
+      "trip_point_0_type": "passive",
+      "trip_point_2_hyst": "2000",
+      "trip_point_1_temp": "85000",
+      "temp": "42538",
+      "trip_point_1_hyst": "2000",
+      "trip_point_0_temp": "75000"
+    },
+    "/sys/class/thermal/thermal_zone0": {
+      "trip_point_0_hyst": "2000",
+      "mode": "enabled",
+      "policy": "power_allocator",
+      "type": "soc-thermal",
+      "trip_point_0_type": "critical",
+      "temp": "41615",
+      "trip_point_0_temp": "115000"
+    },
+    "/sys/class/thermal/thermal_zone5": {
+      "trip_point_0_hyst": "2000",
+      "mode": "enabled",
+      "policy": "power_allocator",
+      "type": "gpu-thermal",
+      "trip_point_0_type": "critical",
+      "temp": "42538",
+      "trip_point_0_temp": "115000"
+    },
+    "/sys/class/thermal/thermal_zone3": {
+      "trip_point_0_hyst": "2000",
+      "mode": "enabled",
+      "policy": "power_allocator",
+      "type": "ddr-thermal",
+      "trip_point_0_type": "critical",
+      "temp": "42538",
+      "trip_point_0_temp": "115000"
+    },
+    "/sys/class/thermal/thermal_zone1": {
+      "trip_point_0_hyst": "2000",
+      "mode": "enabled",
+      "policy": "power_allocator",
+      "type": "bigcore-thermal",
+      "trip_point_0_type": "critical",
+      "temp": "43461",
+      "trip_point_0_temp": "115000"
+    },
+    "/sys/class/thermal/thermal_zone4": {
+      "trip_point_0_hyst": "2000",
+      "mode": "enabled",
+      "policy": "power_allocator",
+      "type": "npu-thermal",
+      "trip_point_0_type": "critical",
+      "temp": "40692",
+      "trip_point_0_temp": "115000"
+    }
+  },
+  "cooling_devices": {
+    "/sys/class/thermal/cooling_device1": {
+      "type": "cpufreq-cpu4",
+      "max_state": "9",
+      "cur_state": "0"
+    },
+    "/sys/class/thermal/cooling_device4": {
+      "type": "devfreq-27700000.npu",
+      "max_state": "7",
+      "cur_state": "0"
+    },
+    "/sys/class/thermal/cooling_device2": {
+      "type": "devfreq-27800000.gpu",
+      "max_state": "6",
+      "cur_state": "0"
+    },
+    "/sys/class/thermal/cooling_device0": {
+      "type": "cpufreq-cpu0",
+      "max_state": "8",
+      "cur_state": "0"
+    },
+    "/sys/class/thermal/cooling_device3": {
+      "type": "devfreq-dmc",
+      "max_state": "3",
+      "cur_state": "0"
+    }
+  },
+  "cpufreq": {
+    "/sys/devices/system/cpu/cpu7/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu5/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu3/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu1/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu6/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu4/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu2/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu0/cpufreq/scaling_governor": "ondemand",
+    "/sys/devices/system/cpu/cpu7/cpufreq/scaling_cur_freq": "1416000",
+    "/sys/devices/system/cpu/cpu5/cpufreq/scaling_cur_freq": "1416000",
+    "/sys/devices/system/cpu/cpu3/cpufreq/scaling_cur_freq": "1200000",
+    "/sys/devices/system/cpu/cpu1/cpufreq/scaling_cur_freq": "1200000",
+    "/sys/devices/system/cpu/cpu6/cpufreq/scaling_cur_freq": "1416000",
+    "/sys/devices/system/cpu/cpu4/cpufreq/scaling_cur_freq": "1416000",
+    "/sys/devices/system/cpu/cpu2/cpufreq/scaling_cur_freq": "1200000",
+    "/sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq": "1200000",
+    "/sys/devices/system/cpu/cpu7/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000 2208000",
+    "/sys/devices/system/cpu/cpu5/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000 2208000",
+    "/sys/devices/system/cpu/cpu3/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000",
+    "/sys/devices/system/cpu/cpu1/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000",
+    "/sys/devices/system/cpu/cpu6/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000 2208000",
+    "/sys/devices/system/cpu/cpu4/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000 2208000",
+    "/sys/devices/system/cpu/cpu2/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000",
+    "/sys/devices/system/cpu/cpu0/cpufreq/scaling_available_frequencies": "408000 600000 816000 1008000 1200000 1416000 1608000 1800000 2016000",
+    "/sys/devices/system/cpu/cpu7/cpufreq/cpuinfo_max_freq": "2208000",
+    "/sys/devices/system/cpu/cpu5/cpufreq/cpuinfo_max_freq": "2208000",
+    "/sys/devices/system/cpu/cpu3/cpufreq/cpuinfo_max_freq": "2016000",
+    "/sys/devices/system/cpu/cpu1/cpufreq/cpuinfo_max_freq": "2016000",
+    "/sys/devices/system/cpu/cpu6/cpufreq/cpuinfo_max_freq": "2208000",
+    "/sys/devices/system/cpu/cpu4/cpufreq/cpuinfo_max_freq": "2208000",
+    "/sys/devices/system/cpu/cpu2/cpufreq/cpuinfo_max_freq": "2016000",
+    "/sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq": "2016000"
+  },
+  "drm": {
+    "/sys/class/drm/card0-HDMI-A-1/status": "disconnected",
+    "/sys/class/drm/card0-DSI-1/status": "connected",
+    "/sys/class/drm/card0-Writeback-1/status": "unknown",
+    "/sys/class/drm/card0-DP-1/status": "disconnected"
+  },
+  "audio": {
+    "cards": " 0 [rockchipes8388 ]: rockchip-es8388 - rockchip-es8388\n                      rockchip-es8388\n 1 [III            ]: USB-Audio - HyperX Cloud III\n                      HP, Inc HyperX Cloud III at usb-xhci-hcd.0.auto-1.3, full speed\n 2 [rockchiphdmi   ]: rockchip-hdmi - rockchip-hdmi\n                      rockchip-hdmi\n 3 [rockchipdp0    ]: rockchip-dp0 - rockchip-dp0\n                      rockchip-dp0\n",
+    "capture_listing": {
+      "command": [
+        "arecord",
+        "-l"
+      ],
+      "exit_code": 0,
+      "stdout": "**** List of CAPTURE Hardware Devices ****\ncard 0: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 HiFi-0 [dailink-multicodecs ES8323 HiFi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 1: III [HyperX Cloud III], device 0: USB Audio [USB Audio]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 2: rockchiphdmi [rockchip-hdmi], device 0: rockchip-hdmi i2s-hifi-0 [rockchip-hdmi i2s-hifi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\n",
+      "stderr": ""
+    },
+    "playback_listing": {
+      "command": [
+        "aplay",
+        "-l"
+      ],
+      "exit_code": 0,
+      "stdout": "**** List of PLAYBACK Hardware Devices ****\ncard 0: rockchipes8388 [rockchip-es8388], device 0: dailink-multicodecs ES8323 HiFi-0 [dailink-multicodecs ES8323 HiFi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 1: III [HyperX Cloud III], device 0: USB Audio [USB Audio]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 2: rockchiphdmi [rockchip-hdmi], device 0: rockchip-hdmi i2s-hifi-0 [rockchip-hdmi i2s-hifi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\ncard 3: rockchipdp0 [rockchip-dp0], device 0: rockchip-dp0 spdif-hifi-0 [rockchip-dp0 spdif-hifi-0]\n  Subdevices: 1/1\n  Subdevice #0: subdevice #0\n",
+      "stderr": ""
+    },
+    "card_number": 1,
+    "card_id": "III",
+    "pcm_device": 0,
+    "alsa_device": "plughw:CARD=III,DEV=0",
+    "nodes": [
+      "/dev/snd/pcmC1D0c",
+      "/dev/snd/pcmC1D0p"
+    ]
+  },
+  "devices": {
+    "nodes": [
+      "/dev/video11",
+      "/dev/snd/pcmC1D0c",
+      "/dev/snd/pcmC1D0p",
+      "/dev/dri/renderD129"
+    ],
+    "query": {
+      "command": [
+        "sudo",
+        "-n",
+        "--",
+        "/usr/bin/fuser",
+        "-v",
+        "/dev/video11",
+        "/dev/snd/pcmC1D0c",
+        "/dev/snd/pcmC1D0p",
+        "/dev/dri/renderD129"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    "clear": true,
+    "alsa_status": {
+      "/proc/asound/card1/pcm0c/sub0/status": "closed\n",
+      "/proc/asound/card1/pcm0p/sub0/status": "closed\n"
+    }
+  },
+  "accepted_binaries": {
+    "build/stage5_01_board/asr_llm_tts_smoke": "7b44730ad55cdb49f252de3e801b3e6680169a93ed0cb59d80fdc8f6720a10b7",
+    "build/stage5_02_board/asr_llm_tts_smoke": "1bf59ddf68cb0290e30df3ed945347dc73b7ff477a44d69c8f1f80a51f49d9b7",
+    "build/stage5_03_board/asr_llm_tts_smoke": "687892f86b7dc421d0326657a740be4af897cb5e4ef6efed76e9ebd4c48237db",
+    "build/stage5_04_board_v3/asr_llm_tts_smoke": "d08f2fa5087f9b83e73f0b527fd8a6daaa0d046d14fa0f3a04b6ceba469ca191"
+  },
+  "original_321_unchanged": true,
+  "final_5_4_source_matches": true,
+  "disk_free_bytes": 1859289088,
+  "scope": "read-only environment query; new reports55 metadata only"
+}

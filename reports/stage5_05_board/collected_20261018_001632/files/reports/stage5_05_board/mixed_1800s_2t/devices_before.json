@@ -1,0 +1,29 @@
+{
+  "nodes": [
+    "/dev/video11",
+    "/dev/snd/pcmC1D0c",
+    "/dev/snd/pcmC1D0p",
+    "/dev/dri/renderD129"
+  ],
+  "query": {
+    "command": [
+      "sudo",
+      "-n",
+      "--",
+      "/usr/bin/fuser",
+      "-v",
+      "/dev/video11",
+      "/dev/snd/pcmC1D0c",
+      "/dev/snd/pcmC1D0p",
+      "/dev/dri/renderD129"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "clear": true,
+  "alsa_status": {
+    "/proc/asound/card1/pcm0c/sub0/status": "closed\n",
+    "/proc/asound/card1/pcm0p/sub0/status": "closed\n"
+  }
+}

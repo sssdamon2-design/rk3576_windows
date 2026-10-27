@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "file": "src/video/image_preprocessor.cpp",
+      "before": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+      "after": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+      "unchanged": true
+    },
+    {
+      "file": "include/video/image_preprocessor.h",
+      "before": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+      "after": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+      "unchanged": true
+    },
+    {
+      "file": "include/video/owned_frame_pool.h",
+      "before": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+      "after": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/video_capture.cpp",
+      "before": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+      "after": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/camera_service.cpp",
+      "before": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+      "after": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+      "unchanged": true
+    },
+    {
+      "file": "src/video/latest_frame_buffer.cpp",
+      "before": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+      "after": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/audio_capture.cpp",
+      "before": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+      "after": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+      "unchanged": true
+    },
+    {
+      "file": "src/ai/inference_worker.cpp",
+      "before": null,
+      "after": null,
+      "unchanged": true
+    }
+  ],
+  "model_generation_parameters_unchanged": {
+    "src/audio/tts_service.cpp": true,
+    "src/ai/rkllm_backend.cpp": true,
+    "src/ai/rk3576_vlm_backend.cpp": true
+  },
+  "StopSignals_unchanged": true,
+  "final_source_matches_ARM64_candidate_v3": true,
+  "scope": "Source equality only; runtime evidence is separate"
+}
