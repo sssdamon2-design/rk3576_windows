@@ -1,0 +1,1 @@
+{"monotonic": 20472.829151272, "temperatures_C": {"/sys/class/thermal/thermal_zone2/temp": 51.769, "/sys/class/thermal/thermal_zone0/temp": 49.923, "/sys/class/thermal/thermal_zone5/temp": 50.846, "/sys/class/thermal/thermal_zone3/temp": 49.923, "/sys/class/thermal/thermal_zone1/temp": 52.692, "/sys/class/thermal/thermal_zone4/temp": 49.0}}
