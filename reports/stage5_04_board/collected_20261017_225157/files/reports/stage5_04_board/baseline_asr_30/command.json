@@ -1,0 +1,7 @@
+[
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_04_baseline_v2/stage5_04_asr_bench",
+  "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17",
+  "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/test_wavs/zh.wav",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_asr_30",
+  "30"
+]
