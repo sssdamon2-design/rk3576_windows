@@ -1,0 +1,31 @@
+{
+  "returncode": 0,
+  "duration_seconds": 53.1265482710005,
+  "signal_to_exit_seconds": 27.24281331900056,
+  "sent_signal": "SIGTERM",
+  "termination_reason": null,
+  "forced_kill": false,
+  "timeout": false,
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "sessions": [
+    {
+      "answers_completed": 1,
+      "cycles_completed": 1,
+      "heartbeat": 485,
+      "orderly": true,
+      "returncode": 0
+    }
+  ],
+  "all_sessions_orderly": true,
+  "platform": "xcb DISPLAY :0 actual existing desktop",
+  "input_mode": "sigterm_vision",
+  "owned_children": {
+    "37739": {
+      "exe": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_05_final_v2/asr_llm_tts_smoke",
+      "token": "2542923"
+    }
+  },
+  "user_audible_confirmation": null
+}

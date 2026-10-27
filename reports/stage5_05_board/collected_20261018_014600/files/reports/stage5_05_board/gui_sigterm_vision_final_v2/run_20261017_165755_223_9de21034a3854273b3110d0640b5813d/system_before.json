@@ -1,0 +1,4 @@
+{
+  "clock_ticks": 100,
+  "scope": "backend process samples; GUI process resource log is separate"
+}

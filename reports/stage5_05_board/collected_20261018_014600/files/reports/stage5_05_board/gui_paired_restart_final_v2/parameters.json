@@ -1,0 +1,9 @@
+{
+  "name": "gui_paired_restart_final_v2",
+  "build": "stage5_05_final_v2",
+  "mode": "paired_restart",
+  "timeout": 260,
+  "threads": 4,
+  "seconds": 180,
+  "audio_replay_file": null
+}
