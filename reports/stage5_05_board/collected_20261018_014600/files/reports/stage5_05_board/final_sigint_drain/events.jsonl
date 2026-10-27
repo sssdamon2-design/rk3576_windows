@@ -1,0 +1,3 @@
+{"event": "trigger", "elapsed": 22.720459224001388, "trigger": "vision"}
+{"event": "signal", "signal": "SIGINT", "elapsed": 22.821107146999566, "pid": 40218, "pid_start_token": "2785317", "timeout": false, "safety_reason": null}
+{"event": "input_closed", "elapsed": 22.952923918001034}

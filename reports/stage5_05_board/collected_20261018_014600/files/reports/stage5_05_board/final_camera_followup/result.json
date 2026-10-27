@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "steps": [
+    {
+      "step": "camera64",
+      "returncode": 0
+    },
+    {
+      "step": "NPU_inventory",
+      "returncode": 0
+    },
+    {
+      "step": "protection_after_camera",
+      "returncode": 0
+    }
+  ],
+  "scope": "followup of one Camera driver sequence gap; original gap not rewritten as fixed"
+}

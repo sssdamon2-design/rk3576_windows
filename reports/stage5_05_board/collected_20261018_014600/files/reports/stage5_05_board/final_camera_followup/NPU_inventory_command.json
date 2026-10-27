@@ -1,0 +1,8 @@
+[
+  "/usr/bin/python3",
+  "-I",
+  "-B",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/tools/stage5_05_npu_inventory.py",
+  "--output",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_05_board/npu_desktop_owner_recheck.json"
+]

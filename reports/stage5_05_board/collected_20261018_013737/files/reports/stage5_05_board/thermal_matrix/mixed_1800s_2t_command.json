@@ -1,0 +1,22 @@
+[
+  "python3",
+  "-I",
+  "-B",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/tools/stage5_05_voice_run.py",
+  "--name",
+  "mixed_1800s_2t",
+  "--tts-threads",
+  "2",
+  "--audio-replay-file",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_05_board/thermal_matrix/mixed_1800s_2t.tsv",
+  "--fixed-frame-dir",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_03_board/raw_5_2_baseline",
+  "--timeout",
+  "1960",
+  "--grace",
+  "70",
+  "--seconds",
+  "1800",
+  "--stop-mode",
+  "cancel_pending"
+]

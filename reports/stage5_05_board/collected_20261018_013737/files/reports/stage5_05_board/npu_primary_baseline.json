@@ -1,0 +1,41 @@
+{
+  "primary_nodes": {
+    "/dev/dri/card1": {
+      "command": [
+        "sudo",
+        "-n",
+        "--",
+        "/usr/bin/fuser",
+        "-v",
+        "/dev/dri/card1"
+      ],
+      "stdout": "     1   932  1619",
+      "stderr": "                     \u7528\u6237     \u8fdb\u7a0b\u53f7 \u6743\u9650   \u547d\u4ee4\n/dev/dri/card1:      root      F.... systemd\n                     root      F.... systemd-logind\n                     root      F.... Xorg\n",
+      "returncode": 0,
+      "identities": [
+        {
+          "pid": 1,
+          "start_token": "0",
+          "uid": 0,
+          "comm": "systemd",
+          "cmdline": "/sbin/init earlyprintk"
+        },
+        {
+          "pid": 932,
+          "start_token": "1003",
+          "uid": 0,
+          "comm": "systemd-logind",
+          "cmdline": "/lib/systemd/systemd-logind"
+        },
+        {
+          "pid": 1619,
+          "start_token": "1366",
+          "uid": 1000,
+          "comm": "Xorg",
+          "cmdline": "/usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3"
+        }
+      ]
+    }
+  },
+  "scope": "exact existing seat/display holders; Xorg real uid1000 but fuser displays root effective owner; no inference program started; unknown owners reject"
+}

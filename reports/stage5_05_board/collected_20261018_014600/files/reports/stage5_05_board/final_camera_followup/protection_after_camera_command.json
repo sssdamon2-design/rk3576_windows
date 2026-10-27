@@ -1,0 +1,8 @@
+[
+  "/usr/bin/python3",
+  "-I",
+  "-B",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/tools/stage5_05_protect.py",
+  "--name",
+  "protection_final_after_camera"
+]

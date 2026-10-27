@@ -1,0 +1,14 @@
+[
+  {
+    "step": "camera64",
+    "returncode": 0
+  },
+  {
+    "step": "NPU_inventory",
+    "returncode": 0
+  },
+  {
+    "step": "protection_after_camera",
+    "returncode": 0
+  }
+]

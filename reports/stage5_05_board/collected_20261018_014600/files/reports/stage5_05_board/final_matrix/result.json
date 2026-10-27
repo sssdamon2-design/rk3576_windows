@@ -1,0 +1,114 @@
+{
+  "complete": false,
+  "stopped_at": "final_burst_audio preflight",
+  "failure_reason": "primary DRM baseline classification needed",
+  "completed_cases": [
+    {
+      "case": "gui_paired_restart_final_v2",
+      "runner_returncode": 0,
+      "result": {
+        "returncode": 0,
+        "duration_seconds": 102.26650997400066,
+        "signal_to_exit_seconds": null,
+        "sent_signal": null,
+        "termination_reason": null,
+        "forced_kill": false,
+        "timeout": false,
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "sessions": [
+          {
+            "answers_completed": 2,
+            "cycles_completed": 1,
+            "heartbeat": 484,
+            "orderly": true,
+            "returncode": 0
+          },
+          {
+            "answers_completed": 2,
+            "cycles_completed": 2,
+            "heartbeat": 976,
+            "orderly": true,
+            "returncode": 0
+          }
+        ],
+        "all_sessions_orderly": true,
+        "platform": "xcb DISPLAY :0 actual existing desktop",
+        "input_mode": "paired_restart",
+        "owned_children": {},
+        "user_audible_confirmation": null
+      }
+    },
+    {
+      "case": "gui_sigterm_vision_final_v2",
+      "runner_returncode": 0,
+      "result": {
+        "returncode": 0,
+        "duration_seconds": 53.1265482710005,
+        "signal_to_exit_seconds": 27.24281331900056,
+        "sent_signal": "SIGTERM",
+        "termination_reason": null,
+        "forced_kill": false,
+        "timeout": false,
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "sessions": [
+          {
+            "answers_completed": 1,
+            "cycles_completed": 1,
+            "heartbeat": 485,
+            "orderly": true,
+            "returncode": 0
+          }
+        ],
+        "all_sessions_orderly": true,
+        "platform": "xcb DISPLAY :0 actual existing desktop",
+        "input_mode": "sigterm_vision",
+        "owned_children": {
+          "37739": {
+            "exe": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_05_final_v2/asr_llm_tts_smoke",
+            "token": "2542923"
+          }
+        },
+        "user_audible_confirmation": null
+      }
+    },
+    {
+      "case": "gui_mixed_1800s_4t_final_v2",
+      "runner_returncode": 0,
+      "result": {
+        "returncode": 0,
+        "duration_seconds": 1837.7822822689996,
+        "signal_to_exit_seconds": null,
+        "sent_signal": null,
+        "termination_reason": null,
+        "forced_kill": false,
+        "timeout": false,
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "sessions": [
+          {
+            "answers_completed": 121,
+            "cycles_completed": 1,
+            "heartbeat": 18340,
+            "orderly": true,
+            "returncode": 0
+          }
+        ],
+        "all_sessions_orderly": true,
+        "platform": "xcb DISPLAY :0 actual existing desktop",
+        "input_mode": "stability",
+        "owned_children": {
+          "37800": {
+            "exe": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_05_final_v2/asr_llm_tts_smoke",
+            "token": "2551282"
+          }
+        },
+        "user_audible_confirmation": null
+      }
+    }
+  ]
+}

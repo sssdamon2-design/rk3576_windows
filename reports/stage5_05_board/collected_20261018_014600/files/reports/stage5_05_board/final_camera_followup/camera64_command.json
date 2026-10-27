@@ -1,0 +1,6 @@
+[
+  "/usr/bin/python3",
+  "-I",
+  "-B",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/tools/stage5_05_camera_recheck.py"
+]

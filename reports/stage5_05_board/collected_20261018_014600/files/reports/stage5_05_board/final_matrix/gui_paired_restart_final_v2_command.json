@@ -1,0 +1,12 @@
+[
+  "/usr/bin/python3",
+  "-I",
+  "-B",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/tools/stage5_05_gui_run.py",
+  "--name",
+  "gui_paired_restart_final_v2",
+  "--build",
+  "stage5_05_final_v2",
+  "--mode",
+  "paired_restart"
+]

@@ -1,0 +1,12 @@
+{
+  "clock_ticks": 100,
+  "memory": {
+    "command": [
+      "free",
+      "-b"
+    ],
+    "exit_code": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\n内存：    4084207616   782282752  2603442176    17108992   772280320  3301924864\n交换：             0           0           0\n",
+    "stderr": ""
+  }
+}

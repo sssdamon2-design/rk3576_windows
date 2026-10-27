@@ -1,0 +1,5 @@
+{
+  "path": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_05_board/final_matrix_retry1/single.tsv",
+  "sha256": "853aad4c681244a99d304be2d515d70016843c66474f09d2d76b60675128754d",
+  "text": "0\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_2.f32\n100000\t/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/baseline_voice_2t/audio_fixtures/segment_1.f32\n"
+}

@@ -1,0 +1,77 @@
+{
+  "nodes": [
+    "/dev/video11",
+    "/dev/snd/pcmC1D0c",
+    "/dev/snd/pcmC1D0p",
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "NPU_nodes": [
+    "/dev/dri/card1",
+    "/dev/dri/renderD129"
+  ],
+  "query": {
+    "command": [
+      "sudo",
+      "-n",
+      "--",
+      "/usr/bin/fuser",
+      "-v",
+      "/dev/video11",
+      "/dev/snd/pcmC1D0c",
+      "/dev/snd/pcmC1D0p",
+      "/dev/dri/renderD129"
+    ],
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  },
+  "primary_owner_queries": {
+    "/dev/dri/card1": {
+      "query": {
+        "command": [
+          "sudo",
+          "-n",
+          "--",
+          "/usr/bin/fuser",
+          "-v",
+          "/dev/dri/card1"
+        ],
+        "exit_code": 0,
+        "stdout": "     1   932  1619",
+        "stderr": "                     \u7528\u6237     \u8fdb\u7a0b\u53f7 \u6743\u9650   \u547d\u4ee4\n/dev/dri/card1:      root      F.... systemd\n                     root      F.... systemd-logind\n                     root      F.... Xorg\n"
+      },
+      "identities": [
+        {
+          "pid": 1,
+          "start_token": "0",
+          "uid": 0,
+          "comm": "systemd",
+          "cmdline": "/sbin/init earlyprintk"
+        },
+        {
+          "pid": 932,
+          "start_token": "1003",
+          "uid": 0,
+          "comm": "systemd-logind",
+          "cmdline": "/lib/systemd/systemd-logind"
+        },
+        {
+          "pid": 1619,
+          "start_token": "1366",
+          "uid": 1000,
+          "comm": "Xorg",
+          "cmdline": "/usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -nolisten tcp -background none -noreset -keeptty -novtswitch -verbose 3"
+        }
+      ],
+      "matches_frozen_desktop_owners": true
+    }
+  },
+  "desktop_owner_baseline": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_05_board/npu_primary_baseline.json",
+  "clear": true,
+  "scope": "Camera/ALSA/render empty; NPU primary may retain EXACT frozen root systemd/logind/Xorg owners; unknown owners reject",
+  "alsa_status": {
+    "/proc/asound/card1/pcm0c/sub0/status": "closed\n",
+    "/proc/asound/card1/pcm0p/sub0/status": "closed\n"
+  }
+}
