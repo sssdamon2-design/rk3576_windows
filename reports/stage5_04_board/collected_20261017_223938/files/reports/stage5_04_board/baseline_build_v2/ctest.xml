@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Linux-c++"
+	tests="7"
+	failures="0"
+	disabled="0"
+	skipped="0"
+	hostname="lubancat"
+	time="0"
+	timestamp="2026-10-17T22:19:47"
+	>
+	<testcase name="request_profile_tests" classname="request_profile_tests" time="0.00837139" status="run">
+		<system-out>PASS request profiling: scoped request ID, distinct frame ID, explicit SDK callback, steady timestamps, flushed JSONL
+</system-out>
+	</testcase>
+	<testcase name="image_pipeline_tests" classname="image_pipeline_tests" time="0.592309" status="run">
+		<system-out>[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=3 in_use=3 acquired=3 reused=0 exhausted=2
+[CameraCounters] published=3 fps=280.941 timeouts=0 driver_sequence_gaps=0 pool_discarded=2
+[FramePool] allocated=0 in_use=0 acquired=0 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=0 in_use=0 acquired=0 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+PASS image pipeline: exact RGB, padded stride, channels/orientation, invalid layouts, bounded leases, weak generations, concurrent readers, exhaustion/restart. Fake camera only.
+</system-out>
+	</testcase>
+	<testcase name="async_pipeline_tests" classname="async_pipeline_tests" time="0.0369147" status="run">
+		<system-out>[ASR] Segment #1: 1 | latency=0 ms | RTF=0
+[ASR] Segment #2: 2 | latency=0 ms | RTF=0
+[ASR] Segment #3: 3 | latency=0 ms | RTF=0
+[Inference cancelled #2] queue_ms=0.106011
+[Inference expired #4] queue_ms=0.034451
+[Inference callback error #5]
+[Inference cancelled #2] queue_ms=0.034504
+[TTS expired #2] queue_ms=0.033694
+[TTS callback error #4]
+[ASR] Segment #777: 1 | latency=0 ms | RTF=0
+PASS deterministic async pipeline: ASR progression, alternating FIFO, overload, cancel/expiry, restart, callback failures, ticket races, TTS. Fake services only.
+</system-out>
+	</testcase>
+	<testcase name="asr_pipeline_tests" classname="asr_pipeline_tests" time="0.0160335" status="run">
+		<system-out>[Audio queue dropped #1] replaced_oldest
+[Audio queue rejected #4] closed
+[Audio queue rejected #1] closed
+[Audio queue rejected #1] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #2: test-only transcript | latency=0 ms | RTF=0
+[Audio queue rejected #2] closed
+[Audio queue rejected #2] closed
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+[ASR] Segment #1: test-only transcript | latency=0 ms | RTF=0
+ASR pipeline tests passed: queue, idle destruction, unwind, drain, one-shot start, service/callback faults. No SDK or hardware used.
+</system-out>
+	</testcase>
+	<testcase name="audio_preprocessor_tests" classname="audio_preprocessor_tests" time="0.00706429" status="run">
+		<system-out>All AudioPreprocessor tests passed
+</system-out>
+	</testcase>
+	<testcase name="llm_worker_tests" classname="llm_worker_tests" time="0.0104327" status="run">
+		<system-out>[Inference cancelled #12] queue_ms=0.103596
+[Inference callback error #21]
+LLMWorker tests passed: FIFO, bounded queue, streaming, stop.
+</system-out>
+	</testcase>
+	<testcase name="camera_service_tests" classname="camera_service_tests" time="0.224687" status="run">
+		<system-out>[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=2 in_use=1 acquired=4 reused=2 exhausted=0
+[CameraCounters] published=3 fps=336.762 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=2 in_use=1 acquired=4 reused=2 exhausted=0
+[CameraCounters] published=3 fps=336.762 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+[FramePool] allocated=1 in_use=0 acquired=1 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=1 driver_sequence_gaps=0 pool_discarded=0
+CameraService lifecycle tests passed with test-only capture faults; no V4L2 hardware tested.
+[FramePool] allocated=0 in_use=0 acquired=0 reused=0 exhausted=0
+[CameraCounters] published=0 fps=0 timeouts=0 driver_sequence_gaps=0 pool_discarded=0
+</system-out>
+	</testcase>
+</testsuite>
