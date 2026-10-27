@@ -1,0 +1,11 @@
+{
+  "case": "voice_natural_retry1",
+  "stage": "5.3",
+  "source": "actual user replies in this conversation",
+  "visual_reply_verbatim": "相符",
+  "audible_reply_verbatim": "两个都实际听到了",
+  "text_audio_confirmed": true,
+  "vision_audio_confirmed": true,
+  "scene_matches_user_confirmation": true,
+  "note": "Independent 5.3 confirmation; not inherited from 5.1 or 5.2. Program first recognized an additional short segment and repeated arithmetic/vision segments; preserve full raw log."
+}

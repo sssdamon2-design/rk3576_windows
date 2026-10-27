@@ -1,0 +1,1 @@
+{"command": ["cmake", "-S", "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_03_zp2052fu\\source", "-B", "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_03_zp2052fu\\build", "-G", "MinGW Makefiles", "-DCMAKE_BUILD_TYPE=Debug", "-DBUILD_TESTING=ON"], "exit_code": 0, "seconds": 7.406999999999243}

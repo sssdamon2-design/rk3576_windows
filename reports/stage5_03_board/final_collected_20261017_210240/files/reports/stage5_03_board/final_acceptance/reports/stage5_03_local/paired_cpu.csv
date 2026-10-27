@@ -1,0 +1,7 @@
+case,frame,mode,n,mean,p50,p95,minimum,maximum
+rga_diagnostic,0,cpu_reference_reused,100,10.284052,10.3284,10.3568,10.1079,10.3711
+rga_diagnostic,0,cpu_cached,100,8.4271622,8.56023,8.63068,7.92718,8.66924
+rga_diagnostic_dma,0,cpu_reference_reused,100,10.308338,10.3135,10.3355,10.2694,10.3546
+rga_diagnostic_dma,0,cpu_cached,100,8.0549851,8.05123,8.14319,7.93777,8.18981
+rga_diagnostic_split,0,cpu_reference_reused,100,10.304793,10.3197,10.342,10.0964,10.3585
+rga_diagnostic_split,0,cpu_cached,100,8.3477968,8.37515,8.44163,7.63475,8.81492

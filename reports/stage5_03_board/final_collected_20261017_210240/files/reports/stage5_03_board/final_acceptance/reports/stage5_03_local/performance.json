@@ -1,0 +1,3199 @@
+{
+  "collection": "reports\\stage5_03_board\\collected_20261017_205548",
+  "quantiles": "nearest rank, no interpolation",
+  "duration_unit": "ms",
+  "cases": {
+    "baseline_build": {
+      "result": {
+        "steps": [
+          {
+            "step": "configure",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 2.001438037999833
+          },
+          {
+            "step": "build",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 81.04310804600027
+          },
+          {
+            "step": "ctest",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 1.0011367379993317
+          }
+        ],
+        "original_321_unchanged": true,
+        "accepted_binaries_unchanged": true,
+        "disk_free_bytes": 2159947776,
+        "successful": true
+      }
+    },
+    "baseline_fixed_6": {
+      "result": {
+        "returncode": 0,
+        "seconds": 12.43876362300034,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 52,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 0,
+        "fps": 0,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 49,
+      "VmRSS_sampled_MiB": {
+        "n": 49,
+        "mean": 441.8823341836735,
+        "p50": 481.19140625,
+        "p95": 481.19140625,
+        "minimum": 0.390625,
+        "maximum": 481.19140625
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 49,
+        "mean": 450.70463966836735,
+        "p50": 481.19140625,
+        "p95": 481.19140625,
+        "minimum": 0.390625,
+        "maximum": 481.19140625
+      },
+      "requests": 6,
+      "successful": 6,
+      "frame_age_warm9_ms": {
+        "n": 3,
+        "mean": 0.026003000000000002,
+        "p50": 0.026519,
+        "p95": 0.026928,
+        "minimum": 0.024562,
+        "maximum": 0.026928
+      },
+      "request_wall_ms": {
+        "n": 6,
+        "mean": 1784.0766666666666,
+        "p50": 1796.2,
+        "p95": 1827.19,
+        "minimum": 1684.32,
+        "maximum": 1827.19
+      }
+    },
+    "baseline_live_12_retry1": {
+      "result": {
+        "returncode": 0,
+        "seconds": 24.09064565299923,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 7061,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 695,
+        "fps": 29.8862,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 95,
+      "VmRSS_sampled_MiB": {
+        "n": 95,
+        "mean": 529.7502467105263,
+        "p50": 554.42578125,
+        "p95": 554.42578125,
+        "minimum": 0.84765625,
+        "maximum": 554.42578125
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 95,
+        "mean": 536.3497944078947,
+        "p50": 554.42578125,
+        "p95": 554.42578125,
+        "minimum": 0.84765625,
+        "maximum": 554.42578125
+      },
+      "requests": 12,
+      "successful": 12,
+      "frame_age_warm9_ms": {
+        "n": 9,
+        "mean": 26.850922222222223,
+        "p50": 20.6314,
+        "p95": 43.9429,
+        "minimum": 11.5127,
+        "maximum": 43.9429
+      },
+      "request_wall_ms": {
+        "n": 12,
+        "mean": 1851.2733333333333,
+        "p50": 1842.23,
+        "p95": 1979.4,
+        "minimum": 1672.48,
+        "maximum": 1979.4
+      }
+    },
+    "candidate_build": {
+      "result": {
+        "steps": [
+          {
+            "step": "configure",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 2.001681677000306
+          },
+          {
+            "step": "build",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 83.03962709200096
+          },
+          {
+            "step": "ctest",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 1.0009195269994962
+          }
+        ],
+        "original_321_unchanged": true,
+        "accepted_binaries_unchanged": true,
+        "disk_free_bytes": 2106769408,
+        "successful": true
+      }
+    },
+    "candidate_config_review": {
+      "result": {
+        "steps": [
+          {
+            "step": "rebuild",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 39.022247267999774
+          },
+          {
+            "step": "ctest",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 1.000977387000603
+          }
+        ],
+        "original_321_unchanged": true,
+        "successful": true
+      }
+    },
+    "candidate_counter_instrumentation": {
+      "result": {
+        "steps": [
+          {
+            "step": "rebuild",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 26.013873828000214
+          },
+          {
+            "step": "ctest",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 1.0008609240012447
+          }
+        ],
+        "original_321_unchanged": true,
+        "successful": true
+      }
+    },
+    "candidate_fallback_fixed_6": {
+      "result": {
+        "returncode": 0,
+        "seconds": 12.42746986200109,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 52,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 0,
+        "fps": 0,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 49,
+      "VmRSS_sampled_MiB": {
+        "n": 49,
+        "mean": 448.949537627551,
+        "p50": 481.2578125,
+        "p95": 481.2578125,
+        "minimum": 0.84375,
+        "maximum": 481.2578125
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 49,
+        "mean": 457.78595344387753,
+        "p50": 481.2578125,
+        "p95": 481.2578125,
+        "minimum": 0.84375,
+        "maximum": 481.2578125
+      },
+      "requests": 6,
+      "successful": 6,
+      "frame_age_warm9_ms": {
+        "n": 3,
+        "mean": 0.025721333333333332,
+        "p50": 0.0266,
+        "p95": 0.026734,
+        "minimum": 0.02383,
+        "maximum": 0.026734
+      },
+      "request_wall_ms": {
+        "n": 6,
+        "mean": 1819.4266666666667,
+        "p50": 1776.75,
+        "p95": 1957.04,
+        "minimum": 1682.4,
+        "maximum": 1957.04
+      }
+    },
+    "candidate_fallback_live_3": {
+      "result": {
+        "returncode": 0,
+        "seconds": 7.338196925000375,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 1919,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 188,
+        "fps": 29.6073,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 29,
+      "VmRSS_sampled_MiB": {
+        "n": 29,
+        "mean": 459.34401939655174,
+        "p50": 554.46875,
+        "p95": 554.46875,
+        "minimum": 0.3828125,
+        "maximum": 554.46875
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 29,
+        "mean": 493.5251885775862,
+        "p50": 554.46875,
+        "p95": 554.46875,
+        "minimum": 0.3828125,
+        "maximum": 554.46875
+      },
+      "requests": 3,
+      "successful": 3,
+      "frame_age_warm9_ms": null,
+      "request_wall_ms": {
+        "n": 3,
+        "mean": 1798.36,
+        "p50": 1777.24,
+        "p95": 1851.59,
+        "minimum": 1766.25,
+        "maximum": 1851.59
+      }
+    },
+    "candidate_fixed_6": {
+      "result": {
+        "returncode": 0,
+        "seconds": 12.94187846800014,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 52,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 0,
+        "fps": 0,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 51,
+      "VmRSS_sampled_MiB": {
+        "n": 51,
+        "mean": 436.8480392156863,
+        "p50": 481.27734375,
+        "p95": 481.27734375,
+        "minimum": 0.6640625,
+        "maximum": 481.27734375
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 51,
+        "mean": 449.5322457107843,
+        "p50": 481.27734375,
+        "p95": 481.27734375,
+        "minimum": 0.6640625,
+        "maximum": 481.27734375
+      },
+      "requests": 6,
+      "successful": 6,
+      "frame_age_warm9_ms": {
+        "n": 3,
+        "mean": 0.024631,
+        "p50": 0.025057,
+        "p95": 0.025221,
+        "minimum": 0.023615,
+        "maximum": 0.025221
+      },
+      "request_wall_ms": {
+        "n": 6,
+        "mean": 1852.6866666666667,
+        "p50": 1857.25,
+        "p95": 1977.49,
+        "minimum": 1721.63,
+        "maximum": 1977.49
+      }
+    },
+    "candidate_fixed_final_6": {
+      "result": {
+        "returncode": 0,
+        "seconds": 13.203117920000295,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 52,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 0,
+        "fps": 0,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 52,
+      "VmRSS_sampled_MiB": {
+        "n": 51,
+        "mean": 449.0772824754902,
+        "p50": 481.0859375,
+        "p95": 481.0859375,
+        "minimum": 0.66015625,
+        "maximum": 481.0859375
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 51,
+        "mean": 457.4378829656863,
+        "p50": 481.0859375,
+        "p95": 481.0859375,
+        "minimum": 0.66015625,
+        "maximum": 481.0859375
+      },
+      "requests": 6,
+      "successful": 6,
+      "frame_age_warm9_ms": {
+        "n": 3,
+        "mean": 0.024782333333333333,
+        "p50": 0.024681,
+        "p95": 0.026625,
+        "minimum": 0.023041,
+        "maximum": 0.026625
+      },
+      "request_wall_ms": {
+        "n": 6,
+        "mean": 1874.9766666666667,
+        "p50": 1845.79,
+        "p95": 1955.51,
+        "minimum": 1815.55,
+        "maximum": 1955.51
+      }
+    },
+    "candidate_live_12": {
+      "result": {
+        "returncode": 0,
+        "seconds": 23.3136082839992,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 7438,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 666,
+        "fps": 29.9034,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 92,
+      "VmRSS_sampled_MiB": {
+        "n": 91,
+        "mean": 527.2550223214286,
+        "p50": 552.16015625,
+        "p95": 552.16015625,
+        "minimum": 0.390625,
+        "maximum": 552.16015625
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 91,
+        "mean": 532.8472699175824,
+        "p50": 552.16015625,
+        "p95": 552.16015625,
+        "minimum": 0.390625,
+        "maximum": 552.16015625
+      },
+      "requests": 12,
+      "successful": 12,
+      "frame_age_warm9_ms": {
+        "n": 9,
+        "mean": 30.198366666666665,
+        "p50": 30.9812,
+        "p95": 39.0542,
+        "minimum": 19.8803,
+        "maximum": 39.0542
+      },
+      "request_wall_ms": {
+        "n": 12,
+        "mean": 1770.2166666666667,
+        "p50": 1767.14,
+        "p95": 1829.4,
+        "minimum": 1728.72,
+        "maximum": 1829.4
+      }
+    },
+    "candidate_live_final_12": {
+      "result": {
+        "returncode": 0,
+        "seconds": 22.07209924000017,
+        "termination_reason": null,
+        "forced_kill": false,
+        "devices_released": true,
+        "process_gone": true,
+        "original_321_unchanged": true,
+        "profile_rows": 7097,
+        "profile_errors": false
+      },
+      "camera": {
+        "frames": 635,
+        "fps": 29.8773,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 87,
+      "VmRSS_sampled_MiB": {
+        "n": 87,
+        "mean": 524.8487787356322,
+        "p50": 552.04296875,
+        "p95": 552.04296875,
+        "minimum": 0.00390625,
+        "maximum": 552.04296875
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 87,
+        "mean": 531.6835488505748,
+        "p50": 552.04296875,
+        "p95": 552.04296875,
+        "minimum": 0.00390625,
+        "maximum": 552.04296875
+      },
+      "requests": 12,
+      "successful": 12,
+      "frame_age_warm9_ms": {
+        "n": 9,
+        "mean": 28.383677777777777,
+        "p50": 32.8655,
+        "p95": 38.8746,
+        "minimum": 14.3147,
+        "maximum": 38.8746
+      },
+      "request_wall_ms": {
+        "n": 12,
+        "mean": 1685.7616666666668,
+        "p50": 1680.94,
+        "p95": 1721.41,
+        "minimum": 1656.43,
+        "maximum": 1721.41
+      }
+    },
+    "candidate_retirement_review": {
+      "result": {
+        "steps": [
+          {
+            "step": "rebuild",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 39.02198607599894
+          },
+          {
+            "step": "ctest",
+            "returncode": 0,
+            "reason": null,
+            "seconds": 1.0010245880002913
+          }
+        ],
+        "original_321_unchanged": true,
+        "successful": true
+      }
+    },
+    "raw_5_2_baseline": {
+      "result": {
+        "build_exit_code": 0,
+        "run_exit_code": 0,
+        "seconds": 24.07376996200037,
+        "devices_released": true,
+        "production_source_unmodified": true
+      },
+      "camera": {
+        "frames": 694,
+        "fps": 29.8983,
+        "timeouts": 0,
+        "last_error": ""
+      },
+      "resource_samples": 24,
+      "VmRSS_sampled_MiB": {
+        "n": 24,
+        "mean": 523.2879231770834,
+        "p50": 554.33203125,
+        "p95": 554.33203125,
+        "minimum": 0.00390625,
+        "maximum": 554.33203125
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 24,
+        "mean": 523.2879231770834,
+        "p50": 554.33203125,
+        "p95": 554.33203125,
+        "minimum": 0.00390625,
+        "maximum": 554.33203125
+      },
+      "requests": 12,
+      "successful": 12,
+      "frame_age_warm9_ms": {
+        "n": 9,
+        "mean": 23.852644444444444,
+        "p50": 22.5165,
+        "p95": 37.1332,
+        "minimum": 12.5876,
+        "maximum": 37.1332
+      },
+      "request_wall_ms": {
+        "n": 12,
+        "mean": 1841.6458333333333,
+        "p50": 1859.12,
+        "p95": 1952.0,
+        "minimum": 1703.55,
+        "maximum": 1952.0
+      }
+    },
+    "rga_diagnostic": {
+      "result": {
+        "returncode": 1,
+        "seconds": 3.7744655909991707,
+        "timeout": false,
+        "devices_released": true
+      },
+      "resource_samples": 15,
+      "VmRSS_sampled_MiB": {
+        "n": 15,
+        "mean": 234.64661458333333,
+        "p50": 279.29296875,
+        "p95": 279.29296875,
+        "minimum": 0.00390625,
+        "maximum": 279.29296875
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 15,
+        "mean": 238.24713541666668,
+        "p50": 279.29296875,
+        "p95": 279.29296875,
+        "minimum": 0.00390625,
+        "maximum": 279.29296875
+      }
+    },
+    "rga_diagnostic_dma": {
+      "result": {
+        "returncode": 1,
+        "seconds": 5.304639060001136,
+        "timeout": false,
+        "devices_released": true
+      },
+      "resource_samples": 21,
+      "VmRSS_sampled_MiB": {
+        "n": 21,
+        "mean": 238.13337053571428,
+        "p50": 279.32421875,
+        "p95": 281.53515625,
+        "minimum": 0.46484375,
+        "maximum": 281.53515625
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 21,
+        "mean": 251.0414806547619,
+        "p50": 279.32421875,
+        "p95": 281.5703125,
+        "minimum": 0.46484375,
+        "maximum": 281.671875
+      }
+    },
+    "rga_diagnostic_split": {
+      "result": {
+        "returncode": 1,
+        "seconds": 5.560688334000588,
+        "timeout": false,
+        "devices_released": true
+      },
+      "resource_samples": 22,
+      "VmRSS_sampled_MiB": {
+        "n": 22,
+        "mean": 252.3884943181818,
+        "p50": 279.328125,
+        "p95": 281.5390625,
+        "minimum": 0.00390625,
+        "maximum": 281.5390625
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 22,
+        "mean": 252.396484375,
+        "p50": 279.328125,
+        "p95": 281.57421875,
+        "minimum": 0.00390625,
+        "maximum": 281.57421875
+      }
+    },
+    "rga_split_build": {
+      "result": {
+        "returncode": 0,
+        "diagnostic_only": true
+      }
+    },
+    "sigint_idle_final": {
+      "result": {
+        "pid": 19009,
+        "returncode": 0,
+        "sent_signal": "SIGINT",
+        "trigger_observed": true,
+        "forced_kill": false,
+        "timeout": false,
+        "duration_seconds": 24.57032298500053,
+        "input_closed_to_exit_seconds": 1.753296462000435,
+        "signal_to_exit_seconds": 1.9074078209996514,
+        "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "image_profile_errors": false,
+        "shutdown_complete_marker": true,
+        "program_PASS": false,
+        "text_tts_completed": false,
+        "vision_tts_completed": false,
+        "user_audible_confirmation": null,
+        "variant": "candidate",
+        "input_mode": "real_microphone_ASR",
+        "stop_mode": "drain"
+      },
+      "resource_samples": 25,
+      "VmRSS_sampled_MiB": {
+        "n": 24,
+        "mean": 1475.14013671875,
+        "p50": 1504.73828125,
+        "p95": 2434.25390625,
+        "minimum": 11.71875,
+        "maximum": 2434.25390625
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 24,
+        "mean": 1525.23291015625,
+        "p50": 1516.91796875,
+        "p95": 2434.25390625,
+        "minimum": 11.71875,
+        "maximum": 2434.58984375
+      }
+    },
+    "sigterm_tts_drain_final": {
+      "result": {
+        "pid": 19120,
+        "returncode": 0,
+        "sent_signal": "SIGTERM",
+        "trigger_observed": true,
+        "forced_kill": false,
+        "timeout": false,
+        "duration_seconds": 54.00683817099889,
+        "input_closed_to_exit_seconds": 32.82447213499836,
+        "signal_to_exit_seconds": 12.231117747000098,
+        "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "image_profile_errors": false,
+        "shutdown_complete_marker": true,
+        "program_PASS": false,
+        "text_tts_completed": true,
+        "vision_tts_completed": true,
+        "user_audible_confirmation": null,
+        "variant": "candidate",
+        "input_mode": "controlled_replay_no_microphone_ASR",
+        "stop_mode": "drain"
+      },
+      "resource_samples": 54,
+      "VmRSS_sampled_MiB": {
+        "n": 53,
+        "mean": 1518.0072965801887,
+        "p50": 1508.9453125,
+        "p95": 2443.91796875,
+        "minimum": 11.9140625,
+        "maximum": 2454.55859375
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 53,
+        "mean": 2048.9108195754716,
+        "p50": 2457.1328125,
+        "p95": 2457.1328125,
+        "minimum": 11.9140625,
+        "maximum": 2457.1328125
+      }
+    },
+    "sigterm_vision_cancel_final": {
+      "result": {
+        "pid": 19066,
+        "returncode": 0,
+        "sent_signal": "SIGTERM",
+        "trigger_observed": true,
+        "forced_kill": false,
+        "timeout": false,
+        "duration_seconds": 24.43985112900009,
+        "input_closed_to_exit_seconds": 2.337289201001113,
+        "signal_to_exit_seconds": 3.318924645000152,
+        "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "image_profile_errors": false,
+        "shutdown_complete_marker": true,
+        "program_PASS": false,
+        "text_tts_completed": false,
+        "vision_tts_completed": false,
+        "user_audible_confirmation": null,
+        "variant": "candidate",
+        "input_mode": "controlled_replay_no_microphone_ASR",
+        "stop_mode": "cancel_pending"
+      },
+      "resource_samples": 24,
+      "VmRSS_sampled_MiB": {
+        "n": 24,
+        "mean": 1452.7451171875,
+        "p50": 1504.75,
+        "p95": 2439.44921875,
+        "minimum": 13.3828125,
+        "maximum": 2442.9609375
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 24,
+        "mean": 1503.54443359375,
+        "p50": 1516.5859375,
+        "p95": 2443.23046875,
+        "minimum": 13.3828125,
+        "maximum": 2443.23046875
+      }
+    },
+    "voice_natural_final": {
+      "result": {
+        "pid": 18638,
+        "returncode": 1,
+        "sent_signal": null,
+        "trigger_observed": true,
+        "forced_kill": false,
+        "timeout": false,
+        "duration_seconds": 111.86517576999904,
+        "input_closed_to_exit_seconds": 1.698165802999938,
+        "signal_to_exit_seconds": null,
+        "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "image_profile_errors": false,
+        "shutdown_complete_marker": true,
+        "program_PASS": false,
+        "text_tts_completed": false,
+        "vision_tts_completed": false,
+        "user_audible_confirmation": null,
+        "variant": "candidate",
+        "input_mode": "real_microphone_ASR",
+        "stop_mode": "drain"
+      },
+      "resource_samples": 111,
+      "VmRSS_sampled_MiB": {
+        "n": 111,
+        "mean": 2230.789766328829,
+        "p50": 2435.45703125,
+        "p95": 2435.45703125,
+        "minimum": 12.0,
+        "maximum": 2435.45703125
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 111,
+        "mean": 2242.6210585585586,
+        "p50": 2435.45703125,
+        "p95": 2435.45703125,
+        "minimum": 12.0,
+        "maximum": 2436.1953125
+      }
+    },
+    "voice_natural_retry1": {
+      "result": {
+        "pid": 18824,
+        "returncode": 0,
+        "sent_signal": null,
+        "trigger_observed": true,
+        "forced_kill": false,
+        "timeout": false,
+        "duration_seconds": 142.6905513619986,
+        "input_closed_to_exit_seconds": 1.7142094259997975,
+        "signal_to_exit_seconds": null,
+        "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+        "process_gone": true,
+        "devices_released": true,
+        "original_321_unchanged": true,
+        "image_profile_errors": false,
+        "shutdown_complete_marker": true,
+        "program_PASS": true,
+        "text_tts_completed": true,
+        "vision_tts_completed": true,
+        "user_audible_confirmation": null,
+        "variant": "candidate",
+        "input_mode": "real_microphone_ASR",
+        "stop_mode": "drain"
+      },
+      "resource_samples": 141,
+      "VmRSS_sampled_MiB": {
+        "n": 141,
+        "mean": 2356.318816489362,
+        "p50": 2534.67578125,
+        "p95": 2572.92578125,
+        "minimum": 11.98828125,
+        "maximum": 2573.27734375
+      },
+      "VmHWM_sampled_MiB": {
+        "n": 141,
+        "mean": 2365.18827570922,
+        "p50": 2534.67578125,
+        "p95": 2572.92578125,
+        "minimum": 11.98828125,
+        "maximum": 2573.27734375
+      }
+    }
+  },
+  "stages": {
+    "baseline_fixed_6": {
+      "embedding_alloc_copy": {
+        "n": 6,
+        "mean": 0.1251575,
+        "p50": 0.107458,
+        "p95": 0.213057,
+        "minimum": 0.105857,
+        "maximum": 0.213057,
+        "bytes_total": 884736,
+        "allocations_total": 6
+      },
+      "latest_get": {
+        "n": 6,
+        "mean": 0.0005035,
+        "p50": 0.000346,
+        "p95": 0.001259,
+        "minimum": 0.000299,
+        "maximum": 0.001259,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 2,
+        "mean": 0.000112,
+        "p50": 9.9e-05,
+        "p95": 0.000125,
+        "minimum": 9.9e-05,
+        "maximum": 0.000125,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 2,
+        "mean": 5e-05,
+        "p50": 5e-05,
+        "p95": 5e-05,
+        "minimum": 5e-05,
+        "maximum": 5e-05,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 6,
+        "mean": 12.010866666666667,
+        "p50": 11.9491,
+        "p95": 13.1304,
+        "minimum": 10.2386,
+        "maximum": 13.1304,
+        "bytes_total": 4718592,
+        "allocations_total": 6
+      },
+      "rknn_input_descriptor": {
+        "n": 6,
+        "mean": 0.00016016666666666667,
+        "p50": 0.000172,
+        "p95": 0.000185,
+        "minimum": 0.0001,
+        "maximum": 0.000185,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 6,
+        "mean": 11.099616666666666,
+        "p50": 10.0812,
+        "p95": 15.1771,
+        "minimum": 10.0761,
+        "maximum": 15.1771,
+        "bytes_total": 4718592,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 6,
+        "mean": 0.794147,
+        "p50": 0.782219,
+        "p95": 0.848981,
+        "minimum": 0.778348,
+        "maximum": 0.848981,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 6,
+        "mean": 0.0048405,
+        "p50": 0.003871,
+        "p95": 0.008936,
+        "minimum": 0.003612,
+        "maximum": 0.008936,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 6,
+        "mean": 1142.8716666666667,
+        "p50": 1111.67,
+        "p95": 1231.71,
+        "minimum": 1110.35,
+        "maximum": 1231.71,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "baseline_live_12_retry1": {
+      "camera_dqbuf": {
+        "n": 696,
+        "mean": 0.012889386494252874,
+        "p50": 0.011343,
+        "p95": 0.023245,
+        "minimum": 0.003404,
+        "maximum": 0.061898,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 696,
+        "mean": 22.200904022988507,
+        "p50": 22.3255,
+        "p95": 27.5523,
+        "minimum": 12.5271,
+        "maximum": 80.9553,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 696,
+        "mean": 1.4050188922413793,
+        "p50": 1.14477,
+        "p95": 2.7181,
+        "minimum": 0.872174,
+        "maximum": 3.96539,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 696,
+        "mean": 0.00922912643678161,
+        "p50": 0.008803,
+        "p95": 0.018424,
+        "minimum": 0.001765,
+        "maximum": 0.044074,
+        "bytes_total": 8659353600,
+        "allocations_total": 2088
+      },
+      "capture_owned_copy": {
+        "n": 696,
+        "mean": 9.458732801724137,
+        "p50": 9.31295,
+        "p95": 13.9269,
+        "minimum": 2.59363,
+        "maximum": 16.5472,
+        "bytes_total": 8659353600,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 696,
+        "mean": 0.004568393678160919,
+        "p50": 0.004226,
+        "p95": 0.008467,
+        "minimum": 0.000731,
+        "maximum": 0.040046,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 696,
+        "mean": 0.0036421005747126435,
+        "p50": 0.003234,
+        "p95": 0.006538,
+        "minimum": 0.000421,
+        "maximum": 0.079541,
+        "bytes_total": 0,
+        "allocations_total": 696
+      },
+      "embedding_alloc_copy": {
+        "n": 12,
+        "mean": 0.11522583333333333,
+        "p50": 0.107932,
+        "p95": 0.286089,
+        "minimum": 0.041462,
+        "maximum": 0.286089,
+        "bytes_total": 1769472,
+        "allocations_total": 12
+      },
+      "frame_shared_alloc": {
+        "n": 695,
+        "mean": 0.002106614388489209,
+        "p50": 0.001787,
+        "p95": 0.003694,
+        "minimum": 0.000524,
+        "maximum": 0.060622,
+        "bytes_total": 0,
+        "allocations_total": 695
+      },
+      "latest_get": {
+        "n": 12,
+        "mean": 0.0007115,
+        "p50": 0.000668,
+        "p95": 0.000949,
+        "minimum": 0.000571,
+        "maximum": 0.000949,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 699,
+        "mean": 0.0008518226037195994,
+        "p50": 0.00068,
+        "p95": 0.001804,
+        "minimum": 0.000123,
+        "maximum": 0.013714,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 699,
+        "mean": 0.00796025321888412,
+        "p50": 0.003948,
+        "p95": 0.008497,
+        "minimum": 4.9e-05,
+        "maximum": 1.09807,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 12,
+        "mean": 11.05165,
+        "p50": 10.5403,
+        "p95": 12.64,
+        "minimum": 10.22,
+        "maximum": 12.64,
+        "bytes_total": 9437184,
+        "allocations_total": 12
+      },
+      "rknn_input_descriptor": {
+        "n": 12,
+        "mean": 0.00018841666666666667,
+        "p50": 0.000175,
+        "p95": 0.0003,
+        "minimum": 0.00015,
+        "maximum": 0.0003,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 12,
+        "mean": 11.04555,
+        "p50": 11.0975,
+        "p95": 12.5542,
+        "minimum": 10.0687,
+        "maximum": 12.5542,
+        "bytes_total": 9437184,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 12,
+        "mean": 0.7372971666666667,
+        "p50": 0.789449,
+        "p95": 1.00653,
+        "minimum": 0.32091,
+        "maximum": 1.00653,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 12,
+        "mean": 0.0052660833333333336,
+        "p50": 0.004356,
+        "p95": 0.018349,
+        "minimum": 0.002119,
+        "maximum": 0.018349,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 12,
+        "mean": 1160.7083333333333,
+        "p50": 1160.38,
+        "p95": 1166.64,
+        "minimum": 1158.74,
+        "maximum": 1166.64,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "candidate_fallback_fixed_6": {
+      "embedding_alloc_copy": {
+        "n": 6,
+        "mean": 0.1069555,
+        "p50": 0.106901,
+        "p95": 0.10757,
+        "minimum": 0.106564,
+        "maximum": 0.10757,
+        "bytes_total": 884736,
+        "allocations_total": 6
+      },
+      "latest_get": {
+        "n": 6,
+        "mean": 0.0005266666666666667,
+        "p50": 0.0004,
+        "p95": 0.000925,
+        "minimum": 0.000348,
+        "maximum": 0.000925,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 2,
+        "mean": 0.00021099999999999998,
+        "p50": 0.000122,
+        "p95": 0.0003,
+        "minimum": 0.000122,
+        "maximum": 0.0003,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 2,
+        "mean": 7.45e-05,
+        "p50": 7.4e-05,
+        "p95": 7.5e-05,
+        "minimum": 7.4e-05,
+        "maximum": 7.5e-05,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 6,
+        "mean": 11.7148,
+        "p50": 11.0662,
+        "p95": 13.1701,
+        "minimum": 10.3142,
+        "maximum": 13.1701,
+        "bytes_total": 4718592,
+        "allocations_total": 6
+      },
+      "rknn_input_descriptor": {
+        "n": 6,
+        "mean": 0.00015833333333333332,
+        "p50": 0.000174,
+        "p95": 0.000179,
+        "minimum": 0.000124,
+        "maximum": 0.000179,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 6,
+        "mean": 10.540766666666666,
+        "p50": 10.0836,
+        "p95": 12.5742,
+        "minimum": 10.0748,
+        "maximum": 12.5742,
+        "bytes_total": 4718592,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 6,
+        "mean": 0.8176728333333333,
+        "p50": 0.785535,
+        "p95": 0.977477,
+        "minimum": 0.781734,
+        "maximum": 0.977477,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 6,
+        "mean": 0.004945833333333333,
+        "p50": 0.003798,
+        "p95": 0.010611,
+        "minimum": 0.003501,
+        "maximum": 0.010611,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 6,
+        "mean": 1167.6716666666666,
+        "p50": 1121.66,
+        "p95": 1382.71,
+        "minimum": 1110.59,
+        "maximum": 1382.71,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "candidate_fallback_live_3": {
+      "camera_dqbuf": {
+        "n": 189,
+        "mean": 0.011720121693121694,
+        "p50": 0.009439,
+        "p95": 0.022192,
+        "minimum": 0.004391,
+        "maximum": 0.035658,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 189,
+        "mean": 23.042924074074072,
+        "p50": 24.13,
+        "p95": 26.9256,
+        "minimum": 9.10305,
+        "maximum": 80.8256,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 189,
+        "mean": 1.4130106825396826,
+        "p50": 1.10725,
+        "p95": 3.27131,
+        "minimum": 0.867282,
+        "maximum": 3.90305,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 189,
+        "mean": 0.013284619047619047,
+        "p50": 0.009255,
+        "p95": 0.024184,
+        "minimum": 0.003383,
+        "maximum": 0.261214,
+        "bytes_total": 2351462400,
+        "allocations_total": 567
+      },
+      "capture_owned_copy": {
+        "n": 189,
+        "mean": 8.805289682539682,
+        "p50": 7.87326,
+        "p95": 13.7883,
+        "minimum": 3.40259,
+        "maximum": 23.0867,
+        "bytes_total": 2351462400,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 189,
+        "mean": 0.005739619047619047,
+        "p50": 0.003471,
+        "p95": 0.020305,
+        "minimum": 0.000909,
+        "maximum": 0.066133,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 189,
+        "mean": 0.0010683756613756614,
+        "p50": 0.000762,
+        "p95": 0.002189,
+        "minimum": 0.000261,
+        "maximum": 0.014244,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "embedding_alloc_copy": {
+        "n": 3,
+        "mean": 0.086421,
+        "p50": 0.109001,
+        "p95": 0.109006,
+        "minimum": 0.041256,
+        "maximum": 0.109006,
+        "bytes_total": 442368,
+        "allocations_total": 3
+      },
+      "frame_shared_alloc": {
+        "n": 188,
+        "mean": 0.002541276595744681,
+        "p50": 0.002208,
+        "p95": 0.005198,
+        "minimum": 0.001053,
+        "maximum": 0.007244,
+        "bytes_total": 0,
+        "allocations_total": 188
+      },
+      "latest_get": {
+        "n": 3,
+        "mean": 0.0006736666666666667,
+        "p50": 0.000548,
+        "p95": 0.000933,
+        "minimum": 0.00054,
+        "maximum": 0.000933,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 192,
+        "mean": 0.0007591770833333334,
+        "p50": 0.000559,
+        "p95": 0.001886,
+        "minimum": 0.0001,
+        "maximum": 0.005189,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 192,
+        "mean": 0.029556505208333334,
+        "p50": 0.005592,
+        "p95": 0.012549,
+        "minimum": 5e-05,
+        "maximum": 2.27525,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 3,
+        "mean": 11.104933333333333,
+        "p50": 10.847,
+        "p95": 12.2026,
+        "minimum": 10.2652,
+        "maximum": 12.2026,
+        "bytes_total": 2359296,
+        "allocations_total": 3
+      },
+      "rknn_input_descriptor": {
+        "n": 3,
+        "mean": 0.00022700000000000002,
+        "p50": 0.000155,
+        "p95": 0.000378,
+        "minimum": 0.000148,
+        "maximum": 0.000378,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 3,
+        "mean": 11.940166666666666,
+        "p50": 11.8978,
+        "p95": 12.2606,
+        "minimum": 11.6621,
+        "maximum": 12.2606,
+        "bytes_total": 2359296,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 3,
+        "mean": 0.6456553333333334,
+        "p50": 0.793363,
+        "p95": 0.79657,
+        "minimum": 0.347033,
+        "maximum": 0.79657,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 3,
+        "mean": 0.004176333333333333,
+        "p50": 0.004207,
+        "p95": 0.004635,
+        "minimum": 0.003687,
+        "maximum": 0.004635,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 3,
+        "mean": 1164.6833333333334,
+        "p50": 1163.33,
+        "p95": 1167.52,
+        "minimum": 1163.2,
+        "maximum": 1167.52,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "candidate_fixed_6": {
+      "embedding_alloc_copy": {
+        "n": 6,
+        "mean": 0.10488283333333333,
+        "p50": 0.104853,
+        "p95": 0.105224,
+        "minimum": 0.104479,
+        "maximum": 0.105224,
+        "bytes_total": 884736,
+        "allocations_total": 1
+      },
+      "latest_get": {
+        "n": 6,
+        "mean": 0.0005495000000000001,
+        "p50": 0.000469,
+        "p95": 0.001041,
+        "minimum": 0.000349,
+        "maximum": 0.001041,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 2,
+        "mean": 0.00016199999999999998,
+        "p50": 9.9e-05,
+        "p95": 0.000225,
+        "minimum": 9.9e-05,
+        "maximum": 0.000225,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 2,
+        "mean": 5e-05,
+        "p50": 5e-05,
+        "p95": 5e-05,
+        "minimum": 5e-05,
+        "maximum": 5e-05,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 6,
+        "mean": 8.250166666666667,
+        "p50": 7.99018,
+        "p95": 9.34259,
+        "minimum": 7.56712,
+        "maximum": 9.34259,
+        "bytes_total": 4718592,
+        "allocations_total": 1
+      },
+      "rknn_input_descriptor": {
+        "n": 6,
+        "mean": 0.00017733333333333333,
+        "p50": 0.000154,
+        "p95": 0.0003,
+        "minimum": 0.000125,
+        "maximum": 0.0003,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 6,
+        "mean": 11.192350000000001,
+        "p50": 11.1079,
+        "p95": 12.557,
+        "minimum": 10.166,
+        "maximum": 12.557,
+        "bytes_total": 4718592,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 6,
+        "mean": 0.7968658333333334,
+        "p50": 0.785386,
+        "p95": 0.848349,
+        "minimum": 0.780656,
+        "maximum": 0.848349,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 6,
+        "mean": 0.004679,
+        "p50": 0.003723,
+        "p95": 0.008638,
+        "minimum": 0.003611,
+        "maximum": 0.008638,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 6,
+        "mean": 1199.2266666666667,
+        "p50": 1168.94,
+        "p95": 1294.48,
+        "minimum": 1130.99,
+        "maximum": 1294.48,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "candidate_fixed_final_6": {
+      "embedding_alloc_copy": {
+        "n": 6,
+        "mean": 0.10575216666666667,
+        "p50": 0.105559,
+        "p95": 0.107198,
+        "minimum": 0.105077,
+        "maximum": 0.107198,
+        "bytes_total": 884736,
+        "allocations_total": 1
+      },
+      "latest_get": {
+        "n": 6,
+        "mean": 0.0004973333333333334,
+        "p50": 0.000422,
+        "p95": 0.00097,
+        "minimum": 0.000346,
+        "maximum": 0.00097,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 2,
+        "mean": 0.00017449999999999999,
+        "p50": 0.0001,
+        "p95": 0.000249,
+        "minimum": 0.0001,
+        "maximum": 0.000249,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 2,
+        "mean": 5e-05,
+        "p50": 5e-05,
+        "p95": 5e-05,
+        "minimum": 5e-05,
+        "maximum": 5e-05,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 6,
+        "mean": 11.178758333333333,
+        "p50": 9.27847,
+        "p95": 13.6039,
+        "minimum": 8.40237,
+        "maximum": 13.6039,
+        "bytes_total": 4718592,
+        "allocations_total": 1
+      },
+      "rknn_input_descriptor": {
+        "n": 6,
+        "mean": 0.00019549999999999998,
+        "p50": 0.00015,
+        "p95": 0.000317,
+        "minimum": 0.000125,
+        "maximum": 0.000317,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 6,
+        "mean": 11.328683333333332,
+        "p50": 10.9933,
+        "p95": 13.4834,
+        "minimum": 10.623,
+        "maximum": 13.4834,
+        "bytes_total": 4718592,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 6,
+        "mean": 0.8036168333333333,
+        "p50": 0.783523,
+        "p95": 0.842576,
+        "minimum": 0.782703,
+        "maximum": 0.842576,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 6,
+        "mean": 0.0050945,
+        "p50": 0.004505,
+        "p95": 0.00875,
+        "minimum": 0.00376,
+        "maximum": 0.00875,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 6,
+        "mean": 1187.2083333333333,
+        "p50": 1199.84,
+        "p95": 1258.6,
+        "minimum": 1110.4,
+        "maximum": 1258.6,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "candidate_live_12": {
+      "camera_dqbuf": {
+        "n": 667,
+        "mean": 0.012802073463268365,
+        "p50": 0.011173,
+        "p95": 0.022675,
+        "minimum": 0.003983,
+        "maximum": 0.065365,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 667,
+        "mean": 22.231242428785606,
+        "p50": 22.4977,
+        "p95": 27.2235,
+        "minimum": 12.6714,
+        "maximum": 80.355,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 667,
+        "mean": 1.4596476086956522,
+        "p50": 1.14886,
+        "p95": 3.41739,
+        "minimum": 0.867647,
+        "maximum": 4.1924,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 667,
+        "mean": 0.004392094452773613,
+        "p50": 0.003569,
+        "p95": 0.007933,
+        "minimum": 0.001275,
+        "maximum": 0.077345,
+        "bytes_total": 8298547200,
+        "allocations_total": 9
+      },
+      "capture_owned_copy": {
+        "n": 667,
+        "mean": 9.347286311844078,
+        "p50": 9.15879,
+        "p95": 13.8043,
+        "minimum": 4.06245,
+        "maximum": 15.7971,
+        "bytes_total": 8298547200,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 667,
+        "mean": 0.0006195952023988005,
+        "p50": 0.000264,
+        "p95": 0.000665,
+        "minimum": 5e-05,
+        "maximum": 0.070612,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 667,
+        "mean": 0.0011058575712143929,
+        "p50": 0.00093,
+        "p95": 0.001995,
+        "minimum": 0.000349,
+        "maximum": 0.023049,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "embedding_alloc_copy": {
+        "n": 12,
+        "mean": 0.10586725,
+        "p50": 0.105746,
+        "p95": 0.196495,
+        "minimum": 0.032967,
+        "maximum": 0.196495,
+        "bytes_total": 1769472,
+        "allocations_total": 1
+      },
+      "frame_pool_acquire": {
+        "n": 667,
+        "mean": 0.0038788350824587705,
+        "p50": 0.002575,
+        "p95": 0.004925,
+        "minimum": 0.001251,
+        "maximum": 0.454463,
+        "bytes_total": 0,
+        "allocations_total": 667
+      },
+      "frame_shared_alloc": {
+        "n": 666,
+        "mean": 8.895345345345346e-05,
+        "p50": 7.5e-05,
+        "p95": 0.000202,
+        "minimum": 2.5e-05,
+        "maximum": 0.000472,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_get": {
+        "n": 12,
+        "mean": 0.00043283333333333336,
+        "p50": 0.000399,
+        "p95": 0.000746,
+        "minimum": 0.000347,
+        "maximum": 0.000746,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 670,
+        "mean": 0.0006649402985074627,
+        "p50": 0.000515,
+        "p95": 0.001346,
+        "minimum": 0.000225,
+        "maximum": 0.013354,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 670,
+        "mean": 0.007215138805970149,
+        "p50": 0.006045,
+        "p95": 0.012044,
+        "minimum": 4.9e-05,
+        "maximum": 0.219852,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 12,
+        "mean": 8.324094166666667,
+        "p50": 8.2831,
+        "p95": 9.35182,
+        "minimum": 7.63029,
+        "maximum": 9.35182,
+        "bytes_total": 9437184,
+        "allocations_total": 1
+      },
+      "rknn_input_descriptor": {
+        "n": 12,
+        "mean": 0.00024325,
+        "p50": 0.000225,
+        "p95": 0.000371,
+        "minimum": 0.000149,
+        "maximum": 0.000371,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 12,
+        "mean": 11.260133333333334,
+        "p50": 10.9976,
+        "p95": 12.4799,
+        "minimum": 10.0637,
+        "maximum": 12.4799,
+        "bytes_total": 9437184,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 12,
+        "mean": 0.7380631666666666,
+        "p50": 0.835182,
+        "p95": 0.853687,
+        "minimum": 0.251997,
+        "maximum": 0.853687,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 12,
+        "mean": 0.004607,
+        "p50": 0.003874,
+        "p95": 0.010571,
+        "minimum": 0.001325,
+        "maximum": 0.010571,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 12,
+        "mean": 1162.0466666666666,
+        "p50": 1161,
+        "p95": 1167.8,
+        "minimum": 1157.71,
+        "maximum": 1167.8,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "candidate_live_final_12": {
+      "camera_dqbuf": {
+        "n": 636,
+        "mean": 0.012815399371069182,
+        "p50": 0.012267,
+        "p95": 0.02227,
+        "minimum": 0.004473,
+        "maximum": 0.039392,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 636,
+        "mean": 21.85584003144654,
+        "p50": 21.9536,
+        "p95": 27.1133,
+        "minimum": 8.20406,
+        "maximum": 80.1351,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 636,
+        "mean": 1.4340831320754717,
+        "p50": 1.14631,
+        "p95": 3.10071,
+        "minimum": 0.87166,
+        "maximum": 3.89383,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 636,
+        "mean": 0.0049335204402515724,
+        "p50": 0.004266,
+        "p95": 0.008485,
+        "minimum": 0.001416,
+        "maximum": 0.099917,
+        "bytes_total": 7912857600,
+        "allocations_total": 9
+      },
+      "capture_owned_copy": {
+        "n": 636,
+        "mean": 9.735613160377358,
+        "p50": 9.74014,
+        "p95": 14.4854,
+        "minimum": 4.84309,
+        "maximum": 22.8152,
+        "bytes_total": 7912857600,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 636,
+        "mean": 0.0006876949685534591,
+        "p50": 0.000287,
+        "p95": 0.000681,
+        "minimum": 5.1e-05,
+        "maximum": 0.091602,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 636,
+        "mean": 0.0009870754716981133,
+        "p50": 0.000896,
+        "p95": 0.001841,
+        "minimum": 0.000302,
+        "maximum": 0.011032,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "embedding_alloc_copy": {
+        "n": 12,
+        "mean": 0.09472866666666667,
+        "p50": 0.105193,
+        "p95": 0.110868,
+        "minimum": 0.032899,
+        "maximum": 0.110868,
+        "bytes_total": 1769472,
+        "allocations_total": 1
+      },
+      "frame_pool_acquire": {
+        "n": 636,
+        "mean": 0.003834437106918239,
+        "p50": 0.002668,
+        "p95": 0.005511,
+        "minimum": 0.000964,
+        "maximum": 0.467348,
+        "bytes_total": 0,
+        "allocations_total": 636
+      },
+      "frame_shared_alloc": {
+        "n": 635,
+        "mean": 0.0001022992125984252,
+        "p50": 8e-05,
+        "p95": 0.000262,
+        "minimum": 5e-05,
+        "maximum": 0.000729,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_get": {
+        "n": 12,
+        "mean": 0.000484,
+        "p50": 0.000474,
+        "p95": 0.000815,
+        "minimum": 0.00035,
+        "maximum": 0.000815,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 639,
+        "mean": 0.0009576557120500783,
+        "p50": 0.000772,
+        "p95": 0.00191,
+        "minimum": 0.0001,
+        "maximum": 0.01794,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 639,
+        "mean": 0.006532660406885759,
+        "p50": 0.005996,
+        "p95": 0.011213,
+        "minimum": 4.9e-05,
+        "maximum": 0.110587,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 12,
+        "mean": 8.324730833333334,
+        "p50": 8.37825,
+        "p95": 9.49526,
+        "minimum": 7.65649,
+        "maximum": 9.49526,
+        "bytes_total": 9437184,
+        "allocations_total": 1
+      },
+      "rknn_input_descriptor": {
+        "n": 12,
+        "mean": 0.00020533333333333333,
+        "p50": 0.000153,
+        "p95": 0.000391,
+        "minimum": 0.000125,
+        "maximum": 0.000391,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 12,
+        "mean": 11.298375,
+        "p50": 11.0774,
+        "p95": 12.6738,
+        "minimum": 10.5393,
+        "maximum": 12.6738,
+        "bytes_total": 9437184,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 12,
+        "mean": 0.7163505,
+        "p50": 0.790512,
+        "p95": 0.872674,
+        "minimum": 0.201465,
+        "maximum": 0.872674,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 12,
+        "mean": 0.004418583333333333,
+        "p50": 0.004349,
+        "p95": 0.009334,
+        "minimum": 0.001959,
+        "maximum": 0.009334,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 12,
+        "mean": 1163.4908333333333,
+        "p50": 1162.41,
+        "p95": 1168.06,
+        "minimum": 1160.55,
+        "maximum": 1168.06,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "sigint_idle_final": {
+      "camera_dqbuf": {
+        "n": 144,
+        "mean": 0.012540416666666667,
+        "p50": 0.010522,
+        "p95": 0.024155,
+        "minimum": 0.004101,
+        "maximum": 0.031793,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 144,
+        "mean": 25.792900694444445,
+        "p50": 25.7461,
+        "p95": 29.027,
+        "minimum": 15.8596,
+        "maximum": 80.3459,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 144,
+        "mean": 1.2975409583333333,
+        "p50": 1.1565,
+        "p95": 2.3059,
+        "minimum": 0.871422,
+        "maximum": 3.31873,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 144,
+        "mean": 0.003984777777777778,
+        "p50": 0.002898,
+        "p95": 0.005068,
+        "minimum": 0.001317,
+        "maximum": 0.072421,
+        "bytes_total": 1791590400,
+        "allocations_total": 6
+      },
+      "capture_owned_copy": {
+        "n": 144,
+        "mean": 6.2967425694444445,
+        "p50": 6.15939,
+        "p95": 8.71716,
+        "minimum": 2.79238,
+        "maximum": 14.9431,
+        "bytes_total": 1791590400,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 144,
+        "mean": 0.0010539166666666665,
+        "p50": 0.000178,
+        "p95": 0.000417,
+        "minimum": 2.4e-05,
+        "maximum": 0.063299,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 144,
+        "mean": 0.0007526458333333334,
+        "p50": 0.000676,
+        "p95": 0.001364,
+        "minimum": 0.0003,
+        "maximum": 0.001743,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "frame_pool_acquire": {
+        "n": 144,
+        "mean": 0.00509875,
+        "p50": 0.002417,
+        "p95": 0.0035,
+        "minimum": 0.00146,
+        "maximum": 0.382872,
+        "bytes_total": 0,
+        "allocations_total": 144
+      },
+      "frame_shared_alloc": {
+        "n": 143,
+        "mean": 9.016783216783217e-05,
+        "p50": 7.6e-05,
+        "p95": 0.000202,
+        "minimum": 2.5e-05,
+        "maximum": 0.000377,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 147,
+        "mean": 0.0007329795918367347,
+        "p50": 0.000688,
+        "p95": 0.001094,
+        "minimum": 0.000323,
+        "maximum": 0.002121,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 147,
+        "mean": 0.004931333333333334,
+        "p50": 0.00497,
+        "p95": 0.007143,
+        "minimum": 4.9e-05,
+        "maximum": 0.008712,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "sigterm_tts_drain_final": {
+      "camera_dqbuf": {
+        "n": 1050,
+        "mean": 0.009991632380952381,
+        "p50": 0.007581,
+        "p95": 0.021176,
+        "minimum": 0.004291,
+        "maximum": 0.095105,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 1050,
+        "mean": 25.697832085714285,
+        "p50": 26.6075,
+        "p95": 28.7725,
+        "minimum": 1.66377,
+        "maximum": 79.6628,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 1050,
+        "mean": 1.2382794914285715,
+        "p50": 0.924136,
+        "p95": 3.31705,
+        "minimum": 0.875665,
+        "maximum": 5.14785,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 1050,
+        "mean": 0.003057446666666667,
+        "p50": 0.00245,
+        "p95": 0.005248,
+        "minimum": 0.000844,
+        "maximum": 0.065897,
+        "bytes_total": 13063680000,
+        "allocations_total": 9
+      },
+      "capture_owned_copy": {
+        "n": 1050,
+        "mean": 6.1568756,
+        "p50": 5.57966,
+        "p95": 10.6294,
+        "minimum": 2.56055,
+        "maximum": 29.6763,
+        "bytes_total": 13063680000,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 1050,
+        "mean": 0.00030782952380952383,
+        "p50": 0.000152,
+        "p95": 0.000362,
+        "minimum": 2.4e-05,
+        "maximum": 0.059047,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 1050,
+        "mean": 0.0006385447619047619,
+        "p50": 0.000509,
+        "p95": 0.001288,
+        "minimum": 0.0002,
+        "maximum": 0.018131,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "embedding_alloc_copy": {
+        "n": 1,
+        "mean": 0.46471,
+        "p50": 0.46471,
+        "p95": 0.46471,
+        "minimum": 0.46471,
+        "maximum": 0.46471,
+        "bytes_total": 147456,
+        "allocations_total": 1
+      },
+      "frame_pool_acquire": {
+        "n": 1050,
+        "mean": 0.003489,
+        "p50": 0.002108,
+        "p95": 0.003942,
+        "minimum": 0.00129,
+        "maximum": 1.03571,
+        "bytes_total": 0,
+        "allocations_total": 1050
+      },
+      "frame_shared_alloc": {
+        "n": 1049,
+        "mean": 9.646806482364156e-05,
+        "p50": 7.5e-05,
+        "p95": 0.000229,
+        "minimum": 2.4e-05,
+        "maximum": 0.000406,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_get": {
+        "n": 1,
+        "mean": 0.001389,
+        "p50": 0.001389,
+        "p95": 0.001389,
+        "minimum": 0.001389,
+        "maximum": 0.001389,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 1053,
+        "mean": 0.0007727397910731244,
+        "p50": 0.000676,
+        "p95": 0.00136,
+        "minimum": 0.000225,
+        "maximum": 0.006819,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 1053,
+        "mean": 0.005408435897435898,
+        "p50": 0.004774,
+        "p95": 0.007659,
+        "minimum": 4.9e-05,
+        "maximum": 0.116103,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 1,
+        "mean": 19.7457,
+        "p50": 19.7457,
+        "p95": 19.7457,
+        "minimum": 19.7457,
+        "maximum": 19.7457,
+        "bytes_total": 786432,
+        "allocations_total": 1
+      },
+      "rknn_input_descriptor": {
+        "n": 1,
+        "mean": 0.000354,
+        "p50": 0.000354,
+        "p95": 0.000354,
+        "minimum": 0.000354,
+        "maximum": 0.000354,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 1,
+        "mean": 38.0104,
+        "p50": 38.0104,
+        "p95": 38.0104,
+        "minimum": 38.0104,
+        "maximum": 38.0104,
+        "bytes_total": 786432,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 1,
+        "mean": 2.65211,
+        "p50": 2.65211,
+        "p95": 2.65211,
+        "minimum": 2.65211,
+        "maximum": 2.65211,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 1,
+        "mean": 0.01202,
+        "p50": 0.01202,
+        "p95": 0.01202,
+        "minimum": 0.01202,
+        "maximum": 0.01202,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 1,
+        "mean": 1178.14,
+        "p50": 1178.14,
+        "p95": 1178.14,
+        "minimum": 1178.14,
+        "maximum": 1178.14,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "sigterm_vision_cancel_final": {
+      "camera_dqbuf": {
+        "n": 135,
+        "mean": 0.011546837037037037,
+        "p50": 0.009435,
+        "p95": 0.023702,
+        "minimum": 0.004996,
+        "maximum": 0.033028,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 135,
+        "mean": 24.509524444444445,
+        "p50": 25.3406,
+        "p95": 27.2047,
+        "minimum": 14.7602,
+        "maximum": 80.8177,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 135,
+        "mean": 1.1234985407407407,
+        "p50": 0.984792,
+        "p95": 1.85303,
+        "minimum": 0.871271,
+        "maximum": 2.52193,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 135,
+        "mean": 0.005045585185185185,
+        "p50": 0.002774,
+        "p95": 0.005984,
+        "minimum": 0.001668,
+        "maximum": 0.101583,
+        "bytes_total": 1679616000,
+        "allocations_total": 9
+      },
+      "capture_owned_copy": {
+        "n": 135,
+        "mean": 7.787440444444444,
+        "p50": 6.67757,
+        "p95": 13.7539,
+        "minimum": 4.92036,
+        "maximum": 16.0417,
+        "bytes_total": 1679616000,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 135,
+        "mean": 0.0018968,
+        "p50": 0.000176,
+        "p95": 0.0005,
+        "minimum": 5e-05,
+        "maximum": 0.091933,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 135,
+        "mean": 0.0006758444444444445,
+        "p50": 0.000605,
+        "p95": 0.001385,
+        "minimum": 0.000327,
+        "maximum": 0.001574,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "embedding_alloc_copy": {
+        "n": 1,
+        "mean": 0.228246,
+        "p50": 0.228246,
+        "p95": 0.228246,
+        "minimum": 0.228246,
+        "maximum": 0.228246,
+        "bytes_total": 147456,
+        "allocations_total": 1
+      },
+      "frame_pool_acquire": {
+        "n": 135,
+        "mean": 0.006048051851851852,
+        "p50": 0.002276,
+        "p95": 0.006302,
+        "minimum": 0.001397,
+        "maximum": 0.454446,
+        "bytes_total": 0,
+        "allocations_total": 135
+      },
+      "frame_shared_alloc": {
+        "n": 134,
+        "mean": 7.294029850746269e-05,
+        "p50": 7.5e-05,
+        "p95": 0.000155,
+        "minimum": 5e-05,
+        "maximum": 0.000217,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_get": {
+        "n": 1,
+        "mean": 0.001017,
+        "p50": 0.001017,
+        "p95": 0.001017,
+        "minimum": 0.001017,
+        "maximum": 0.001017,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 138,
+        "mean": 0.0008072753623188406,
+        "p50": 0.000729,
+        "p95": 0.001427,
+        "minimum": 0.000321,
+        "maximum": 0.002746,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 138,
+        "mean": 0.005520652173913044,
+        "p50": 0.005167,
+        "p95": 0.011112,
+        "minimum": 2.4e-05,
+        "maximum": 0.018743,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 1,
+        "mean": 22.07,
+        "p50": 22.07,
+        "p95": 22.07,
+        "minimum": 22.07,
+        "maximum": 22.07,
+        "bytes_total": 786432,
+        "allocations_total": 1
+      },
+      "rknn_input_descriptor": {
+        "n": 1,
+        "mean": 0.000178,
+        "p50": 0.000178,
+        "p95": 0.000178,
+        "minimum": 0.000178,
+        "maximum": 0.000178,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 1,
+        "mean": 36.9737,
+        "p50": 36.9737,
+        "p95": 36.9737,
+        "minimum": 36.9737,
+        "maximum": 36.9737,
+        "bytes_total": 786432,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 1,
+        "mean": 1.7135,
+        "p50": 1.7135,
+        "p95": 1.7135,
+        "minimum": 1.7135,
+        "maximum": 1.7135,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 1,
+        "mean": 0.013696,
+        "p50": 0.013696,
+        "p95": 0.013696,
+        "minimum": 0.013696,
+        "maximum": 0.013696,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 1,
+        "mean": 1175.94,
+        "p50": 1175.94,
+        "p95": 1175.94,
+        "minimum": 1175.94,
+        "maximum": 1175.94,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "voice_natural_final": {
+      "camera_dqbuf": {
+        "n": 2779,
+        "mean": 0.013796920834832674,
+        "p50": 0.013416,
+        "p95": 0.02245,
+        "minimum": 0.004058,
+        "maximum": 0.067649,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 2779,
+        "mean": 24.05427423533645,
+        "p50": 24.3349,
+        "p95": 29.0063,
+        "minimum": 13.4575,
+        "maximum": 80.1075,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 2779,
+        "mean": 1.9940958524649155,
+        "p50": 1.65848,
+        "p95": 3.82837,
+        "minimum": 0.870536,
+        "maximum": 3.94088,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 2779,
+        "mean": 0.0032841165887009718,
+        "p50": 0.00324,
+        "p95": 0.005,
+        "minimum": 0.00095,
+        "maximum": 0.064437,
+        "bytes_total": 34575206400,
+        "allocations_total": 6
+      },
+      "capture_owned_copy": {
+        "n": 2779,
+        "mean": 6.921803206189277,
+        "p50": 6.75614,
+        "p95": 9.91469,
+        "minimum": 2.57132,
+        "maximum": 18.5297,
+        "bytes_total": 34575206400,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 2779,
+        "mean": 0.00025518279956819,
+        "p50": 0.000219,
+        "p95": 0.000382,
+        "minimum": 2.5e-05,
+        "maximum": 0.057132,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 2779,
+        "mean": 0.0008668888089240734,
+        "p50": 0.000843,
+        "p95": 0.001414,
+        "minimum": 0.000175,
+        "maximum": 0.001935,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "frame_pool_acquire": {
+        "n": 2779,
+        "mean": 0.0033704156171284637,
+        "p50": 0.002377,
+        "p95": 0.004096,
+        "minimum": 0.00105,
+        "maximum": 0.667798,
+        "bytes_total": 0,
+        "allocations_total": 2779
+      },
+      "frame_shared_alloc": {
+        "n": 2778,
+        "mean": 0.00012884701223902088,
+        "p50": 9e-05,
+        "p95": 0.000298,
+        "minimum": 2.4e-05,
+        "maximum": 0.000492,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 2782,
+        "mean": 0.0008626606757728253,
+        "p50": 0.000782,
+        "p95": 0.001325,
+        "minimum": 7.5e-05,
+        "maximum": 0.044048,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 2782,
+        "mean": 0.005106632638389647,
+        "p50": 0.005001,
+        "p95": 0.007116,
+        "minimum": 5e-05,
+        "maximum": 0.076362,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    },
+    "voice_natural_retry1": {
+      "camera_dqbuf": {
+        "n": 3688,
+        "mean": 0.009792142082429501,
+        "p50": 0.007347,
+        "p95": 0.019159,
+        "minimum": 0.003917,
+        "maximum": 0.091736,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_poll_wait": {
+        "n": 3688,
+        "mean": 25.051007055314535,
+        "p50": 26.1661,
+        "p95": 27.4785,
+        "minimum": 3.67689,
+        "maximum": 80.2465,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "camera_qbuf": {
+        "n": 3688,
+        "mean": 1.2901717695227766,
+        "p50": 0.960216,
+        "p95": 2.5143,
+        "minimum": 0.871921,
+        "maximum": 4.28029,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_alloc_prepare": {
+        "n": 3688,
+        "mean": 0.0034483069414316704,
+        "p50": 0.002876,
+        "p95": 0.005343,
+        "minimum": 0.001261,
+        "maximum": 0.073982,
+        "bytes_total": 45884620800,
+        "allocations_total": 9
+      },
+      "capture_owned_copy": {
+        "n": 3688,
+        "mean": 6.6903464343817785,
+        "p50": 5.99959,
+        "p95": 10.2486,
+        "minimum": 2.55826,
+        "maximum": 27.9884,
+        "bytes_total": 45884620800,
+        "allocations_total": 0
+      },
+      "capture_payload_reserve": {
+        "n": 3688,
+        "mean": 0.00026976274403470716,
+        "p50": 0.000179,
+        "p95": 0.000454,
+        "minimum": 2.5e-05,
+        "maximum": 0.065113,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "capture_plane_descriptor_alloc": {
+        "n": 3688,
+        "mean": 0.0006599181127982647,
+        "p50": 0.000541,
+        "p95": 0.001243,
+        "minimum": 0.000175,
+        "maximum": 0.0286,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "embedding_alloc_copy": {
+        "n": 2,
+        "mean": 0.11973,
+        "p50": 0.083927,
+        "p95": 0.155533,
+        "minimum": 0.083927,
+        "maximum": 0.155533,
+        "bytes_total": 294912,
+        "allocations_total": 1
+      },
+      "frame_pool_acquire": {
+        "n": 3688,
+        "mean": 0.0027979704446854663,
+        "p50": 0.002243,
+        "p95": 0.003725,
+        "minimum": 0.00105,
+        "maximum": 0.429499,
+        "bytes_total": 0,
+        "allocations_total": 3688
+      },
+      "frame_shared_alloc": {
+        "n": 3687,
+        "mean": 0.0001067529156495796,
+        "p50": 8.1e-05,
+        "p95": 0.000236,
+        "minimum": 2.4e-05,
+        "maximum": 0.000701,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_get": {
+        "n": 2,
+        "mean": 0.000774,
+        "p50": 0.000773,
+        "p95": 0.000775,
+        "minimum": 0.000773,
+        "maximum": 0.000775,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_publish_swap": {
+        "n": 3691,
+        "mean": 0.0008274529937686264,
+        "p50": 0.000731,
+        "p95": 0.00128,
+        "minimum": 9.9e-05,
+        "maximum": 0.049169,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "latest_release_old": {
+        "n": 3691,
+        "mean": 0.005357291519913303,
+        "p50": 0.004883,
+        "p95": 0.007649,
+        "minimum": 5e-05,
+        "maximum": 0.097732,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "preprocess_fused": {
+        "n": 2,
+        "mean": 8.06073,
+        "p50": 7.77974,
+        "p95": 8.34172,
+        "minimum": 7.77974,
+        "maximum": 8.34172,
+        "bytes_total": 1572864,
+        "allocations_total": 1
+      },
+      "rknn_input_descriptor": {
+        "n": 2,
+        "mean": 0.0003625,
+        "p50": 0.00035,
+        "p95": 0.000375,
+        "minimum": 0.00035,
+        "maximum": 0.000375,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_inputs_set": {
+        "n": 2,
+        "mean": 13.717699999999999,
+        "p50": 10.2563,
+        "p95": 17.1791,
+        "minimum": 10.2563,
+        "maximum": 17.1791,
+        "bytes_total": 1572864,
+        "allocations_total": 0
+      },
+      "rknn_outputs_get": {
+        "n": 2,
+        "mean": 0.8192159999999999,
+        "p50": 0.492162,
+        "p95": 1.14627,
+        "minimum": 0.492162,
+        "maximum": 1.14627,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_outputs_release": {
+        "n": 2,
+        "mean": 0.006549,
+        "p50": 0.006503,
+        "p95": 0.006595,
+        "minimum": 0.006503,
+        "maximum": 0.006595,
+        "bytes_total": 0,
+        "allocations_total": 0
+      },
+      "rknn_run": {
+        "n": 2,
+        "mean": 1213.865,
+        "p50": 1210.99,
+        "p95": 1216.74,
+        "minimum": 1210.99,
+        "maximum": 1216.74,
+        "bytes_total": 0,
+        "allocations_total": 0
+      }
+    }
+  },
+  "fixed_comparisons": [
+    {
+      "case": "candidate_fixed_6",
+      "sample": 0,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "fa0229ebab00a7f9e0024354f6c2d1f45015113e1a744c3c51e532754391ecca",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "bef5a7a9c925b5ab0cd320d684b2bb4b041389ac913d03d4085d88cb3014ef0a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen and some text on it.",
+      "candidate_answer": " A computer monitor with a blue screen and some text on it."
+    },
+    {
+      "case": "candidate_fixed_6",
+      "sample": 1,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "5724c1140dce785bb800f1ecd60f789f90dfb5c5bc74f202181f242f2db45a7d",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "b53dd014ba2ac72de8345fbbe40a033101ef97897c57cdb9c5a43f42203e2d45",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fixed_6",
+      "sample": 2,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "9f312789775605801151afcf816a9427838a17ce42861e7147acee6d19084d53",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "a518c61736394a741210fbac321ad02e009a73c5267bae3c04aecad0dbac194a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fixed_6",
+      "sample": 3,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "fa0229ebab00a7f9e0024354f6c2d1f45015113e1a744c3c51e532754391ecca",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "bef5a7a9c925b5ab0cd320d684b2bb4b041389ac913d03d4085d88cb3014ef0a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen and some text on it.",
+      "candidate_answer": " A computer monitor with a blue screen and some text on it."
+    },
+    {
+      "case": "candidate_fixed_6",
+      "sample": 4,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "5724c1140dce785bb800f1ecd60f789f90dfb5c5bc74f202181f242f2db45a7d",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "b53dd014ba2ac72de8345fbbe40a033101ef97897c57cdb9c5a43f42203e2d45",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fixed_6",
+      "sample": 5,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "9f312789775605801151afcf816a9427838a17ce42861e7147acee6d19084d53",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "a518c61736394a741210fbac321ad02e009a73c5267bae3c04aecad0dbac194a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fallback_fixed_6",
+      "sample": 0,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "fa0229ebab00a7f9e0024354f6c2d1f45015113e1a744c3c51e532754391ecca",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "bef5a7a9c925b5ab0cd320d684b2bb4b041389ac913d03d4085d88cb3014ef0a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen and some text on it.",
+      "candidate_answer": " A computer monitor with a blue screen and some text on it."
+    },
+    {
+      "case": "candidate_fallback_fixed_6",
+      "sample": 1,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "5724c1140dce785bb800f1ecd60f789f90dfb5c5bc74f202181f242f2db45a7d",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "b53dd014ba2ac72de8345fbbe40a033101ef97897c57cdb9c5a43f42203e2d45",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fallback_fixed_6",
+      "sample": 2,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "9f312789775605801151afcf816a9427838a17ce42861e7147acee6d19084d53",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "a518c61736394a741210fbac321ad02e009a73c5267bae3c04aecad0dbac194a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fallback_fixed_6",
+      "sample": 3,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "fa0229ebab00a7f9e0024354f6c2d1f45015113e1a744c3c51e532754391ecca",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "bef5a7a9c925b5ab0cd320d684b2bb4b041389ac913d03d4085d88cb3014ef0a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen and some text on it.",
+      "candidate_answer": " A computer monitor with a blue screen and some text on it."
+    },
+    {
+      "case": "candidate_fallback_fixed_6",
+      "sample": 4,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "5724c1140dce785bb800f1ecd60f789f90dfb5c5bc74f202181f242f2db45a7d",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "b53dd014ba2ac72de8345fbbe40a033101ef97897c57cdb9c5a43f42203e2d45",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fallback_fixed_6",
+      "sample": 5,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "9f312789775605801151afcf816a9427838a17ce42861e7147acee6d19084d53",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "a518c61736394a741210fbac321ad02e009a73c5267bae3c04aecad0dbac194a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fixed_final_6",
+      "sample": 0,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "fa0229ebab00a7f9e0024354f6c2d1f45015113e1a744c3c51e532754391ecca",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "bef5a7a9c925b5ab0cd320d684b2bb4b041389ac913d03d4085d88cb3014ef0a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen and some text on it.",
+      "candidate_answer": " A computer monitor with a blue screen and some text on it."
+    },
+    {
+      "case": "candidate_fixed_final_6",
+      "sample": 1,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "5724c1140dce785bb800f1ecd60f789f90dfb5c5bc74f202181f242f2db45a7d",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "b53dd014ba2ac72de8345fbbe40a033101ef97897c57cdb9c5a43f42203e2d45",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fixed_final_6",
+      "sample": 2,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "9f312789775605801151afcf816a9427838a17ce42861e7147acee6d19084d53",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "a518c61736394a741210fbac321ad02e009a73c5267bae3c04aecad0dbac194a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fixed_final_6",
+      "sample": 3,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "fa0229ebab00a7f9e0024354f6c2d1f45015113e1a744c3c51e532754391ecca",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "bef5a7a9c925b5ab0cd320d684b2bb4b041389ac913d03d4085d88cb3014ef0a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen and some text on it.",
+      "candidate_answer": " A computer monitor with a blue screen and some text on it."
+    },
+    {
+      "case": "candidate_fixed_final_6",
+      "sample": 4,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "5724c1140dce785bb800f1ecd60f789f90dfb5c5bc74f202181f242f2db45a7d",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "b53dd014ba2ac72de8345fbbe40a033101ef97897c57cdb9c5a43f42203e2d45",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    },
+    {
+      "case": "candidate_fixed_final_6",
+      "sample": 5,
+      "rgb_bytes_equal": true,
+      "rgb_sha256": "9f312789775605801151afcf816a9427838a17ce42861e7147acee6d19084d53",
+      "rgb_max_abs_error": 0,
+      "rgb_mean_abs_error": 0.0,
+      "f32_bytes_equal": true,
+      "f32_sha256": "a518c61736394a741210fbac321ad02e009a73c5267bae3c04aecad0dbac194a",
+      "embedding_max_abs_error": 0.0,
+      "embedding_cosine": 1.0,
+      "answer_equal": true,
+      "baseline_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera.",
+      "candidate_answer": " A computer monitor with a blue screen, and a black stand holding it up to the camera."
+    }
+  ],
+  "paired_cpu_before_failed_rga": [
+    {
+      "case": "rga_diagnostic",
+      "frame": 0,
+      "mode": "cpu_reference_reused",
+      "n": 100,
+      "mean": 10.284052,
+      "p50": 10.3284,
+      "p95": 10.3568,
+      "minimum": 10.1079,
+      "maximum": 10.3711
+    },
+    {
+      "case": "rga_diagnostic",
+      "frame": 0,
+      "mode": "cpu_cached",
+      "n": 100,
+      "mean": 8.4271622,
+      "p50": 8.56023,
+      "p95": 8.63068,
+      "minimum": 7.92718,
+      "maximum": 8.66924
+    },
+    {
+      "case": "rga_diagnostic_dma",
+      "frame": 0,
+      "mode": "cpu_reference_reused",
+      "n": 100,
+      "mean": 10.308338,
+      "p50": 10.3135,
+      "p95": 10.3355,
+      "minimum": 10.2694,
+      "maximum": 10.3546
+    },
+    {
+      "case": "rga_diagnostic_dma",
+      "frame": 0,
+      "mode": "cpu_cached",
+      "n": 100,
+      "mean": 8.0549851,
+      "p50": 8.05123,
+      "p95": 8.14319,
+      "minimum": 7.93777,
+      "maximum": 8.18981
+    },
+    {
+      "case": "rga_diagnostic_split",
+      "frame": 0,
+      "mode": "cpu_reference_reused",
+      "n": 100,
+      "mean": 10.304793,
+      "p50": 10.3197,
+      "p95": 10.342,
+      "minimum": 10.0964,
+      "maximum": 10.3585
+    },
+    {
+      "case": "rga_diagnostic_split",
+      "frame": 0,
+      "mode": "cpu_cached",
+      "n": 100,
+      "mean": 8.3477968,
+      "p50": 8.37515,
+      "p95": 8.44163,
+      "minimum": 7.63475,
+      "maximum": 8.81492
+    }
+  ],
+  "limitations": [
+    "Fused conversion/resize measured together",
+    "Frame age is host DQBUF age, not optical age; warm live comparison excludes first 3 fixture writes",
+    "RSS sampled at 0.25s for probes, 1s for voice; not whole-system memory",
+    "Allocations are source-visible capacity/control-block events, not all mallocs",
+    "SDK internal copies/allocations and model embedded normalization unmeasured"
+  ]
+}

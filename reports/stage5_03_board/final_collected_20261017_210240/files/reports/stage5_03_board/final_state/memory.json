@@ -1,0 +1,9 @@
+{
+  "command": [
+    "free",
+    "-b"
+  ],
+  "exit_code": 0,
+  "stdout": "               total        used        free      shared  buff/cache   available\n\u5185\u5b58\uff1a    4084207616   771682304  2417909760    16838656   975855616  3312525312\n\u4ea4\u6362\uff1a             0           0           0\n",
+  "stderr": ""
+}

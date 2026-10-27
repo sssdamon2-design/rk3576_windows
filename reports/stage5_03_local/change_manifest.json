@@ -1,0 +1,188 @@
+[
+  {
+    "file": "CMakeLists.txt",
+    "before_sha256": "765ea5e08c49037e12b69d4a6730f6e6b6195300e215251240ab2ed69ad5dd99",
+    "after_sha256": "9358433d1cbbdcbaf5931500018e184dae111ad95d9da1f41dc5ef3f56c3d515",
+    "status": "modified"
+  },
+  {
+    "file": "docs/stage5_03_commands.md",
+    "before_sha256": null,
+    "after_sha256": "d518e319eba2b0e0e6b7c25686b2646502a7fd2d6c04493ac38364d1b214ec95",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_03_interview.md",
+    "before_sha256": null,
+    "after_sha256": "227ed0749b26fca8a486d620a990e6d6bfa5cfb1d8bb470aae6f20be2b37f1f9",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_03_memory_pipeline.md",
+    "before_sha256": null,
+    "after_sha256": "f4c6f679b5e7eb09a70657f0412fab7a3414abcd62f169b788356e23270a2e77",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_03_source_appendix.md",
+    "before_sha256": null,
+    "after_sha256": "90a939ce1d228bed1ec7857e3fced9c50a92df51577e865714699167361da701",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_03_statement_notes.md",
+    "before_sha256": null,
+    "after_sha256": "40c2b96ac868332636165b2994499101c27b6b7cac81119371db4760f1767091",
+    "status": "added"
+  },
+  {
+    "file": "include/common/image_profile.h",
+    "before_sha256": null,
+    "after_sha256": "443bac2a65fa894cd56ca93a2ca70f65ccc52a09736d5b2d571b49b5c0a64834",
+    "status": "added"
+  },
+  {
+    "file": "include/video/camera_service.h",
+    "before_sha256": "cbfbcfdce0137f9a2a6f6ddf7b13adaaf6c87a97793daa751947b181d42befa9",
+    "after_sha256": "e42da5da8d013aee6f7637015875129b9a4f27aedd2cb9f16f698fa968d411da",
+    "status": "modified"
+  },
+  {
+    "file": "include/video/image_preprocessor.h",
+    "before_sha256": null,
+    "after_sha256": "0c33d43687fdf71e02664cd5a7c598dc12ae64d353c719147a76db37f60c08da",
+    "status": "added"
+  },
+  {
+    "file": "include/video/owned_frame_pool.h",
+    "before_sha256": null,
+    "after_sha256": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739",
+    "status": "added"
+  },
+  {
+    "file": "include/video/video_capture.h",
+    "before_sha256": "7aa14522a7d34a27a418f1207246841d83951032af465ec11432d05a563049e9",
+    "after_sha256": "213f11e12d7920f5f12a1d43332cf4c47fb31941a8842b2d2e349ab4f552c35b",
+    "status": "modified"
+  },
+  {
+    "file": "src/ai/rk3576_vlm_backend.cpp",
+    "before_sha256": "268f8f2c139b374371b77a3085f72f2a0a4b5d7ba5d639b42a64e927219bee55",
+    "after_sha256": "8f9dea0570e158ca556cad0d3b3eb3f425445f4369e603051985c283a62cbd03",
+    "status": "modified"
+  },
+  {
+    "file": "src/video/camera_service.cpp",
+    "before_sha256": "677ebe29fa1bee5ef5cf408f42780b82c248d478a6a1d3267cb08352a7c37927",
+    "after_sha256": "b2d719cc251b9a19c3756280594587c299413cd265a332514cdc4557661f3772",
+    "status": "modified"
+  },
+  {
+    "file": "src/video/image_preprocessor.cpp",
+    "before_sha256": null,
+    "after_sha256": "5ca3a781edc7d1fcd04b04c2aaf896385851c92e489b6c0e1db54a92cb231220",
+    "status": "added"
+  },
+  {
+    "file": "src/video/latest_frame_buffer.cpp",
+    "before_sha256": "3742b116cff282666ea3c54a24d25cd6d7ba5ec8e40cf399fa3397c49ffac29a",
+    "after_sha256": "5aba990f8f5b74c52eab9d31645399d661bd82af8dcecc3c440cdff63da10ae3",
+    "status": "modified"
+  },
+  {
+    "file": "src/video/video_capture.cpp",
+    "before_sha256": "7435dfc113c64de8b1e55ff7cacee3f0f7809d3a82e834968bf872b9db4ff061",
+    "after_sha256": "3758c2dca8244633969464c4505dee3f8dc78fbcd6b3fdb5eb9f424b6f2a8407",
+    "status": "modified"
+  },
+  {
+    "file": "src/video/video_capture_unavailable.cpp",
+    "before_sha256": "f389b1339ab59762cade07da9552550fa03de3a3f8fac2d53d7109115af96a4d",
+    "after_sha256": "ab8e632632e231a89853f6cc753cdc85f49918d84f5a418a31321ff6b138287d",
+    "status": "modified"
+  },
+  {
+    "file": "tests/camera_test_capture.cpp",
+    "before_sha256": "31a1baa7c7312e8aa8199b78dd5be3ff154d504b0367264a77c43e3395da4540",
+    "after_sha256": "48d18e2a73d873086a367d149b2722e7d76d144ce629dbeceaa8d06d7da37b08",
+    "status": "modified"
+  },
+  {
+    "file": "tests/image_pipeline_tests.cpp",
+    "before_sha256": null,
+    "after_sha256": "6441df48017977c25c9194a65b31c775e8afbf47f5267781bff8e8ec92b286a8",
+    "status": "added"
+  },
+  {
+    "file": "tests/stage5_03_memory_probe.cpp",
+    "before_sha256": null,
+    "after_sha256": "ba33ba1f4c40d2e1f3dac40130813ef05b4e7b62c3a242bab5d0aefa886448e2",
+    "status": "added"
+  },
+  {
+    "file": "tests/stage5_03_rga_probe.cpp",
+    "before_sha256": null,
+    "after_sha256": "f77db7caaa4abae873471824cc5bdcd330ca5ed3422004c2a0edf9731f4442c6",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_analyze.py",
+    "before_sha256": null,
+    "after_sha256": "b523065535b0045f7e194a2f44085031b219b8f089740bac38c8ac275b139d8f",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_collect.py",
+    "before_sha256": null,
+    "after_sha256": "986f262179a60a96ab39c1ea702617e1a82fdc5db21003fc95afe407141b78fe",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_collect_final.py",
+    "before_sha256": null,
+    "after_sha256": "89139ac72ccc50f75e81fe8a7746fe58baaf2d0ada5fbfaa7d4b5c327189a3ed",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_export.py",
+    "before_sha256": null,
+    "after_sha256": "c7869e0e69d989439e4d81ef9382f8b43b4489979f9c2e8f371c899c13b24f2e",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_prepare.py",
+    "before_sha256": null,
+    "after_sha256": "44cc45e25ccee94644f778dd3165638a8863a33b2cc36d2cdfedbf031ef68ff2",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_probe_run.py",
+    "before_sha256": null,
+    "after_sha256": "832e7039228a947dd2601fdde26ce044b94aae369d978881ecb5fe58aeaadbbc",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_report.py",
+    "before_sha256": null,
+    "after_sha256": "8d88784a18c757ebdd73d1ffa7f0f84f781db7a0a2525b4166ed6bd58063666c",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_ssh.py",
+    "before_sha256": null,
+    "after_sha256": "069ef7661381e79c77735f9efc49e52d6b8594e32b80ecb81e45ac3e0b4729f1",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_validation.py",
+    "before_sha256": null,
+    "after_sha256": "c470fab9799047e15ab6272caf897ea088e0d609c2496499747bdd315f9645fc",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_03_voice_run.py",
+    "before_sha256": null,
+    "after_sha256": "182ca2b8c19235dac4b66c0c88c80202174206557a361f128e5573ef561dfdeb",
+    "status": "added"
+  }
+]

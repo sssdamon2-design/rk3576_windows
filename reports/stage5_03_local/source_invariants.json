@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "file": "src/ai/rkllm_backend.cpp",
+      "before": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+      "after": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/asr_llm_tts_smoke.cpp",
+      "before": "b746bbb89fff7ba559a101117eecf69074aec561bc9d3515b99646a6d59e5550",
+      "after": "b746bbb89fff7ba559a101117eecf69074aec561bc9d3515b99646a6d59e5550",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/asr_service.cpp",
+      "before": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+      "after": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/vad_audio_worker.cpp",
+      "before": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+      "after": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b",
+      "unchanged": true
+    },
+    {
+      "file": "src/ai/llm_worker.cpp",
+      "before": "78d1967345cea3fc61051c92b4a832128a1491868de284b60b67733a6bc7b367",
+      "after": "78d1967345cea3fc61051c92b4a832128a1491868de284b60b67733a6bc7b367",
+      "unchanged": true
+    },
+    {
+      "file": "src/audio/tts_worker.cpp",
+      "before": "d954d44cd619fdfc6c7c05086cb5304aec87f246688b2cd6530cf8efa493c254",
+      "after": "d954d44cd619fdfc6c7c05086cb5304aec87f246688b2cd6530cf8efa493c254",
+      "unchanged": true
+    }
+  ],
+  "reference_arithmetic_unchanged": true,
+  "multimodal_prompt_generation_shutdown_tail_unchanged": true,
+  "scope": "Source equality only; not runtime evidence"
+}

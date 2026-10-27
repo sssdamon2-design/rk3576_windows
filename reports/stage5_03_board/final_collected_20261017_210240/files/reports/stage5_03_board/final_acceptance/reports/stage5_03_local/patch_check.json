@@ -1,0 +1,13 @@
+{
+  "command": [
+    "git",
+    "-c",
+    "core.autocrlf=false",
+    "apply",
+    "--check",
+    "Z:\\master_T\\Linux\\\u8d44\u6599\\code\\rk3576_multimodal_stage5_source\\rk3576_multimodal\\reports\\stage5_03_local\\changes.patch"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

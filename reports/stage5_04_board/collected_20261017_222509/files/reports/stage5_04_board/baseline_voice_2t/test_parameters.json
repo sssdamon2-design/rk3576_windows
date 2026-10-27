@@ -1,0 +1,20 @@
+{
+  "name": "baseline_voice_2t",
+  "tts_threads": 2,
+  "variant": "baseline",
+  "revision": "v2",
+  "capture_fixtures": true,
+  "audio_replay_file": null,
+  "fixed_frame_dir": null,
+  "replay": false,
+  "replay_source": "four",
+  "stop_mode": "drain",
+  "tts_queue_ms": 12000,
+  "request_lifetime_ms": 45000,
+  "signal": null,
+  "trigger": "ready",
+  "delay": 2,
+  "seconds": 120,
+  "timeout": 300,
+  "grace": 70
+}

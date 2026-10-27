@@ -1,0 +1,14 @@
+{
+  "name": "raw_tts_screen_4t",
+  "exe": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/raw_baseline_build/tts_bench",
+  "timeout": 600,
+  "affinity": null,
+  "env": [],
+  "arguments": [
+    "--",
+    "{KOKORO}",
+    "{REPORT}",
+    "4",
+    "3"
+  ]
+}
