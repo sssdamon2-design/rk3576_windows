@@ -1,0 +1,45 @@
+[
+  {
+    "name": "configure",
+    "argv": [
+      "bash",
+      "-c",
+      "source \"$1/tools/stage5_board_paths.sh\"; exec cmake -S \"$1/source\" -B \"$1/build\" -DCMAKE_BUILD_TYPE=Release -DBUILD_TESTING=ON -DBUILD_QT_GUI=ON -DBUILD_WITH_RKLLM=ON -DBUILD_WITH_VLM=ON -DENABLE_SHERPA_ASR=ON -DSHERPA_ONNX_ROOT=\"$STAGE5_SHERPA\" -DRKLLM_SDK_ROOT=\"$STAGE5_RKLLM\" -DRKNN_INCLUDE_DIR=\"$STAGE5_RKNN_INCLUDE\" -DRKNN_RUNTIME_LIBRARY=\"$STAGE5_RKNN_LIBRARY\"",
+      "rc",
+      "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1"
+    ],
+    "returncode": 0,
+    "reason": null,
+    "seconds": 2.0032415480000054,
+    "minimum_disk_free_bytes": 1587642368
+  },
+  {
+    "name": "build",
+    "argv": [
+      "cmake",
+      "--build",
+      "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1/build",
+      "--parallel",
+      "3"
+    ],
+    "returncode": 0,
+    "reason": null,
+    "seconds": 155.5841367500002,
+    "minimum_disk_free_bytes": 1573949440
+  },
+  {
+    "name": "ctest",
+    "argv": [
+      "bash",
+      "-c",
+      "source \"$1/tools/stage5_board_paths.sh\"; QT_QPA_PLATFORM=offscreen exec ctest --test-dir \"$1/build\" --output-on-failure --timeout 30 --output-junit \"$2\"",
+      "rc",
+      "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/releases/stage5-rc1",
+      "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_rc1_board/build/ctest.xml"
+    ],
+    "returncode": 0,
+    "reason": null,
+    "seconds": 6.510786572000143,
+    "minimum_disk_free_bytes": 1571704832
+  }
+]

@@ -1,0 +1,8 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec timeout --signal=TERM --kill-after=10s 120s c++ -std=c++17 -O2 -Wall -Wextra -Wpedantic -pthread -I\"$1/include\" \"$1/tests/stage5_02_npu_probe.cpp\" \"$1/build/stage5_01_board/libmultimodal_camera.a\" \"$1/build/stage5_01_board/libmultimodal_core.a\" \"$STAGE5_RKLLM_LIB/librkllmrt.so\" \"$STAGE5_RKNN_LIBRARY\" -o \"$2/npu_probe\"",
+  "probe",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_02_board/baseline_and_npu_probe"
+]

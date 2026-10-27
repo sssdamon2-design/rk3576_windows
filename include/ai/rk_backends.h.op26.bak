@@ -1,0 +1,41 @@
+#pragma once
+
+#include <memory>
+
+#include "ai/llm_backend.h"
+#include "ai/vlm_backend.h"
+
+// RKLLM 后端：
+// BUILD_WITH_RKLLM=ON  使用真正的 RKLLM Runtime。
+// BUILD_WITH_RKLLM=OFF 返回明确的 Runtime 不可用错误。
+class RKLLMBackend final : public ILLMBackend
+{
+public:
+    RKLLMBackend();
+    ~RKLLMBackend() override;
+
+    bool initialize(const BackendConfig& config,
+                    std::string& error) override;
+
+    InferenceResult infer(const std::string& question) override;
+
+    void shutdown() noexcept override;
+
+private:
+    // PImpl：将 SDK 句柄和实现细节隐藏在 .cpp 文件中。
+    struct Impl;
+    std::unique_ptr<Impl> impl_;
+};
+
+// VLM 仍保留原来的占位实现。
+class RK3576VLMBackend final : public IVLMBackend
+{
+public:
+    bool initialize(const BackendConfig& config,
+                    std::string& error) override;
+
+    InferenceResult infer(LatestFrameBuffer::FramePtr frame,
+                          const std::string& question) override;
+
+    void shutdown() noexcept override;
+};

@@ -1,0 +1,13 @@
+{
+  "phase": "full",
+  "ssh_process_exit_code": 0,
+  "occupancy_only": true,
+  "local_client_timeout": false,
+  "remote_command_exit_known": true,
+  "destination_exists_stop": false,
+  "destination_absent_observed": true,
+  "ssh_connection_confirmed": true,
+  "scope": "Only authorized read-only inspection; no remote file writes/builds/program tests",
+  "payload_sha256": "ba5183050d378f81fe5e73f1d6ed386e79103f6e5a37e59a641ab4756223b309",
+  "report_directory": "reports\\stage5_01_board\\readonly_full_20261017_182311_779187"
+}

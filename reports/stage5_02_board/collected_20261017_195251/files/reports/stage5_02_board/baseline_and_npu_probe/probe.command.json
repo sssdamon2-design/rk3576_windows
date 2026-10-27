@@ -1,0 +1,8 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec timeout --signal=TERM --kill-after=10s 180s \"$2/npu_probe\" \"$STAGE5_QWEN\" \"$STAGE5_VLM\" \"$STAGE5_VISION\" /dev/video11",
+  "probe",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_02_board/baseline_and_npu_probe"
+]

@@ -1,0 +1,2 @@
+{"event": "trigger", "elapsed": 21.188197615999798, "trigger": "ready"}
+{"event": "signal", "signal": "SIGTERM", "elapsed": 23.203635282999585, "pid": 6790, "pid_start_token": "386064", "timeout": false}

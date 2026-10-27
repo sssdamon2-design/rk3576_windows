@@ -1,0 +1,14 @@
+{
+  "name": "candidate_stop_cancel_pending",
+  "variant": "candidate",
+  "replay": true,
+  "stop_mode": "cancel_pending",
+  "tts_queue_ms": 60000,
+  "request_lifetime_ms": 120000,
+  "signal": "SIGTERM",
+  "trigger": "tts",
+  "delay": 0.1,
+  "seconds": 30,
+  "timeout": 180,
+  "grace": 70
+}

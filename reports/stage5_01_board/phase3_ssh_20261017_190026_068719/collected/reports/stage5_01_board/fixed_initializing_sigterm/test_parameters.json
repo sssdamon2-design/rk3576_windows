@@ -1,0 +1,9 @@
+{
+  "name": "fixed_initializing_sigterm",
+  "signal": "SIGTERM",
+  "trigger": "init",
+  "delay": 0.25,
+  "seconds": 120,
+  "timeout": 180,
+  "grace": 45
+}

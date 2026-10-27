@@ -1,0 +1,228 @@
+
+#include "audio/tts_service.h"
+
+#include <chrono>
+#include <exception>
+#include <memory>
+#include <unistd.h>
+
+TTSService::~TTSService()
+{
+    shutdown();
+}
+
+bool TTSService::initialize(
+    const std::string& model_dir,
+    std::string& error,
+    std::int32_t num_threads)
+{
+    shutdown();
+    error.clear();
+
+    if (num_threads < 1 || num_threads > 8)
+    {
+        error = "num_threads must be in [1, 8]";
+        return false;
+    }
+
+    // 构造 MeloTTS 模型实际文件路径。
+    const std::string model =
+        model_dir + "/model.onnx";
+
+    const std::string lexicon =
+        model_dir + "/lexicon.txt";
+
+    const std::string tokens =
+        model_dir + "/tokens.txt";
+
+    const std::string phone =
+        model_dir + "/phone.fst";
+
+    const std::string date =
+        model_dir + "/date.fst";
+
+    const std::string number =
+        model_dir + "/number.fst";
+
+    const std::string heteronym =
+        model_dir + "/new_heteronym.fst";
+
+    // 初始化前验证必需文件可读。
+    for (const auto& path :
+         {model, lexicon, tokens, phone,
+          date, number, heteronym})
+    {
+        if (::access(path.c_str(), R_OK) != 0)
+        {
+            error =
+                "Cannot read required TTS file: " + path;
+            return false;
+        }
+    }
+
+    // 多个 FST 文件用英文逗号连接。
+    const std::string rule_fsts =
+        phone + "," +
+        date + "," +
+        number + "," +
+        heteronym;
+
+    // {} 将结构体全部初始化为零或空指针。
+    SherpaOnnxOfflineTtsConfig cfg{};
+
+    // VITS 模型配置。
+    cfg.model.vits.model = model.c_str();
+    cfg.model.vits.lexicon = lexicon.c_str();
+    cfg.model.vits.tokens = tokens.c_str();
+
+    // VITS 合成参数。
+    cfg.model.vits.noise_scale = 0.667f;
+    cfg.model.vits.noise_scale_w = 0.8f;
+    cfg.model.vits.length_scale = 1.0f;
+
+    // 当前 SDK 中 dict_dir 为遗留字段，
+    // 这里不设置，保持空指针。
+
+    cfg.model.num_threads = num_threads;
+    cfg.model.debug = 0;
+    cfg.model.provider = "cpu";
+
+    cfg.rule_fsts = rule_fsts.c_str();
+    cfg.max_num_sentences = 1;
+    cfg.silence_scale = 0.2f;
+
+    // 创建并加载真正的 TTS 模型实例。
+    tts_ = SherpaOnnxCreateOfflineTts(&cfg);
+
+    if (tts_ == nullptr)
+    {
+        error =
+            "SherpaOnnxCreateOfflineTts returned null";
+        return false;
+    }
+
+    return true;
+}
+
+bool TTSService::synthesize(
+    const std::string& text,
+    TTSAudio& output,
+    std::string& error)
+{
+    // 清空上一次合成结果。
+    output = TTSAudio{};
+    error.clear();
+
+    if (tts_ == nullptr)
+    {
+        error = "TTSService is not initialized";
+        return false;
+    }
+
+    if (text.empty())
+    {
+        error = "Input text is empty";
+        return false;
+    }
+
+    // 每次语音合成的参数。
+    SherpaOnnxGenerationConfig gen{};
+
+    // MeloTTS zh_en 只有一个说话人。
+    gen.sid = 0;
+
+    // 默认语速。
+    gen.speed = 1.0f;
+
+    // 句间静音比例。
+    gen.silence_scale = 0.2f;
+
+    // 使用 unique_ptr 管理 SDK 返回的音频对象。
+    // 第二个模板参数是自定义删除器的类型。
+    using AudioOwner =
+        std::unique_ptr<
+            const SherpaOnnxGeneratedAudio,
+            decltype(
+                &SherpaOnnxDestroyOfflineTtsGeneratedAudio
+            )
+        >;
+
+    const auto start =
+        std::chrono::steady_clock::now();
+
+    // 执行真正的 TTS 推理。
+    AudioOwner audio(
+        SherpaOnnxOfflineTtsGenerateWithConfig(
+            tts_,
+            text.c_str(),
+            &gen,
+            nullptr,
+            nullptr
+        ),
+        &SherpaOnnxDestroyOfflineTtsGeneratedAudio
+    );
+
+    const auto finish =
+        std::chrono::steady_clock::now();
+
+    if (!audio ||
+        !audio->samples ||
+        audio->n <= 0 ||
+        audio->sample_rate <= 0)
+    {
+        error =
+            "TTS generation failed or returned empty audio";
+        return false;
+    }
+
+    // 将 SDK 管理的临时音频复制到 C++ vector。
+    try
+    {
+        output.samples.assign(
+            audio->samples,
+            audio->samples + audio->n
+        );
+    }
+    catch (const std::exception& e)
+    {
+        error =
+            std::string("Cannot copy generated samples: ") +
+            e.what();
+
+        return false;
+    }
+
+    output.sample_rate = audio->sample_rate;
+
+    output.synthesis_ms =
+        std::chrono::duration<double, std::milli>(
+            finish - start
+        ).count();
+
+    // 离开函数时，audio 的自定义删除器自动释放
+    // SherpaOnnxGeneratedAudio 和内部 samples。
+    return true;
+}
+
+void TTSService::shutdown() noexcept
+{
+    if (tts_ != nullptr)
+    {
+        SherpaOnnxDestroyOfflineTts(tts_);
+        tts_ = nullptr;
+    }
+}
+
+std::int32_t TTSService::sampleRate() const noexcept
+{
+    return tts_
+        ? SherpaOnnxOfflineTtsSampleRate(tts_)
+        : 0;
+}
+
+std::int32_t TTSService::numSpeakers() const noexcept
+{
+    return tts_
+        ? SherpaOnnxOfflineTtsNumSpeakers(tts_)
+        : 0;
+}

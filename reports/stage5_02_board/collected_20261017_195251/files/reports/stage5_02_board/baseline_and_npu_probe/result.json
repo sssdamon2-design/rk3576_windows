@@ -1,0 +1,45 @@
+{
+  "phases": [
+    {
+      "phase": "build",
+      "returncode": 0,
+      "seconds": 4.589938584000265
+    },
+    {
+      "phase": "probe",
+      "returncode": 0,
+      "seconds": 25.37317765700027
+    }
+  ],
+  "original_321_unchanged": true,
+  "stage5_01_review_executable_unchanged": true,
+  "devices_after": {
+    "nodes": [
+      "/dev/video11",
+      "/dev/snd/pcmC1D0c",
+      "/dev/snd/pcmC1D0p",
+      "/dev/dri/renderD129"
+    ],
+    "query": {
+      "command": [
+        "sudo",
+        "-n",
+        "--",
+        "/usr/bin/fuser",
+        "-v",
+        "/dev/video11",
+        "/dev/snd/pcmC1D0c",
+        "/dev/snd/pcmC1D0p",
+        "/dev/dri/renderD129"
+      ],
+      "exit_code": 1,
+      "stdout": "",
+      "stderr": ""
+    },
+    "clear": true,
+    "alsa_status": {
+      "/proc/asound/card1/pcm0c/sub0/status": "closed\n",
+      "/proc/asound/card1/pcm0p/sub0/status": "closed\n"
+    }
+  }
+}

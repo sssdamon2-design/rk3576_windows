@@ -1,0 +1,320 @@
+[
+  {
+    "file": "CMakeLists.txt",
+    "before_sha256": "48b1a55f4d11e364cb629e680636f25e4cbfa764b389e5183240ff310e2750e8",
+    "after_sha256": "58c5192721f3aea66bb1e9252bc66d5346ce21ba284bdc284dbe8ed5753ceded",
+    "status": "modified"
+  },
+  {
+    "file": "docs/RK3576_STAGE5_ENGINEERING_MANUAL.docx",
+    "before_sha256": null,
+    "after_sha256": "2f948e75cf7cbf0a3bba93cfb7372e8d6d976543e370ac1876e31e25f96270a0",
+    "status": "added"
+  },
+  {
+    "file": "docs/RK3576_STAGE5_ENGINEERING_MANUAL.md",
+    "before_sha256": null,
+    "after_sha256": "24994339014bf507b6ca32d9babfbc30b2c59f9a0177d945e37c6aaa94da6be2",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_03_statement_notes.md",
+    "before_sha256": "40c2b96ac868332636165b2994499101c27b6b7cac81119371db4760f1767091",
+    "after_sha256": "de49a12b10a84dbe1e0f03639d7a0fd0a7b041d4745c6961d6d28d267eda9d7a",
+    "status": "modified"
+  },
+  {
+    "file": "docs/stage5_05_commands.md",
+    "before_sha256": null,
+    "after_sha256": "ee30e901e935366b003526122458fa6c6cddbe44c756b48d577ae3ce96a6771f",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_05_final_acceptance.md",
+    "before_sha256": null,
+    "after_sha256": "0c230bd29e52e8c96a99c14bf39e72896dd961f053900ab07e2af4e3981e9f16",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_05_interview.md",
+    "before_sha256": null,
+    "after_sha256": "c1aed2271caba57876b9f9a40e1c6bb44a16c6bc9f4f90b47ca8272a69561876",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_05_line_notes.md",
+    "before_sha256": null,
+    "after_sha256": "ddccdbca11d7462fa9a537a18043ef83d6f468562fddf0c5ec872176966f26be",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_05_source_appendix.md",
+    "before_sha256": null,
+    "after_sha256": "d08000e853ec2cb4af40fe205ac0119663f7c2cbe58d5db489934cb5f3cb17a2",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_05_statement_notes.md",
+    "before_sha256": null,
+    "after_sha256": "6a911abdbcbe72c7c1c568b6e65800bcfb269a05a17c074ab8a7bf2c38e0a01c",
+    "status": "added"
+  },
+  {
+    "file": "include/app/stop_signals.h",
+    "before_sha256": null,
+    "after_sha256": "c8fd4e74fc35c910c195ca789aaaa627c1127c77e018d28e983a860ebb69b5bf",
+    "status": "added"
+  },
+  {
+    "file": "include/common/image_profile.h",
+    "before_sha256": "4796e43ce77c9aba244636b711180799a86b5ab492f7098077d4bfa6a2e66af5",
+    "after_sha256": "6e783903faeb499ef6e704df1dc4d2e0e13f4214ed06fa3822fb94a9f167cf63",
+    "status": "modified"
+  },
+  {
+    "file": "include/common/request_trace.h",
+    "before_sha256": "9da18836555bc01869070cdbfde0d788a9f4466db954fdeb5100f335a05cc970",
+    "after_sha256": "6a7b6303e5289c50d8f09f727ea549f634f73a9914d7d3c8ebf74bf858b0b21e",
+    "status": "modified"
+  },
+  {
+    "file": "include/gui/backend_session.h",
+    "before_sha256": null,
+    "after_sha256": "d08247679bfe26454c0d27ffa82fedb68c3910d4a711d42ea2b15e46ca2720fa",
+    "status": "added"
+  },
+  {
+    "file": "include/gui/session_window.h",
+    "before_sha256": null,
+    "after_sha256": "92ba03778b34f2c64d26b7981d998330e1408e9e74d0e00133ec0b0485feff98",
+    "status": "added"
+  },
+  {
+    "file": "README_STAGE5_FINAL.md",
+    "before_sha256": null,
+    "after_sha256": "52dcadd7ce3ef86a0e920d8c47574e8d841304b9c453e876071e61db8447418d",
+    "status": "added"
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "before_sha256": "cb9e603299df7093a4845bd37abd27c3ffa9a5d74150801efc1f54154ff14f35",
+    "after_sha256": "8ab743462e5896bf840fdba3da3e85c17792a10efcb30c5c030c77369405cb12",
+    "status": "modified"
+  },
+  {
+    "file": "src/gui/backend_session.cpp",
+    "before_sha256": null,
+    "after_sha256": "b724f970b6636aef8e9c582fa6dea7691c0035af35bacb6f4a7b72a368857225",
+    "status": "added"
+  },
+  {
+    "file": "src/gui/main.cpp",
+    "before_sha256": null,
+    "after_sha256": "0ffdb49603f373c5cf4feaebd43abfe1f1773bfd20ccc3eb12f750180b0a3820",
+    "status": "added"
+  },
+  {
+    "file": "src/gui/session_window.cpp",
+    "before_sha256": null,
+    "after_sha256": "30021fd3b2d9c4641a80fa740447bb30f0ae5b023f73a23d03de69f98766bd65",
+    "status": "added"
+  },
+  {
+    "file": "tests/async_pipeline_tests.cpp",
+    "before_sha256": "e400df065232c24908c63bffe56d3c0ecd14378bcb03814983ee2ca756931bc8",
+    "after_sha256": "8d68e45c93f164dd4103d4796227c19ebc32e38704f57f3392bba902db0eea9a",
+    "status": "modified"
+  },
+  {
+    "file": "tests/gui_fake_backend.cpp",
+    "before_sha256": null,
+    "after_sha256": "67b3890b880f67a1329977e1067a2b5aef29622236a4a2d414e70b44352ee74b",
+    "status": "added"
+  },
+  {
+    "file": "tests/gui_session_tests.cpp",
+    "before_sha256": null,
+    "after_sha256": "1ae1079851144b12f0b28f01fa445f4eac722daa116d519cea64bb74c21a5a36",
+    "status": "added"
+  },
+  {
+    "file": "tests/request_profile_tests.cpp",
+    "before_sha256": "b2d70ed7eab511c80e7ff249795f0800963ee0304b328938dacf5b52f8b6da25",
+    "after_sha256": "5bd3cf32c918967eeab1d740fcbef962371aa850773e2ca3bf3e599b2d600918",
+    "status": "modified"
+  },
+  {
+    "file": "tools/stage5_05_analyze.py",
+    "before_sha256": null,
+    "after_sha256": "6fbff1f5a94e18d34a6d1e39781c935ee696acfe7c477f2723bd168e72d4407e",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_build_docx.py",
+    "before_sha256": null,
+    "after_sha256": "28ba2c96623be9da2cd5df4edccfcf36f9c419cb9ea07a61b7eb0666eced3187",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_camera_recheck.py",
+    "before_sha256": null,
+    "after_sha256": "31393129f98f59027eaf6e520c6fbcc7eb0beb437c73d2df5d17b8e25d900a5a",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_collect.py",
+    "before_sha256": null,
+    "after_sha256": "6716c9f626e7c4110f2ca856e724811e85259305f29c08dbbb60121d56a2126c",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_delivery.py",
+    "before_sha256": null,
+    "after_sha256": "5e14fdb56574580b1844754f7e69a02aa3f02c000e53aac8d24edfc9ffa9b6b3",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_diagrams.py",
+    "before_sha256": null,
+    "after_sha256": "9a0a9770a482d39bca2e8698550a9d6ec4605c0271fd558369973cb18182d905",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_doccheck.py",
+    "before_sha256": null,
+    "after_sha256": "34764c1519ed8764f3447d84594527ad59ebec8bc1eb48a36571af87864e15ac",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_export.py",
+    "before_sha256": null,
+    "after_sha256": "44485353f131b3ab84bfa566c8c14419cb252d98dc3af7bfda23527cf038d3b5",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_faults.py",
+    "before_sha256": null,
+    "after_sha256": "423c7723e58526bd6e8eea8d600a8a57b699a857762f95f2842eeb8056aba3df",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_gui_run.py",
+    "before_sha256": null,
+    "after_sha256": "ab3b06835734ad82db0a08df9ef7f652054b650f3180f7a8fd343602b7e7fbf3",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_index.py",
+    "before_sha256": null,
+    "after_sha256": "f12b2821b1eb953d00ebd78d15efa0794d5d8195d7848f2417fce1ba0704d61b",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_launch_gui.sh",
+    "before_sha256": null,
+    "after_sha256": "e044f1979855405f280989b04a03ff480d6d037ed0f4c122f788f8150c72a773",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_line_notes.py",
+    "before_sha256": null,
+    "after_sha256": "4d73a15553ed39d851e04ab2f13cc9227af27e5cbb060dd24c7a912a23963209",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_local_build.py",
+    "before_sha256": null,
+    "after_sha256": "6e782acc4e3db0ea2385a40b5180127163abde091d7cef21520065725efb409b",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_manual.py",
+    "before_sha256": null,
+    "after_sha256": "54d480be49284dd0087e5c5628d533b8084cf3e5ee09652895611e1f90963294",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_matrix.py",
+    "before_sha256": null,
+    "after_sha256": "154a19ccaafbd02dc27eefb326dad8dba7ef7cef224f1ce805610e1fe1551d6d",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_matrix_retry1.py",
+    "before_sha256": null,
+    "after_sha256": "04771d65df31567d411ad2a3980d3ffd82c481411de10ba5d9174114d8af5c40",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_npu_inventory.py",
+    "before_sha256": null,
+    "after_sha256": "0344efda15d83388e4b82f894558b8f2a8113bbfc2691a43fa0469824dba6f45",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_plots.py",
+    "before_sha256": null,
+    "after_sha256": "7d8eb78d426ca41a02b1906b6606ed86a10a456dafc7551d4149439dd455d383",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_prepare.py",
+    "before_sha256": null,
+    "after_sha256": "1d4ab6d8d0b9b7cdd7c55d9fbff6d61f3036d250465f052675ba518eb1c40648",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_protect.py",
+    "before_sha256": null,
+    "after_sha256": "1fe162bc0c2845dc7234ba4e1dc8d24ffc9c7b009a731b4f496db13bdf4ec869",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_render_docx.py",
+    "before_sha256": null,
+    "after_sha256": "6dbe5871de6a35886d77fe7500db4bdcbee2c9eeae28ce06712af5924d2e9ea2",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_report.py",
+    "before_sha256": null,
+    "after_sha256": "03d806a9d247b805d4f0c7646aab5ad3db9febc02ab0dfc43eb47b279878d610",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_ssh.py",
+    "before_sha256": null,
+    "after_sha256": "cde239f4594dc5956bad045c23ef3be6f2629b37a89257b2860402f07b07d975",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_stability.py",
+    "before_sha256": null,
+    "after_sha256": "7c9997bdd80f7a09e826d96cba3b62cb8edce4ec786f15c0beea137e44e9837d",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_upload_delivery.py",
+    "before_sha256": null,
+    "after_sha256": "d6ecc8164a23bac7e5a342de3e568077920ec4c60d47fdd2b8d005f90f8e5000",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_validate.py",
+    "before_sha256": null,
+    "after_sha256": "38cc10ea1011eb13c2625f04d4ed2602ece69b78e5f588c26dba257ada20e3ba",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_voice_run.py",
+    "before_sha256": null,
+    "after_sha256": "f6630b0c4bdaf54f2956cec7f0c2c168c29ec459fbc8a8995ba863c490eb7af6",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_05_word_export.ps1",
+    "before_sha256": null,
+    "after_sha256": "27bf876310565b437de10d035ec135db2f2b7f25e304a07058b3544993c4f5a6",
+    "status": "added"
+  }
+]

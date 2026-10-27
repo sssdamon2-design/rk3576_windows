@@ -1,0 +1,18 @@
+{
+  "pid": 6214,
+  "returncode": -2,
+  "sent_signal": "SIGINT",
+  "trigger_observed": true,
+  "forced_kill": false,
+  "timeout": false,
+  "duration_seconds": 25.593503883000267,
+  "signal_to_exit_seconds": 1.3794266989998505,
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "shutdown_complete_marker": false,
+  "program_PASS": false,
+  "text_tts_completed": false,
+  "vision_tts_completed": false,
+  "user_audible_confirmation": null
+}

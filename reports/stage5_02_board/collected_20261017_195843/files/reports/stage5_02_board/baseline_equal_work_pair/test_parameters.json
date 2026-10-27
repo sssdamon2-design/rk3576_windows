@@ -1,0 +1,15 @@
+{
+  "name": "baseline_equal_work_pair",
+  "variant": "baseline",
+  "replay": true,
+  "replay_source": "pair",
+  "stop_mode": "drain",
+  "tts_queue_ms": 60000,
+  "request_lifetime_ms": 120000,
+  "signal": null,
+  "trigger": "ready",
+  "delay": 2,
+  "seconds": 30,
+  "timeout": 180,
+  "grace": 60
+}

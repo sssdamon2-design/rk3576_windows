@@ -1,0 +1,200 @@
+[
+  {
+    "file": "CMakeLists.txt",
+    "before_sha256": "39836964f7ac9f20aeff1b5017ce62fc58c27dcfa6a0c703b5cbab047ea5a6e8",
+    "after_sha256": "765ea5e08c49037e12b69d4a6730f6e6b6195300e215251240ab2ed69ad5dd99",
+    "status": "modified"
+  },
+  {
+    "file": "docs/stage5_02_async_pipeline.md",
+    "before_sha256": null,
+    "after_sha256": "f2f3b441e2b1f2215daa08e3e30728f841ecfb9fb7941a7a9fe78547f6d29f8b",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_02_board_acceptance.md",
+    "before_sha256": null,
+    "after_sha256": "ad2b1f975e67e89f22b6030eac773709da4bd55b915e0ab3e70ff5d11c3d256a",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_02_performance.md",
+    "before_sha256": null,
+    "after_sha256": "dade56a83c4e5e082ec08da3abe8f84b7c6f13124f40835352556638bb214ffd",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_02_source_appendix.md",
+    "before_sha256": null,
+    "after_sha256": "359f2aed711d6e3d254d844ab814050cbbb6b9a9add19404377eb9803719fc99",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_02_statement_notes.md",
+    "before_sha256": null,
+    "after_sha256": "590339f7bbba89a1931f6949de7a91b97846c05ef81120346f5f98420322e067",
+    "status": "added"
+  },
+  {
+    "file": "include/ai/llm_worker.h",
+    "before_sha256": "f1041f46336a752a7a4cd1104a75776d38b95eac057f0834b187dc7eee8e3401",
+    "after_sha256": "cbc723789394737b28b5711cf0acdf4ddfca7777754abd3ffd37dd087cb37f45",
+    "status": "modified"
+  },
+  {
+    "file": "include/app/pipeline_admission.h",
+    "before_sha256": null,
+    "after_sha256": "b7aef862b129b9cf72c028137a03bfac47cbf1e712ca7b23c6744117ddf31437",
+    "status": "added"
+  },
+  {
+    "file": "include/app/pipeline_metrics.h",
+    "before_sha256": null,
+    "after_sha256": "9fece6741f2a5f1e529b71057b1907824c404e49b744f01796dfd92b02a4ac30",
+    "status": "added"
+  },
+  {
+    "file": "include/audio/alsa_playback_service.h",
+    "before_sha256": "d51e6deb7a316fc024cfdbb01a4f64d8e76d71f0e065ba24d5ed29fa545dba3d",
+    "after_sha256": "17f35d33cbd81ddd69eb605cce429d42a69416014824ef8891d7b0bb0760ff3a",
+    "status": "modified"
+  },
+  {
+    "file": "include/audio/asr_pipeline.h",
+    "before_sha256": "0706f3f7289ea169a320ed06af983f33d9904c5b3898e504e8956ef5783ddb63",
+    "after_sha256": "e13830024ef120d9a6411017cead5dddcb2d461754fb07d22453267e9b32c552",
+    "status": "modified"
+  },
+  {
+    "file": "include/audio/tts_service.h",
+    "before_sha256": "f4a149ddf6f905670f04bb3dcb592e8802bd745028288d994cc2b763b7903c38",
+    "after_sha256": "ca3e0abd2ea33208a356f9e51a4615667096eb86b840c928002883e1a277e6ef",
+    "status": "modified"
+  },
+  {
+    "file": "include/audio/tts_worker.h",
+    "before_sha256": "bfd8813c9e22f131137ba6f2f441156d2b4a6efdb07467cc6931effeae70000a",
+    "after_sha256": "09c3117c0a23f980ec015a9799611f7239e792dd35aefbc0a36c0735c86937be",
+    "status": "modified"
+  },
+  {
+    "file": "include/common/inference_result.h",
+    "before_sha256": "f35d73715b313ed83a7b8151afbd42feae6dfe5e2c7d4df168ad70be4a6b49a8",
+    "after_sha256": "7fdec0feb5f34af678a46911ea034f10e393d821ad2f8332e817f413a30a2d0a",
+    "status": "modified"
+  },
+  {
+    "file": "include/common/work_control.h",
+    "before_sha256": null,
+    "after_sha256": "ea1c2b63ec0e9a8e21b1dc16ce8b0a7274c644d5ca55ddb5feea753d18ae3529",
+    "status": "added"
+  },
+  {
+    "file": "src/ai/llm_worker.cpp",
+    "before_sha256": "685fe657c9ac1a6b5443fa77a6a1f15c7cd305a2902f977b61b5b06eaa1a96e9",
+    "after_sha256": "78d1967345cea3fc61051c92b4a832128a1491868de284b60b67733a6bc7b367",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/alsa_playback_service.cpp",
+    "before_sha256": "777ca61cc29489ecdf0c47c7a49d49bc1ae4c3f8ff2de15b33b30cc9e63b7e89",
+    "after_sha256": "5ed616ee7251c67b605f0c6d1ae24a088068b3d2858654ffdf9d8c5798626756",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "before_sha256": "28d84bce32042ce8136b27dd1c845b86f85d1168488cd51f25df0e77fa7a85e7",
+    "after_sha256": "b746bbb89fff7ba559a101117eecf69074aec561bc9d3515b99646a6d59e5550",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "before_sha256": "bec2d62b58d33faf02b04a415ca6c8f2deca335db17c904d69a66f6ff7bb8efd",
+    "after_sha256": "8324a7211312ede7367f2c90e5fa1116334a8e4c8c43155f8362a03f9a009475",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/tts_service.cpp",
+    "before_sha256": "b43677e31f8b53ddf7fed2bbf341bf0b35c405dcba86bd8dc972a663d35ea28e",
+    "after_sha256": "26bb0f1213224b72c9cf869d396d7b1d2e7c2dbef9d533a432d991b28dd08abb",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/tts_smoke.cpp",
+    "before_sha256": "63561803c786cd366740cf391b275935c592be234336e19f023e770c35b122ca",
+    "after_sha256": "40589cab7c13bd0208ff0f2b7d00ab24eaf1edbfed0ee34c47f05ed947dab650",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/tts_worker.cpp",
+    "before_sha256": "590e9676d023d228c0aaf39e1106538f171f7d1577c17981137e2598f4a22b54",
+    "after_sha256": "d954d44cd619fdfc6c7c05086cb5304aec87f246688b2cd6530cf8efa493c254",
+    "status": "modified"
+  },
+  {
+    "file": "tests/async_pipeline_tests.cpp",
+    "before_sha256": null,
+    "after_sha256": "7b183ed3b10fe382f83d0622774acdcb37ff49a89832b0be16206c4e58760de2",
+    "status": "added"
+  },
+  {
+    "file": "tests/stage5_02_npu_probe.cpp",
+    "before_sha256": null,
+    "after_sha256": "e4e18c2454d0dc006a0886777a6152e776b75e43a008145167068d69d89b22ca",
+    "status": "added"
+  },
+  {
+    "file": "tests/stage5_02_replay.tsv",
+    "before_sha256": null,
+    "after_sha256": "5f072a66a072912f2765712c46b980929dafbf12f6149263c5e59b81e710c799",
+    "status": "added"
+  },
+  {
+    "file": "tests/stage5_02_replay_pair.tsv",
+    "before_sha256": null,
+    "after_sha256": "7079fcead7fc22ef0d5ee034be25974caa047ceb25187265e739f1901126f54c",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_02_board_run.py",
+    "before_sha256": null,
+    "after_sha256": "01da83e6b4eaca3b6ce3b0204ce7cbcb6ca354cff0de0077bc324e323410adc0",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_02_collect.py",
+    "before_sha256": null,
+    "after_sha256": "f907d6359526f609f0f37112c63a99346286cfe89e7b7e884ad3b86f36e5e09b",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_02_export.py",
+    "before_sha256": null,
+    "after_sha256": "b26d622fe28a98eee1b2d4a807f2912705fa0841bd6c370e1ecff109c27a848d",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_02_performance.py",
+    "before_sha256": null,
+    "after_sha256": "d1a4d99508efdc71b853d3e23dd8de3b21a1a3ae21d13d07b750174679aeedfd",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_02_prepare_replay.py",
+    "before_sha256": null,
+    "after_sha256": "9dfb1ccce7904bf28e974141f6d2e144fdba72536aa3da9993d8f1c7e631db84",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_02_ssh.py",
+    "before_sha256": null,
+    "after_sha256": "398082a1f9dd001c21574ad582caea39271944cc27586f2f610092243a049f4d",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_02_summarize.py",
+    "before_sha256": null,
+    "after_sha256": "f87abe093ace430e90db503f71cbb7b4421e217dc02744377e26bd4f6916631c",
+    "status": "added"
+  }
+]

@@ -1,0 +1,8 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec timeout --signal=TERM --kill-after=10s 120s ctest --test-dir \"$1/build/stage5_01_board\" --output-on-failure --timeout 30 --output-junit \"$2/ctest.xml\"",
+  "phase3",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_01_board/phase3_precheck_ctest_20261017T105346Z"
+]

@@ -1,0 +1,95 @@
+{
+  "status": "PHASE2_PASSED_AWAITING_PHASE3_AUTHORIZATION",
+  "host": "cat@192.168.10.27",
+  "remote_root": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "local_evidence_directory": "reports/stage5_01_board/phase2_20261017_184503_994558",
+  "remote_compile_log_directory": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_01_board/compile_only_20261017T104508Z",
+  "remote_supervisor_directory": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_01_board/supervisor_20261017T104508Z",
+  "uploaded_files": [
+    {
+      "name": "stage5_01_review_preflight_v2.tgz",
+      "bytes": 126256,
+      "sha256": "a653dd57e1ed5138170dd6d6ff7eb77a1518aa0e97c909402b662cab45c13c6e"
+    },
+    {
+      "name": "stage5_01_review_preflight_v2.tgz.sha256",
+      "bytes": 101
+    }
+  ],
+  "archive_validation": {
+    "archive": "stage5_01_review_preflight_v2.tgz",
+    "sha256": "a653dd57e1ed5138170dd6d6ff7eb77a1518aa0e97c909402b662cab45c13c6e",
+    "regular_members": 87,
+    "safe_paths": true,
+    "all_member_hashes_match": true,
+    "extraction_exit_code": 0
+  },
+  "configuration": {
+    "result": "SUCCESS",
+    "exit_code": 0,
+    "exit_evidence": "set -euo pipefail compile script continued past configure pipeline and completed with recorded exit 0",
+    "compiler": "GNU C++ 12.2.0",
+    "platform": "Linux aarch64",
+    "cmake": "3.25.1",
+    "type": "Release",
+    "options": {
+      "BUILD_WITH_RKLLM": true,
+      "BUILD_WITH_VLM": true,
+      "ENABLE_SHERPA_ASR": true,
+      "BUILD_TESTING": true
+    }
+  },
+  "build_targets_passed": [
+    "asr_pipeline_tests",
+    "audio_preprocessor_tests",
+    "multimodal_audio",
+    "audio_capture_smoke",
+    "asr_live_smoke",
+    "multimodal_core",
+    "asr_pipeline_smoke",
+    "asr_vad_smoke",
+    "multimodal_tts",
+    "multimodal_camera",
+    "rkllm_worker_smoke",
+    "asr_llm_smoke",
+    "tts_smoke",
+    "llm_worker_tests",
+    "camera_service_tests",
+    "tts_playback_smoke",
+    "tts_worker_smoke",
+    "tts_worker_queue_smoke",
+    "asr_llm_tts_smoke",
+    "asr_route_smoke",
+    "rk3576_multimodal"
+  ],
+  "build_targets_failed": [],
+  "built_target_count": 21,
+  "arm64_elf_executable_count": 17,
+  "warnings": [
+    "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/src/ai/rk_backends_unavailable.cpp:21:17: warning: ‘InferenceResult {anonymous}::unavailable(const char*)’ defined but not used [-Wunused-function]"
+  ],
+  "warning_count": 1,
+  "compiler_error_count": 0,
+  "build_supervisor": {
+    "build_process_exit_code": 0,
+    "stop_reason": null,
+    "original_321_entries_unchanged": true,
+    "minimum_disk_free_bytes": 2231934976,
+    "final_disk_free_bytes": 2231988224,
+    "duration_seconds": 55.152848234999965,
+    "ctest_executed": false,
+    "ai_programs_started": false,
+    "supervisor_exit_code": 0
+  },
+  "stable_baseline_entries_compared": 321,
+  "stable_program_sha256": "c22de21ef6b82b4aee4cc2d0e4f2e1850960c23c356df2f3fc033b9d1c61fcc4",
+  "source_repairs_required": false,
+  "local_production_sources_match_deployed_manifest": true,
+  "production_files_compared": 76,
+  "ctest": "NOT_EXECUTED",
+  "hardware_tests": "NOT_EXECUTED",
+  "signal_fix": "NOT_IMPLEMENTED_OR_TESTED_IN_PHASE2",
+  "ready_for_phase3": true,
+  "stage5_01_formally_accepted": false,
+  "ready_for_stage5_02": false
+}

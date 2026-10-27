@@ -1,0 +1,531 @@
+{
+  "stage": "5.1 phase 1 read-only preflight",
+  "status": "PASSED_AWAITING_PHASE2_EXPLICIT_APPROVAL",
+  "board_time": "2026-10-17T18:27:19+08:00",
+  "ssh_exit_code": 0,
+  "host": "cat@192.168.10.27",
+  "final_evidence": "reports/stage5_01_board/readonly_full_20261017_182718_018778",
+  "checks": {
+    "review_directory_absent": true,
+    "disk_budget_sufficient": true,
+    "original_and_stable_build_present": true,
+    "original_fingerprints_unchanged": true,
+    "all_required_paths_readable": true,
+    "dynamic_libraries_resolved": true,
+    "device_owners_clear": true,
+    "npu_device_identified": true
+  },
+  "disk_budget": {
+    "free_bytes": 2238889984,
+    "free_inodes": 1567756,
+    "required_reserve_bytes": 2147483648,
+    "reserve_is_planning_allowance_not_measurement": true,
+    "enough": true
+  },
+  "memory_raw": "               total        used        free      shared  buff/cache   available\n内存：         3.8Gi       756Mi       2.4Gi        16Mi       805Mi       3.1Gi\n交换：            0B          0B          0B\n",
+  "original_fingerprint_entries": 321,
+  "original_unchanged": true,
+  "stable_executable_sha256": "c22de21ef6b82b4aee4cc2d0e4f2e1850960c23c356df2f3fc033b9d1c61fcc4",
+  "local_original_source_comparisons": [
+    {
+      "file": "CMakeLists.txt",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/ai/backend_config.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/ai/llm_backend.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/ai/llm_engine.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/ai/llm_worker.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/ai/rk_backends.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/ai/vlm_backend.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/ai/vlm_engine.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/app/cli.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/app/request_processor.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/alsa_playback_service.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/asr_pipeline.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/asr_service.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/audio_capture.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/audio_preprocessor.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/tts_service.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/tts_worker.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/audio/vad_audio_worker.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/common/inference_result.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/common/timing.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/common/types.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/router/intent_router.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/video/camera_service.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/video/latest_frame_buffer.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "include/video/video_capture.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/llm_engine.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/llm_worker.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/llm_worker_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/model_validation.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/rk3576_vlm_backend.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/rk_backends_unavailable.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/rkllm_backend.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/ai/vlm_engine.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/app/cli.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/app/request_processor.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/alsa_playback_service.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_live_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_llm_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_llm_tts_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_pipeline.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_pipeline_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_route_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_service.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/asr_vad_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/audio_capture.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/audio_capture_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/audio_preprocessor.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/tts_playback_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/tts_service.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/tts_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/tts_worker.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/tts_worker_queue_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/tts_worker_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/audio/vad_audio_worker.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/main.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/router/intent_router.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/video/camera_service.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/video/latest_frame_buffer.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/video/video_capture.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "src/video/video_capture_unavailable.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/audio_preprocessor_tests.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/camera_service_tests.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/camera_test_capture.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/camera_test_capture.h",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/cli_smoke.cmake",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/core_tests.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/llm_worker_tests.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/vlm_joint_ref_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/vlm_joint_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/vlm_llm_smoke.cpp",
+      "matches_local_original": true
+    },
+    {
+      "file": "tests/vlm_vision_smoke.cpp",
+      "matches_local_original": true
+    }
+  ],
+  "required_paths_checked": 20,
+  "models_sdk_paths": {
+    "asr_model": {
+      "path": "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/model.int8.onnx",
+      "bytes": 239233841,
+      "is_directory": false
+    },
+    "asr_tokens": {
+      "path": "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17/tokens.txt",
+      "bytes": 315894,
+      "is_directory": false
+    },
+    "vad": {
+      "path": "/home/cat/projects/RK3576/asr_runtime/vad/silero_vad.onnx",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/asr_runtime/vad/silero_vad.onnx",
+      "bytes": 643854,
+      "is_directory": false
+    },
+    "qwen": {
+      "path": "/home/cat/projects/RK3576/rkllm_sdk/models/Qwen2.5-1.5B-Instruct_RK3576_w4a16.rkllm",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/rkllm_sdk/models/Qwen2.5-1.5B-Instruct_RK3576_w4a16.rkllm",
+      "bytes": 1410933676,
+      "is_directory": false
+    },
+    "vlm": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm",
+      "bytes": 151406684,
+      "is_directory": false
+    },
+    "vision": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn",
+      "bytes": 223089969,
+      "is_directory": false
+    },
+    "sherpa_header": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/../asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/include/sherpa-onnx/c-api/c-api.h",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/include/sherpa-onnx/c-api/c-api.h",
+      "bytes": 167657,
+      "is_directory": false
+    },
+    "sherpa_library": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/../asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/lib/libsherpa-onnx-c-api.so",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/lib/libsherpa-onnx-c-api.so",
+      "bytes": 4613032,
+      "is_directory": false
+    },
+    "rkllm_header": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/../rkllm_sdk/rkllm-runtime/Linux/librkllm_api/include/rkllm.h",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/rkllm_sdk/rkllm-runtime/Linux/librkllm_api/include/rkllm.h",
+      "bytes": 23956,
+      "is_directory": false
+    },
+    "rkllm_library": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/../rkllm_sdk/rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/rkllm_sdk/rkllm-runtime/Linux/librkllm_api/aarch64/librkllmrt.so",
+      "bytes": 7674816,
+      "is_directory": false
+    },
+    "rknn_header": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/../rknn_test/include/rknn_api.h",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/rknn_test/include/rknn_api.h",
+      "bytes": 35551,
+      "is_directory": false
+    },
+    "rknn_library": {
+      "path": "/usr/lib/librknnrt.so",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/usr/lib/librknnrt.so",
+      "bytes": 7259064,
+      "is_directory": false
+    },
+    "alsa_header": {
+      "path": "/usr/include/alsa/asoundlib.h",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/usr/include/alsa/asoundlib.h",
+      "bytes": 1853,
+      "is_directory": false
+    },
+    "stable_executable": {
+      "path": "/home/cat/projects/RK3576/rk3576_multimodal/build/stage5_full/asr_llm_tts_smoke",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/rk3576_multimodal/build/stage5_full/asr_llm_tts_smoke",
+      "bytes": 244408,
+      "is_directory": false
+    },
+    "kokoro_model.onnx": {
+      "path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/model.onnx",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/model.onnx",
+      "bytes": 325631784,
+      "is_directory": false
+    },
+    "kokoro_tokens.txt": {
+      "path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/tokens.txt",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/tokens.txt",
+      "bytes": 1111,
+      "is_directory": false
+    },
+    "kokoro_voices.bin": {
+      "path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/voices.bin",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/voices.bin",
+      "bytes": 53790720,
+      "is_directory": false
+    },
+    "kokoro_lexicon-us-en.txt": {
+      "path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/lexicon-us-en.txt",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/lexicon-us-en.txt",
+      "bytes": 5956885,
+      "is_directory": false
+    },
+    "kokoro_lexicon-zh.txt": {
+      "path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/lexicon-zh.txt",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/lexicon-zh.txt",
+      "bytes": 2119465,
+      "is_directory": false
+    },
+    "kokoro_espeak-ng-data": {
+      "path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/espeak-ng-data",
+      "exists": true,
+      "readable": true,
+      "resolved_path": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1/espeak-ng-data",
+      "bytes": 4096,
+      "is_directory": true
+    }
+  },
+  "target_devices": [
+    {
+      "path": "/dev/dri/renderD129",
+      "kind": "npu",
+      "driver": "/sys/bus/platform/drivers/RKNPU",
+      "major": 226,
+      "minor": 129
+    },
+    {
+      "path": "/dev/snd/pcmC1D0c",
+      "kind": "alsa_pcm",
+      "driver": null,
+      "major": 116,
+      "minor": 6
+    },
+    {
+      "path": "/dev/snd/pcmC1D0p",
+      "kind": "alsa_pcm",
+      "driver": null,
+      "major": 116,
+      "minor": 5
+    },
+    {
+      "path": "/dev/video11",
+      "kind": "camera_target",
+      "driver": null,
+      "major": 81,
+      "minor": 11
+    }
+  ],
+  "device_occupancy_result": "No users found by noninteractive privileged read-only fuser; ALSA status closed",
+  "existing_ISP_service": "PID 423 rkaiq_3A_server retains other ISP nodes; not stopped or reconfigured",
+  "query_error_retained": {
+    "directory": "reports/stage5_01_board/readonly_full_20261017_182201_324598",
+    "ssh_exit_code": 22,
+    "cause": "fuser standalone -- argument incompatibility; not mistaken for free devices"
+  },
+  "phase2_candidate": {
+    "archive": "reports/stage5_01_local/board_package/stage5_01_review_preflight_v2.tgz",
+    "sha256": "a653dd57e1ed5138170dd6d6ff7eb77a1518aa0e97c909402b662cab45c13c6e",
+    "size_bytes": 126256,
+    "files": 86,
+    "archive_safety_and_hash_checks_passed": true
+  },
+  "remote_uploads": false,
+  "review_directory_created": false,
+  "arm64_build_performed": false,
+  "ctest_performed": false,
+  "hardware_test_program_started": false,
+  "phase2_authorized": false,
+  "phase3_authorized": false,
+  "stage5_01_formally_accepted": false,
+  "ready_for_stage5_02": false
+}

@@ -1,0 +1,20 @@
+﻿
+
+Algorithm : SHA256
+Hash      : 4AF5CEBE9A701655DBBA0176C67875F5D8A6AC7CD861A736C3E462F3440BD734
+Path      : Z:\master_T\Linux\资料\code\rk3576_multimodal_stage5_source\rk3576_multimodal\CMakeLists.txt
+
+Algorithm : SHA256
+Hash      : D88398133490CFB2360C8DF9ACA5C05F8248BBE7868786D381116EBFE3A9533F
+Path      : Z:\master_T\Linux\资料\code\rk3576_multimodal_stage5_source\rk3576_multimodal\src\audio\asr_llm_tts_smoke.cpp
+
+Algorithm : SHA256
+Hash      : A1E1AF88D8FBA2FCDD81B9E98527CA0DBAC1FA3ECB0380A49B1338759C4CEFE3
+Path      : Z:\master_T\Linux\资料\code\rk3576_multimodal_stage5_source\rk3576_multimodal\src\ai\rk3576_vlm_backend.cpp
+
+Algorithm : SHA256
+Hash      : 791099A42B0086CF1AF55F33769C14C172EDB3C65FFAEE895CDA0F79569F0C6E
+Path      : Z:\master_T\Linux\资料\code\rk3576_multimodal_stage5_source\rk3576_multimodal\src\router\intent_router.cpp
+
+
+

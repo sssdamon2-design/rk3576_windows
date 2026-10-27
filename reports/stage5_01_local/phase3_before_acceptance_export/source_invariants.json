@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "cpu_preprocessor_unchanged": true,
+    "vlm_initialization_unchanged": true,
+    "vlm_tokens_and_generation_unchanged": true,
+    "ASRWorker_algorithm_unchanged": true,
+    "VadAudioWorker_signal_stop_changes_limited": true,
+    "AudioWorker_algorithm_unchanged": true,
+    "qwen_backend_unchanged": true,
+    "camera_capture_unchanged": true,
+    "asr_llm_smoke.cpp_routing_prompts_callbacks_unchanged": true,
+    "asr_llm_tts_smoke.cpp_routing_prompts_callbacks_unchanged": true
+  },
+  "note": "Source equality checks only; no SDK/hardware validation."
+}

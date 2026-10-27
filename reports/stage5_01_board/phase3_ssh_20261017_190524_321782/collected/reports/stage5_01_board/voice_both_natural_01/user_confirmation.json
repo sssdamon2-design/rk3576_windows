@@ -1,0 +1,15 @@
+{
+  "readiness": {
+    "confirmed": true,
+    "user_message": "准备好了"
+  },
+  "audible_confirmation": {
+    "run": "voice_both_natural_01",
+    "user_message": "两个回答都听到了",
+    "text_answer_heard": true,
+    "vision_answer_heard": true,
+    "source": "Explicit user reply in this conversation; not inferred from TTS success logs",
+    "visual_answer_semantic_accuracy_confirmed": null
+  },
+  "note": "Hearing confirmation applies to this named run only; visual semantic accuracy was not separately confirmed."
+}

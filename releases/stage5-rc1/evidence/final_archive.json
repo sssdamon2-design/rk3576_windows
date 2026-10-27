@@ -1,0 +1,16 @@
+{
+  "archive": "reports/stage5_05_local/RK3576_STAGE5_FINAL_REVIEW.tgz",
+  "bytes": 147337657,
+  "uncompressed_bytes": 400094996,
+  "files": 4835,
+  "sha256": "704eec9a30c23a5253854d21af53e834f47844cbd477355c7283c1ab3db50734",
+  "canonical_collections": {
+    "2": "reports\\stage5_02_board\\collected_20261017_195843",
+    "3": "reports\\stage5_03_board\\collected_20261017_205548",
+    "4": "reports\\stage5_04_board\\collected_20261017_231748",
+    "5": "reports\\stage5_05_board\\collected_20261018_014600"
+  },
+  "models_included": false,
+  "stable_replaced": false,
+  "user_review_pending": true
+}

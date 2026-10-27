@@ -1,0 +1,11 @@
+{
+  "build_process_exit_code": 0,
+  "stop_reason": null,
+  "original_321_entries_unchanged": true,
+  "minimum_disk_free_bytes": 2231934976,
+  "final_disk_free_bytes": 2231988224,
+  "duration_seconds": 55.152848234999965,
+  "ctest_executed": false,
+  "ai_programs_started": false,
+  "supervisor_exit_code": 0
+}

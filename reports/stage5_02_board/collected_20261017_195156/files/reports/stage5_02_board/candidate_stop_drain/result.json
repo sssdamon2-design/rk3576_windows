@@ -1,0 +1,22 @@
+{
+  "pid": 10564,
+  "returncode": 0,
+  "sent_signal": "SIGTERM",
+  "trigger_observed": true,
+  "forced_kill": false,
+  "timeout": false,
+  "duration_seconds": 58.27894893699977,
+  "signal_to_exit_seconds": 12.229140487999757,
+  "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "shutdown_complete_marker": true,
+  "program_PASS": false,
+  "text_tts_completed": true,
+  "vision_tts_completed": true,
+  "user_audible_confirmation": null,
+  "variant": "candidate",
+  "input_mode": "controlled_replay_no_microphone_ASR",
+  "stop_mode": "drain"
+}

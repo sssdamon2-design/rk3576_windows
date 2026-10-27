@@ -1,0 +1,9 @@
+{
+  "name": "voice_both_natural_01",
+  "signal": null,
+  "trigger": "ready",
+  "delay": 2,
+  "seconds": 90,
+  "timeout": 240,
+  "grace": 45
+}

@@ -1,0 +1,23 @@
+{
+  "pid": 11821,
+  "returncode": 0,
+  "sent_signal": null,
+  "trigger_observed": true,
+  "forced_kill": false,
+  "timeout": false,
+  "duration_seconds": 51.10747601100047,
+  "input_closed_to_exit_seconds": 29.113667653999983,
+  "signal_to_exit_seconds": null,
+  "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "shutdown_complete_marker": true,
+  "program_PASS": true,
+  "text_tts_completed": true,
+  "vision_tts_completed": true,
+  "user_audible_confirmation": null,
+  "variant": "baseline",
+  "input_mode": "controlled_replay_no_microphone_ASR",
+  "stop_mode": "drain"
+}

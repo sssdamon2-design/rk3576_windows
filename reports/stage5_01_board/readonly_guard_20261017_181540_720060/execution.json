@@ -1,0 +1,12 @@
+{
+  "phase": "guard",
+  "ssh_process_exit_code": 0,
+  "local_client_timeout": false,
+  "remote_command_exit_known": true,
+  "destination_exists_stop": false,
+  "destination_absent_observed": true,
+  "ssh_connection_confirmed": true,
+  "scope": "Only authorized read-only inspection; no remote file writes/builds/program tests",
+  "payload_sha256": null,
+  "report_directory": "reports\\stage5_01_board\\readonly_guard_20261017_181540_720060"
+}

@@ -1,0 +1,27 @@
+{
+  "source_files_checked": 78,
+  "source_all_match_local": true,
+  "original_fingerprints_checked": 321,
+  "original_321_unchanged": true,
+  "accepted_stage5_01_executable_unchanged": true,
+  "accepted_stage5_01_sha256": "7b44730ad55cdb49f252de3e801b3e6680169a93ed0cb59d80fdc8f6720a10b7",
+  "candidate_executable_sha256": "1bf59ddf68cb0290e30df3ed945347dc73b7ff477a44d69c8f1f80a51f49d9b7",
+  "disk_free_bytes": 2208722944,
+  "devices_clear": true,
+  "cases": 8,
+  "user_confirmations": [
+    {
+      "case": "candidate_voice_natural",
+      "question": "一加一等于几；等播放后再说前面有什么",
+      "user_reply": "两个都听到了",
+      "captured_local": "2026-10-17T19:48:48.850857+08:00",
+      "scope": "User confirmed audible headphone playback for both Stage 5.2 real microphone answers; no explicit image accuracy assertion"
+    },
+    {
+      "case": "candidate_voice_burst",
+      "user_reply": "三个回答",
+      "captured_local": "2026-10-17T19:52:07.262366+08:00",
+      "scope": "User confirmed three audible answers; log confirms three delivered and one explicit admission rejection."
+    }
+  ]
+}

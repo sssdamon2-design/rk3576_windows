@@ -1,0 +1,349 @@
+
+#include "audio/alsa_playback_service.h"
+
+#include <algorithm>
+#include <cerrno>
+#include <cmath>
+#include <memory>
+#include <new>
+#include <vector>
+
+AlsaPlaybackService::~AlsaPlaybackService()
+{
+    close();
+}
+
+bool AlsaPlaybackService::open(
+    const std::string& device,
+    std::int32_t sample_rate,
+    std::string& error)
+{
+    close();
+    error.clear();
+
+    if (device.empty() || sample_rate <= 0)
+    {
+        error = "Invalid device or sample rate";
+        return false;
+    }
+
+    // 1. 打开 ALSA Playback 设备。
+    // flags=0 表示使用阻塞模式。
+    int rc = snd_pcm_open(
+        &pcm_,
+        device.c_str(),
+        SND_PCM_STREAM_PLAYBACK,
+        0
+    );
+
+    if (rc < 0)
+    {
+        error = std::string("snd_pcm_open: ") +
+                snd_strerror(rc);
+        pcm_ = nullptr;
+        return false;
+    }
+
+    // 2. 分配硬件参数结构体。
+    snd_pcm_hw_params_t* raw_hw = nullptr;
+
+    rc = snd_pcm_hw_params_malloc(&raw_hw);
+
+    if (rc < 0)
+    {
+        error = std::string("hw_params_malloc: ") +
+                snd_strerror(rc);
+        close();
+        return false;
+    }
+
+    // 自动释放 ALSA 参数结构体。
+    using HwParamsOwner = std::unique_ptr<
+        snd_pcm_hw_params_t,
+        decltype(&snd_pcm_hw_params_free)
+    >;
+
+    HwParamsOwner hw(
+        raw_hw,
+        &snd_pcm_hw_params_free
+    );
+
+    // 3. 获取设备可配置的参数范围。
+    rc = snd_pcm_hw_params_any(pcm_, hw.get());
+
+    if (rc < 0)
+    {
+        error = std::string("hw_params_any: ") +
+                snd_strerror(rc);
+        close();
+        return false;
+    }
+
+    // 4. 设置交错存储模式。
+    rc = snd_pcm_hw_params_set_access(
+        pcm_,
+        hw.get(),
+        SND_PCM_ACCESS_RW_INTERLEAVED
+    );
+
+    if (rc < 0)
+    {
+        error = std::string("set_access: ") +
+                snd_strerror(rc);
+        close();
+        return false;
+    }
+
+    // 5. 使用 16 位有符号小端 PCM。
+    rc = snd_pcm_hw_params_set_format(
+        pcm_,
+        hw.get(),
+        SND_PCM_FORMAT_S16_LE
+    );
+
+    if (rc < 0)
+    {
+        error = std::string("set_format: ") +
+                snd_strerror(rc);
+        close();
+        return false;
+    }
+
+    // 6. TTS 输出单声道。
+    rc = snd_pcm_hw_params_set_channels(
+        pcm_,
+        hw.get(),
+        1
+    );
+
+    if (rc < 0)
+    {
+        error = std::string("set_channels: ") +
+                snd_strerror(rc);
+        close();
+        return false;
+    }
+
+    // 7. 设置采样率。
+    // plughw 允许在必要时进行采样率转换。
+    unsigned int rate =
+        static_cast<unsigned int>(sample_rate);
+
+    rc = snd_pcm_hw_params_set_rate_near(
+        pcm_,
+        hw.get(),
+        &rate,
+        nullptr
+    );
+
+    if (rc < 0)
+    {
+        error = std::string("set_rate_near: ") +
+                snd_strerror(rc);
+        close();
+        return false;
+    }
+
+    // 我们没有自行实现重采样。
+    // 如果 ALSA 未接受请求的采样率，则拒绝播放。
+    if (rate != static_cast<unsigned int>(sample_rate))
+    {
+        error = "ALSA negotiated a different sample rate";
+        close();
+        return false;
+    }
+
+    // 8. 应用 PCM 参数。
+    // 本节暂时使用 ALSA 自动选择的缓冲区参数。
+    rc = snd_pcm_hw_params(pcm_, hw.get());
+
+    if (rc < 0)
+    {
+        error = std::string("snd_pcm_hw_params: ") +
+                snd_strerror(rc);
+        close();
+        return false;
+    }
+
+    sample_rate_ = sample_rate;
+    xrun_count_ = 0;
+
+    return true;
+}
+
+bool AlsaPlaybackService::play(
+    const float* samples,
+    std::size_t sample_count,
+    std::string& error)
+{
+    error.clear();
+
+    if (pcm_ == nullptr)
+    {
+        error = "Playback device is not initialized";
+        return false;
+    }
+
+    if (samples == nullptr || sample_count == 0)
+    {
+        error = "Invalid PCM samples";
+        return false;
+    }
+
+    // 1. float PCM 转换为 S16_LE PCM。
+    std::vector<std::int16_t> pcm_data;
+
+    try
+    {
+        pcm_data.resize(sample_count);
+    }
+    catch (const std::bad_alloc&)
+    {
+        error = "Cannot allocate PCM playback buffer";
+        return false;
+    }
+
+    for (std::size_t i = 0; i < sample_count; ++i)
+    {
+        float value = samples[i];
+
+        // 防止 NaN / Inf 导致转换异常。
+        if (!std::isfinite(value))
+        {
+            value = 0.0f;
+        }
+
+        // 将采样值限制到 [-1, 1]。
+        value = std::max(
+            -1.0f,
+            std::min(1.0f, value)
+        );
+
+        // 映射到 int16_t 的完整有符号范围。
+        const float scale =
+            value < 0.0f ? 32768.0f : 32767.0f;
+
+        pcm_data[i] = static_cast<std::int16_t>(
+            std::lround(value * scale)
+        );
+    }
+
+    // 2. 每次播放前准备 PCM。
+    // drain() 之后再次播放也可以重新准备设备。
+    int rc = snd_pcm_prepare(pcm_);
+
+    if (rc < 0)
+    {
+        error = std::string("snd_pcm_prepare: ") +
+                snd_strerror(rc);
+        return false;
+    }
+
+    std::size_t offset = 0;
+    int recovery_attempts = 0;
+    int wait_timeouts = 0;
+
+    // 3. 循环写入，直到所有采样点都提交给 ALSA。
+    while (offset < pcm_data.size())
+    {
+        const std::size_t remaining =
+            pcm_data.size() - offset;
+
+        // 分块提交，每次最多 4096 个单声道采样帧。
+        const snd_pcm_uframes_t frames =
+            static_cast<snd_pcm_uframes_t>(
+                std::min<std::size_t>(remaining, 4096)
+            );
+
+        const snd_pcm_sframes_t written =
+            snd_pcm_writei(
+                pcm_,
+                pcm_data.data() + offset,
+                frames
+            );
+
+        if (written > 0)
+        {
+            // ALSA 可能只接受部分帧。
+            offset += static_cast<std::size_t>(written);
+
+            recovery_attempts = 0;
+            wait_timeouts = 0;
+            continue;
+        }
+
+        // 暂时无法写入，等待设备可用。
+        if (written == -EAGAIN || written == 0)
+        {
+            const int wait_rc = snd_pcm_wait(pcm_, 1000);
+
+            if (wait_rc < 0)
+            {
+                error = std::string("snd_pcm_wait: ") +
+                        snd_strerror(wait_rc);
+                return false;
+            }
+
+            if (wait_rc == 0 && ++wait_timeouts > 5)
+            {
+                error = "ALSA playback wait timed out";
+                return false;
+            }
+
+            continue;
+        }
+
+        // 4. 处理播放缓冲区欠载。
+        if (written == -EPIPE)
+        {
+            ++xrun_count_;
+        }
+
+        // snd_pcm_recover 处理 EPIPE、ESTRPIPE、
+        // EINTR 等可恢复的 PCM 错误。
+        const int recover_rc = snd_pcm_recover(
+            pcm_,
+            static_cast<int>(written),
+            1
+        );
+
+        if (recover_rc < 0)
+        {
+            error = std::string("snd_pcm_recover: ") +
+                    snd_strerror(recover_rc);
+            return false;
+        }
+
+        if (++recovery_attempts > 5)
+        {
+            error = "Too many consecutive ALSA recoveries";
+            return false;
+        }
+
+        // 恢复后重试尚未成功写入的帧。
+    }
+
+    // 5. 等待 ALSA 播放完剩余缓冲区数据。
+    rc = snd_pcm_drain(pcm_);
+
+    if (rc < 0)
+    {
+        error = std::string("snd_pcm_drain: ") +
+                snd_strerror(rc);
+        return false;
+    }
+
+    return true;
+}
+
+void AlsaPlaybackService::close() noexcept
+{
+    if (pcm_ != nullptr)
+    {
+        snd_pcm_close(pcm_);
+        pcm_ = nullptr;
+    }
+
+    sample_rate_ = 0;
+    xrun_count_ = 0;
+}

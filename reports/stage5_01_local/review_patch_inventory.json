@@ -1,0 +1,125 @@
+{
+  "input_patch_sha256": "a33d72676f6a8d476c51047c6273aa89325685a6cd5d0ce2f214af442f73ce41",
+  "sections_read": [
+    {
+      "file": "CMakeLists.txt",
+      "hunks": 5,
+      "bytes_read": 2714
+    },
+    {
+      "file": "config/README.md",
+      "hunks": 1,
+      "bytes_read": 451
+    },
+    {
+      "file": "docs/architecture.md",
+      "hunks": 1,
+      "bytes_read": 445
+    },
+    {
+      "file": "docs/run.md",
+      "hunks": 1,
+      "bytes_read": 429
+    },
+    {
+      "file": "docs/stage5_01_architecture_audit.md",
+      "hunks": 1,
+      "bytes_read": 32550
+    },
+    {
+      "file": "docs/stage5_01_source_appendix.md",
+      "hunks": 1,
+      "bytes_read": 147159
+    },
+    {
+      "file": "docs/stage5_plan.md",
+      "hunks": 1,
+      "bytes_read": 8691
+    },
+    {
+      "file": "docs/validation.md",
+      "hunks": 1,
+      "bytes_read": 454
+    },
+    {
+      "file": "include/ai/llm_worker.h",
+      "hunks": 1,
+      "bytes_read": 440
+    },
+    {
+      "file": "include/audio/asr_pipeline.h",
+      "hunks": 6,
+      "bytes_read": 1359
+    },
+    {
+      "file": "include/audio/tts_worker.h",
+      "hunks": 1,
+      "bytes_read": 410
+    },
+    {
+      "file": "include/audio/vad_audio_worker.h",
+      "hunks": 2,
+      "bytes_read": 426
+    },
+    {
+      "file": "README_STAGE5.txt",
+      "hunks": 1,
+      "bytes_read": 991
+    },
+    {
+      "file": "src/ai/llm_worker_smoke.cpp",
+      "hunks": 4,
+      "bytes_read": 1928
+    },
+    {
+      "file": "src/ai/rk3576_vlm_backend.cpp",
+      "hunks": 2,
+      "bytes_read": 2480
+    },
+    {
+      "file": "src/audio/asr_llm_smoke.cpp",
+      "hunks": 4,
+      "bytes_read": 1671
+    },
+    {
+      "file": "src/audio/asr_llm_tts_smoke.cpp",
+      "hunks": 4,
+      "bytes_read": 3819
+    },
+    {
+      "file": "src/audio/asr_pipeline.cpp",
+      "hunks": 4,
+      "bytes_read": 4231
+    },
+    {
+      "file": "src/audio/audio_worker.cpp",
+      "hunks": 1,
+      "bytes_read": 3456
+    },
+    {
+      "file": "src/audio/tts_worker_smoke.cpp",
+      "hunks": 4,
+      "bytes_read": 1306
+    },
+    {
+      "file": "src/audio/vad_audio_worker.cpp",
+      "hunks": 3,
+      "bytes_read": 1092
+    },
+    {
+      "file": "tests/asr_pipeline_tests.cpp",
+      "hunks": 1,
+      "bytes_read": 6102
+    },
+    {
+      "file": "tests/llm_worker_tests.cpp",
+      "hunks": 6,
+      "bytes_read": 3953
+    },
+    {
+      "file": "tools/stage5_review.py",
+      "hunks": 1,
+      "bytes_read": 6550
+    }
+  ]
+}

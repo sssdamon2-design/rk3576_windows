@@ -1,0 +1,559 @@
+{
+  "status": "STAGE5_01_ACCEPTED",
+  "scope": "Bounded ARM64 unit tests and short real hardware regression; not proof of long-run leak freedom or exhaustive SDK failure behavior",
+  "stage5_01_formally_accepted": true,
+  "ready_for_stage5_02": true,
+  "stage5_02_implementation_started": false,
+  "host": "cat@192.168.10.27",
+  "remote_root": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "local_complete_evidence": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782",
+  "arm64_build": "21/21 targets built; post-fix rebuild exit 0",
+  "post_fix_build_targets": [
+    "asr_live_smoke",
+    "asr_llm_smoke",
+    "asr_llm_tts_smoke",
+    "asr_pipeline_smoke",
+    "asr_pipeline_tests",
+    "asr_route_smoke",
+    "asr_vad_smoke",
+    "audio_capture_smoke",
+    "audio_preprocessor_tests",
+    "camera_service_tests",
+    "llm_worker_tests",
+    "multimodal_audio",
+    "multimodal_camera",
+    "multimodal_core",
+    "multimodal_tts",
+    "rk3576_multimodal",
+    "rkllm_worker_smoke",
+    "tts_playback_smoke",
+    "tts_smoke",
+    "tts_worker_queue_smoke",
+    "tts_worker_smoke"
+  ],
+  "post_fix_build_exit_code": 0,
+  "ctest_runs": [
+    {
+      "folder": "phase3_precheck_ctest_20261017T105346Z",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "exit_code": 0,
+      "ctest_total_seconds": 0.26,
+      "tests": [
+        {
+          "name": "asr_pipeline_tests",
+          "time_seconds": 0.00943535,
+          "kind": "Fake_or_Mock_unit_test"
+        },
+        {
+          "name": "audio_preprocessor_tests",
+          "time_seconds": 0.00952117,
+          "kind": "pure_algorithm"
+        },
+        {
+          "name": "llm_worker_tests",
+          "time_seconds": 0.0121942,
+          "kind": "Fake_or_Mock_unit_test"
+        },
+        {
+          "name": "camera_service_tests",
+          "time_seconds": 0.223908,
+          "kind": "Fake_or_Mock_unit_test"
+        }
+      ]
+    },
+    {
+      "folder": "signal_fix_20261017T105740Z",
+      "total": 4,
+      "passed": 4,
+      "failed": 0,
+      "exit_code": 0,
+      "ctest_total_seconds": 0.27,
+      "tests": [
+        {
+          "name": "asr_pipeline_tests",
+          "time_seconds": 0.00957815,
+          "kind": "Fake_or_Mock_unit_test"
+        },
+        {
+          "name": "audio_preprocessor_tests",
+          "time_seconds": 0.00895747,
+          "kind": "pure_algorithm"
+        },
+        {
+          "name": "llm_worker_tests",
+          "time_seconds": 0.0120065,
+          "kind": "Fake_or_Mock_unit_test"
+        },
+        {
+          "name": "camera_service_tests",
+          "time_seconds": 0.228979,
+          "kind": "Fake_or_Mock_unit_test"
+        }
+      ]
+    }
+  ],
+  "hardware_and_signal_runs": {
+    "baseline_sigint": {
+      "pid": 6214,
+      "returncode": -2,
+      "sent_signal": "SIGINT",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 25.593503883000267,
+      "signal_to_exit_seconds": 1.3794266989998505,
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "shutdown_complete_marker": false,
+      "program_PASS": false,
+      "text_tts_completed": false,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "capture_error_counters": null,
+      "playback_xruns": null,
+      "nonfatal_diagnostics": {
+        "kokoro_unknown_token": 1,
+        "rkllm_custom_template_warning": 1
+      },
+      "sampled_max_rss_kib": 2561800,
+      "sampled_max_threads": 8,
+      "evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/baseline_sigint",
+      "acceptance": "OBSERVED_DEFECT_BEFORE_FIX",
+      "timing_interpretation": "Legacy interval includes post-exit device/fingerprint queries; conservative upper bound, not precise child exit latency"
+    },
+    "baseline_sigterm": {
+      "pid": 6272,
+      "returncode": -15,
+      "sent_signal": "SIGTERM",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 24.580674790999637,
+      "signal_to_exit_seconds": 1.1425629440000193,
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "shutdown_complete_marker": false,
+      "program_PASS": false,
+      "text_tts_completed": false,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "capture_error_counters": null,
+      "playback_xruns": null,
+      "nonfatal_diagnostics": {
+        "kokoro_unknown_token": 1,
+        "rkllm_custom_template_warning": 1
+      },
+      "sampled_max_rss_kib": 2493836,
+      "sampled_max_threads": 8,
+      "evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/baseline_sigterm",
+      "acceptance": "OBSERVED_DEFECT_BEFORE_FIX",
+      "timing_interpretation": "Legacy interval includes post-exit device/fingerprint queries; conservative upper bound, not precise child exit latency"
+    },
+    "fixed_idle_sigint": {
+      "pid": 6735,
+      "returncode": 0,
+      "sent_signal": "SIGINT",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 26.08893155600026,
+      "signal_to_exit_seconds": 2.1568303069998365,
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "shutdown_complete_marker": true,
+      "program_PASS": false,
+      "text_tts_completed": false,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "capture_error_counters": {
+        "xruns": 0,
+        "suspends": 0,
+        "recoveries": 0,
+        "recovery_failures": 0
+      },
+      "playback_xruns": 0,
+      "nonfatal_diagnostics": {
+        "kokoro_unknown_token": 1,
+        "rkllm_custom_template_warning": 1
+      },
+      "sampled_max_rss_kib": 2562576,
+      "sampled_max_threads": 9,
+      "evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/fixed_idle_sigint",
+      "acceptance": "PASSED",
+      "counters": {
+        "VAD segments": [
+          0
+        ],
+        "ASR recognized": [
+          0
+        ],
+        "Audio queue dropped": [
+          0
+        ],
+        "LLM accepted/completed/success/failed/rejected": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "TTS accepted/completed/success/failed/rejected/empty": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "VISION completed/success/failed": [
+          0,
+          0,
+          0
+        ]
+      },
+      "timing_interpretation": "Legacy interval includes post-exit device/fingerprint queries; conservative upper bound, not precise child exit latency"
+    },
+    "fixed_idle_sigterm": {
+      "pid": 6790,
+      "returncode": 0,
+      "sent_signal": "SIGTERM",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 25.405064911999943,
+      "signal_to_exit_seconds": 2.2014325009999993,
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "shutdown_complete_marker": true,
+      "program_PASS": false,
+      "text_tts_completed": false,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "capture_error_counters": {
+        "xruns": 0,
+        "suspends": 0,
+        "recoveries": 0,
+        "recovery_failures": 0
+      },
+      "playback_xruns": 0,
+      "nonfatal_diagnostics": {
+        "kokoro_unknown_token": 1,
+        "rkllm_custom_template_warning": 1
+      },
+      "sampled_max_rss_kib": 2493552,
+      "sampled_max_threads": 9,
+      "evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/fixed_idle_sigterm",
+      "acceptance": "PASSED",
+      "counters": {
+        "VAD segments": [
+          0
+        ],
+        "ASR recognized": [
+          0
+        ],
+        "Audio queue dropped": [
+          0
+        ],
+        "LLM accepted/completed/success/failed/rejected": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "TTS accepted/completed/success/failed/rejected/empty": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "VISION completed/success/failed": [
+          0,
+          0,
+          0
+        ]
+      },
+      "timing_interpretation": "Legacy interval includes post-exit device/fingerprint queries; conservative upper bound, not precise child exit latency"
+    },
+    "fixed_initializing_sigterm": {
+      "pid": 6970,
+      "returncode": 0,
+      "sent_signal": "SIGTERM",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 22.87654607500008,
+      "signal_to_exit_seconds": 22.54044454299992,
+      "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "shutdown_complete_marker": true,
+      "program_PASS": false,
+      "text_tts_completed": false,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "capture_error_counters": null,
+      "playback_xruns": 0,
+      "nonfatal_diagnostics": {
+        "kokoro_unknown_token": 1,
+        "rkllm_custom_template_warning": 1
+      },
+      "sampled_max_rss_kib": 2277096,
+      "sampled_max_threads": 7,
+      "evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/fixed_initializing_sigterm",
+      "acceptance": "PASSED",
+      "counters": {
+        "VAD segments": [
+          0
+        ],
+        "ASR recognized": [
+          0
+        ],
+        "Audio queue dropped": [
+          0
+        ],
+        "LLM accepted/completed/success/failed/rejected": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "TTS accepted/completed/success/failed/rejected/empty": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "VISION completed/success/failed": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "voice_both_natural_01": {
+      "pid": 7472,
+      "returncode": 0,
+      "sent_signal": null,
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 113.45949642200003,
+      "signal_to_exit_seconds": null,
+      "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "shutdown_complete_marker": true,
+      "program_PASS": true,
+      "text_tts_completed": true,
+      "vision_tts_completed": true,
+      "user_audible_confirmation": null,
+      "capture_error_counters": {
+        "xruns": 0,
+        "suspends": 0,
+        "recoveries": 0,
+        "recovery_failures": 0
+      },
+      "playback_xruns": 0,
+      "nonfatal_diagnostics": {
+        "kokoro_unknown_token": 1,
+        "rkllm_custom_template_warning": 1
+      },
+      "sampled_max_rss_kib": 2704852,
+      "sampled_max_threads": 15,
+      "evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/voice_both_natural_01",
+      "acceptance": "PASSED",
+      "counters": {
+        "VAD segments": [
+          2
+        ],
+        "ASR recognized": [
+          2
+        ],
+        "Audio queue dropped": [
+          0
+        ],
+        "LLM accepted/completed/success/failed/rejected": [
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "TTS accepted/completed/success/failed/rejected/empty": [
+          2,
+          2,
+          2,
+          0,
+          0,
+          0
+        ],
+        "VISION completed/success/failed": [
+          1,
+          1,
+          0
+        ]
+      }
+    },
+    "voice_text_active_sigterm": {
+      "pid": 7665,
+      "returncode": 0,
+      "sent_signal": "SIGTERM",
+      "trigger_observed": true,
+      "forced_kill": false,
+      "timeout": false,
+      "duration_seconds": 56.15954036699986,
+      "signal_to_exit_seconds": 12.8346558129997,
+      "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+      "process_gone": true,
+      "devices_released": true,
+      "original_321_unchanged": true,
+      "shutdown_complete_marker": true,
+      "program_PASS": false,
+      "text_tts_completed": true,
+      "vision_tts_completed": false,
+      "user_audible_confirmation": null,
+      "capture_error_counters": {
+        "xruns": 0,
+        "suspends": 0,
+        "recoveries": 0,
+        "recovery_failures": 0
+      },
+      "playback_xruns": 0,
+      "nonfatal_diagnostics": {
+        "kokoro_unknown_token": 1,
+        "rkllm_custom_template_warning": 1
+      },
+      "sampled_max_rss_kib": 2563460,
+      "sampled_max_threads": 9,
+      "evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/voice_text_active_sigterm",
+      "acceptance": "PASSED",
+      "counters": {
+        "VAD segments": [
+          1
+        ],
+        "ASR recognized": [
+          1
+        ],
+        "Audio queue dropped": [
+          0
+        ],
+        "LLM accepted/completed/success/failed/rejected": [
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        "TTS accepted/completed/success/failed/rejected/empty": [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0
+        ],
+        "VISION completed/success/failed": [
+          0,
+          0,
+          0
+        ]
+      }
+    }
+  },
+  "user_confirmation": {
+    "readiness": {
+      "confirmed": true,
+      "user_message": "准备好了"
+    },
+    "audible_confirmation": {
+      "run": "voice_both_natural_01",
+      "user_message": "两个回答都听到了",
+      "text_answer_heard": true,
+      "vision_answer_heard": true,
+      "source": "Explicit user reply in this conversation; not inferred from TTS success logs",
+      "visual_answer_semantic_accuracy_confirmed": null
+    },
+    "active_signal_audible_confirmation": {
+      "run": "voice_text_active_sigterm",
+      "user_message": "已提问，听到了回答",
+      "text_answer_heard": true,
+      "source": "Explicit user reply after SIGTERM during the LLM request"
+    },
+    "note": "Hearing confirmations apply only to the named runs; visual semantic accuracy was not separately confirmed."
+  },
+  "error_statistics": {
+    "original_signal_defects_observed": 2,
+    "post_fix_case_failures": 0,
+    "ctest_failures_before_fix": 0,
+    "ctest_failures_after_fix": 0,
+    "timeouts": 0,
+    "forced_kills": 0,
+    "core_audio_queue_dropped": 0,
+    "core_llm_failures": 0,
+    "core_vision_failures": 0,
+    "core_tts_failures": 0,
+    "note": "Absent pre-fix/early-stop capture statistics remain null, not fabricated zeros; known nonfatal model diagnostics are counted per case"
+  },
+  "final_checks": {
+    "time": "2026-10-17T19:05:19+08:00",
+    "original_321_unchanged": true,
+    "source_files_match": 77,
+    "target_devices_clear": true,
+    "live_isolated_voice_pids": [],
+    "disk_free_bytes": 2228097024,
+    "memory_command": {
+      "command": [
+        "free",
+        "-b"
+      ],
+      "exit_code": 0,
+      "stdout": "               total        used        free      shared  buff/cache   available\n内存：    4084207616   763793408  2647298048    16814080   742486016  3320414208\n交换：             0           0           0\n",
+      "stderr": ""
+    },
+    "existing_3a_service": {
+      "command": [
+        "ps",
+        "-C",
+        "rkaiq_3A_server",
+        "-o",
+        "pid,ppid,user,comm,args"
+      ],
+      "exit_code": 0,
+      "stdout": "    PID    PPID USER     COMMAND         COMMAND\n    423       1 root     rkaiq_3A_server /usr/bin/rkaiq_3A_server\n",
+      "stderr": ""
+    },
+    "new_kernel_lines_since_baseline": 150,
+    "matching_oom_crash_npu_error_lines": []
+  },
+  "production_fix_files": [
+    "src/audio/asr_llm_tts_smoke.cpp",
+    "include/audio/vad_audio_worker.h",
+    "src/audio/vad_audio_worker.cpp"
+  ],
+  "phase3_production_patch": "reports/stage5_01_local/phase3_signal_fix/signal_fix.patch",
+  "phase3_raw_git_diff": "reports/stage5_01_local/phase3_signal_fix/signal_fix.git.diff",
+  "remaining_risks": [
+    "Synchronous SDK initialization/inference and blocking ALSA calls are drained, not forcibly cancelled; hung SDK remains bounded by the external test guard only",
+    "Short separate-process regressions do not prove same-process long-duration leak freedom; no ASan/Valgrind or exhaustive SDK fault injection",
+    "RKNN failed outputs_get ownership and release/destroy error returns remain untested SDK failure cases",
+    "Runtime callback serialization/late-userdata behavior is not exhaustively proven; current real synchronous runs passed",
+    "Completion callback exception can still lose completion accounting; prior documented risk, not observed in these runs",
+    "NPU parallel arbitration/throughput not tested; Stage 5.2 architecture remains unchanged",
+    "Existing Kokoro unknown-token and RKLLM custom-template diagnostics retained; no model modifications",
+    "VLM image semantics and varied Chinese visual questioning not accepted; original fixed English prompt retained"
+  ]
+}

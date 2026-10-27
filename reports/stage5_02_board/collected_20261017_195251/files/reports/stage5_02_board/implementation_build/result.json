@@ -1,0 +1,38 @@
+{
+  "steps": [
+    {
+      "step": "baseline_configure",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 2.0013297699997565
+    },
+    {
+      "step": "baseline_build",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 52.02469522299998
+    },
+    {
+      "step": "baseline_ctest",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 1.0008463060003123
+    },
+    {
+      "step": "candidate_configure",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 2.0013852950005457
+    },
+    {
+      "step": "candidate_build",
+      "returncode": 2,
+      "reason": null,
+      "seconds": 50.02524212800017
+    }
+  ],
+  "original_321_unchanged": true,
+  "accepted_stage5_01_binary_unchanged": true,
+  "disk_free_bytes": 2214490112,
+  "successful": false
+}

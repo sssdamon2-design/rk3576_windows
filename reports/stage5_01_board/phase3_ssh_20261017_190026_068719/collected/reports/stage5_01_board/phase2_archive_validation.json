@@ -1,0 +1,8 @@
+{
+  "archive": "stage5_01_review_preflight_v2.tgz",
+  "sha256": "a653dd57e1ed5138170dd6d6ff7eb77a1518aa0e97c909402b662cab45c13c6e",
+  "regular_members": 87,
+  "safe_paths": true,
+  "all_member_hashes_match": true,
+  "extraction_exit_code": 0
+}

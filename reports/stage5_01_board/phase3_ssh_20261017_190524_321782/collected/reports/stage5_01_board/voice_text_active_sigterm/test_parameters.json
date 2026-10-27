@@ -1,0 +1,9 @@
+{
+  "name": "voice_text_active_sigterm",
+  "signal": "SIGTERM",
+  "trigger": "llm",
+  "delay": 0.15,
+  "seconds": 120,
+  "timeout": 240,
+  "grace": 60
+}

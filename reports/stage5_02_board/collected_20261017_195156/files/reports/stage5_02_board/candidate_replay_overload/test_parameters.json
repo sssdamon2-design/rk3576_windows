@@ -1,0 +1,14 @@
+{
+  "name": "candidate_replay_overload",
+  "variant": "candidate",
+  "replay": true,
+  "stop_mode": "drain",
+  "tts_queue_ms": 12000,
+  "request_lifetime_ms": 45000,
+  "signal": null,
+  "trigger": "ready",
+  "delay": 2,
+  "seconds": 30,
+  "timeout": 200,
+  "grace": 60
+}

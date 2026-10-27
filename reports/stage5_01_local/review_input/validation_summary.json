@@ -1,0 +1,103 @@
+{
+  "date_client_timezone": "2026-10-17 Asia/Hong_Kong",
+  "scope": "Windows x86_64 portable C++ tests only; NOT ARM64 or SDK/hardware verification",
+  "tools": {
+    "cmake": "4.3.2",
+    "compiler": "MinGW g++ 16.1.0",
+    "generator": "MinGW Makefiles",
+    "build_type": "Debug"
+  },
+  "options": {
+    "BUILD_TESTING": true,
+    "BUILD_WITH_RKLLM": false,
+    "BUILD_WITH_VLM": false,
+    "ENABLE_SHERPA_ASR": false
+  },
+  "baseline": {
+    "workspace_configure_exit": 0,
+    "workspace_build_exit": 2,
+    "ascii_configure_exit": 0,
+    "ascii_build_exit": 0,
+    "ascii_ctest_exit": 0,
+    "passed": 4,
+    "total": 4
+  },
+  "final": {
+    "build_exit": 0,
+    "ctest_exit": 0,
+    "passed": 6,
+    "total": 6,
+    "tests": [
+      {
+        "name": "asr_pipeline_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "audio_preprocessor_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "llm_worker_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "core_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "cli_smoke",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "camera_service_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      }
+    ],
+    "logs": [
+      "final_build.log",
+      "final_ctest.log",
+      "final_ctest_details.log",
+      "final_ctest.xml"
+    ]
+  },
+  "additional_check": {
+    "portable_llm_worker_smoke_compile_exit": 0,
+    "no_args_usage_exit": 2,
+    "scope": "Unavailable backend linked on Windows; no RKLLM SDK"
+  },
+  "temporary_source_copy": {
+    "directory": "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_01_after",
+    "identical_code_and_test_files": 75
+  },
+  "remote_actions": [],
+  "not_verified": [
+    "Linux ARM64 SDK builds",
+    "RKNN output release with actual runtime",
+    "AudioWorker/VadAudioWorker production SDK paths",
+    "TTS library targets",
+    "Full ASR/LLM/VLM/TTS hardware regression",
+    "NPU concurrency",
+    "SIGINT voice exit",
+    "Memory/performance/stability"
+  ],
+  "review": {
+    "manifest_files": 24,
+    "source_invariant_checks": 10,
+    "all_source_invariants_passed": true,
+    "patch_dry_run_exit": 0,
+    "patch_sha256": "a33d72676f6a8d476c51047c6273aa89325685a6cd5d0ce2f214af442f73ce41",
+    "manifest_integrity_passed": true
+  }
+}

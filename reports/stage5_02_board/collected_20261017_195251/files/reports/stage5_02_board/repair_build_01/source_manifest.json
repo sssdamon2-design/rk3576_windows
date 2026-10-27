@@ -1,0 +1,12 @@
+[
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "before": "36444ea2ae30c46e214c31de720585941d0a86a13a0ca32aaf61cf042acaa9a4",
+    "sha256": "b746bbb89fff7ba559a101117eecf69074aec561bc9d3515b99646a6d59e5550"
+  },
+  {
+    "file": "src/audio/tts_smoke.cpp",
+    "before": "63561803c786cd366740cf391b275935c592be234336e19f023e770c35b122ca",
+    "sha256": "40589cab7c13bd0208ff0f2b7d00ab24eaf1edbfed0ee34c47f05ed947dab650"
+  }
+]

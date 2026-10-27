@@ -1,0 +1,17 @@
+[
+  {
+    "file": "include/audio/vad_audio_worker.h",
+    "before_sha256": "1b6003c01667064faa99252bd47c6cf4082f04e9aa755a031fcc49202df3aa45",
+    "after_sha256": "897344fd93d5c9b0552c009b627c68826a14cc1722066df21d1363064ff1b517"
+  },
+  {
+    "file": "src/audio/vad_audio_worker.cpp",
+    "before_sha256": "ec23237150f6fa32e4781bfe8a413e1b38f67b980ec5313ebbcac3ade60d871e",
+    "after_sha256": "4252accf02fcce9af5fc2822c640628c63331cd59b15399ad953ed498055c91b"
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "before_sha256": "3dcfe3dd1e19871fdab835b76b4410a8036a9b384f0da1e6d0aedccf950bc9a5",
+    "after_sha256": "28d84bce32042ce8136b27dd1c845b86f85d1168488cd51f25df0e77fa7a85e7"
+  }
+]

@@ -1,0 +1,224 @@
+diff --git a/original/include/audio/vad_audio_worker.h b/repaired/include/audio/vad_audio_worker.h
+index 6a00d91..7ecd21d 100644
+--- a/original/include/audio/vad_audio_worker.h
++++ b/repaired/include/audio/vad_audio_worker.h
+@@ -27,6 +27,8 @@ public:
+     void start();
+     void requestStop() noexcept;
+     void join();
++    // Completion publication lets the owner observe stop signals without blocking in join.
++    bool isFinished() const noexcept { return finished_.load(std::memory_order_acquire); }
+ 
+     // 仅在 join() 之后读取以下状态。
+     bool ok() const { return ok_; }
+@@ -48,6 +50,7 @@ private:
+     std::size_t record_seconds_;
+ 
+     std::atomic<bool> stop_requested_{false};
++    std::atomic<bool> finished_{false};
+     std::thread thread_;
+     bool started_ = false; // Lifecycle operations belong to one owner thread.
+ 
+diff --git a/original/src/audio/asr_llm_tts_smoke.cpp b/repaired/src/audio/asr_llm_tts_smoke.cpp
+index 6190b46..5154d7c 100644
+--- a/original/src/audio/asr_llm_tts_smoke.cpp
++++ b/repaired/src/audio/asr_llm_tts_smoke.cpp
+@@ -14,6 +14,8 @@
+ #include "video/latest_frame_buffer.h"
+ 
+ #include <chrono>
++#include <atomic>
++#include <cerrno>
+ #include <condition_variable>
+ #include <cstddef>
+ #include <cstdint>
+@@ -24,9 +26,71 @@
+ #include <stdexcept>
+ #include <string>
+ #include <utility>
++#include <thread>
++
++#include <pthread.h>
++#include <signal.h>
+ 
+ #include <unistd.h>
+ 
++namespace {
++// Construct before SDKs/workers: all descendant threads inherit the blocked set.
++// sigtimedwait runs in an ordinary thread; there is no asynchronous signal handler.
++class StopSignals {
++public:
++    StopSignals()
++    {
++        sigemptyset(&signals_);
++        sigaddset(&signals_, SIGINT);
++        sigaddset(&signals_, SIGTERM);
++        if (pthread_sigmask(SIG_BLOCK, &signals_, &previous_) != 0)
++            throw std::runtime_error("Cannot block stop signals");
++        try
++        {
++            thread_ = std::thread([this] {
++                const timespec interval{0, 100000000};
++                while (!finished_.load())
++                {
++                    const int received = sigtimedwait(&signals_, nullptr, &interval);
++                    if (received == SIGINT || received == SIGTERM)
++                    {
++                        int empty = 0;
++                        signal_.compare_exchange_strong(empty, received);
++                    }
++                    else if (received < 0 && errno != EAGAIN && errno != EINTR)
++                    {
++                        wait_failed_.store(true);
++                        break;
++                    }
++                }
++            });
++        }
++        catch (...)
++        {
++            pthread_sigmask(SIG_SETMASK, &previous_, nullptr);
++            throw;
++        }
++    }
++    ~StopSignals()
++    {
++        finished_.store(true);
++        if (thread_.joinable()) thread_.join();
++        pthread_sigmask(SIG_SETMASK, &previous_, nullptr);
++    }
++    StopSignals(const StopSignals&) = delete;
++    StopSignals& operator=(const StopSignals&) = delete;
++    int received() const noexcept { return signal_.load(); }
++    bool failed() const noexcept { return wait_failed_.load(); }
++private:
++    sigset_t signals_{};
++    sigset_t previous_{};
++    std::atomic<int> signal_{0};
++    std::atomic<bool> finished_{false};
++    std::atomic<bool> wait_failed_{false};
++    std::thread thread_;
++};
++} // namespace
++
+ // ==========================================================
+ // Stage 3.5
+ //
+@@ -190,6 +254,8 @@ int main(int argc, char** argv) try
+ 
+     std::string error;
+ 
++    StopSignals stop_signals;
++
+     // ------------------------------------------------------
+     // 4. 初始化 RKLLM
+     // ------------------------------------------------------
+@@ -988,9 +1054,27 @@ int main(int argc, char** argv) try
+     // 15. 等待录音/VAD 和 ASR 完成
+     // ------------------------------------------------------
+ 
++    bool stop_reported = false;
++    while (!producer.isFinished())
++    {
++        if (stop_signals.received() != 0 || stop_signals.failed())
++        {
++            producer.requestStop();
++            if (!stop_reported)
++            {
++                std::lock_guard<std::mutex> out(print_mutex);
++                std::cout << "[Shutdown] signal=" << stop_signals.received()
++                          << " stopping capture; draining accepted work\n" << std::flush;
++                stop_reported = true;
++            }
++        }
++        std::this_thread::sleep_for(std::chrono::milliseconds(20));
++    }
+     producer.join();
+ 
+     consumer.join();
++    asr.shutdown();
++    std::cout << "[Shutdown] capture/VAD and ASR joined; recognizer destroyed\n" << std::flush;
+ 
+     // 此时 ASRWorker 已经退出，
+     // 不会继续向 LLMWorker 提交新请求。
+@@ -1099,6 +1183,8 @@ int main(int argc, char** argv) try
+     // 才允许释放 RKLLM Runtime。
+     llm.shutdown();
+ 
++    std::cout << "[Shutdown] LLM joined; Qwen runtime destroyed\n" << std::flush;
++
+     // ------------------------------------------------------
+     // 19. 等待全部 TTS 任务完成
+     // ------------------------------------------------------
+@@ -1131,12 +1217,18 @@ int main(int argc, char** argv) try
+     tts_worker.requestStop();
+     tts_worker.join();
+ 
++    std::cout << "[Shutdown] TTS joined; playback_xruns=" << playback.xrunCount()
++              << '\n' << std::flush;
++
+     // 只有 Worker 退出以后，
+     // 才能安全关闭 ALSA 和 TTSService。
+     playback.close();
+     tts.shutdown();
+     if (camera) camera->stop();
+     if (vlm) vlm->shutdown();
++    std::cout << "[Shutdown] playback/TTS closed; Camera stopped; VLM destroyed\n"
++              << "[Shutdown] complete signal=" << stop_signals.received() << '\n'
++              << std::flush;
+ 
+     // ------------------------------------------------------
+     // 21. 输出整个语音交互链路的统计
+@@ -1227,7 +1319,9 @@ int main(int argc, char** argv) try
+         llm_drained &&
+         tts_drained &&
+ 
+-        (llm_accepted > 0 || (enable_vision && vision_successful > 0)) &&
++        !stop_signals.failed() &&
++        (stop_signals.received() != 0 || llm_accepted > 0 ||
++         (enable_vision && vision_successful > 0)) &&
+         llm_accepted == llm_completed &&
+         llm_successful == llm_accepted &&
+         llm_failed == 0 &&
+@@ -1242,7 +1336,7 @@ int main(int argc, char** argv) try
+         tts_empty == 0;
+ 
+     std::cout
+-        << (passed ? "PASS\n" : "FAIL\n");
++        << (passed ? (stop_signals.received() != 0 ? "STOPPED\n" : "PASS\n") : "FAIL\n");
+ 
+     return passed ? 0 : 1;
+ }
+diff --git a/original/src/audio/vad_audio_worker.cpp b/repaired/src/audio/vad_audio_worker.cpp
+index 7cc3989..facd85f 100644
+--- a/original/src/audio/vad_audio_worker.cpp
++++ b/repaired/src/audio/vad_audio_worker.cpp
+@@ -77,6 +77,7 @@ void VadAudioWorker::run()
+         error_ = "VadAudioWorker: unknown exception";
+         queue_.close();
+     }
++    finished_.store(true, std::memory_order_release);
+ }
+ 
+ void VadAudioWorker::runImpl()
+@@ -90,6 +91,12 @@ void VadAudioWorker::runImpl()
+         }
+     } closer{queue_};
+ 
++    if (stop_requested_.load())
++    {
++        ok_ = true;
++        return;
++    }
++
+     // ==================================================
+     // 1. 初始化 Silero VAD
+     // ==================================================
+@@ -499,5 +506,6 @@ void VadAudioWorker::runImpl()
+     if (!drain_segments())
+         return;
+ 
+-    ok_ = !stop_requested_.load();
++    // A requested stop is successful if capture/VAD cleanup and final flush succeeded.
++    ok_ = true;
+ }

@@ -1,0 +1,45 @@
+{
+  "runs": 1,
+  "routing_passed_runs": 1,
+  "timing_samples": 3,
+  "incomplete_timing_lines": 0,
+  "alsa_reported_runs": 1,
+  "observed_alsa_xrun": 0,
+  "observed_alsa_suspend": 0,
+  "alsa_recoveries": 0,
+  "alsa_recovery_failures": 0,
+  "max_stage_sum_error_ms": 0.004534,
+  "metrics_ms": {
+    "endpoint_est_ms": {
+      "mean": 608.112,
+      "p50": 605.242,
+      "p95": 614.537
+    },
+    "vad_to_queue_ms": {
+      "mean": 0.000197,
+      "p50": 0.000248,
+      "p95": 0.000259
+    },
+    "queue_wait_ms": {
+      "mean": 0.211699,
+      "p50": 0.229862,
+      "p95": 0.241607
+    },
+    "preprocess_ms": {
+      "mean": 0.000259,
+      "p50": 0.000335,
+      "p95": 0.000354
+    },
+    "asr_wall_ms": {
+      "mean": 514.635,
+      "p50": 533.222,
+      "p95": 543.285
+    },
+    "total_est_ms": {
+      "mean": 1122.96,
+      "p50": 1136.98,
+      "p95": 1148.527
+    }
+  },
+  "note": "Audio segment end is estimated from the host ALSA read clock. Not a hardware timestamp and not full LLM/VLM/TTS latency."
+}

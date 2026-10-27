@@ -1,0 +1,14 @@
+{
+  "name": "candidate_idle_sigint",
+  "variant": "candidate",
+  "replay": false,
+  "stop_mode": "drain",
+  "tts_queue_ms": 12000,
+  "request_lifetime_ms": 45000,
+  "signal": "SIGINT",
+  "trigger": "ready",
+  "delay": 2.0,
+  "seconds": 30,
+  "timeout": 100,
+  "grace": 45
+}

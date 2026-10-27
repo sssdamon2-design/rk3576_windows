@@ -1,0 +1,49 @@
+# Build artifacts
+build/
+build-*/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+*.o
+*.a
+*.so
+*.dll
+*.exe
+*.obj
+*.lib
+
+# Model weights
+*.rknn
+*.rkllm
+*.onnx
+*.pt
+*.pth
+*.safetensors
+*.gguf
+*.tflite
+*.engine
+
+# Large binary and recording files
+*.bin
+*.wav
+*.mp4
+*.avi
+*.zip
+*.7z
+*.tar.gz
+
+# Python environments
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Logs and secrets
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_ed25519

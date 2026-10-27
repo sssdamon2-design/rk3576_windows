@@ -1,0 +1,9 @@
+{
+  "name": "fixed_idle_sigterm",
+  "signal": "SIGTERM",
+  "trigger": "ready",
+  "delay": 2.0,
+  "seconds": 120,
+  "timeout": 180,
+  "grace": 40
+}

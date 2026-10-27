@@ -1,0 +1,2 @@
+{"event": "trigger", "elapsed": 21.172827297999902, "trigger": "ready"}
+{"event": "signal", "signal": "SIGINT", "elapsed": 23.184045078000054, "pid": 10676, "pid_start_token": "672500", "timeout": false}

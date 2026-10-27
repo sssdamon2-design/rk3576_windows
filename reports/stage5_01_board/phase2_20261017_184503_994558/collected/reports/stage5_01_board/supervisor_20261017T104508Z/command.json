@@ -1,0 +1,8 @@
+[
+  "timeout",
+  "--signal=TERM",
+  "--kill-after=15s",
+  "840s",
+  "bash",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/tools/stage5_board_compile_only.sh"
+]

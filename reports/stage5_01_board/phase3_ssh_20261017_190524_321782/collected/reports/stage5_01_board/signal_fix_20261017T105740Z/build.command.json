@@ -1,0 +1,7 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec timeout --signal=TERM --kill-after=15s 600s cmake --build \"$1/build/stage5_01_board\" --parallel 3",
+  "signalfix",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review"
+]

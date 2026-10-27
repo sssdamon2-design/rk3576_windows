@@ -1,0 +1,1 @@
+Capture child exit timing before post-exit device and original-file queries. Earlier timing values include these queries and are conservative upper bounds, not precise child exit intervals. Raw earlier results retained.

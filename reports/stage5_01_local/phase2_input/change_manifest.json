@@ -1,0 +1,218 @@
+[
+  {
+    "file": "CMakeLists.txt",
+    "before_sha256": "4af5cebe9a701655dbba0176c67875f5d8a6ac7cd861a736c3e462f3440bd734",
+    "after_sha256": "39836964f7ac9f20aeff1b5017ce62fc58c27dcfa6a0c703b5cbab047ea5a6e8",
+    "status": "modified"
+  },
+  {
+    "file": "config/README.md",
+    "before_sha256": "1f294e51c8a63bdab0573b8b6dcf9feacb0daddb4f18a625cf4d12f4d8052f5f",
+    "after_sha256": "46c3e81d78aa3fea0422a5438f08ed7f8be90e306cd658b84a615d4c905f59b6",
+    "status": "modified"
+  },
+  {
+    "file": "docs/architecture.md",
+    "before_sha256": "2bd14e4d78346238b5162681cfe8f2d14664475d5e04db71c50b54cc5c72dc9f",
+    "after_sha256": "f7fcd650cac340ddece3f9ddbb7fb92c093ec22c3c173d39f05852b88d5b2578",
+    "status": "modified"
+  },
+  {
+    "file": "docs/run.md",
+    "before_sha256": "9da9166c23a4fa969e7f389b2259f0a3cf72a716ab5d55cc642737f2a9e14664",
+    "after_sha256": "aadf8a7b678cc48de1258f6695bf1ceac226502c9d1738e619f095795dd0ad4f",
+    "status": "modified"
+  },
+  {
+    "file": "docs/stage5_01_architecture_audit.md",
+    "before_sha256": null,
+    "after_sha256": "d5b6cb25c55bc269b91865aac47da2564e6a36dead3bfb73292bb5563e6a78f2",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_01_board_review.md",
+    "before_sha256": null,
+    "after_sha256": "5c8a9864dc6c34760827ccfe7aabb189a58f383108d47c944a3712e0377e8ca3",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_01_readonly_preflight.md",
+    "before_sha256": null,
+    "after_sha256": "7ecb5c1bae9e4cad9ae7b742d07405512d8016202f776f228935d1b85c77391f",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_01_source_appendix.md",
+    "before_sha256": null,
+    "after_sha256": "c9a842a1d804009e7496a2a225c5ae5645f7c6b0295ae576d9d027100ddcbd4c",
+    "status": "added"
+  },
+  {
+    "file": "docs/stage5_plan.md",
+    "before_sha256": null,
+    "after_sha256": "62e4664b37cb23753d62d967703d4b8b7e1273d514f42efbf31e6fb1e64c24c1",
+    "status": "added"
+  },
+  {
+    "file": "docs/validation.md",
+    "before_sha256": "795ab21f2a04a3c8485025e9a827474e82161ba8dbb973da358b051d08293bf0",
+    "after_sha256": "3df95af4e68798a7810eaca3fe4754bf269515893e5ed46bbf11a9b1378b7d22",
+    "status": "modified"
+  },
+  {
+    "file": "include/ai/llm_worker.h",
+    "before_sha256": "10a03767c8c3c3bf200ea2e857070a7b801d73828404e69d7b52b06aee1c127e",
+    "after_sha256": "f1041f46336a752a7a4cd1104a75776d38b95eac057f0834b187dc7eee8e3401",
+    "status": "modified"
+  },
+  {
+    "file": "include/audio/asr_pipeline.h",
+    "before_sha256": "4e40ad4170c560cd4151d55b99cc25b5572578a57b359c41813b524c0fd6e3ba",
+    "after_sha256": "0706f3f7289ea169a320ed06af983f33d9904c5b3898e504e8956ef5783ddb63",
+    "status": "modified"
+  },
+  {
+    "file": "include/audio/tts_worker.h",
+    "before_sha256": "5a78c0fbfe888b1920d4be37971d4de31eca1658474d544f144c0379f3597925",
+    "after_sha256": "bfd8813c9e22f131137ba6f2f441156d2b4a6efdb07467cc6931effeae70000a",
+    "status": "modified"
+  },
+  {
+    "file": "include/audio/vad_audio_worker.h",
+    "before_sha256": "08ce86b0d0197bb0709ad5005fecd9e8b1308af3a8b7124d9ba42a070cad9842",
+    "after_sha256": "1b6003c01667064faa99252bd47c6cf4082f04e9aa755a031fcc49202df3aa45",
+    "status": "modified"
+  },
+  {
+    "file": "README_STAGE5.txt",
+    "before_sha256": "674118d796caefd61833b857e59851b31232e9245dce60ab3d249beec81a7746",
+    "after_sha256": "064b7f05028188c85387d4c15f267777f82c46c7b30837b9f2a839004fa03a34",
+    "status": "modified"
+  },
+  {
+    "file": "src/ai/llm_worker_smoke.cpp",
+    "before_sha256": "cd6887e267dafb6974dc4c46d039758fb2aaaeb210532c4a9e04918dfd3c7a79",
+    "after_sha256": "8c45f582a366643ac0a309c28c31148a3a17b4524ff6fc262136494d6235a5ba",
+    "status": "modified"
+  },
+  {
+    "file": "src/ai/rk3576_vlm_backend.cpp",
+    "before_sha256": "a1e1af88d8fba2fcdd81b9e98527ca0dbac1fa3ecb0380a49b1338759c4cefe3",
+    "after_sha256": "268f8f2c139b374371b77a3085f72f2a0a4b5d7ba5d639b42a64e927219bee55",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/asr_llm_smoke.cpp",
+    "before_sha256": "7f1dd9be3dd8814228876681bca7294a0cdfc0f5de0ed76fe35466b1d5247d40",
+    "after_sha256": "b5166c6ace67faba9c4d1c60bc8854217eba5a248402ab7c9a1096a1aff926bb",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "before_sha256": "d88398133490cfb2360c8df9aca5c05f8248bbe7868786d381116ebfe3a9533f",
+    "after_sha256": "3dcfe3dd1e19871fdab835b76b4410a8036a9b384f0da1e6d0aedccf950bc9a5",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "before_sha256": "d44a582b35b3b4ca81bab7b2025ca71c2e8360ec1c9ee9a551162a7c96c52a36",
+    "after_sha256": "bec2d62b58d33faf02b04a415ca6c8f2deca335db17c904d69a66f6ff7bb8efd",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/audio_worker.cpp",
+    "before_sha256": null,
+    "after_sha256": "5b9a342d64215a4e703eda6848e2866b0b9ed4b38290e5263dfe68f3dd63049c",
+    "status": "added"
+  },
+  {
+    "file": "src/audio/tts_worker_smoke.cpp",
+    "before_sha256": "b0a6c515ad88cd7d110f662e28bafcef1c65dc787161b5104c5e222f38b3ac5a",
+    "after_sha256": "dd42eda5efabe5f9224251b8f3be8f8272c03ed01cfec1c7889945154a16b0de",
+    "status": "modified"
+  },
+  {
+    "file": "src/audio/vad_audio_worker.cpp",
+    "before_sha256": "cb59c0fd175686eb912ba2226ebf133fb1507448a4b8b1363624ef10b9effe05",
+    "after_sha256": "ec23237150f6fa32e4781bfe8a413e1b38f67b980ec5313ebbcac3ade60d871e",
+    "status": "modified"
+  },
+  {
+    "file": "tests/asr_pipeline_tests.cpp",
+    "before_sha256": null,
+    "after_sha256": "c13703450a49482c369471a0ff53c53e996a81311eaa34d23c643a76d05bbd23",
+    "status": "added"
+  },
+  {
+    "file": "tests/llm_worker_tests.cpp",
+    "before_sha256": "53c66728d80018c641857e299bc30c497a9537efc44fba9df18d3ba204cf87f8",
+    "after_sha256": "3e65faf61186d475ad58dcf2031e6d3f76f7127cd8d7ed8a143ad099064eff3f",
+    "status": "modified"
+  },
+  {
+    "file": "tests/stage5_board_tools_tests.py",
+    "before_sha256": null,
+    "after_sha256": "a772f6e12d022584d2468a46e1565f9ffe15487872c34d2db68e89098f3131a0",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_board_build.sh",
+    "before_sha256": null,
+    "after_sha256": "68732afc2050ad76794ecc59f4d1d975555e1280ce2a1413819513f567ac4e33",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_board_capture.py",
+    "before_sha256": null,
+    "after_sha256": "4cef97d1394b364a5ce76e1ae660370d15744547dc18be255e8f2d0fcaece3b2",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_board_compile_only.sh",
+    "before_sha256": null,
+    "after_sha256": "cdc90f324f68f73bff023811232e0ab462285235a4d3368c2af55c2a4cbcfd66",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_board_paths.sh",
+    "before_sha256": null,
+    "after_sha256": "f12b18a3b7fe057d3a724e99a696581fc5767e0343d547ad9c1c667042f07f7b",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_board_preflight.sh",
+    "before_sha256": null,
+    "after_sha256": "d57e0c2cf12a1aa01ed05a3e40c8da50a77690fedf484fb41298fc7b08c23b82",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_board_readonly_inventory.py",
+    "before_sha256": null,
+    "after_sha256": "f2b44c2300bdd0c87af87e16f7ca086e42a10b0ec194fae1d6ab1edeff8c09ec",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_board_voice.sh",
+    "before_sha256": null,
+    "after_sha256": "9a25f02bab964e4f7fde766aaf74d9f48fb0f8f6348b86ce0584e9303a71325a",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_prepare_board_bundle.py",
+    "before_sha256": null,
+    "after_sha256": "004c69225dc02870ca1c72c5c773c30e7fb35e2606a334193b19e6c5a823a31f",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_readonly_ssh.py",
+    "before_sha256": null,
+    "after_sha256": "372953a1b813ecef160019733917d65e881dd0173142b633c4c687517042598a",
+    "status": "added"
+  },
+  {
+    "file": "tools/stage5_review.py",
+    "before_sha256": null,
+    "after_sha256": "7aac7b64910bc31fdefa59a33b8bf3642f44634f69450a4e503fd7040bed243b",
+    "status": "added"
+  }
+]

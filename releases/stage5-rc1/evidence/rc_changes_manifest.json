@@ -1,0 +1,25 @@
+{
+  "core_changes": [],
+  "text_added_as_packaging": [
+    "README.md",
+    "tools/stage5_rc_build.py",
+    "tools/stage5_rc_deploy.py",
+    "tools/stage5_rc_doccheck.py",
+    "tools/stage5_rc_finalize_board.py",
+    "tools/stage5_rc_pack.py",
+    "tools/stage5_rc_preflight.py",
+    "tools/stage5_rc_prepare.py",
+    "tools/stage5_rc_remote.py",
+    "releases/stage5-rc1/README.md",
+    "releases/stage5-rc1/DEPENDENCIES.md",
+    "releases/stage5-rc1/DEPLOY_AND_ROLLBACK.md",
+    "releases/stage5-rc1/EVIDENCE_INDEX.md",
+    "releases/stage5-rc1/RC_ACCEPTANCE.md",
+    "releases/stage5-rc1/tools/build.py",
+    "releases/stage5-rc1/tools/launch.sh",
+    "releases/stage5-rc1/tools/stage5_board_paths.sh",
+    "releases/stage5-rc1/tools/verify.py"
+  ],
+  "docx_change": "RC copy only: Letter to A4 and Word TOC page cache. Original unchanged. See document_QA hashes.",
+  "large_evidence_and_copied_source": "Exact files identified by SOURCE_MANIFEST and PACKAGE_MANIFEST; not embedded as duplicated binary patch blobs."
+}

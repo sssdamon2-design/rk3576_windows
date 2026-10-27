@@ -1,0 +1,5 @@
+/releases/stage5-rc1/evidence/RK3576_STAGE5_FINAL_REVIEW.tgz filter=lfs diff=lfs merge=lfs -text
+/reports/stage5_03_board/collected_20261017_205548/collection.tgz filter=lfs diff=lfs merge=lfs -text
+/reports/stage5_05_local/RK3576_STAGE5_FINAL_REVIEW.tgz filter=lfs diff=lfs merge=lfs -text
+/reports/stage5_rc1_local/archive_roundtrip/stage5-rc1/evidence/RK3576_STAGE5_FINAL_REVIEW.tgz filter=lfs diff=lfs merge=lfs -text
+/reports/stage5_rc1_local/stage5-rc1.tgz filter=lfs diff=lfs merge=lfs -text

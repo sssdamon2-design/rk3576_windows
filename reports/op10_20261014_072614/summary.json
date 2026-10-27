@@ -1,0 +1,36 @@
+{
+  "mode": "silence",
+  "runs": [
+    {
+      "run": 1,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.47,
+      "summary": {
+        "Detected": "0",
+        "Recognized": "0",
+        "Routed": "0",
+        "TEXT": "0",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1221 s"
+      },
+      "asr_events": [],
+      "avg_process_cpu_pct": 28.93,
+      "peak_process_cpu_pct": 101.36,
+      "peak_rss_mib": 317.87
+    }
+  ],
+  "aggregate": {
+    "asr_segments": 0,
+    "asr_latency_mean_ms": null,
+    "asr_latency_p50_ms": null,
+    "asr_latency_p95_ms": null,
+    "rtf_mean": null,
+    "vad_log_to_asr_log_p50_ms": null,
+    "vad_log_to_asr_log_p95_ms": null,
+    "max_process_rss_mib": 317.87,
+    "mean_process_cpu_pct": 28.93
+  }
+}

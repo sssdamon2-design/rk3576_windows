@@ -1,0 +1,9 @@
+{
+  "authorization": "User approved phase 2 isolated deploy/compile only",
+  "remote_root": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "archive": "stage5_01_review_preflight_v2.tgz",
+  "sha256": "a653dd57e1ed5138170dd6d6ff7eb77a1518aa0e97c909402b662cab45c13c6e",
+  "ctest": false,
+  "hardware_tests": false,
+  "disk_stop_below_bytes": 524288000
+}

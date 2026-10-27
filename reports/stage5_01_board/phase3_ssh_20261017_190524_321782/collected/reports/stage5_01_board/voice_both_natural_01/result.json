@@ -1,0 +1,19 @@
+{
+  "pid": 7472,
+  "returncode": 0,
+  "sent_signal": null,
+  "trigger_observed": true,
+  "forced_kill": false,
+  "timeout": false,
+  "duration_seconds": 113.45949642200003,
+  "signal_to_exit_seconds": null,
+  "timing_scope": "child exit/output EOF, excludes subsequent device/fingerprint queries",
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "shutdown_complete_marker": true,
+  "program_PASS": true,
+  "text_tts_completed": true,
+  "vision_tts_completed": true,
+  "user_audible_confirmation": null
+}

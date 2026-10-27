@@ -1,0 +1,1933 @@
+{
+  "board_time": "2026-10-17T18:27:19+08:00",
+  "source_evidence": "reports/stage5_01_board/readonly_full_20261017_182718_018778",
+  "scope": "CMakeLists/README/src/include/tests/config and all regular files/symlinks in build/stage5_full; model weights not hashed/copied",
+  "fingerprints": {
+    "CMakeLists.txt": {
+      "sha256": "4af5cebe9a701655dbba0176c67875f5d8a6ac7cd861a736c3e462f3440bd734",
+      "bytes": 10692,
+      "mtime_ns": 1792218018000000000,
+      "changed_while_reading": false
+    },
+    "README_STAGE5.txt": {
+      "sha256": "674118d796caefd61833b857e59851b31232e9245dce60ab3d249beec81a7746",
+      "bytes": 1698,
+      "mtime_ns": 1792218018000000000,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeCache.txt": {
+      "sha256": "b217582282c8cc76b235d6cc6c0dbb9ca3eb81ef9fc070e9b005ca88a112d54b",
+      "bytes": 13963,
+      "mtime_ns": 1792218564635155377,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/3.25.1/CMakeCXXCompiler.cmake": {
+      "sha256": "ea7eada0920b4b1fd003cc698f849bafadb886cfaaa1fd8ffd4c45e4c59aa741",
+      "bytes": 5447,
+      "mtime_ns": 1792218564203152184,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/3.25.1/CMakeDetermineCompilerABI_CXX.bin": {
+      "sha256": "a09aa7d8a2e829efa7c8f853b84a8ba1a4bb11a78d7a16aa4df6d39f22052518",
+      "bytes": 70608,
+      "mtime_ns": 1792218564167151918,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/3.25.1/CMakeSystem.cmake": {
+      "sha256": "07dfa9c977c6d7670e114aeed60c8dd295d0a5ecedac299c2596d20689ca3e40",
+      "bytes": 388,
+      "mtime_ns": 1792218563559147425,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/3.25.1/CompilerIdCXX/CMakeCXXCompilerId.cpp": {
+      "sha256": "04001e87fc8cef78e4674853ace8963fd70b0abf302be451e2971f9899ad664e",
+      "bytes": 26294,
+      "mtime_ns": 1792218563579147572,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/3.25.1/CompilerIdCXX/a.out": {
+      "sha256": "83c152a22834e91f9b1fc3ac2d00b40eb190022b56744a81521f26afe1fc1802",
+      "bytes": 70736,
+      "mtime_ns": 1792218563767148962,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/CMakeDirectoryInformation.cmake": {
+      "sha256": "2ada750028817020c9a6f437933516ccff63b561797b6ee5b6cbdc4ae5154454",
+      "bytes": 680,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/CMakeOutput.log": {
+      "sha256": "b2f4bac78fbdf6daa7bb1c57313b7ced0a8038a6a7c74bc535f9eee9e87feb1d",
+      "bytes": 24161,
+      "mtime_ns": 1792218564607155170,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/Makefile.cmake": {
+      "sha256": "e583349e93ffbb33404772f025fc667b6df54598fee79aac96b5638d3afed54d",
+      "bytes": 7298,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/Makefile2": {
+      "sha256": "a4fd471f669da536c6dd30932a0fde23894bb02c399918ff153b213bc76a10b4",
+      "bytes": 29940,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/TargetDirectories.txt": {
+      "sha256": "8f1a9619081968debfd0b12a9cf438dd2c233689b1952e2c0e4ff5ce7fbaed56",
+      "bytes": 1776,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/DependInfo.cmake": {
+      "sha256": "8743541519560df57b596b6b55061f0a0018d4687e19fb5364c26bebcd204634",
+      "bytes": 749,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/build.make": {
+      "sha256": "cfca458b8374b8bafe488d7c678a4d94d0b86b91a19bd2775925e70e7d9ca4be",
+      "bytes": 5525,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/cmake_clean.cmake": {
+      "sha256": "86a19a1a0454c3e954b3a782a307f9033181c144a8bc5bae7f6d44a3b094b274",
+      "bytes": 357,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/compiler_depend.make": {
+      "sha256": "1bea783b2ce2697d2cae7e2374bd95fbbc2a2782fd73f34d7e6327012904ad54",
+      "bytes": 117,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/compiler_depend.ts": {
+      "sha256": "ab580844b7f57e73bf24bb5e7f61366024e1dff0171eaca9ffdcc65b3ef6ec6b",
+      "bytes": 121,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/depend.make": {
+      "sha256": "fc0e13e93d98e886203c58e15b1d92040311820e19d1eae2fe9dccd7d9806b21",
+      "bytes": 98,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/link.txt": {
+      "sha256": "4a1e57e88bc2cc2447b78e14e54d5a7c327c7839843c41e7f32e62ee88a560a4",
+      "bytes": 420,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_live_smoke.dir/progress.make": {
+      "sha256": "c06e644090b09d41eaddf59d10bcf03c6db6499eb51fa0d03e5128e5a165cc3c",
+      "bytes": 43,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/DependInfo.cmake": {
+      "sha256": "ff61abd6869926c965239404c9fe0861ccdd17744305d920f4da8e9fbb7a62e4",
+      "bytes": 858,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/build.make": {
+      "sha256": "5a4682feb333cf08a2d07b96e81df5e86cdfede93d2175f59597d8c3915a5ebd",
+      "bytes": 5826,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/cmake_clean.cmake": {
+      "sha256": "d0f4224f4ae2077fe1a94bde62350a20896448661ae901835aaa8af91f3b0505",
+      "bytes": 350,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/compiler_depend.make": {
+      "sha256": "a6cae6c460fe22dc91718fd8d1cd69b337f3da25a584290c0d93ef7759187d67",
+      "bytes": 116,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/compiler_depend.ts": {
+      "sha256": "d4f6ed86d1c7909605120655f4caacd91b3433e481911a0aaff345391a0f5276",
+      "bytes": 120,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/depend.make": {
+      "sha256": "75abb9cd4cc714bce5979d1017ca111832e45531c55d093f456e822cf08a2031",
+      "bytes": 97,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/link.txt": {
+      "sha256": "731cc5a9a34676e7b1cfa21544b0bbd7f1e249efb08fe3cd9946fd34e0650b3f",
+      "bytes": 804,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_smoke.dir/progress.make": {
+      "sha256": "2c0c69e4af70b4caed2b8e1bd9f161f3ee9eb525d5f041631eee6d0661e5a02f",
+      "bytes": 43,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/DependInfo.cmake": {
+      "sha256": "b93fdec30edc3f70627bfec7fcbe8c1176942de63db2b4765e1e54038b952db8",
+      "bytes": 1107,
+      "mtime_ns": 1792218564719155998,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/build.make": {
+      "sha256": "0d26dbf6c224e90e877490b36914dc3a95842520bced549b64349ecf82c1f553",
+      "bytes": 6260,
+      "mtime_ns": 1792218564719155998,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/cmake_clean.cmake": {
+      "sha256": "991f5d786655b944479538c3e5c37c358855d14b88c9fbda51178fe41ebbe4e8",
+      "bytes": 378,
+      "mtime_ns": 1792218564719155998,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/compiler_depend.make": {
+      "sha256": "882fa1ba9f17dd46a79e01905ae902aacc9c497e37d0056caab4f445d7413672",
+      "bytes": 120,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/compiler_depend.ts": {
+      "sha256": "1acf5ecc06ce6916aa16e4b05b19bc7812ca1d728b5b040110888fb75ce963dd",
+      "bytes": 124,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/depend.make": {
+      "sha256": "8df4c108bad7e23a6a48fd5776c72d6ea7b3232271335352fca7f081fa87e5a5",
+      "bytes": 101,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564719155998,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/link.txt": {
+      "sha256": "f4c1ec9e2072ae2deabc85aa42ce609852d4c347dea01d34e7f710620e4d9ac1",
+      "bytes": 902,
+      "mtime_ns": 1792218564719155998,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/progress.make": {
+      "sha256": "a3194f88ef5ae65b7a30877bdb3f7ab384e043aa110d7219d72f1e666ac6246b",
+      "bytes": 43,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/src/audio/asr_llm_tts_smoke.cpp.o": {
+      "sha256": "deac2120ff6c629178915cf761af956c111e8cf66e3020d2c5550ed27e93246a",
+      "bytes": 78704,
+      "mtime_ns": 1792218594423375503,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_llm_tts_smoke.dir/src/audio/asr_llm_tts_smoke.cpp.o.d": {
+      "sha256": "edff96b6dca927714492e226b77147df6dea84fa27ece47b62c0b46ec787eca7",
+      "bytes": 13604,
+      "mtime_ns": 1792218594331374823,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/DependInfo.cmake": {
+      "sha256": "c66612792a9570cb09ec903ef21ad968965001c1afe5bf7a37b50f6bd6297e0f",
+      "bytes": 769,
+      "mtime_ns": 1792218564679155703,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/build.make": {
+      "sha256": "a9e842953d02040a11cb46033f8db670cb7bd5de7e5752a041afb7b65f2b14ba",
+      "bytes": 5777,
+      "mtime_ns": 1792218564679155703,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/cmake_clean.cmake": {
+      "sha256": "2db5c5a5e15501ef0fd95e1f7933e50eb12cf9434ce8a8bf75260d601c455ee3",
+      "bytes": 385,
+      "mtime_ns": 1792218564679155703,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/compiler_depend.make": {
+      "sha256": "d71f0906f4a1f3b348d4bca6185b5595db63e5a5d0c06781b1009472239a70bf",
+      "bytes": 121,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/compiler_depend.ts": {
+      "sha256": "33ef2cf8655d2e20ccaa1428ef26bc279d3373d271ef851e8198598dee27315b",
+      "bytes": 125,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/depend.make": {
+      "sha256": "c82a268ed908fbd8b70223769446126ad12326652a591f0898f55d2aa7b08832",
+      "bytes": 102,
+      "mtime_ns": 1792218564675155673,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564679155703,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/link.txt": {
+      "sha256": "524a7a176d388f18c44b47059f1c08c08e8c09c50bc4ad1f2ce47f22559346cf",
+      "bytes": 432,
+      "mtime_ns": 1792218564679155703,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_pipeline_smoke.dir/progress.make": {
+      "sha256": "d07ef668326a9a562e0a72f93d199267d5a0b8fb4172c2286a56a2cb5ef77dd0",
+      "bytes": 43,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/DependInfo.cmake": {
+      "sha256": "f126320b72f9d4a1642c38ee0fdc8b4f3fd895247a107cc86156a2608cbf97a3",
+      "bytes": 984,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/build.make": {
+      "sha256": "b4101822a2a99d34167b972c718250a7113a669909fe69ef4387baa7e4b8568a",
+      "bytes": 6002,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/cmake_clean.cmake": {
+      "sha256": "6d721ee86812581f86f85848ef5c559eb02c0040668187e89f43aa4242e22007",
+      "bytes": 364,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/compiler_depend.make": {
+      "sha256": "2732ad80d2d0fff721b93a0f7020d606965e4fa2c4aa61b19f919ddc5f16be45",
+      "bytes": 118,
+      "mtime_ns": 1792218564687155762,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/compiler_depend.ts": {
+      "sha256": "a763ac497b262e4b61dc516c3871235cec1c06eee5d5dff0f30c650feab9d966",
+      "bytes": 122,
+      "mtime_ns": 1792218564687155762,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/depend.make": {
+      "sha256": "9d144fb3cffa3a1f06459ed83178ac3a5414325c4385959ac0d82f7b007e9d42",
+      "bytes": 99,
+      "mtime_ns": 1792218564687155762,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/link.txt": {
+      "sha256": "3b78208c47ab143273880f5f1b98bb09980e4bc543ec3cc14395fe6395c7566c",
+      "bytes": 833,
+      "mtime_ns": 1792218564691155791,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_route_smoke.dir/progress.make": {
+      "sha256": "ed3daec5b65a9ed4ecd23ef55e215b9ba204c1e5e0226807abaec0693c6df14c",
+      "bytes": 44,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/DependInfo.cmake": {
+      "sha256": "b177f0c5e54c8f663c3e490eddfb2a2523ca99fc3e605e9f373a54a3fada388b",
+      "bytes": 744,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/build.make": {
+      "sha256": "6df5a24c1d438ccf4c660b160ed05c4a05a759c2782257cbbe1948f2a9870e34",
+      "bytes": 5462,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/cmake_clean.cmake": {
+      "sha256": "114136afab28daf59e230c16bef05dc7e462bb2fe4432348e58132a0e497190b",
+      "bytes": 350,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/compiler_depend.make": {
+      "sha256": "3c075659adc9888c9665e2d8359aefef04dae62b33d22b99f5dcea867a52f27a",
+      "bytes": 116,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/compiler_depend.ts": {
+      "sha256": "99ba68bf1e18c3cbdae63d81872e05b5044f4799bbc45092494b457ac8f80b2f",
+      "bytes": 120,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/depend.make": {
+      "sha256": "47f20a135fbdc5e4002f74a61a5778401e34165b68095d2cba6ab27e0364301d",
+      "bytes": 97,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/link.txt": {
+      "sha256": "bfd74c577298ece84fa22b90e4283d67930d0de3a168f68e67298054db0deb66",
+      "bytes": 417,
+      "mtime_ns": 1792218564683155732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/asr_vad_smoke.dir/progress.make": {
+      "sha256": "b2cd0974e570a8a9216e89228e7d0c65225f2b2ccd9be7d685a1f2ee210a2a4b",
+      "bytes": 45,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/DependInfo.cmake": {
+      "sha256": "4e8b0138a044d0d899a26f1740e3828061ae028bb36d0e9afd4cc887b219d205",
+      "bytes": 774,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/build.make": {
+      "sha256": "9d968373492cf8540a463bf7020cb10decc51496bfb3a750f5d7e0b425663949",
+      "bytes": 5840,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/cmake_clean.cmake": {
+      "sha256": "b74b151ddd2e074bfe04511fa8ef1f246f7a2bb3a8c28d47722e00e25620aac0",
+      "bytes": 392,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/compiler_depend.make": {
+      "sha256": "ea46e98c51977078549b46a9434ad943a4f5c2f3ed840d39db7c8dcdeaca1e01",
+      "bytes": 122,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/compiler_depend.ts": {
+      "sha256": "de479001f3fd93fa748f27dd12ae701e1fc99f0ff740002b664feae93d20757c",
+      "bytes": 126,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/depend.make": {
+      "sha256": "dd6ffa586916243ad830ada78581144055eb366358239e591aee314043bafc40",
+      "bytes": 103,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/link.txt": {
+      "sha256": "ea45c30a20e8b98ca552fdc6487e5791e2d8d1d046632078f77e0813ce086d86",
+      "bytes": 435,
+      "mtime_ns": 1792218564671155643,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/audio_capture_smoke.dir/progress.make": {
+      "sha256": "336abba42b36796dc7cbed719727d966aaba74bbc34545e0db057981299e59dd",
+      "bytes": 45,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/cmake.check_cache": {
+      "sha256": "a26189e394421da57f45706a07713c5720acd200a41711b0c0c590c3c63371c4",
+      "bytes": 85,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/DependInfo.cmake": {
+      "sha256": "40f34b3733a4aec5d6b134e1f52feb203768202bd290f1205d973cbb1320e0a5",
+      "bytes": 1498,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/build.make": {
+      "sha256": "706e40008ff4c58141c47c47f4e9a5536b69affbd0120c4be643c72dc17537c2",
+      "bytes": 13472,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/cmake_clean.cmake": {
+      "sha256": "4cc8a5658ec38e0db5ca467c16d425294fc75e8a0238b930722013dc5126bbff",
+      "bytes": 919,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/cmake_clean_target.cmake": {
+      "sha256": "5e18d0a0c3b3c9dfb09908dd574528942a28b23fe9a5f85c11c70dde6936b206",
+      "bytes": 48,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/compiler_depend.make": {
+      "sha256": "ad3f936c7e94866440fdc82cf55702f32821a2bcb4b1a1f26871695512f54d0a",
+      "bytes": 119,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/compiler_depend.ts": {
+      "sha256": "8e4d4a3fe963b75d2d2d59dc003d7dd0de6697b0e8909b167fe5c792615410fc",
+      "bytes": 123,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/depend.make": {
+      "sha256": "712c2eb4786037ededda72b76d1e556e2ac41cdfec31ea98c393c17b1803d5cf",
+      "bytes": 100,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/link.txt": {
+      "sha256": "6c184cd734c9b1a32c3da4172df26be8880609d87a84da98d68c17f71a88bcde",
+      "bytes": 390,
+      "mtime_ns": 1792218564667155614,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/progress.make": {
+      "sha256": "d601579b4c8e6e4cc48765f2f73a9266c5a314ca3313e38562857241a809b103",
+      "bytes": 133,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/asr_pipeline.cpp.o": {
+      "sha256": "e493d68cb90ec79387b18652798f4ff4474a3f8743b31249aa4b7b36012d4a8a",
+      "bytes": 33480,
+      "mtime_ns": 1792218574535228533,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/asr_pipeline.cpp.o.d": {
+      "sha256": "b2c16fb710614004d5e53a77236c4490735eaf3bcc3dc2b92f0cd01e1bf931cf",
+      "bytes": 12002,
+      "mtime_ns": 1792218574487228178,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/asr_service.cpp.o": {
+      "sha256": "5a6e816b42d396428b3f2d4ec056e93adf9651928bd216fddba0a5f4a6b3f73b",
+      "bytes": 8008,
+      "mtime_ns": 1792218569823193713,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/asr_service.cpp.o.d": {
+      "sha256": "ca6b3501447954a5571afbf2f61077ed7bf60377edee1fcd63d905950a3e5260",
+      "bytes": 9171,
+      "mtime_ns": 1792218569799193536,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/audio_capture.cpp.o": {
+      "sha256": "220acc587ded733228833450d6289456530e0cf9e9fb364b693b26de08b8c962",
+      "bytes": 9792,
+      "mtime_ns": 1792218566667170392,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/audio_capture.cpp.o.d": {
+      "sha256": "074992d9f9fe5e38f232c3155de83a97112769c11f562c52abe4d5b508f5ddd9",
+      "bytes": 8257,
+      "mtime_ns": 1792218566639170185,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/audio_preprocessor.cpp.o": {
+      "sha256": "ec6c92568b160240848df16b01f980108121d3764121fa4b8fbcbf55e806a81b",
+      "bytes": 4136,
+      "mtime_ns": 1792218567839179053,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/audio_preprocessor.cpp.o.d": {
+      "sha256": "2adf17a8b840a46b71afe72e6269a8ada4ccff1d247c32d0076424971afea11f",
+      "bytes": 6595,
+      "mtime_ns": 1792218567819178905,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/vad_audio_worker.cpp.o": {
+      "sha256": "62e39029b9a4d203ce945800e4c38382576aab03d2866558273765e4b445a695",
+      "bytes": 23256,
+      "mtime_ns": 1792218578811260131,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_audio.dir/src/audio/vad_audio_worker.cpp.o.d": {
+      "sha256": "afb677b7909488b2a6558703d0bcd68651a09196de67e868ad9fc5ab24c2c6e9",
+      "bytes": 12560,
+      "mtime_ns": 1792218578775259865,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/DependInfo.cmake": {
+      "sha256": "0079fc86623d62c361656e053d5d930c2d92c631a3492d40257c0fd70d4ac3b2",
+      "bytes": 968,
+      "mtime_ns": 1792218564655155525,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/build.make": {
+      "sha256": "212a640e791ac007192e90c8b71c6d2384f301016faa046d664b9f3ef4a34b15",
+      "bytes": 7513,
+      "mtime_ns": 1792218564655155525,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/cmake_clean.cmake": {
+      "sha256": "165d18e5c6dcd8513c1f44d777eeb6b1f557d08bdda3f5cc56d570bf8fa591cc",
+      "bytes": 516,
+      "mtime_ns": 1792218564651155496,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/cmake_clean_target.cmake": {
+      "sha256": "fba0865b1f574bc31633ca490e652560207709293e46f2d0abe5937dcfddb732",
+      "bytes": 49,
+      "mtime_ns": 1792218564651155496,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/compiler_depend.make": {
+      "sha256": "5a1c9735d0edf342cbce7273652c4b058d0634982296334f2f989a8d166f0cba",
+      "bytes": 120,
+      "mtime_ns": 1792218564651155496,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/compiler_depend.ts": {
+      "sha256": "d8c3cfdb025b8fda1d1f38690abab0ecc4b91af2ef338e49647441970a8511a3",
+      "bytes": 124,
+      "mtime_ns": 1792218564651155496,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/depend.make": {
+      "sha256": "b22bf1bcd4842bbb60b029d93fb36ea970cf10199862bec3b40f60931bed1977",
+      "bytes": 101,
+      "mtime_ns": 1792218564651155496,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/flags.make": {
+      "sha256": "86c6bb643ac018f4e39bba48822e1bf3dccd4321fe476894849796bab26ced98",
+      "bytes": 280,
+      "mtime_ns": 1792218564655155525,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/link.txt": {
+      "sha256": "992b493425fb621451bb1651010fdec331550e30ee31b17df2dc8b86661551f7",
+      "bytes": 204,
+      "mtime_ns": 1792218564651155496,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/progress.make": {
+      "sha256": "cbaa232b8d1995c7f34835c812c385af97a35acec67321b24c4f34f61f5897d8",
+      "bytes": 67,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/src/video/camera_service.cpp.o": {
+      "sha256": "4e3790e045f50d1f8f5f5ed6f326dcb9d6cd4cb5e3d76195103fa3f9fd5136a5",
+      "bytes": 29280,
+      "mtime_ns": 1792218585307308135,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/src/video/camera_service.cpp.o.d": {
+      "sha256": "d3b1da895150630b2a0f404bcb05b657be75505eb4890bb64ce4636459a4cf7f",
+      "bytes": 9351,
+      "mtime_ns": 1792218585263307810,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/src/video/video_capture.cpp.o": {
+      "sha256": "2f65e75d3f04357a3ea8ab845be236b818ac75d07f071633ce52642bc3bd2452",
+      "bytes": 39424,
+      "mtime_ns": 1792218587855326965,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_camera.dir/src/video/video_capture.cpp.o.d": {
+      "sha256": "2f5651472b22eb31916589ac6a7c8b5a59000f200bc8d856e5789ec5ae8c4ff0",
+      "bytes": 11127,
+      "mtime_ns": 1792218587787326463,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/DependInfo.cmake": {
+      "sha256": "b4a546c9546bcb2541fec4b32d68f186a6ce7d525a6e01a664dc7152622b0a58",
+      "bytes": 2304,
+      "mtime_ns": 1792218564647155466,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/build.make": {
+      "sha256": "c6d54329681b92ece70412aaf4356b2bf97d6d4d69ff3481b2901c0c0c16f021",
+      "bytes": 21059,
+      "mtime_ns": 1792218564647155466,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/cmake_clean.cmake": {
+      "sha256": "e88ae17e4107e5cf1f776fe7921005adc33c9b8b38a68e60631e6a16f81f6eb2",
+      "bytes": 1418,
+      "mtime_ns": 1792218564647155466,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/cmake_clean_target.cmake": {
+      "sha256": "4df5e3bde20fa19c03d2fc3abc329bf2b03b7279aa3a0b454ff79405f444d034",
+      "bytes": 47,
+      "mtime_ns": 1792218564647155466,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/compiler_depend.make": {
+      "sha256": "1e5cd57689133e9bd40e55faf242f47bf28220556c1f6e4863ccddf746c2fda4",
+      "bytes": 118,
+      "mtime_ns": 1792218564643155436,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/compiler_depend.ts": {
+      "sha256": "1259404412e581834a85f691d34f8542ef76f52bffaa590444cf070907749ffd",
+      "bytes": 122,
+      "mtime_ns": 1792218564643155436,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/depend.make": {
+      "sha256": "963b3a1b05c06d455694188254780e0a34c6296b8ba498aef23dade6be62f508",
+      "bytes": 99,
+      "mtime_ns": 1792218564643155436,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/flags.make": {
+      "sha256": "680f068a210f633333cf48498d9a22442f2b48952083182e0d3eba6606f72b12",
+      "bytes": 488,
+      "mtime_ns": 1792218564647155466,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/link.txt": {
+      "sha256": "75655a7ca77eb19b826667bb9be33728cae7c340630c0d4ada2e59217fd364db",
+      "bytes": 619,
+      "mtime_ns": 1792218564647155466,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/progress.make": {
+      "sha256": "ae230afec801335408e387ab2722f663aac2c12905d7184c75a2af76db0cfef0",
+      "bytes": 222,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/llm_engine.cpp.o": {
+      "sha256": "bf638523eb8c5b20dce1815faf09881f5d18b703f98fc7b5c7a9e64d29ff0ba7",
+      "bytes": 18904,
+      "mtime_ns": 1792218568951187270,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/llm_engine.cpp.o.d": {
+      "sha256": "686d03ad137d8376a2e980565ba5c96fda3674eff73e6c30fa3212bdf1e50d20",
+      "bytes": 11500,
+      "mtime_ns": 1792218568907186944,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/llm_worker.cpp.o": {
+      "sha256": "04c00acffc3bab2776be15d5f692cd8810dd6199b310e7d9940faf42e2e5d56a",
+      "bytes": 26256,
+      "mtime_ns": 1792218570531198945,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/llm_worker.cpp.o.d": {
+      "sha256": "2d354e4048ac1c4358caaf28ee2f04281b53c6a16f93da613cb59af75e80fb07",
+      "bytes": 10126,
+      "mtime_ns": 1792218570483198590,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/rk3576_vlm_backend.cpp.o": {
+      "sha256": "f35b57c752f60a3992d3a2ded6c983989120c4097da23ec4e3dfdb2a93745b94",
+      "bytes": 27600,
+      "mtime_ns": 1792218580031269146,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/rk3576_vlm_backend.cpp.o.d": {
+      "sha256": "c64e91a57348ca6df0105bca2b7a067f847d5a8040d6c1034f25d529bb1bd821",
+      "bytes": 12252,
+      "mtime_ns": 1792218579975268732,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/rk_backends_unavailable.cpp.o": {
+      "sha256": "e9c6ee71ce2a4ba99580f7c4869c4496ca3da809ff463eec890aa35a113b9f6e",
+      "bytes": 952,
+      "mtime_ns": 1792218572651214611,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/rk_backends_unavailable.cpp.o.d": {
+      "sha256": "8c62962bdd4494c5c479cd071bf2dd5343c2991f39f9a7fbda943cf3d67bc6f2",
+      "bytes": 9946,
+      "mtime_ns": 1792218572631214463,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/rkllm_backend.cpp.o": {
+      "sha256": "823295a1aaadec9f9e597b8610b2a596924131c949b4f178dbf67c1d6010c8a1",
+      "bytes": 16064,
+      "mtime_ns": 1792218576767245027,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/rkllm_backend.cpp.o.d": {
+      "sha256": "bd41c42b5459edde9322432ff2188064cffa2f1cc71b790d6e5ea9498eea4555",
+      "bytes": 10104,
+      "mtime_ns": 1792218576727244731,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/vlm_engine.cpp.o": {
+      "sha256": "296eddc87e4c0c9aba9d0fb676ba184583b6930a61c19b6ad625847703ceeef4",
+      "bytes": 20576,
+      "mtime_ns": 1792218572675214788,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/ai/vlm_engine.cpp.o.d": {
+      "sha256": "071e2d0b617f1306c9201f9935f053a5f20e918d44d27b874105a6ce298e235b",
+      "bytes": 10985,
+      "mtime_ns": 1792218572631214463,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/app/request_processor.cpp.o": {
+      "sha256": "e86f8ec62620a6d6e5d1bcd4a09c558311150f9b574e4d99f828846769a4d2ed",
+      "bytes": 8664,
+      "mtime_ns": 1792218575203233469,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/app/request_processor.cpp.o.d": {
+      "sha256": "41cdea00118546853d9cc446358dacff7b88346799f6c122e28a168b301cdd47",
+      "bytes": 10238,
+      "mtime_ns": 1792218575175233262,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/router/intent_router.cpp.o": {
+      "sha256": "0f6cca492a846886cf6dba2b0acf3da8668587d0664fedf612cfee9bce638808",
+      "bytes": 5880,
+      "mtime_ns": 1792218573855223508,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/router/intent_router.cpp.o.d": {
+      "sha256": "27f17731a0446d6ce6da22c7e1e2f41aa9c4b328ea901fc18055ce32ac14e28a",
+      "bytes": 6698,
+      "mtime_ns": 1792218573835223360,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/video/latest_frame_buffer.cpp.o": {
+      "sha256": "a4f494d502392d167a441d43a7b38270147b5f2df7631e66e46fb427dc55bb48",
+      "bytes": 5640,
+      "mtime_ns": 1792218566679170481,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_core.dir/src/video/latest_frame_buffer.cpp.o.d": {
+      "sha256": "027c21cc1ec57bc20d401551dc62832351b5ffb9e8284e9f0e109cb497effb0f",
+      "bytes": 8983,
+      "mtime_ns": 1792218566659170333,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/DependInfo.cmake": {
+      "sha256": "cceb72f8400341336aedf1bfb1a5d72baff7f4f844a4abccd476b40634c7240f",
+      "bytes": 1171,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/build.make": {
+      "sha256": "08b8c02778551496e9d395f272c237899f0a9b8f1afd03af9b562e71f522e39e",
+      "bytes": 9316,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/cmake_clean.cmake": {
+      "sha256": "321f639823bff9420871692a26f4458e128695e139759d5ecebe1d77d5b17598",
+      "bytes": 629,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/cmake_clean_target.cmake": {
+      "sha256": "645e16ef5cbd1639681d406200f4ccb3aeec9c4bda459b7480470591a4f20236",
+      "bytes": 46,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/compiler_depend.make": {
+      "sha256": "21d66ac5303d5a6a9e4196b6c8e16eba8f4d772ff2edb0a96f3f9b4e54626c4f",
+      "bytes": 117,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/compiler_depend.ts": {
+      "sha256": "cb2788e755a5580b851a4409d42113861b275c4d93424ded3e45ab6df968dff9",
+      "bytes": 121,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/depend.make": {
+      "sha256": "ebbde3c733a0b3b39cd6a5730dbc49c4f69d099e68e5fe103e8d2163ff870cc4",
+      "bytes": 98,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/link.txt": {
+      "sha256": "4e493d1ffb349154dd1391146dca335ad180231899f14fbc822d3faab28870e9",
+      "bytes": 254,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/progress.make": {
+      "sha256": "1781ab080f915116c7758d915235eaf101bc28d1d9818a7d467ee7328351953c",
+      "bytes": 89,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/src/audio/alsa_playback_service.cpp.o": {
+      "sha256": "caa5fa041eef5cb87aad1423061913e01a7d5311d3eda7d7275cbe623455f1ce",
+      "bytes": 21480,
+      "mtime_ns": 1792218582463287118,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/src/audio/alsa_playback_service.cpp.o.d": {
+      "sha256": "44fc90a4b51456adddb6313f833a4703467de86633d07ce5faa16f23e0a0ced2",
+      "bytes": 11579,
+      "mtime_ns": 1792218582415286764,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/src/audio/tts_service.cpp.o": {
+      "sha256": "bedcf538754ee0aae26eefee1dc7fe1c31507bee5d2dfb961f151000e03225b0",
+      "bytes": 31584,
+      "mtime_ns": 1792218583459294479,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/src/audio/tts_service.cpp.o.d": {
+      "sha256": "8ee5ec2e8408524ff90943dbde0c511fa5ece4f20ba9a0e6cf96333162950408",
+      "bytes": 9135,
+      "mtime_ns": 1792218583403294065,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/src/audio/tts_worker.cpp.o": {
+      "sha256": "2d73e7bd2383988cf46a6aa06373fbe596c111b7452f6108bad993b2c7750786",
+      "bytes": 26136,
+      "mtime_ns": 1792218584135299474,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/multimodal_tts.dir/src/audio/tts_worker.cpp.o.d": {
+      "sha256": "1949d41fe08226e78be6dcddc4c685ccce4e5be91cfa46bdf64759b9496af32d",
+      "bytes": 11104,
+      "mtime_ns": 1792218584083299090,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/progress.marks": {
+      "sha256": "877a8799041017f1719854e4e295c6dca56cd1cf1b1914d1bfed9281f7fc2686",
+      "bytes": 3,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/DependInfo.cmake": {
+      "sha256": "87967fea8d1bc3855a75b961a0f6fbe0b694c21781ec85a2ea9488f65cb169cc",
+      "bytes": 1000,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/build.make": {
+      "sha256": "8ca9d65df1683eebc0ebe84f48f71e794daf2c5fd010c09a17a83c58f6be5d58",
+      "bytes": 7294,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/cmake_clean.cmake": {
+      "sha256": "55aa0210d60fe7a1de6e7cf759127ddc86c99c432b4ea9185330baf26a92b44d",
+      "bytes": 452,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/compiler_depend.make": {
+      "sha256": "0749f6e08b13a12c1f06e9ec34692eacba982ff7aba9e32db0fd4483e963c6bb",
+      "bytes": 120,
+      "mtime_ns": 1792218564655155525,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/compiler_depend.ts": {
+      "sha256": "dc14d61d16dd988dcf608409b12631d9b75baa09934febe9ece4cc7b11ff6332",
+      "bytes": 124,
+      "mtime_ns": 1792218564655155525,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/depend.make": {
+      "sha256": "376518cd08b044fde21f02bc44596177900374ae4f8592a633f959b8dd83e409",
+      "bytes": 101,
+      "mtime_ns": 1792218564655155525,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/flags.make": {
+      "sha256": "86c6bb643ac018f4e39bba48822e1bf3dccd4321fe476894849796bab26ced98",
+      "bytes": 280,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/link.txt": {
+      "sha256": "b179fa8f1d2118d9600fc10d9e399289f740dcaea0a9a549c899157b1f37d58d",
+      "bytes": 569,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rk3576_multimodal.dir/progress.make": {
+      "sha256": "ad17764b140628c6c362ea495141f9a1fde9c3207b0a4e2f3daba48dc71c92ad",
+      "bytes": 67,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/DependInfo.cmake": {
+      "sha256": "09787546159e465232202b87aea93592f61f6dfbd430ed60545607e217dc7575",
+      "bytes": 753,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/build.make": {
+      "sha256": "b45d6b67f4f9d40d714f975aae7a9f4e40a31df4809fa8b8daf5f75b8a2faf20",
+      "bytes": 5817,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/cmake_clean.cmake": {
+      "sha256": "ff9d75b61f47b82be0e59ef2f12b581c2f649c82fc255c62b5b403bc20762bf1",
+      "bytes": 375,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/compiler_depend.make": {
+      "sha256": "77f3f375e0a60a6cee9b9eb1df46eeaa05975424bea830fc7695af6096059e37",
+      "bytes": 121,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/compiler_depend.ts": {
+      "sha256": "b2eb2ba9c944f76646f64f7df6605c918540faf00cfd21fcd29dce65b8c4893b",
+      "bytes": 125,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/depend.make": {
+      "sha256": "80ed3df42c6acc941179f0b7484a8d7009c16795cea20a57106c9edc2e84e529",
+      "bytes": 102,
+      "mtime_ns": 1792218564659155555,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/flags.make": {
+      "sha256": "86c6bb643ac018f4e39bba48822e1bf3dccd4321fe476894849796bab26ced98",
+      "bytes": 280,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/link.txt": {
+      "sha256": "86f64a4a7611ff87678c3e4992ea8dc0ef6863134a3b35824b8664e5e0414dfb",
+      "bytes": 512,
+      "mtime_ns": 1792218564663155584,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/rkllm_worker_smoke.dir/progress.make": {
+      "sha256": "d7a8dae07ec8c4840c4adf387cd70961d0ae9dbf86fb9d1ecb4e48cb50707379",
+      "bytes": 45,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/DependInfo.cmake": {
+      "sha256": "24f6ac157192361be2ddfe47de5ce75434788c1e0cd6cdb09cc8bceba0f8e521",
+      "bytes": 1219,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/build.make": {
+      "sha256": "d4e20cfb670de208ee90c53131984768b43e0cf5303819dd53def475d625c84e",
+      "bytes": 9915,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/cmake_clean.cmake": {
+      "sha256": "ce25c8f51306cf83385370a36d829a10856ebe8f46d891116e4862cecf3aa289",
+      "bytes": 673,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/compiler_depend.make": {
+      "sha256": "f94c364e87474823f60016eee379ddd4793784e417b086df0bdea0604778af99",
+      "bytes": 121,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/compiler_depend.ts": {
+      "sha256": "c4d9e6de499578773d7ffa2c986f219c2afd1df7d50c2c5673c61e8393ff6470",
+      "bytes": 125,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/depend.make": {
+      "sha256": "cfa94686723f6e93da444dfe6ddcf5f0d122b013164b72079adafa11a77fb47c",
+      "bytes": 102,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/link.txt": {
+      "sha256": "15b697c11042665574241383e50f8989369445b74816cc42b1322271d24b683f",
+      "bytes": 566,
+      "mtime_ns": 1792218564703155880,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_playback_smoke.dir/progress.make": {
+      "sha256": "186eb29403ae91baec7dbd78a4eff9784d161cddda6a0c4e3b7d2097fe4e20ec",
+      "bytes": 89,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/DependInfo.cmake": {
+      "sha256": "4b3f488cd80417f390ce8458e3b40e93b6365becfeb43bbb693b1f0795a01301",
+      "bytes": 916,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/build.make": {
+      "sha256": "ba43abcdfc997cd76b3391bde4d6458bdfa383fe3fd5712f32ecf5bed0e546a2",
+      "bytes": 7022,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/cmake_clean.cmake": {
+      "sha256": "5ee04bb8cad1db6606183d74c40989f9989f24e977ae8bea84cf5ab5aa76d3ad",
+      "bytes": 438,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/compiler_depend.make": {
+      "sha256": "99473f1b465a06c749dd043497a6c0bb1cc4ca3cdb9c59fc17706b9d96179e8e",
+      "bytes": 112,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/compiler_depend.ts": {
+      "sha256": "5e8ae98db65621233e5cbf0fe4062f0e44dc5b4cc96322d02ca8bf92ba617b3f",
+      "bytes": 116,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/depend.make": {
+      "sha256": "f35607ce204b2cc8939d4b74dd50835264e97f13611f3ae6a4db93411568cf14",
+      "bytes": 93,
+      "mtime_ns": 1792218564695155821,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/link.txt": {
+      "sha256": "eec5ae4135f90dacb878fae90c1565618a109fa052bb5eaaa3c56eb11324a75c",
+      "bytes": 458,
+      "mtime_ns": 1792218564699155850,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_smoke.dir/progress.make": {
+      "sha256": "6028c8e946c5f49df667045e9ce6c452b3818bb52732d1d21b1fdf0e820a3afb",
+      "bytes": 67,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/DependInfo.cmake": {
+      "sha256": "ba03d2b3348260365941535dd35694a96e5c7f6061f285409e6d82657470e00a",
+      "bytes": 902,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/build.make": {
+      "sha256": "0da544ee119f6851a8c09ffa23d084fcebf89bb79925d4bc80ae751bcb33959d",
+      "bytes": 6073,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/cmake_clean.cmake": {
+      "sha256": "706b1bb30aa22536f11fe460ce2fa34db8218272ce7fd78c7d3fc8026b20c030",
+      "bytes": 413,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/compiler_depend.make": {
+      "sha256": "0c247f6e63e2d062797edf7c8a5ea4cdfcf00bb3e1c619a001308139f3dae717",
+      "bytes": 125,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/compiler_depend.ts": {
+      "sha256": "ceb900daab5b547ea1c0b6f2bc470fb9392b174ad7277650f23651ae6e4d1c27",
+      "bytes": 129,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/depend.make": {
+      "sha256": "f19afa8200d345e15bf88e8b701530a2fe9f19fa0f56b6b9e0a080ebf7682fd9",
+      "bytes": 106,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/link.txt": {
+      "sha256": "9df8cea9f16af82f0408e6f0b27b9b6d91c6100b73658d91547dfa81504aa694",
+      "bytes": 464,
+      "mtime_ns": 1792218564715155969,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_queue_smoke.dir/progress.make": {
+      "sha256": "6612b1bf63aeb6551ae64922c15af73444d3b50e0f7cb2319143064e3cff9115",
+      "bytes": 45,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/DependInfo.cmake": {
+      "sha256": "79b634cd33ee5ac340d2a87c092e6b47141f7ab70bc2df1fd40dbe8505d57260",
+      "bytes": 872,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/build.make": {
+      "sha256": "4680f593f620d7bc71f90b0c9dd563e22b40ca5d25300bff7f262292a9af9826",
+      "bytes": 5689,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/cmake_clean.cmake": {
+      "sha256": "8cede36ab77cf7ed9b1d7be5663def1d3c661d6f6ca5c89fbe50abeffbcbffce",
+      "bytes": 371,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/compiler_depend.make": {
+      "sha256": "e68c9e08b8b5f0e1d46872e5e88dfbadb08df2cfe83d031f7e68665edc12afba",
+      "bytes": 119,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/compiler_depend.ts": {
+      "sha256": "d0a087c77bd48bda23fd1757ef3afb0b62ffc41b67edace1a8abd71f8372c00e",
+      "bytes": 123,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/depend.make": {
+      "sha256": "84cde1c7c5bd24c55c1f0bedbc38b9ddbe5b0f870fa9b061d9d64d9c5160c714",
+      "bytes": 100,
+      "mtime_ns": 1792218564707155909,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/flags.make": {
+      "sha256": "2a20b6b6e2d83a7b4d0285c44881a8168b6adc3e21ffe58e26198f57fa2e61d7",
+      "bytes": 394,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/link.txt": {
+      "sha256": "762b5cbd35f2957d30a55efc009b594c197f25f02d40b1907e62fcc72b5d43a4",
+      "bytes": 446,
+      "mtime_ns": 1792218564711155939,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/CMakeFiles/tts_worker_smoke.dir/progress.make": {
+      "sha256": "fb866eef0925d808fc9d9c07d7fef619faa1ebafcf675c532b70ac40bd191e47",
+      "bytes": 45,
+      "mtime_ns": 1792218564727156057,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/Makefile": {
+      "sha256": "d0f84471b753a9e2a63637474816d356935d18c25daafabf4245358eb0320323",
+      "bytes": 50895,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/asr_llm_tts_smoke": {
+      "sha256": "c22de21ef6b82b4aee4cc2d0e4f2e1850960c23c356df2f3fc033b9d1c61fcc4",
+      "bytes": 244408,
+      "mtime_ns": 1792218594883378903,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/cmake_install.cmake": {
+      "sha256": "97919b231930efd45c5fb2e4039eb4c6693ba49864abce8c14e808ab90093dd8",
+      "bytes": 1681,
+      "mtime_ns": 1792218564723156028,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/libmultimodal_audio.a": {
+      "sha256": "d01e21c1fc7ffc2f7885294b658409488ab5cff9961134e67fad0575c21a8f97",
+      "bytes": 83936,
+      "mtime_ns": 1792218578923260959,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/libmultimodal_camera.a": {
+      "sha256": "c09315e6a2903479a142ff0e945d4fe69a777faf9f038381a1e915d58b959ead",
+      "bytes": 72836,
+      "mtime_ns": 1792218587999328029,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/libmultimodal_core.a": {
+      "sha256": "eff3ce41d70b513e5ed455070bf8c26338675d7d90ab81e3faf64653d8817705",
+      "bytes": 137684,
+      "mtime_ns": 1792218580143269974,
+      "changed_while_reading": false
+    },
+    "build/stage5_full/libmultimodal_tts.a": {
+      "sha256": "e95b313b4e07f9518e884ac7fee100e56be3a3aacd86b5d170b58373ee099eb0",
+      "bytes": 82322,
+      "mtime_ns": 1792218584251300332,
+      "changed_while_reading": false
+    },
+    "config/README.md": {
+      "sha256": "1f294e51c8a63bdab0573b8b6dcf9feacb0daddb4f18a625cf4d12f4d8052f5f",
+      "bytes": 601,
+      "mtime_ns": 1789796812249207483,
+      "changed_while_reading": false
+    },
+    "include/ai/backend_config.h": {
+      "sha256": "34c1a28baf41585eacb642f4722daffe2eb6435700d1ebc6a8dd3d047b2057aa",
+      "bytes": 258,
+      "mtime_ns": 1789796812249207483,
+      "changed_while_reading": false
+    },
+    "include/ai/llm_backend.h": {
+      "sha256": "a536c7f1588be8828195b3b74eb7508ae9006707fa98d574b44a0bd038a76017",
+      "bytes": 1061,
+      "mtime_ns": 1792027958573581076,
+      "changed_while_reading": false
+    },
+    "include/ai/llm_backend.h.op26.bak": {
+      "sha256": "5dbd57abfd90fa9a10c001d60b45a9dcc89fe4a740cfcf022c64bb664faa00fe",
+      "bytes": 417,
+      "mtime_ns": 1789796812249207483,
+      "changed_while_reading": false
+    },
+    "include/ai/llm_engine.h": {
+      "sha256": "6e58e96a9ea44d4216692fce394d3161381956976c6f6287cb640b7e8a62354a",
+      "bytes": 692,
+      "mtime_ns": 1792027973557672359,
+      "changed_while_reading": false
+    },
+    "include/ai/llm_engine.h.op26.bak": {
+      "sha256": "f5dcc54996ae87638cfb04fe5ac4052585feeba0169486a97735a6bf21875d96",
+      "bytes": 563,
+      "mtime_ns": 1789796812249207483,
+      "changed_while_reading": false
+    },
+    "include/ai/llm_worker.h": {
+      "sha256": "10a03767c8c3c3bf200ea2e857070a7b801d73828404e69d7b52b06aee1c127e",
+      "bytes": 1975,
+      "mtime_ns": 1792029459035241713,
+      "changed_while_reading": false
+    },
+    "include/ai/rk_backends.h": {
+      "sha256": "751c0ca475a46b3ddaa04df8a23d6a7af2c00b9279c71cfe4375e7a74446d41a",
+      "bytes": 992,
+      "mtime_ns": 1792217026718190200,
+      "changed_while_reading": false
+    },
+    "include/ai/rk_backends.h.bak": {
+      "sha256": "78c39cb5c0da129e9bb9eae1294854e46bbcab350704f767bbcb4bdb21023f98",
+      "bytes": 719,
+      "mtime_ns": 1789796812249207483,
+      "changed_while_reading": false
+    },
+    "include/ai/rk_backends.h.op26.bak": {
+      "sha256": "ba01d82f9227e373993db3c37ed902826d10f50e595f76a5cd5b15bf62398c7c",
+      "bytes": 1051,
+      "mtime_ns": 1792026547055575283,
+      "changed_while_reading": false
+    },
+    "include/ai/vlm_backend.h": {
+      "sha256": "e48b46bd0177fc891b3167595cd64f8666fe57874fd0eefe9031025b1d00d00e",
+      "bytes": 545,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/ai/vlm_engine.h": {
+      "sha256": "759c1efac3672eae7f3f95dcc23b06b5eefb2d3135b72b433de657a3e6002317",
+      "bytes": 522,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/app/cli.h": {
+      "sha256": "8de24558576bb0db3e943e479ff85d831bce6edd9ce384d84ae5b8dce0d84bf4",
+      "bytes": 492,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/app/request_processor.h": {
+      "sha256": "b236c892fddc11c01001bdc7e27cca892115cc7905880d106165c9ccecae04a3",
+      "bytes": 586,
+      "mtime_ns": 1792028026985999265,
+      "changed_while_reading": false
+    },
+    "include/app/request_processor.h.op26.bak": {
+      "sha256": "3ef77c231970dc7fa2e0bf450ad6d85b3c0c12c643c9f292200b521e12d66219",
+      "bytes": 466,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/audio/alsa_playback_service.h": {
+      "sha256": "d51e6deb7a316fc024cfdbb01a4f64d8e76d71f0e065ba24d5ed29fa545dba3d",
+      "bytes": 1371,
+      "mtime_ns": 1792116139384734203,
+      "changed_while_reading": false
+    },
+    "include/audio/asr_pipeline.h": {
+      "sha256": "4e40ad4170c560cd4151d55b99cc25b5572578a57b359c41813b524c0fd6e3ba",
+      "bytes": 3173,
+      "mtime_ns": 1791935977649716244,
+      "changed_while_reading": false
+    },
+    "include/audio/asr_service.h": {
+      "sha256": "53cd22464e052cf94892f124ed680e78b73b95c3c7a7ae284a8421cda13d467f",
+      "bytes": 1344,
+      "mtime_ns": 1791929795638922325,
+      "changed_while_reading": false
+    },
+    "include/audio/audio_capture.h": {
+      "sha256": "295c4bb588d32b26597acb944d62e5aa6da16131636296cf7f469134c464ac8f",
+      "bytes": 1051,
+      "mtime_ns": 1791935940181438056,
+      "changed_while_reading": false
+    },
+    "include/audio/audio_preprocessor.h": {
+      "sha256": "74595464fdf3a427904e7b81ba0478291b395e45fb966dd6370b1e62649ecfe1",
+      "bytes": 542,
+      "mtime_ns": 1791928525195129159,
+      "changed_while_reading": false
+    },
+    "include/audio/tts_service.h": {
+      "sha256": "f4a149ddf6f905670f04bb3dcb592e8802bd745028288d994cc2b763b7903c38",
+      "bytes": 1326,
+      "mtime_ns": 1792115442986938638,
+      "changed_while_reading": false
+    },
+    "include/audio/tts_service.h.before_kokoro.bak": {
+      "sha256": "53d4b7cc033e0a0c6957cf6eb30626786998e5812b6927c595b28c895da28240",
+      "bytes": 1777,
+      "mtime_ns": 1792113459888614640,
+      "changed_while_reading": false
+    },
+    "include/audio/tts_worker.h": {
+      "sha256": "5a78c0fbfe888b1920d4be37971d4de31eca1658474d544f144c0379f3597925",
+      "bytes": 2715,
+      "mtime_ns": 1792117654143826678,
+      "changed_while_reading": false
+    },
+    "include/audio/vad_audio_worker.h": {
+      "sha256": "08ce86b0d0197bb0709ad5005fecd9e8b1308af3a8b7124d9ba42a070cad9842",
+      "bytes": 1108,
+      "mtime_ns": 1791931478380217830,
+      "changed_while_reading": false
+    },
+    "include/common/inference_result.h": {
+      "sha256": "f35d73715b313ed83a7b8151afbd42feae6dfe5e2c7d4df168ad70be4a6b49a8",
+      "bytes": 475,
+      "mtime_ns": 1792027946021504740,
+      "changed_while_reading": false
+    },
+    "include/common/inference_result.h.op26.bak": {
+      "sha256": "b61cd7a4eeeff831dabb6c1874413fbb2b4bacc3de18d2944e02417f83667ac7",
+      "bytes": 347,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/common/timing.h": {
+      "sha256": "555181e4a3bfd5c7800d7fbf4d1e08c124022062fce4bfff4c30ec10c4d03e5f",
+      "bytes": 452,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/common/types.h": {
+      "sha256": "7813f3e5d3b12216934c9419cd44feaade2e9bcbdf80c3c3896fffec459e15bd",
+      "bytes": 617,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/router/intent_router.h": {
+      "sha256": "4bd47b86d95d2da94b824d9ff9d75000c9980b1d7b5b407b086b98f1651d64aa",
+      "bytes": 304,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/video/camera_service.h": {
+      "sha256": "cbfbcfdce0137f9a2a6f6ddf7b13adaaf6c87a97793daa751947b181d42befa9",
+      "bytes": 15801,
+      "mtime_ns": 1789953757648120107,
+      "changed_while_reading": false
+    },
+    "include/video/latest_frame_buffer.h": {
+      "sha256": "9b484fc595e0a0e52b35ecd7e5c34ab1dfb754519cbd7b4855071624aa3a1afb",
+      "bytes": 417,
+      "mtime_ns": 1789796812253207509,
+      "changed_while_reading": false
+    },
+    "include/video/video_capture.h": {
+      "sha256": "7aa14522a7d34a27a418f1207246841d83951032af465ec11432d05a563049e9",
+      "bytes": 13039,
+      "mtime_ns": 1789951078335613401,
+      "changed_while_reading": false
+    },
+    "src/ai/llm_engine.cpp": {
+      "sha256": "a831c679323a06d14762524a71088a56f72aa158fb967185706bdab42eb74b45",
+      "bytes": 2554,
+      "mtime_ns": 1792027985613745935,
+      "changed_while_reading": false
+    },
+    "src/ai/llm_engine.cpp.op26.bak": {
+      "sha256": "5a306882cf3350f6e8654b4af96b21d4a02ed92f9e08138e1dd95d7bb47cb238",
+      "bytes": 2243,
+      "mtime_ns": 1789796812257207537,
+      "changed_while_reading": false
+    },
+    "src/ai/llm_worker.cpp": {
+      "sha256": "685fe657c9ac1a6b5443fa77a6a1f15c7cd305a2902f977b61b5b06eaa1a96e9",
+      "bytes": 4816,
+      "mtime_ns": 1792030027382843552,
+      "changed_while_reading": false
+    },
+    "src/ai/llm_worker_smoke.cpp": {
+      "sha256": "cd6887e267dafb6974dc4c46d039758fb2aaaeb210532c4a9e04918dfd3c7a79",
+      "bytes": 4849,
+      "mtime_ns": 1792030893325235129,
+      "changed_while_reading": false
+    },
+    "src/ai/model_validation.h": {
+      "sha256": "df05064388a2057eddb2f406bdf7f49109bef9fb55c1b29fdf40f288c5d02f98",
+      "bytes": 691,
+      "mtime_ns": 1789796812257207537,
+      "changed_while_reading": false
+    },
+    "src/ai/rk3576_vlm_backend.cpp": {
+      "sha256": "a1e1af88d8fba2fcdd81b9e98527ca0dbac1fa3ecb0380a49b1338759c4cefe3",
+      "bytes": 9939,
+      "mtime_ns": 1792217102969693400,
+      "changed_while_reading": false
+    },
+    "src/ai/rk_backends_unavailable.cpp": {
+      "sha256": "29cbd4b64e7b82e8a51d507ae0270c198a5b4cbcbbb3986dfa6bae032ca785c6",
+      "bytes": 1938,
+      "mtime_ns": 1792217047657059700,
+      "changed_while_reading": false
+    },
+    "src/ai/rk_backends_unavailable.cpp.bak": {
+      "sha256": "bbda639565ec3d4fb38c51516d87861881804008178e651a3516619af9a84e70",
+      "bytes": 969,
+      "mtime_ns": 1789796812257207537,
+      "changed_while_reading": false
+    },
+    "src/ai/rk_backends_unavailable.cpp.op27.bak": {
+      "sha256": "3c69696d3f510266debbfef9f7a299a4c869e65b95a7364712d2e141317d9871",
+      "bytes": 1429,
+      "mtime_ns": 1792026565115730463,
+      "changed_while_reading": false
+    },
+    "src/ai/rkllm_backend.cpp": {
+      "sha256": "0d6b1a418c1d305a5d0253e87a43600317b1e856f540c751a43cabe7f06bc417",
+      "bytes": 5145,
+      "mtime_ns": 1792028008421885428,
+      "changed_while_reading": false
+    },
+    "src/ai/rkllm_backend.cpp.op26.bak": {
+      "sha256": "48b77a65c6ee3419603b9c18f1a8b3a4ea99cc2f8d3bdfc2f1de0f4bf36226d8",
+      "bytes": 5426,
+      "mtime_ns": 1792026574715812953,
+      "changed_while_reading": false
+    },
+    "src/ai/vlm_engine.cpp": {
+      "sha256": "88b81299197e345c7630098f0467f32d5afcca8fe2ddd29e9de2be1c23d9dd22",
+      "bytes": 2852,
+      "mtime_ns": 1789796812257207537,
+      "changed_while_reading": false
+    },
+    "src/app/cli.cpp": {
+      "sha256": "33cf732b1a14e62e1ab0a0f55cbb8cdf16800ad8e571ecb04554783160a0b0df",
+      "bytes": 7766,
+      "mtime_ns": 1792028051918152557,
+      "changed_while_reading": false
+    },
+    "src/app/cli.cpp.op26.bak": {
+      "sha256": "c126396f9932953da7f8536116d10639198e7e6f5ba932a5586f4108f48c34c0",
+      "bytes": 6783,
+      "mtime_ns": 1789796812257207537,
+      "changed_while_reading": false
+    },
+    "src/app/request_processor.cpp": {
+      "sha256": "f2fd91291d7fddddd06d8d9f716835244728c9704e2c92dc182f37221422ced3",
+      "bytes": 883,
+      "mtime_ns": 1792028040126079994,
+      "changed_while_reading": false
+    },
+    "src/app/request_processor.cpp.op26.bak": {
+      "sha256": "318531c0c8bb71fa2c4088830dd7708aad19abd88a4f4fa1e50624a8d2075a44",
+      "bytes": 675,
+      "mtime_ns": 1789796812257207537,
+      "changed_while_reading": false
+    },
+    "src/audio/alsa_playback_service.cpp": {
+      "sha256": "777ca61cc29489ecdf0c47c7a49d49bc1ae4c3f8ff2de15b33b30cc9e63b7e89",
+      "bytes": 8800,
+      "mtime_ns": 1792116614936237681,
+      "changed_while_reading": false
+    },
+    "src/audio/alsa_playback_service.cpp.before_xrun_fix.bak": {
+      "sha256": "2da35c470187d38b6aaa40f4202badd58c24a7dcd23868b1f1b4fe574915df3e",
+      "bytes": 7729,
+      "mtime_ns": 1792116147736795990,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_live_smoke.cpp": {
+      "sha256": "88dba222ab07b56a12afb12ff479e97872cb580e7be394c8a6513575859d39cb",
+      "bytes": 4085,
+      "mtime_ns": 1791929825111164884,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_llm_smoke.cpp": {
+      "sha256": "7f1dd9be3dd8814228876681bca7294a0cdfc0f5de0ed76fe35466b1d5247d40",
+      "bytes": 11500,
+      "mtime_ns": 1792046460163591386,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_llm_smoke.cpp.bak": {
+      "sha256": "21eb7453722beabe2c13185316e0926d39550d4ee784722a2f1c067a0a158e1e",
+      "bytes": 9164,
+      "mtime_ns": 1792034262000000000,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_llm_tts_smoke.cpp": {
+      "sha256": "d88398133490cfb2360c8df9aca5c05f8248bbe7868786d381116ebfe3a9533f",
+      "bytes": 38558,
+      "mtime_ns": 1792218018000000000,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_pipeline.cpp": {
+      "sha256": "d44a582b35b3b4ca81bab7b2025ca71c2e8360ec1c9ee9a551162a7c96c52a36",
+      "bytes": 9262,
+      "mtime_ns": 1791935990853814202,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_pipeline_smoke.cpp": {
+      "sha256": "3e53f1d419a03fa88658c640a49516e9495e4aa810a555d67aba2b1f7690e296",
+      "bytes": 2910,
+      "mtime_ns": 1791930476500188004,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_route_smoke.cpp": {
+      "sha256": "8b0c9bfb99abc9ac2cdf5b6320e1d7260e31b8ce6c86b18b7488a3b9d670e816",
+      "bytes": 7913,
+      "mtime_ns": 1791933135268440826,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_service.cpp": {
+      "sha256": "85c78e47561e0940eb7e586f289fcb86c44900541efc134428ebf616e5397a85",
+      "bytes": 4865,
+      "mtime_ns": 1791929809347035391,
+      "changed_while_reading": false
+    },
+    "src/audio/asr_vad_smoke.cpp": {
+      "sha256": "f53d914b498798c82ea12da1fe2601b5426dde1105ea64015d90b46b71e70d20",
+      "bytes": 3283,
+      "mtime_ns": 1791931496492360450,
+      "changed_while_reading": false
+    },
+    "src/audio/audio_capture.cpp": {
+      "sha256": "fe1b1a1ad0b26d6c7c62b48e83c07f749d11dc04628ea4258ff79502269395d6",
+      "bytes": 3606,
+      "mtime_ns": 1791935951761524075,
+      "changed_while_reading": false
+    },
+    "src/audio/audio_capture_smoke.cpp": {
+      "sha256": "35f4924a0e8f189d4c22e7b91dfd34da9419d1c47fc4ccf2d75be4836ab03ee2",
+      "bytes": 2486,
+      "mtime_ns": 1791926838886809091,
+      "changed_while_reading": false
+    },
+    "src/audio/audio_preprocessor.cpp": {
+      "sha256": "b1fc2e0659bbabe63e555f45ff57738b5bf776c51f8a7ed2d1bbbd9619be72d7",
+      "bytes": 1150,
+      "mtime_ns": 1791928556199236437,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_playback_smoke.cpp": {
+      "sha256": "55553c6370de604b1deeb7d4b4d3dffd6c78dbb44742f36982891de98e13c7c1",
+      "bytes": 4216,
+      "mtime_ns": 1792116158788877741,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_service.cpp": {
+      "sha256": "b43677e31f8b53ddf7fed2bbf341bf0b35c405dcba86bd8dc972a663d35ea28e",
+      "bytes": 6947,
+      "mtime_ns": 1792115452783022338,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_service.cpp.before_kokoro.bak": {
+      "sha256": "e1126a24c3958d5821c0887504a4797a9d18e11056a1a8bdf8b79817c8a9a694",
+      "bytes": 5098,
+      "mtime_ns": 1792113469216675277,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_smoke.cpp": {
+      "sha256": "63561803c786cd366740cf391b275935c592be234336e19f023e770c35b122ca",
+      "bytes": 3797,
+      "mtime_ns": 1792115462047104741,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_smoke.cpp.before_kokoro.bak": {
+      "sha256": "67ee3c1abe08c4529cbcb06b04306dac2884c55210e5d211d42a7469d837fe9d",
+      "bytes": 3196,
+      "mtime_ns": 1792113479968745299,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_worker.cpp": {
+      "sha256": "590e9676d023d228c0aaf39e1106538f171f7d1577c17981137e2598f4a22b54",
+      "bytes": 7336,
+      "mtime_ns": 1792117665287907760,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_worker_queue_smoke.cpp": {
+      "sha256": "9bfd8faba054eb20662a21c063fb3436fb1dd4fdbb5d37854fac70f6f1a638a1",
+      "bytes": 5894,
+      "mtime_ns": 1792117971238132289,
+      "changed_while_reading": false
+    },
+    "src/audio/tts_worker_smoke.cpp": {
+      "sha256": "b0a6c515ad88cd7d110f662e28bafcef1c65dc787161b5104c5e222f38b3ac5a",
+      "bytes": 4925,
+      "mtime_ns": 1792117676495989307,
+      "changed_while_reading": false
+    },
+    "src/audio/vad_audio_worker.cpp": {
+      "sha256": "cb59c0fd175686eb912ba2226ebf133fb1507448a4b8b1363624ef10b9effe05",
+      "bytes": 12371,
+      "mtime_ns": 1791936001345892007,
+      "changed_while_reading": false
+    },
+    "src/main.cpp": {
+      "sha256": "cc164cb4a7190ccb84f9481e390f362f9bac00aa1daa451e83a76bc49367ce11",
+      "bytes": 2414,
+      "mtime_ns": 1789886323585849672,
+      "changed_while_reading": false
+    },
+    "src/router/intent_router.cpp": {
+      "sha256": "791099a42b0086cf1af55f33769c14c172edb3c65ffaee895cda0f79569f0c6e",
+      "bytes": 1826,
+      "mtime_ns": 1791933061335962539,
+      "changed_while_reading": false
+    },
+    "src/video/camera_service.cpp": {
+      "sha256": "677ebe29fa1bee5ef5cf408f42780b82c248d478a6a1d3267cb08352a7c37927",
+      "bytes": 28199,
+      "mtime_ns": 1790050291942357350,
+      "changed_while_reading": false
+    },
+    "src/video/latest_frame_buffer.cpp": {
+      "sha256": "3742b116cff282666ea3c54a24d25cd6d7ba5ec8e40cf399fa3397c49ffac29a",
+      "bytes": 435,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "src/video/video_capture.cpp": {
+      "sha256": "7435dfc113c64de8b1e55ff7cacee3f0f7809d3a82e834968bf872b9db4ff061",
+      "bytes": 40691,
+      "mtime_ns": 1789952313999402639,
+      "changed_while_reading": false
+    },
+    "src/video/video_capture_unavailable.cpp": {
+      "sha256": "f389b1339ab59762cade07da9552550fa03de3a3f8fac2d53d7109115af96a4d",
+      "bytes": 879,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/audio_preprocessor_tests.cpp": {
+      "sha256": "547eb2c82852d78430824d9fc2484d69cde415f3015276fb2f41dfa1bd5fb754",
+      "bytes": 2181,
+      "mtime_ns": 1791928574951304481,
+      "changed_while_reading": false
+    },
+    "tests/camera_service_tests.cpp": {
+      "sha256": "1e52e6d406c809bf7fd4cc01899a3d0301d965a59aebd30d1d4225ddaa67fbad",
+      "bytes": 3143,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/camera_test_capture.cpp": {
+      "sha256": "31a1baa7c7312e8aa8199b78dd5be3ff154d504b0367264a77c43e3395da4540",
+      "bytes": 1792,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/camera_test_capture.h": {
+      "sha256": "6b1f774909cc3423bd67aeddaf0f79aa222957b3afe1381744106d557c3d6bfc",
+      "bytes": 320,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/cli_eof.txt": {
+      "sha256": "1d4ecadd14f217e8a8e8d14699c19a007738371cd6f879b861fc44ec45c952e6",
+      "bytes": 6,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/cli_exit.txt": {
+      "sha256": "9577a8bfed904bd55390ba203f1a233be1981b36fa945537eb3be5b2446de031",
+      "bytes": 5,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/cli_input.txt": {
+      "sha256": "70e6c2fa53698f3bea8093fe788994617e93360203d19cc18948ed5f836ce391",
+      "bytes": 37,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/cli_smoke.cmake": {
+      "sha256": "ede278613e20d4a3a94785b849c9b7ad78c01b0775728fedabb2d88326506b58",
+      "bytes": 2327,
+      "mtime_ns": 1789796812261207563,
+      "changed_while_reading": false
+    },
+    "tests/core_tests.cpp": {
+      "sha256": "a8c34793c1c57c5ff8075babfca099765b1cbc5ed536aa2c1af1421ab13a336f",
+      "bytes": 10807,
+      "mtime_ns": 1791933091052154733,
+      "changed_while_reading": false
+    },
+    "tests/llm_worker_tests.cpp": {
+      "sha256": "53c66728d80018c641857e299bc30c497a9537efc44fba9df18d3ba204cf87f8",
+      "bytes": 6357,
+      "mtime_ns": 1792029493307460652,
+      "changed_while_reading": false
+    },
+    "tests/vlm_blank_rgb512.raw": {
+      "sha256": "fd92de53403dba9b673df2cba7ee3de7c7c4ca5ef4b8e1f7f2e8c0d72ed1e193",
+      "bytes": 786432,
+      "mtime_ns": 1792215792742483745,
+      "changed_while_reading": false
+    },
+    "tests/vlm_joint_ref_smoke": {
+      "sha256": "cb37c64546deb1ad64c868f59b8083398a6fcb0c61dd1136c81e5dedc681950a",
+      "bytes": 73256,
+      "mtime_ns": 1792216292522258649,
+      "changed_while_reading": false
+    },
+    "tests/vlm_joint_ref_smoke.cpp": {
+      "sha256": "b538b5486e2f9d5b86bbe4b6f4cc34c24c95cae3217ec9899b562693e970fd59",
+      "bytes": 7513,
+      "mtime_ns": 1792216284850200826,
+      "changed_while_reading": false
+    },
+    "tests/vlm_joint_smoke": {
+      "sha256": "4a637c3872e72e8af9302ae96a7b0fb4ac5f11c6f6a36df1a246fb5dcd332259",
+      "bytes": 74096,
+      "mtime_ns": 1792216103020829377,
+      "changed_while_reading": false
+    },
+    "tests/vlm_joint_smoke.cpp": {
+      "sha256": "ea3b3a4e2d7612155b7a7abea382409cfacf83f7adae713e61a409913ba0cb97",
+      "bytes": 6711,
+      "mtime_ns": 1792216095904775659,
+      "changed_while_reading": false
+    },
+    "tests/vlm_joint_smoke.cpp.before_dump": {
+      "sha256": "7ed515618919caf487161585e7b2c56a98c7a8b756e9d2f82c67a58680c0a591",
+      "bytes": 6285,
+      "mtime_ns": 1792216095776774690,
+      "changed_while_reading": false
+    },
+    "tests/vlm_llm_smoke": {
+      "sha256": "0fbd8934aa5ef3a360f3ce3ab1b7b1c9e7723acc8a14ed92352085f22ac8cda7",
+      "bytes": 72664,
+      "mtime_ns": 1792215256150404661,
+      "changed_while_reading": false
+    },
+    "tests/vlm_llm_smoke.cpp": {
+      "sha256": "98b9f3ec80b026120010c2615b96fdfb3e712227e4af07efb7f63833ed055639",
+      "bytes": 3762,
+      "mtime_ns": 1792215250710363113,
+      "changed_while_reading": false
+    },
+    "tests/vlm_llm_smoke.cpp.before_template": {
+      "sha256": "b1d0f3a3f36ecf59d9829a16d2941a8e141751a4ebf3c880103a0280588557c1",
+      "bytes": 3212,
+      "mtime_ns": 1792215250602362289,
+      "changed_while_reading": false
+    },
+    "tests/vlm_single_crop_rgb512.raw": {
+      "sha256": "472ecd63a7db1d0891619c274c52b9d5f0cbf167cc1b6fe911d4f0eaec675078",
+      "bytes": 786432,
+      "mtime_ns": 1792215632641270146,
+      "changed_while_reading": false
+    },
+    "tests/vlm_vision_real_npu_f32.bin": {
+      "sha256": "8c9e7dbf6e2038366e3ba7bda53dfd1028f41cca3d6705376939cf7dc4ffe745",
+      "bytes": 147456,
+      "mtime_ns": 1792216108652871888,
+      "changed_while_reading": false
+    },
+    "tests/vlm_vision_real_pytorch_f32.bin": {
+      "sha256": "feb02c16497202b4e0d167127bee9a5aa405901acb5aaa8f77b13407c97a9123",
+      "bytes": 147456,
+      "mtime_ns": 1792216280334166787,
+      "changed_while_reading": false
+    },
+    "tests/vlm_vision_smoke": {
+      "sha256": "dfeafb525b189290f087717bec28fc320bd79182f20caa78a81f903d70106011",
+      "bytes": 73008,
+      "mtime_ns": 1792208317943771531,
+      "changed_while_reading": false
+    },
+    "tests/vlm_vision_smoke.cpp": {
+      "sha256": "3bf42829a796e2d42f083fed571aae2f09087feec7e96b63f5bad9889fa28cfa",
+      "bytes": 4804,
+      "mtime_ns": 1792208311371714438,
+      "changed_while_reading": false
+    },
+    "tests/vlm_vision_smoke.cpp.bak": {
+      "sha256": "3350f7ec712c16ee24dc2546d69e7c84c820d448c9071c218ab936608a4f93d2",
+      "bytes": 4405,
+      "mtime_ns": 1792208311259713464,
+      "changed_while_reading": false
+    }
+  }
+}

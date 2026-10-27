@@ -1,0 +1,72 @@
+[
+  {
+    "file": "docs/stage5_01_board_acceptance.md",
+    "bytes": 16123,
+    "sha256": "52a7b626243ca6cb4445a55d9d54ab9674e26f3456b320d388cde717bf92c44d"
+  },
+  {
+    "file": "docs/stage5_01_architecture_audit.md",
+    "bytes": 33928,
+    "sha256": "e65d4bc58b77700fe0cacc94dd40656e7216730d22477529fbcddb399dfd2a94"
+  },
+  {
+    "file": "docs/stage5_01_source_appendix.md",
+    "bytes": 234138,
+    "sha256": "3c73e2a735089917716dab39e38bcb3fce6d785268703c95238d17771b6b5c47"
+  },
+  {
+    "file": "docs/stage5_plan.md",
+    "bytes": 8901,
+    "sha256": "44b209ff07fdb36e520841835ea27c9c53544ea34cd2ad9ab78d57e8990bb170"
+  },
+  {
+    "file": "reports/stage5_01_board/phase3_summary.json",
+    "bytes": 18176,
+    "sha256": "107c0f5e5a3bb3d9d8bc7d8108f5c85aa580ed5aa6ec275d2872cb50300ceb97"
+  },
+  {
+    "file": "reports/stage5_01_board/user_participation.json",
+    "bytes": 795,
+    "sha256": "8ce7d623eecda64acb3bb50555f84ace9a50ed22f4f4fb6ebd1824e3412ce95c"
+  },
+  {
+    "file": "reports/stage5_01_local/validation_summary.json",
+    "bytes": 22284,
+    "sha256": "5b2ded3a62a4d666e1c1e9c765f5a54c488781e415853bb99f3124147785621e"
+  },
+  {
+    "file": "reports/stage5_01_local/change_manifest.json",
+    "bytes": 9387,
+    "sha256": "7df2d1405abafe53d80db5bf19820accbefd0ae7f26b14d090d3b91d9d67be0d"
+  },
+  {
+    "file": "reports/stage5_01_local/source_invariants.json",
+    "bytes": 593,
+    "sha256": "29bae2cf041aeb29ec1fe3ab2687a0961dccbcd5f61a1c98f5db0db1bd874884"
+  },
+  {
+    "file": "reports/stage5_01_local/changes.patch",
+    "bytes": 490957,
+    "sha256": "6d907ad0ab4cc262aa2fbf37870176ea343f270ee1cddcb51477b2732e73e7c4"
+  },
+  {
+    "file": "reports/stage5_01_local/changes.git.diff",
+    "bytes": 498207,
+    "sha256": "c0794a3fc60ca2bc626afc4150f95489be466835b3249e73c2f0df85a21da7bd"
+  },
+  {
+    "file": "reports/stage5_01_local/phase3_signal_fix/signal_fix.patch",
+    "bytes": 7063,
+    "sha256": "0656accbfdfd1d974483108729dff5ccf09685d9eef5c8a4a34d60366269f727"
+  },
+  {
+    "file": "reports/stage5_01_local/phase3_signal_fix/signal_fix.git.diff",
+    "bytes": 7690,
+    "sha256": "fc2ed2b8986a1b1c7fab7600b3673f1a44200116a3ce0c8c2aa1cb73d8bf1875"
+  },
+  {
+    "file": "reports/stage5_01_local/phase3_patch_check.log",
+    "bytes": 130,
+    "sha256": "95c1e074987f00a75fc4f57f384fc2dd50ee205b9da83f5faee3e56c82333c8b"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "name": "baseline_sigint",
+  "signal": "SIGINT",
+  "trigger": "ready",
+  "delay": 2.0,
+  "seconds": 120,
+  "timeout": 180,
+  "grace": 25
+}

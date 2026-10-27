@@ -1,0 +1,197 @@
+{
+  "status": "STAGE5_01_ACCEPTED",
+  "board_readonly_commands_executed": true,
+  "board_upload_compile_or_test_executed": true,
+  "scope": {
+    "status": "STAGE5_01_ACCEPTED",
+    "host": "cat@192.168.10.27",
+    "original": "/home/cat/projects/RK3576/rk3576_multimodal",
+    "proposed_review_directory": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+    "connection_attempted": true,
+    "reachability": "CONFIRMED_BY_SSH_EXIT_0",
+    "ssh_scp_local_resolution": "Approved system OpenSSH SSH/SCP; user authorized phase 2 deployment/build; no hardware test programs started",
+    "uploaded": true,
+    "compiled": true,
+    "program_started": true,
+    "arm64_build": "PASSED_EXIT_0_ALL_21_TARGETS",
+    "ctest": "PASSED_ARM64_4_OF_4_TWICE_MOCK_FAKE_ALGORITHM_TESTS",
+    "asr_llm_vlm_tts_hardware": "PASSED_REAL_TWO_BRANCH_VOICE_NATURAL_EXIT_0",
+    "audible_confirmation": {
+      "confirmed": true,
+      "source": "Explicit user replies",
+      "evidence": "reports/stage5_01_board/user_participation.json",
+      "natural_run_text_and_vision_heard": true,
+      "active_sigterm_run_text_heard": true
+    },
+    "graceful_ctrlc": "SIGINT_PASSED_BY_PID_SIGNAL; physical keyboard not separately pressed",
+    "resource_leak_deadlock": "No obvious new issue observed in bounded runs; process/FD/device recovery checked; not exhaustive long-run leak proof",
+    "original_preserved_on_board": {
+      "verified": true,
+      "fingerprint_entries": 321,
+      "scope": "CMakeLists/README/src/include/tests/config and all regular files/symlinks in build/stage5_full; model weights not hashed/copied",
+      "stable_executable_sha256": "c22de21ef6b82b4aee4cc2d0e4f2e1850960c23c356df2f3fc033b9d1c61fcc4",
+      "latest_evidence": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782/collected/reports/stage5_01_board/phase3_final_20261017T110519Z/original_fingerprint.json"
+    },
+    "result_logs": [
+      "reports/stage5_01_board/readonly_full_20261017_182201_324598",
+      "reports/stage5_01_board/readonly_full_20261017_182311_779187",
+      "reports/stage5_01_board/readonly_full_20261017_182408_344229",
+      "reports/stage5_01_board/readonly_full_20261017_182718_018778",
+      "reports/stage5_01_board/readonly_guard_20261017_181540_720060",
+      "reports/stage5_01_board/phase2_20261017_184503_994558",
+      "reports/stage5_01_board/phase3_ssh_20261017_190524_321782"
+    ],
+    "readonly_preflight": {
+      "passed": true,
+      "ssh_exit_code": 0,
+      "board_time": "2026-10-17T18:27:19+08:00",
+      "summary": "reports/stage5_01_board/readonly_preflight_summary.json",
+      "checks": {
+        "review_directory_absent": true,
+        "disk_budget_sufficient": true,
+        "original_and_stable_build_present": true,
+        "original_fingerprints_unchanged": true,
+        "all_required_paths_readable": true,
+        "dynamic_libraries_resolved": true,
+        "device_owners_clear": true,
+        "npu_device_identified": true
+      },
+      "available_disk_bytes": 2238889984,
+      "local_original_source_files_compared": 71,
+      "all_compared_sources_match": true
+    },
+    "review_directory_created": true,
+    "phase2": {
+      "summary": "reports/stage5_01_board/phase2_summary.json",
+      "report": "docs/stage5_01_phase2_build.md",
+      "build_exit_code": 0,
+      "targets_passed": 21,
+      "targets_failed": 0,
+      "arm64_elf_executables": 17,
+      "compiler_warning_count": 1,
+      "compiler_error_count": 0,
+      "final_disk_free_bytes": 2231988224,
+      "observed_min_disk_free_bytes": 2231934976,
+      "original_baseline_entries_unchanged": 321,
+      "source_repairs_required": false,
+      "ready_for_phase3": true,
+      "ctest_executed": false,
+      "hardware_tests_executed": false
+    },
+    "sigterm": "PASSED_IDLE_INITIALIZING_AND_ACTIVE_TEXT_DRAIN",
+    "phase3": {
+      "summary": "reports/stage5_01_board/phase3_summary.json",
+      "technical_report": "docs/stage5_01_board_acceptance.md",
+      "complete_evidence_directory": "reports/stage5_01_board/phase3_ssh_20261017_190524_321782",
+      "ctest_runs": [
+        {
+          "folder": "phase3_precheck_ctest_20261017T105346Z",
+          "total": 4,
+          "passed": 4,
+          "failed": 0,
+          "exit_code": 0,
+          "ctest_total_seconds": 0.26,
+          "tests": [
+            {
+              "name": "asr_pipeline_tests",
+              "time_seconds": 0.00943535,
+              "kind": "Fake_or_Mock_unit_test"
+            },
+            {
+              "name": "audio_preprocessor_tests",
+              "time_seconds": 0.00952117,
+              "kind": "pure_algorithm"
+            },
+            {
+              "name": "llm_worker_tests",
+              "time_seconds": 0.0121942,
+              "kind": "Fake_or_Mock_unit_test"
+            },
+            {
+              "name": "camera_service_tests",
+              "time_seconds": 0.223908,
+              "kind": "Fake_or_Mock_unit_test"
+            }
+          ]
+        },
+        {
+          "folder": "signal_fix_20261017T105740Z",
+          "total": 4,
+          "passed": 4,
+          "failed": 0,
+          "exit_code": 0,
+          "ctest_total_seconds": 0.27,
+          "tests": [
+            {
+              "name": "asr_pipeline_tests",
+              "time_seconds": 0.00957815,
+              "kind": "Fake_or_Mock_unit_test"
+            },
+            {
+              "name": "audio_preprocessor_tests",
+              "time_seconds": 0.00895747,
+              "kind": "pure_algorithm"
+            },
+            {
+              "name": "llm_worker_tests",
+              "time_seconds": 0.0120065,
+              "kind": "Fake_or_Mock_unit_test"
+            },
+            {
+              "name": "camera_service_tests",
+              "time_seconds": 0.228979,
+              "kind": "Fake_or_Mock_unit_test"
+            }
+          ]
+        }
+      ],
+      "signal_baseline_return_codes": [
+        -2,
+        -15
+      ],
+      "fixed_hardware_signal_return_codes": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "all_processes_gone": true,
+      "all_target_devices_released": true,
+      "timeouts": 0,
+      "forced_kills": 0,
+      "post_fix_build_targets": 21,
+      "post_fix_build_exit": 0,
+      "modified_production_files": [
+        "src/audio/asr_llm_tts_smoke.cpp",
+        "include/audio/vad_audio_worker.h",
+        "src/audio/vad_audio_worker.cpp"
+      ],
+      "source_files_verified_identical_local_board": 77,
+      "final_disk_free_bytes": 2228097024,
+      "original_321_entries_unchanged": true,
+      "stage5_01_formally_accepted": true,
+      "ready_for_stage5_02": true,
+      "stage5_02_started": false
+    }
+  },
+  "authorization": {
+    "phase1_readonly": "APPROVED_AND_COMPLETED",
+    "phase2_isolated_deploy_compile": "APPROVED_AND_COMPLETED",
+    "phase3_ctest_hardware_regression": "APPROVED_AND_COMPLETED",
+    "stage5_02_large_restructure": "NOT_STARTED; user requested no large stage 5.2 changes in this turn"
+  },
+  "phase2_candidate": {
+    "archive": "reports/stage5_01_local/board_package/stage5_01_review_preflight_v2.tgz",
+    "sha256": "a653dd57e1ed5138170dd6d6ff7eb77a1518aa0e97c909402b662cab45c13c6e",
+    "size_bytes": 126256,
+    "files": 86,
+    "archive_safety_and_hash_checks_passed": true
+  },
+  "stage5_01_accepted": true,
+  "ready_for_large_stage5_02_changes": true,
+  "phase2_summary": "reports/stage5_01_board/phase2_summary.json",
+  "hardware_tests_executed": true,
+  "phase3_summary": "reports/stage5_01_board/phase3_summary.json",
+  "stage5_02_implementation_started": false
+}

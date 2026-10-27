@@ -1,0 +1,21 @@
+{
+  "readiness": {
+    "confirmed": true,
+    "user_message": "准备好了"
+  },
+  "audible_confirmation": {
+    "run": "voice_both_natural_01",
+    "user_message": "两个回答都听到了",
+    "text_answer_heard": true,
+    "vision_answer_heard": true,
+    "source": "Explicit user reply in this conversation; not inferred from TTS success logs",
+    "visual_answer_semantic_accuracy_confirmed": null
+  },
+  "active_signal_audible_confirmation": {
+    "run": "voice_text_active_sigterm",
+    "user_message": "已提问，听到了回答",
+    "text_answer_heard": true,
+    "source": "Explicit user reply after SIGTERM during the LLM request"
+  },
+  "note": "Hearing confirmations apply only to the named runs; visual semantic accuracy was not separately confirmed."
+}

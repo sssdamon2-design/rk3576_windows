@@ -1,0 +1,175 @@
+{
+  "mode": "speech",
+  "runs": [
+    {
+      "run": 1,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.69,
+      "summary": {
+        "Detected": "0",
+        "Recognized": "0",
+        "Routed": "0",
+        "TEXT": "0",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1128 s"
+      },
+      "asr_events": [],
+      "avg_process_cpu_pct": 48.7,
+      "peak_process_cpu_pct": 109.66,
+      "peak_rss_mib": 354.59
+    },
+    {
+      "run": 2,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.7,
+      "summary": {
+        "Detected": "0",
+        "Recognized": "0",
+        "Routed": "0",
+        "TEXT": "0",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1308 s"
+      },
+      "asr_events": [],
+      "avg_process_cpu_pct": 49.31,
+      "peak_process_cpu_pct": 101.64,
+      "peak_rss_mib": 337.43
+    },
+    {
+      "run": 3,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.93,
+      "summary": {
+        "Detected": "0",
+        "Recognized": "0",
+        "Routed": "0",
+        "TEXT": "0",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1149 s"
+      },
+      "asr_events": [],
+      "avg_process_cpu_pct": 50.29,
+      "peak_process_cpu_pct": 101.27,
+      "peak_rss_mib": 338.07
+    },
+    {
+      "run": 4,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.74,
+      "summary": {
+        "Detected": "0",
+        "Recognized": "0",
+        "Routed": "0",
+        "TEXT": "0",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1352 s"
+      },
+      "asr_events": [],
+      "avg_process_cpu_pct": 50.14,
+      "peak_process_cpu_pct": 108.26,
+      "peak_rss_mib": 337.71
+    },
+    {
+      "run": 5,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.84,
+      "summary": {
+        "Detected": "0",
+        "Recognized": "0",
+        "Routed": "0",
+        "TEXT": "0",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1266 s"
+      },
+      "asr_events": [],
+      "avg_process_cpu_pct": 49.31,
+      "peak_process_cpu_pct": 101.39,
+      "peak_rss_mib": 337.81
+    },
+    {
+      "run": 6,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.75,
+      "summary": {
+        "Detected": "3",
+        "Recognized": "3",
+        "Routed": "3",
+        "TEXT": "3",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1239 s"
+      },
+      "asr_events": [
+        {
+          "segment": 1,
+          "latency_ms": 382.712,
+          "rtf": 0.491918,
+          "vad_log_to_asr_log_ms": 383.52
+        },
+        {
+          "segment": 2,
+          "latency_ms": 619.313,
+          "rtf": 0.36996,
+          "vad_log_to_asr_log_ms": 619.38
+        },
+        {
+          "segment": 3,
+          "latency_ms": 574.221,
+          "rtf": 0.379274,
+          "vad_log_to_asr_log_ms": 574.15
+        }
+      ],
+      "avg_process_cpu_pct": 62.06,
+      "peak_process_cpu_pct": 208.82,
+      "peak_rss_mib": 345.45
+    },
+    {
+      "run": 7,
+      "exitcode": 1,
+      "timed_out": false,
+      "wall_time_s": 25.3,
+      "summary": {
+        "Detected": "0",
+        "Recognized": "0",
+        "Routed": "0",
+        "TEXT": "0",
+        "VISION": "0",
+        "Dropped": "0",
+        "Vision frame seen": "no",
+        "Wall time": "20.1237 s"
+      },
+      "asr_events": [],
+      "avg_process_cpu_pct": 48.91,
+      "peak_process_cpu_pct": 101.37,
+      "peak_rss_mib": 465.73
+    }
+  ],
+  "aggregate": {
+    "asr_segments": 3,
+    "asr_latency_mean_ms": 525.42,
+    "asr_latency_p50_ms": 574.221,
+    "asr_latency_p95_ms": 614.804,
+    "rtf_mean": 0.414,
+    "vad_log_to_asr_log_p50_ms": 574.15,
+    "vad_log_to_asr_log_p95_ms": 614.857,
+    "max_process_rss_mib": 465.73,
+    "mean_process_cpu_pct": 51.25
+  }
+}

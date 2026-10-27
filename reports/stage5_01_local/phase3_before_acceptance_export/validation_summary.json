@@ -1,0 +1,350 @@
+{
+  "date_client_timezone": "2026-10-17 Asia/Hong_Kong",
+  "scope": "Windows portable C++ tests retained as historical results; real Linux ARM64 build completed in board.phase2; no ARM64 CTest or hardware runtime tests",
+  "tools": {
+    "cmake": "4.3.2",
+    "compiler": "MinGW g++ 16.1.0",
+    "generator": "MinGW Makefiles",
+    "build_type": "Debug"
+  },
+  "options": {
+    "BUILD_TESTING": true,
+    "BUILD_WITH_RKLLM": false,
+    "BUILD_WITH_VLM": false,
+    "ENABLE_SHERPA_ASR": false
+  },
+  "baseline": {
+    "workspace_configure_exit": 0,
+    "workspace_build_exit": 2,
+    "ascii_configure_exit": 0,
+    "ascii_build_exit": 0,
+    "ascii_ctest_exit": 0,
+    "passed": 4,
+    "total": 4
+  },
+  "final": {
+    "build_exit": 0,
+    "ctest_exit": 0,
+    "passed": 6,
+    "total": 6,
+    "tests": [
+      {
+        "name": "asr_pipeline_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "audio_preprocessor_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "llm_worker_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "core_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "cli_smoke",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      },
+      {
+        "name": "camera_service_tests",
+        "status": "run",
+        "failed": false,
+        "skipped": false
+      }
+    ],
+    "logs": [
+      "final_build.log",
+      "final_ctest.log",
+      "final_ctest_details.log",
+      "final_ctest.xml"
+    ]
+  },
+  "additional_check": {
+    "portable_llm_worker_smoke_compile_exit": 0,
+    "no_args_usage_exit": 2,
+    "scope": "Unavailable backend linked on Windows; no RKLLM SDK"
+  },
+  "temporary_source_copy": {
+    "directory": "C:\\Users\\53009\\AppData\\Local\\Temp\\rk3576_stage5_01_after",
+    "identical_code_and_test_files": 75
+  },
+  "remote_actions": [
+    {
+      "action": "ssh_readonly_inspection",
+      "host": "cat@192.168.10.27",
+      "evidence_directory": "reports/stage5_01_board/readonly_full_20261017_182201_324598",
+      "ssh_exit_code": 22,
+      "local_timeout": false,
+      "remote_files_uploaded": false,
+      "compiled": false,
+      "test_program_started": false
+    },
+    {
+      "action": "ssh_readonly_inspection",
+      "host": "cat@192.168.10.27",
+      "evidence_directory": "reports/stage5_01_board/readonly_full_20261017_182311_779187",
+      "ssh_exit_code": 0,
+      "local_timeout": false,
+      "remote_files_uploaded": false,
+      "compiled": false,
+      "test_program_started": false
+    },
+    {
+      "action": "ssh_readonly_inspection",
+      "host": "cat@192.168.10.27",
+      "evidence_directory": "reports/stage5_01_board/readonly_full_20261017_182408_344229",
+      "ssh_exit_code": 0,
+      "local_timeout": false,
+      "remote_files_uploaded": false,
+      "compiled": false,
+      "test_program_started": false
+    },
+    {
+      "action": "ssh_readonly_inspection",
+      "host": "cat@192.168.10.27",
+      "evidence_directory": "reports/stage5_01_board/readonly_full_20261017_182718_018778",
+      "ssh_exit_code": 0,
+      "local_timeout": false,
+      "remote_files_uploaded": false,
+      "compiled": false,
+      "test_program_started": false
+    },
+    {
+      "action": "ssh_readonly_inspection",
+      "host": "cat@192.168.10.27",
+      "evidence_directory": "reports/stage5_01_board/readonly_guard_20261017_181540_720060",
+      "ssh_exit_code": 0,
+      "local_timeout": false,
+      "remote_files_uploaded": false,
+      "compiled": false,
+      "test_program_started": false
+    },
+    {
+      "action": "authorized_phase2_isolated_deploy_compile",
+      "host": "cat@192.168.10.27",
+      "remote_root": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+      "evidence_directory": "reports/stage5_01_board/phase2_20261017_184503_994558",
+      "create_exit": 0,
+      "scp_exit": 0,
+      "validate_extract_exit": 0,
+      "compile_ssh_exit": 0,
+      "collect_ssh_exit": 0,
+      "remote_files_uploaded": true,
+      "compiled": true,
+      "test_program_started": false
+    }
+  ],
+  "not_verified": [
+    "RKNN output release with actual runtime",
+    "AudioWorker/VadAudioWorker production SDK paths",
+    "Full ASR/LLM/VLM/TTS hardware regression",
+    "NPU concurrency",
+    "SIGINT voice exit",
+    "Memory/performance/stability",
+    "ARM64 CTest execution (test programs built only)"
+  ],
+  "review": {
+    "manifest_files": 38,
+    "source_invariant_checks": 10,
+    "all_source_invariants_passed": true,
+    "patch_dry_run_exit": 0,
+    "patch_sha256": "d290ba133aa954d7d573dd516ff5490484df8e76032096fcb1d9fc1bfe69b4ea",
+    "manifest_integrity_passed": true,
+    "patch_dry_run_note": "Current phase 2 export passed local git apply --check; see phase2_patch_check.log. Not ARM64 runtime verification."
+  },
+  "review_input": {
+    "snapshot_directory": "reports/stage5_01_local/review_input",
+    "patch_sha256": "a33d72676f6a8d476c51047c6273aa89325685a6cd5d0ce2f214af442f73ce41",
+    "file_sections_read": 24,
+    "note": "Frozen prior-turn input. Original C++ CTest results retained; this turn did not rerun hardware."
+  },
+  "review_round2": {
+    "scope": "Per-file review, isolated board preparation only; no production C++ or CMake changes",
+    "report": "docs/stage5_01_board_review.md",
+    "production_source_integrity": {
+      "production_cpp_headers_cmake_unchanged_since_review_input": true,
+      "files_checked": 15,
+      "current_manifest_files": 32,
+      "current_manifest_hashes_match": true,
+      "archive_files": 83,
+      "archive_members": 84,
+      "archive_hashes_match": true,
+      "unsafe_archive_members": 0,
+      "board_commands_executed": false
+    },
+    "local_preparation_validation": {
+      "python_syntax_exit": 0,
+      "tool_unit_tests_passed": 7,
+      "tool_unit_tests_total": 7,
+      "unit_test_data": "Synthetic parser/safety fixtures, NOT board results",
+      "bash_scripts_syntax_passed": 4,
+      "bash_syntax_exit": 0,
+      "bash_initial_sandbox_failure": "Win32 error 5 creating signal pipe; exit -1073741502",
+      "bash_retry_scope": "Separately approved local bash -n outside sandbox; no script bodies executed",
+      "collector_dry_run_status": "NOT_EXECUTED"
+    },
+    "findings": [
+      {
+        "id": "SIGINT",
+        "status": "SOURCE_CONFIRMED_GAP",
+        "detail": "Full voice entry lacks cooperative SIGINT/SIGTERM; graceful Ctrl+C not accepted"
+      },
+      {
+        "id": "DONE_CALLBACK",
+        "status": "REVIEW_RISK_NOT_FIXED",
+        "detail": "LLM/TTS done callback exceptions swallowed; counters can remain incomplete"
+      },
+      {
+        "id": "RUNTIME_JOIN",
+        "status": "NOT_VERIFIED",
+        "detail": "Synchronous SDK or device calls may prevent bounded join"
+      },
+      {
+        "id": "SDK_CALLBACK_LIFETIME",
+        "status": "SDK_CONTRACT_NOT_VERIFIED",
+        "detail": "No late userdata callbacks after synchronous run is required; VLM callback concurrency unverified"
+      },
+      {
+        "id": "RKNN_OUTPUT",
+        "status": "SOURCE_REVIEW_ONLY",
+        "detail": "Owned successful output released on all scoped exits; failed-get ownership and release errors need actual SDK validation"
+      },
+      {
+        "id": "PRODUCER_START",
+        "status": "PARTIAL_LOCAL_COVERAGE",
+        "detail": "ASR one-shot tested; Audio/VAD hardware startup/stop-before-start unverified"
+      }
+    ],
+    "bundle": {
+      "path": "reports/stage5_01_local/board_package/stage5_01_review.tgz",
+      "sha256": "c7350dcd6321e09cbe1e79772587557fd1ba596f6d813bc3a5329c3e287a9f33",
+      "files": 83,
+      "status": "PREPARED_LOCALLY_NOT_DEPLOYED"
+    },
+    "stage5_01_accepted": false,
+    "ready_for_large_stage5_02_changes": false,
+    "historical_snapshot_before_readonly_preflight": true
+  },
+  "board": {
+    "status": "PHASE2_PASSED_AWAITING_PHASE3_AUTHORIZATION",
+    "host": "cat@192.168.10.27",
+    "original": "/home/cat/projects/RK3576/rk3576_multimodal",
+    "proposed_review_directory": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+    "connection_attempted": true,
+    "reachability": "CONFIRMED_BY_SSH_EXIT_0",
+    "ssh_scp_local_resolution": "Approved system OpenSSH SSH/SCP; user authorized phase 2 deployment/build; no hardware test programs started",
+    "uploaded": true,
+    "compiled": true,
+    "program_started": false,
+    "arm64_build": "PASSED_EXIT_0_ALL_21_TARGETS",
+    "ctest": "NOT_EXECUTED",
+    "asr_llm_vlm_tts_hardware": "NOT_EXECUTED",
+    "audible_confirmation": null,
+    "graceful_ctrlc": "SOURCE_GAP_NOT_TESTED",
+    "resource_leak_deadlock": "NOT_TESTED",
+    "original_preserved_on_board": {
+      "verified": true,
+      "fingerprint_entries": 321,
+      "scope": "CMakeLists/README/src/include/tests/config and all regular files/symlinks in build/stage5_full; model weights not hashed/copied",
+      "stable_executable_sha256": "c22de21ef6b82b4aee4cc2d0e4f2e1850960c23c356df2f3fc033b9d1c61fcc4"
+    },
+    "result_logs": [
+      "reports/stage5_01_board/readonly_full_20261017_182201_324598",
+      "reports/stage5_01_board/readonly_full_20261017_182311_779187",
+      "reports/stage5_01_board/readonly_full_20261017_182408_344229",
+      "reports/stage5_01_board/readonly_full_20261017_182718_018778",
+      "reports/stage5_01_board/readonly_guard_20261017_181540_720060",
+      "reports/stage5_01_board/phase2_20261017_184503_994558"
+    ],
+    "readonly_preflight": {
+      "passed": true,
+      "ssh_exit_code": 0,
+      "board_time": "2026-10-17T18:27:19+08:00",
+      "summary": "reports/stage5_01_board/readonly_preflight_summary.json",
+      "checks": {
+        "review_directory_absent": true,
+        "disk_budget_sufficient": true,
+        "original_and_stable_build_present": true,
+        "original_fingerprints_unchanged": true,
+        "all_required_paths_readable": true,
+        "dynamic_libraries_resolved": true,
+        "device_owners_clear": true,
+        "npu_device_identified": true
+      },
+      "available_disk_bytes": 2238889984,
+      "local_original_source_files_compared": 71,
+      "all_compared_sources_match": true
+    },
+    "review_directory_created": true,
+    "phase2": {
+      "summary": "reports/stage5_01_board/phase2_summary.json",
+      "report": "docs/stage5_01_phase2_build.md",
+      "build_exit_code": 0,
+      "targets_passed": 21,
+      "targets_failed": 0,
+      "arm64_elf_executables": 17,
+      "compiler_warning_count": 1,
+      "compiler_error_count": 0,
+      "final_disk_free_bytes": 2231988224,
+      "observed_min_disk_free_bytes": 2231934976,
+      "original_baseline_entries_unchanged": 321,
+      "source_repairs_required": false,
+      "ready_for_phase3": true,
+      "ctest_executed": false,
+      "hardware_tests_executed": false
+    }
+  },
+  "authorization": {
+    "phase1_readonly": "APPROVED_AND_COMPLETED",
+    "phase2_isolated_deploy_compile": "APPROVED_AND_COMPLETED",
+    "phase3_ctest_hardware_regression": "AWAITING_USER_AUTHORIZATION_NOT_EXECUTED"
+  },
+  "review_round3_readonly": {
+    "status": "PHASE1_PASSED_AWAITING_PHASE2_CONFIRMATION",
+    "report": "docs/stage5_01_readonly_preflight.md",
+    "source_cpp_and_cmake_changes": false,
+    "candidate": {
+      "archive": "reports/stage5_01_local/board_package/stage5_01_review_preflight_v2.tgz",
+      "sha256": "a653dd57e1ed5138170dd6d6ff7eb77a1518aa0e97c909402b662cab45c13c6e",
+      "size_bytes": 126256,
+      "files": 86,
+      "archive_safety_and_hash_checks_passed": true
+    },
+    "compile_only_script_local_bash_syntax_exit": 0,
+    "python_syntax_exit": 0,
+    "preparation_tool_tests_passed": 7,
+    "preparation_tool_tests_are_hardware_validation": false,
+    "phase2_will_run_ctest_or_ai_programs": false,
+    "stage5_01_formally_accepted": false,
+    "ready_for_stage5_02": false,
+    "historical_snapshot_before_phase2": true
+  },
+  "review_round4_phase2": {
+    "status": "COMPLETED_PAUSED_FOR_PHASE3",
+    "source_cpp_and_cmake_repairs": false,
+    "production_files_match_immutable_deployed_manifest": 76,
+    "new_local_tool": "tools/stage5_phase2_deploy.py",
+    "new_local_tool_uploaded_as_file": false,
+    "technical_report": "docs/stage5_01_phase2_build.md",
+    "real_arm64_build": true,
+    "ctest_run": false,
+    "hardware_test_run": false,
+    "stage5_01_formally_accepted": false,
+    "ready_for_stage5_02": false,
+    "local_manifest_hashes_passed": true,
+    "local_patch_dry_run_exit": 0
+  }
+}

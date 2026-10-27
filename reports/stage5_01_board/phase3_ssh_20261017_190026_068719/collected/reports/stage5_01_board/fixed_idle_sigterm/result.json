@@ -1,0 +1,18 @@
+{
+  "pid": 6790,
+  "returncode": 0,
+  "sent_signal": "SIGTERM",
+  "trigger_observed": true,
+  "forced_kill": false,
+  "timeout": false,
+  "duration_seconds": 25.405064911999943,
+  "signal_to_exit_seconds": 2.2014325009999993,
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "shutdown_complete_marker": true,
+  "program_PASS": false,
+  "text_tts_completed": false,
+  "vision_tts_completed": false,
+  "user_audible_confirmation": null
+}

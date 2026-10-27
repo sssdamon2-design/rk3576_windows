@@ -1,0 +1,255 @@
+#include <stddef.h>
+#include "rknn_api.h"
+#include "rkllm.h"
+
+#include <chrono>
+#include <cmath>
+#include <cstdint>
+#include <fstream>
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct ResultState {
+    bool finished = false;
+    bool error = false;
+    std::string text;
+};
+
+static int llm_callback(
+    RKLLMResult* result,
+    void* userdata,
+    LLMCallState state
+) {
+    auto* s = static_cast<ResultState*>(userdata);
+
+    if (state == RKLLM_RUN_NORMAL && result && result->text) {
+        std::cout << result->text << std::flush;
+        s->text += result->text;
+    } else if (state == RKLLM_RUN_FINISH) {
+        s->finished = true;
+    } else if (state == RKLLM_RUN_ERROR) {
+        s->error = true;
+    }
+    return 0;
+}
+
+static bool encode_image(
+    const char* model_path,
+    const char* image_path,
+    std::vector<float>& embeddings
+) {
+    constexpr size_t IMAGE_BYTES = 512 * 512 * 3;
+    constexpr size_t EMBED_COUNT = 64 * 576;
+
+    std::ifstream file(image_path, std::ios::binary | std::ios::ate);
+
+    if (!file || file.tellg() != static_cast<std::streamoff>(IMAGE_BYTES)) {
+        std::cerr << "Invalid RGB image file\n";
+        return false;
+    }
+
+    file.seekg(0);
+    std::vector<uint8_t> rgb(IMAGE_BYTES);
+    if (!file.read(reinterpret_cast<char*>(rgb.data()), IMAGE_BYTES)) {
+        std::cerr << "Image read failed\n";
+        return false;
+    }
+
+    rknn_context ctx = 0;
+    int ret = rknn_init(&ctx, const_cast<char*>(model_path), 0, 0, nullptr);
+    std::cout << "vision_rknn_init=" << ret << "\n";
+
+    if (ret != RKNN_SUCC) return false;
+
+    rknn_input_output_num io{};
+    ret = rknn_query(ctx, RKNN_QUERY_IN_OUT_NUM, &io, sizeof(io));
+
+    if (ret != RKNN_SUCC || io.n_input != 1 || io.n_output != 1) {
+        rknn_destroy(ctx);
+        return false;
+    }
+
+    rknn_input input{};
+    input.index = 0;
+    input.type = RKNN_TENSOR_UINT8;
+    input.fmt = RKNN_TENSOR_NHWC;
+    input.size = IMAGE_BYTES;
+    input.buf = rgb.data();
+
+    ret = rknn_inputs_set(ctx, 1, &input);
+
+    if (ret != RKNN_SUCC) {
+        std::cerr << "rknn_inputs_set failed: " << ret << "\n";
+        rknn_destroy(ctx);
+        return false;
+    }
+
+    auto t0 = std::chrono::steady_clock::now();
+    ret = rknn_run(ctx, nullptr);
+    auto t1 = std::chrono::steady_clock::now();
+
+    std::cout << "vision_rknn_run=" << ret << "\n";
+    std::cout << "vision_ms="
+              << std::chrono::duration<double, std::milli>(t1-t0).count()
+              << "\n";
+
+    if (ret != RKNN_SUCC) {
+        rknn_destroy(ctx);
+        return false;
+    }
+
+    rknn_output output{};
+    output.index = 0;
+    output.want_float = 1;
+
+    ret = rknn_outputs_get(ctx, 1, &output, nullptr);
+
+    if (ret != RKNN_SUCC) {
+        std::cerr << "rknn_outputs_get failed: " << ret << "\n";
+        rknn_destroy(ctx);
+        return false;
+    }
+
+    bool valid = output.buf != nullptr &&
+                 output.size == EMBED_COUNT * sizeof(float);
+
+    if (valid) {
+        float* ptr = static_cast<float*>(output.buf);
+        embeddings.assign(ptr, ptr + EMBED_COUNT);
+
+        for (float v : embeddings) {
+            if (!std::isfinite(v)) {
+                valid = false;
+                break;
+            }
+        }
+    }
+
+    rknn_outputs_release(ctx, 1, &output);
+    rknn_destroy(ctx);
+
+
+    if (valid) {
+        std::ofstream dump(
+            "tests/vlm_vision_real_npu_f32.bin",
+            std::ios::binary
+        );
+
+        dump.write(
+            reinterpret_cast<const char*>(embeddings.data()),
+            embeddings.size() * sizeof(float)
+        );
+
+        valid = static_cast<bool>(dump);
+
+        std::cout << "VISION FEATURE DUMP: "
+                  << (valid ? "PASS" : "FAIL") << "\n";
+    }
+
+    std::cout << "vision_embeddings=" << embeddings.size() << "\n";
+    std::cout << "VISION: " << (valid ? "PASS" : "FAIL") << "\n";
+
+    return valid;
+}
+
+int main(int argc, char** argv) {
+    if (argc != 5) {
+        std::cerr << "Usage: " << argv[0]
+                  << " vision.rknn language.rkllm image.raw question\n";
+        return 1;
+    }
+
+    std::vector<float> image_embeddings;
+
+    if (!encode_image(argv[1], argv[3], image_embeddings)) {
+        return 1;
+    }
+
+    RKLLMParam param = rkllm_createDefaultParam();
+    param.model_path = argv[2];
+    param.max_context_len = 2048;
+    param.max_new_tokens = 96;
+    param.top_k = 1;
+    param.skip_special_token = true;
+    param.is_async = false;
+    param.extend_param.base_domain_id = 1;
+
+    ResultState state;
+    RKLLMCallback callback{};
+    callback.result_callback = llm_callback;
+    callback.result_userdata = &state;
+
+    LLMHandle handle = nullptr;
+
+    int ret = rkllm_init(&handle, &param, &callback);
+    std::cout << "language_rkllm_init=" << ret << "\n";
+
+    if (ret != 0 || !handle) return 1;
+
+    ret = rkllm_set_chat_template(
+        handle,
+        "",
+        "<|im_start|>User:",
+        "<end_of_utterance>\nAssistant:"
+    );
+
+    std::cout << "chat_template_ret=" << ret << "\n";
+
+    if (ret != 0) {
+        rkllm_destroy(handle);
+        return 1;
+    }
+
+    std::string prompt = std::string("<image>") + argv[4];
+
+    RKLLMInput input{};
+    input.input_type = RKLLM_INPUT_MULTIMODAL;
+    input.role = "user";
+
+    input.multimodal_input.prompt =
+        const_cast<char*>(prompt.c_str());
+
+    input.multimodal_input.image.image_embed =
+        image_embeddings.data();
+
+    input.multimodal_input.image.n_image_tokens = 64;
+    input.multimodal_input.image.n_image = 1;
+    input.multimodal_input.image.image_width = 512;
+    input.multimodal_input.image.image_height = 512;
+
+    input.multimodal_input.image.image_start =
+        "<fake_token_around_image><global-img>";
+    input.multimodal_input.image.image_content = "<image>";
+    input.multimodal_input.image.image_end =
+        "<fake_token_around_image>";
+
+    RKLLMInferParam infer{};
+    infer.mode = RKLLM_INFER_GENERATE;
+    infer.keep_history = 0;
+
+    std::cout << "Question: " << argv[4] << "\n";
+    std::cout << "Answer: " << std::flush;
+
+    auto t0 = std::chrono::steady_clock::now();
+    ret = rkllm_run(handle, &input, &infer, nullptr);
+    auto t1 = std::chrono::steady_clock::now();
+
+    std::cout << "\nlanguage_rkllm_run=" << ret << "\n";
+    std::cout << "language_ms="
+              << std::chrono::duration<double, std::milli>(t1-t0).count()
+              << "\n";
+
+    int destroy_ret = rkllm_destroy(handle);
+
+    bool pass = ret == 0 &&
+                destroy_ret == 0 &&
+                state.finished &&
+                !state.error &&
+                !state.text.empty();
+
+    std::cout << "VLM JOINT SMOKE: "
+              << (pass ? "PASS" : "FAIL") << "\n";
+
+    return pass ? 0 : 1;
+}

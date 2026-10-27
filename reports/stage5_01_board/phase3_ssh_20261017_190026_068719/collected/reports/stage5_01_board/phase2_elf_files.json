@@ -1,0 +1,104 @@
+[
+  {
+    "path": "build/stage5_01_board/asr_live_smoke",
+    "bytes": 75736,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/asr_live_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=88eb430e304e1c82ec38b54d666a7ad19c7efa04, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/asr_llm_smoke",
+    "bytes": 161448,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/asr_llm_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=8fc6c8eafbe6a88fb2a3215f08e56b8b813b6416, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/asr_llm_tts_smoke",
+    "bytes": 245208,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/asr_llm_tts_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=57aa6ad5171e038f1e0dbd617fb3c1270f3af900, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/asr_pipeline_smoke",
+    "bytes": 82520,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/asr_pipeline_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=88d05b7b2353cacb79e489c5b7743088de2205d1, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/asr_pipeline_tests",
+    "bytes": 96000,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/asr_pipeline_tests: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=8c22e1b49c38a631fb2c9883e95198276f834bf3, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/asr_route_smoke",
+    "bytes": 165112,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/asr_route_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=9f1643d4e4001ecd35c6f99f92a01577f1c239fc, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/asr_vad_smoke",
+    "bytes": 83528,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/asr_vad_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=afc427db3ea8898125bb5df4d4abf05693ac984e, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/audio_capture_smoke",
+    "bytes": 73976,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/audio_capture_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=cb1308aee321d9558b0afb341205989df27f665b, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/audio_preprocessor_tests",
+    "bytes": 72480,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/audio_preprocessor_tests: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (SYSV), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=7903fd4d114167003e21720655d0b048b61642f3, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/camera_service_tests",
+    "bytes": 80552,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/camera_service_tests: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=9fa57ec451c6688fdef2b69bb1ad4c751d564879, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/llm_worker_tests",
+    "bytes": 97792,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/llm_worker_tests: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=025c934589d692ee8fd580329eb3fe160f668044, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/rk3576_multimodal",
+    "bytes": 158096,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/rk3576_multimodal: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=c6882c5e2e73d6f304e999a9e039e17fbf728aee, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/rkllm_worker_smoke",
+    "bytes": 83328,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/rkllm_worker_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=ab0759928928e0c45e9a87b88722773a3eaf7986, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/tts_playback_smoke",
+    "bytes": 78168,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/tts_playback_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=95ab4d3e6920cd5283116affdd728d97eba8e805, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/tts_smoke",
+    "bytes": 75888,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/tts_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=a89e81e73930ee4a37af8f06edb53c3c96f3becb, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/tts_worker_queue_smoke",
+    "bytes": 83128,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/tts_worker_queue_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=2388842683e92d450431183ad221c07a58f56404, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  },
+  {
+    "path": "build/stage5_01_board/tts_worker_smoke",
+    "bytes": 82808,
+    "file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_01_board/tts_worker_smoke: ELF 64-bit LSB pie executable, ARM aarch64, version 1 (GNU/Linux), dynamically linked, interpreter /lib/ld-linux-aarch64.so.1, BuildID[sha1]=93b218ae8bb97b7fa8d9f7534268755193392206, for GNU/Linux 3.7.0, not stripped\n",
+    "exit_code": 0
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "file": "include/ai/llm_worker.h",
+    "before": "f1041f46336a752a7a4cd1104a75776d38b95eac057f0834b187dc7eee8e3401",
+    "sha256": "5d6700eed52183baa32e38b4412b6759193f619707b591623fecdb7dae38157e"
+  },
+  {
+    "file": "include/app/pipeline_metrics.h",
+    "before": null,
+    "sha256": "7da50d8edc1b5db201da8bbe064ba3efb942ee2624c70ab83475936a9708d03d"
+  },
+  {
+    "file": "include/audio/asr_pipeline.h",
+    "before": "0706f3f7289ea169a320ed06af983f33d9904c5b3898e504e8956ef5783ddb63",
+    "sha256": "6c84899c3ca9202d855178347d09cb318fd128e7ded02b90060f588365f0fadd"
+  },
+  {
+    "file": "include/audio/tts_worker.h",
+    "before": "bfd8813c9e22f131137ba6f2f441156d2b4a6efdb07467cc6931effeae70000a",
+    "sha256": "b1b97b982316afc4d6ce7638c72f4c635f7b0198dc89bdfba2dbd6ada1d3b6e8"
+  },
+  {
+    "file": "include/common/work_control.h",
+    "before": null,
+    "sha256": "c46ed582d9935f6a64685c3c038315b784fb7c4a041bb0c3e7f7f1b06881dd28"
+  },
+  {
+    "file": "src/ai/llm_worker.cpp",
+    "before": "685fe657c9ac1a6b5443fa77a6a1f15c7cd305a2902f977b61b5b06eaa1a96e9",
+    "sha256": "aa9053c62259de50002b54e1e6871d0ca7cd27cd5b9b68e440f6b7f863328fd1"
+  },
+  {
+    "file": "src/audio/asr_llm_tts_smoke.cpp",
+    "before": "28d84bce32042ce8136b27dd1c845b86f85d1168488cd51f25df0e77fa7a85e7",
+    "sha256": "c31ef396538cf65ef9d51db580aede738c2b7a35e80ed68434cee33de81e7af3"
+  },
+  {
+    "file": "src/audio/asr_pipeline.cpp",
+    "before": "bec2d62b58d33faf02b04a415ca6c8f2deca335db17c904d69a66f6ff7bb8efd",
+    "sha256": "98799b075da647eccb9d633f65c94781311975361b198193e9dc541ecfb5d765"
+  },
+  {
+    "file": "src/audio/tts_worker.cpp",
+    "before": "590e9676d023d228c0aaf39e1106538f171f7d1577c17981137e2598f4a22b54",
+    "sha256": "3448e87012b034d47c41f4593884dc2d8f99a790a09ea8f8b19b7949a321a102"
+  }
+]

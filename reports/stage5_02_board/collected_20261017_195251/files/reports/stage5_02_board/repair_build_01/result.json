@@ -1,0 +1,20 @@
+{
+  "steps": [
+    {
+      "step": "candidate_rebuild",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 20.011821699999928
+    },
+    {
+      "step": "candidate_ctest",
+      "returncode": 0,
+      "reason": null,
+      "seconds": 1.001158652000413
+    }
+  ],
+  "original_321_unchanged": true,
+  "accepted_stage5_01_binary_unchanged": true,
+  "disk_free_bytes": 2212229120,
+  "successful": true
+}

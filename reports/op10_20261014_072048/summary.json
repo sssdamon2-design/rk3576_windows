@@ -1,0 +1,55 @@
+{
+  "mode": "speech",
+  "runs": [
+    {
+      "run": 1,
+      "exitcode": 0,
+      "timed_out": false,
+      "wall_time_s": 26.45,
+      "summary": {
+        "Detected": "3",
+        "Recognized": "3",
+        "Routed": "3",
+        "TEXT": "2",
+        "VISION": "1",
+        "Dropped": "0",
+        "Vision frame seen": "yes",
+        "Wall time": "20.1866 s"
+      },
+      "asr_events": [
+        {
+          "segment": 1,
+          "latency_ms": 447.803,
+          "rtf": 0.407835,
+          "vad_log_to_asr_log_ms": 447.67
+        },
+        {
+          "segment": 2,
+          "latency_ms": 568.328,
+          "rtf": 0.383487,
+          "vad_log_to_asr_log_ms": 568.37
+        },
+        {
+          "segment": 3,
+          "latency_ms": 579.155,
+          "rtf": 0.374615,
+          "vad_log_to_asr_log_ms": 579.04
+        }
+      ],
+      "avg_process_cpu_pct": 60.34,
+      "peak_process_cpu_pct": 221.7,
+      "peak_rss_mib": 470.2
+    }
+  ],
+  "aggregate": {
+    "asr_segments": 3,
+    "asr_latency_mean_ms": 531.76,
+    "asr_latency_p50_ms": 568.328,
+    "asr_latency_p95_ms": 578.072,
+    "rtf_mean": 0.389,
+    "vad_log_to_asr_log_p50_ms": 568.37,
+    "vad_log_to_asr_log_p95_ms": 577.973,
+    "max_process_rss_mib": 470.2,
+    "mean_process_cpu_pct": 60.34
+  }
+}

@@ -1,0 +1,18 @@
+[
+  "stdbuf",
+  "-oL",
+  "-eL",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_02_baseline/asr_llm_tts_smoke",
+  "plughw:CARD=III,DEV=0",
+  "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17",
+  "/home/cat/projects/RK3576/asr_runtime/vad/silero_vad.onnx",
+  "/home/cat/projects/RK3576/rkllm_sdk/models/Qwen2.5-1.5B-Instruct_RK3576_w4a16.rkllm",
+  "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1",
+  "plughw:CARD=III,DEV=0",
+  "30",
+  "2",
+  "17",
+  "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm",
+  "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn",
+  "/dev/video11"
+]
