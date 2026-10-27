@@ -1,0 +1,14 @@
+{
+  "original_321_unchanged": true,
+  "accepted_binaries_unchanged": true,
+  "root_5_2_sources_unchanged": true,
+  "baseline_instrumented_sources_unchanged": true,
+  "candidate_sources_match_local": true,
+  "devices_released": true,
+  "rga_released": true,
+  "original_files_checked": 321,
+  "accepted_root_sources_checked": 80,
+  "candidate_sources_checked": 86,
+  "disk_free_bytes": 2038575104,
+  "models_not_copied_to_stage5_03_sources": true
+}

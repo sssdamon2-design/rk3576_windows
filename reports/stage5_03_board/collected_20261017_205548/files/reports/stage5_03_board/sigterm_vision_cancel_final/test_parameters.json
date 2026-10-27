@@ -1,0 +1,15 @@
+{
+  "name": "sigterm_vision_cancel_final",
+  "variant": "candidate",
+  "replay": true,
+  "replay_source": "pair",
+  "stop_mode": "cancel_pending",
+  "tts_queue_ms": 12000,
+  "request_lifetime_ms": 45000,
+  "signal": "SIGTERM",
+  "trigger": "vision",
+  "delay": 0.2,
+  "seconds": 30,
+  "timeout": 130,
+  "grace": 70
+}

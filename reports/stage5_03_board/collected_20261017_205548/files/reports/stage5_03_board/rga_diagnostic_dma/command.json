@@ -1,0 +1,8 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; export STAGE5_RGA_ONLY_DMA=1; exec \"$1/build/stage5_03_board/stage5_03_rga_probe\" \"$1/reports/stage5_03_board/raw_5_2_baseline\" \"$2\" \"$STAGE5_VISION\"",
+  "stage5_03",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_03_board/rga_diagnostic_dma"
+]

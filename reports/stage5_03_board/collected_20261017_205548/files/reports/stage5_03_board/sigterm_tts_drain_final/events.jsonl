@@ -1,0 +1,3 @@
+{"event": "input_closed", "elapsed": 21.18236603600053}
+{"event": "trigger", "elapsed": 41.574927182000465, "trigger": "tts"}
+{"event": "signal", "signal": "SIGTERM", "elapsed": 41.77572042399879, "pid": 19120, "pid_start_token": "1079528", "timeout": false}

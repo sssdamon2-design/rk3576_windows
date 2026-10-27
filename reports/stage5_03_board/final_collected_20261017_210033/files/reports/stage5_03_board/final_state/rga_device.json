@@ -1,0 +1,13 @@
+{
+  "command": [
+    "sudo",
+    "-n",
+    "--",
+    "/usr/bin/fuser",
+    "-v",
+    "/dev/rga"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": ""
+}

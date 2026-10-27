@@ -1,0 +1,9 @@
+[
+  "cmake",
+  "--build",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_03_board",
+  "--target",
+  "stage5_03_rga_probe",
+  "--parallel",
+  "2"
+]

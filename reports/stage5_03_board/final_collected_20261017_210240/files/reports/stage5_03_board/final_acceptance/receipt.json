@@ -1,0 +1,23 @@
+{
+  "files": 32,
+  "bytes": 2286228,
+  "source_snapshot_files": 86,
+  "binary_sha256": "687892f86b7dc421d0326657a740be4af897cb5e4ef6efed76e9ebd4c48237db",
+  "elf": {
+    "command": [
+      "readelf",
+      "-h",
+      "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_03_board/asr_llm_tts_smoke"
+    ],
+    "exit_code": 0,
+    "stdout": "ELF \u5934\uff1a\n  Magic\uff1a  7f 45 4c 46 02 01 01 03 00 00 00 00 00 00 00 00 \n  \u7c7b\u522b:                              ELF64\n  \u6570\u636e:                              2 \u8865\u7801\uff0c\u5c0f\u7aef\u5e8f (little endian)\n  Version:                           1 (current)\n  OS/ABI:                            UNIX - GNU\n  ABI \u7248\u672c:                          0\n  \u7c7b\u578b:                              DYN (Position-Independent Executable file)\n  \u7cfb\u7edf\u67b6\u6784:                          AArch64\n  \u7248\u672c:                              0x1\n  \u5165\u53e3\u70b9\u5730\u5740\uff1a              0x9600\n  \u7a0b\u5e8f\u5934\u8d77\u70b9\uff1a              64 (bytes into file)\n  Start of section headers:          325288 (bytes into file)\n  \u6807\u5fd7\uff1a             0x0\n  Size of this header:               64 (bytes)\n  Size of program headers:           56 (bytes)\n  Number of program headers:         9\n  Size of section headers:           64 (bytes)\n  Number of section headers:         31\n  Section header string table index: 30\n",
+    "stderr": ""
+  },
+  "original_321_unchanged": true,
+  "accepted_binaries_unchanged": true,
+  "devices_released": true,
+  "rga_released": true,
+  "disk_free_bytes": 2035224576,
+  "scope": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_03_board/final_acceptance",
+  "no_stage5_04_work_started": true
+}

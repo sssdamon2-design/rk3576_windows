@@ -1,0 +1,10 @@
+{
+  "command": [
+    "df",
+    "-B1",
+    "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review"
+  ],
+  "exit_code": 0,
+  "stdout": "\u6587\u4ef6\u7cfb\u7edf            1B\u7684\u5757        \u5df2\u7528       \u53ef\u7528 \u5df2\u7528% \u6302\u8f7d\u70b9\n/dev/mmcblk0p3 30742454272 27382374400 2038571008   94% /\n",
+  "stderr": ""
+}
