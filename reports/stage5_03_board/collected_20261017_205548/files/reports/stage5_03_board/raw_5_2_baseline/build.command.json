@@ -1,0 +1,8 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec c++ -std=c++17 -O2 -pthread -I\"$1/reports/stage5_03_board/baseline_5_2_source/include\" \"$2/stage5_03_memory_probe.cpp\" \"$1/build/stage5_02_board/libmultimodal_camera.a\" \"$1/build/stage5_02_board/libmultimodal_core.a\" \"$STAGE5_RKLLM_LIB/librkllmrt.so\" \"$STAGE5_RKNN_LIBRARY\" -o \"$2/memory_probe\"",
+  "raw_baseline",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_03_board/raw_5_2_baseline"
+]

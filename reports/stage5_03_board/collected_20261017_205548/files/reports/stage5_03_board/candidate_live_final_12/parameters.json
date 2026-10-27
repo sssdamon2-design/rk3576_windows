@@ -1,0 +1,7 @@
+{
+  "name": "candidate_live_final_12",
+  "variant": "candidate",
+  "fixed": false,
+  "fallback": false,
+  "samples": 12
+}

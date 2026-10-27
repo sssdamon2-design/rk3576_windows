@@ -1,0 +1,27 @@
+[
+  {
+    "file": "include/video/camera_service.h",
+    "before": "21654fc1e2eab1eb3666e8f22ee57b212af11df871ec340c6d1ad714e960b474",
+    "sha256": "0a7f68d6749c4931063fcaf80541d3b1ca1942435256bec2d1ccdb33b94e8b9e"
+  },
+  {
+    "file": "include/video/owned_frame_pool.h",
+    "before": "4fb151cd4eee9877c109066bb5c0250d8dcd1bf70e36d8c914321c9e7a89d7e3",
+    "sha256": "1bae8e5010717e595d6720661d15414395099555f0135fd8e5a74bd521dc6739"
+  },
+  {
+    "file": "src/video/camera_service.cpp",
+    "before": "80d1222dd3d7cd1a3c772eaf237706cdcb27aff3400e3a4b6aa89d4caec128d1",
+    "sha256": "1cd7bab8acdd7ff7f9952dbc84d5c7eda4f45b7a9505f71bc09c9fafb9e35e76"
+  },
+  {
+    "file": "tests/image_pipeline_tests.cpp",
+    "before": "6bac948a21f74b12361508e472bc9d3739db42f81a8e5ae63805d256eb014bbb",
+    "sha256": "196032a20c97255a36b81c7bb612c15ffe2bb05bdfdc15895f4cd200a51bf123"
+  },
+  {
+    "file": "tests/stage5_03_rga_probe.cpp",
+    "before": "453c1cee4d54925fbcc878b04bd06f5085c8d10221c0109f0847ffc3e325acca",
+    "sha256": "1d5cbb35d1220d4c91826ffd514a1dfc823f158de2c3d0b348eb9f9df5893ae9"
+  }
+]
