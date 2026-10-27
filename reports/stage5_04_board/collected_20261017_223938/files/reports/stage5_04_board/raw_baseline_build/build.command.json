@@ -1,0 +1,8 @@
+[
+  "bash",
+  "-c",
+  "source \"$1/tools/stage5_board_paths.sh\"; exec g++ -std=c++17 -O3 -Wall -Wextra -Wpedantic -I\"$1/reports/stage5_04_board/baseline_5_3_source/include\" -I\"$STAGE5_SHERPA/include\" \"$2/tts_bench.cpp\" \"$1/build/stage5_03_board/libmultimodal_tts.a\" -L\"$STAGE5_SHERPA/lib\" -lsherpa-onnx-c-api -lasound -pthread -Wl,-rpath,\"$STAGE5_SHERPA/lib\" -o \"$2/tts_bench\"",
+  "stage5_04",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/raw_baseline_build"
+]

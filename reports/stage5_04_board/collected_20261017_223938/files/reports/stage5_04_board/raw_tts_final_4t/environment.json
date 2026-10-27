@@ -1,0 +1,18 @@
+{
+  "STAGE5_BASE": "/home/cat/projects/RK3576",
+  "STAGE5_ORIGINAL": "/home/cat/projects/RK3576/rk3576_multimodal",
+  "STAGE5_QWEN": "/home/cat/projects/RK3576/rkllm_sdk/models/Qwen2.5-1.5B-Instruct_RK3576_w4a16.rkllm",
+  "STAGE5_VLM": "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm2_256m_w4a16_rk3576.rkllm",
+  "STAGE5_VAD": "/home/cat/projects/RK3576/asr_runtime/vad/silero_vad.onnx",
+  "STAGE5_KOKORO": "/home/cat/projects/RK3576/tts_runtime/models/kokoro-multi-lang-v1_1",
+  "STAGE5_RKLLM": "/home/cat/projects/RK3576/rk3576_multimodal/../rkllm_sdk",
+  "STAGE5_RKNN_LIBRARY": "/usr/lib/librknnrt.so",
+  "LD_LIBRARY_PATH": "/home/cat/projects/RK3576/rk3576_multimodal/../asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu/lib:/home/cat/projects/RK3576/rk3576_multimodal/../rkllm_sdk/rkllm-runtime/Linux/librkllm_api/aarch64:/usr/lib",
+  "STAGE5_RKNN_INCLUDE": "/home/cat/projects/RK3576/rk3576_multimodal/../rknn_test/include",
+  "STAGE5_SHERPA": "/home/cat/projects/RK3576/rk3576_multimodal/../asr_runtime/sherpa-onnx-v1.13.8-linux-aarch64-shared-cpu",
+  "STAGE5_ASR": "/home/cat/projects/RK3576/asr_runtime/sherpa-onnx-sense-voice-zh-en-ja-ko-yue-int8-2024-07-17",
+  "STAGE5_REVIEW": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review",
+  "STAGE5_RKLLM_LIB": "/home/cat/projects/RK3576/rk3576_multimodal/../rkllm_sdk/rkllm-runtime/Linux/librkllm_api/aarch64",
+  "STAGE5_VISION": "/home/cat/projects/RK3576/rk3576_multimodal/models/vlm/smolvlm_vision_scatterfix_rk3576.rknn",
+  "STAGE5_PROFILE": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/raw_tts_final_4t/profile.jsonl"
+}
