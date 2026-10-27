@@ -1,0 +1,20 @@
+{
+  "name": "candidate_sigint_drain",
+  "tts_threads": 4,
+  "variant": "candidate",
+  "revision": "v2",
+  "capture_fixtures": false,
+  "audio_replay_file": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_04_board/fixed_inputs/waiting.tsv",
+  "fixed_frame_dir": "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_03_board/raw_5_2_baseline",
+  "replay": false,
+  "replay_source": "four",
+  "stop_mode": "drain",
+  "tts_queue_ms": 60000,
+  "request_lifetime_ms": 180000,
+  "signal": "SIGINT",
+  "trigger": "ready",
+  "delay": 0.2,
+  "seconds": 120,
+  "timeout": 260,
+  "grace": 70
+}

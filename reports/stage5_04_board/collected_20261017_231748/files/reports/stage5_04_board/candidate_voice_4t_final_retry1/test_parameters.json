@@ -1,0 +1,20 @@
+{
+  "name": "candidate_voice_4t_final_retry1",
+  "tts_threads": 4,
+  "variant": "candidate",
+  "revision": "v3",
+  "capture_fixtures": false,
+  "audio_replay_file": null,
+  "fixed_frame_dir": null,
+  "replay": false,
+  "replay_source": "four",
+  "stop_mode": "drain",
+  "tts_queue_ms": 12000,
+  "request_lifetime_ms": 45000,
+  "signal": "SIGINT",
+  "trigger": "both_done",
+  "delay": 0.2,
+  "seconds": 120,
+  "timeout": 300,
+  "grace": 70
+}

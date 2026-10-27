@@ -1,0 +1,52 @@
+{
+  "checked_at_UTC": "2026-10-17T15:17:47Z",
+  "phase": "after_manual_retry",
+  "checks": {
+    "original_321_unchanged": true,
+    "accepted_5_1_5_2_5_3_binaries_unchanged": true,
+    "accepted_5_3_source_86_unchanged": true,
+    "frozen_baseline_5_3_source_86_unchanged": true,
+    "devices_clear": true
+  },
+  "frozen_stage5_04_sources": {
+    "baseline_build": {
+      "files": 94,
+      "all_sha_match": true
+    },
+    "baseline_build_v2": {
+      "files": 96,
+      "all_sha_match": true
+    },
+    "candidate_build": {
+      "files": 95,
+      "all_sha_match": true
+    },
+    "candidate_build_v2": {
+      "files": 96,
+      "all_sha_match": true
+    },
+    "candidate_build_v3": {
+      "files": 96,
+      "all_sha_match": true
+    }
+  },
+  "disk_free_bytes": 1870479360,
+  "memory": {
+    "command": [
+      "free",
+      "-b"
+    ],
+    "exit_code": 0,
+    "stdout": "               total        used        free      shared  buff/cache   available\n\u5185\u5b58\uff1a    4084207616   757645312  2760785920    16846848   635338752  3326562304\n\u4ea4\u6362\uff1a             0           0           0\n",
+    "stderr": ""
+  },
+  "original_fingerprint_count": 321,
+  "accepted_binaries": {
+    "build/stage5_01_board/asr_llm_tts_smoke": "7b44730ad55cdb49f252de3e801b3e6680169a93ed0cb59d80fdc8f6720a10b7",
+    "build/stage5_02_board/asr_llm_tts_smoke": "1bf59ddf68cb0290e30df3ed945347dc73b7ff477a44d69c8f1f80a51f49d9b7",
+    "build/stage5_03_board/asr_llm_tts_smoke": "687892f86b7dc421d0326657a740be4af897cb5e4ef6efed76e9ebd4c48237db"
+  },
+  "stage5_03_source_files": 86,
+  "scope": "read-only fingerprint and device check; ordinary cat user",
+  "models_SDK_system_config_writes": false
+}
