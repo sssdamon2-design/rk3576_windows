@@ -1,0 +1,33 @@
+{
+  "returncode": 0,
+  "duration_seconds": 102.26650997400066,
+  "signal_to_exit_seconds": null,
+  "sent_signal": null,
+  "termination_reason": null,
+  "forced_kill": false,
+  "timeout": false,
+  "process_gone": true,
+  "devices_released": true,
+  "original_321_unchanged": true,
+  "sessions": [
+    {
+      "answers_completed": 2,
+      "cycles_completed": 1,
+      "heartbeat": 484,
+      "orderly": true,
+      "returncode": 0
+    },
+    {
+      "answers_completed": 2,
+      "cycles_completed": 2,
+      "heartbeat": 976,
+      "orderly": true,
+      "returncode": 0
+    }
+  ],
+  "all_sessions_orderly": true,
+  "platform": "xcb DISPLAY :0 actual existing desktop",
+  "input_mode": "paired_restart",
+  "owned_children": {},
+  "user_audible_confirmation": null
+}

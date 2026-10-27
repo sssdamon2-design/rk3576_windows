@@ -1,0 +1,18 @@
+[
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/build/stage5_05_final_v2/rk3576_multimodal_gui",
+  "--capture",
+  "plughw:CARD=III,DEV=0",
+  "--playback",
+  "plughw:CARD=III,DEV=0",
+  "--report-root",
+  "/home/cat/projects/RK3576/rk3576_multimodal_stage5_review/reports/stage5_05_board/gui_paired_restart_final_v2",
+  "--seconds",
+  "180",
+  "--threads",
+  "4",
+  "--auto-start",
+  "--stop-after-answers",
+  "2",
+  "--cycles",
+  "2"
+]
